@@ -1466,5 +1466,6 @@
       "bytes": 2192512,
       "sha256": "0ea38cae3394e2d423adb5a4deb0e4384abad1b40ece23bb2d6e3694839ce0c6"
     }
-  ]
+  ],
+  "snapshotCommit": "ccde446930dc5db734232275993751b151b97dcf"
 }

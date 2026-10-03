@@ -26,8 +26,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 7515,
-      "sha256": "14bf9426d5e089672eb34a8dfdbb56950dbb2221af91074c0853a1a6c487bc0f"
+      "bytes": 7580,
+      "sha256": "370d27e1a42d2dbbe739993b28219fd9b6a1b42bde1bedba54054a3b54c9cbae"
     },
     {
       "path": "generative/README.md",
@@ -376,8 +376,8 @@
     },
     {
       "path": "source-publication-manifest.json",
-      "bytes": 53749,
-      "sha256": "568c4714ff2486ef966582936771e850a539bbdb3a3464320af61ca9c2fef33a"
+      "bytes": 53813,
+      "sha256": "4ded86740ce137f049ea20f3d8d92b34c20b4599fead556578f1abfd43767215"
     },
     {
       "path": "test-results/decision-rules/decision-rules-results.json",
@@ -1556,5 +1556,5 @@
     }
   ],
   "fileCount": 310,
-  "totalBytes": 436993695
+  "totalBytes": 436993824
 }

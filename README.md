@@ -81,4 +81,4 @@ python3 tests/build-offline-ai.py --manifest 离线病历AI/manifest.json --outp
 
 TCM.Skill改编规则遵循CC BY-NC 4.0，CaseMark查房规则遵循Apache-2.0，出处、署名、改编说明与完整许可证保留在 `knowledge/skill-adaptations/`。Qwen模型采用Apache-2.0；wllama、llama.cpp、ONNX Runtime及其它运行资源分别保留原许可证和第三方NOTICE。本仓库为不同许可资源的组合，没有将所有第三方内容重新许可为同一种许可证；个人非商业使用的定位不改变各资源原有许可。
 
-源码首批白名单和每文件哈希见 `publication-manifest.json`。模型与最终HTML的发布完整性以各离线包manifest为准。
+完整发布文件清单、大小与哈希见 `publication-manifest.json`。`source-publication-manifest.json` 保留源码首个提交 `ccde446` 的快照。模型及最终HTML另提供包内校验清单。
