@@ -1,0 +1,36 @@
+{
+  "pass": true,
+  "checks": [
+    "Integrated local encoder returns relevant passage offline",
+    "Actual model loads from unordered local parts through application UI",
+    "Real Chinese candidate retains sample number, negative fever and future recheck, leaves original untouched",
+    "Reviewed candidate adoption still requires final note review"
+  ],
+  "errors": [],
+  "network": [],
+  "original": "患者今日乏力，无发热。血红蛋白86 g/L。医师考虑乏力与贫血有关，拟明日复查血常规。",
+  "candidate": "患者今日乏力，无发热。血红蛋白86 g/L。医师考虑乏力与贫血有关，拟明日复查血常规。",
+  "model": {
+    "state": "ready",
+    "model": "病历段落整理微调试用版 V2",
+    "mode": "本地生成待审核候选",
+    "error": "",
+    "loaded": true,
+    "progress": null,
+    "loadMs": 317,
+    "contextTokens": 8192,
+    "architecture": "qwen2",
+    "generatedTokens": 28,
+    "repetition": false,
+    "incomplete": false,
+    "stopReason": "",
+    "reason": "",
+    "cancelled": false,
+    "lastGenerationMs": 9399
+  },
+  "file": "./离线病历AI/病历书写AI.html",
+  "bytes": 52981187,
+  "sha256": "8e1d73abc90d9c21d6d2d51463dad4be64a3725d4455369b338fb06537a3ee77",
+  "chrome": "154.0.8037.95",
+  "scope": "macOS isolated offline Chrome, synthetic case, no clinical qualification"
+}

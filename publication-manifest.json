@@ -1,10 +1,8 @@
 {
   "schemaVersion": 1,
-  "scope": "Source snapshot and ordinary HTML before final offline artifact addition",
-  "privacy": "Supplied FIRST_EXAMPLE replaced with explicit wholly synthetic demo. Training/testing samples authored synthetically.",
-  "fileCount": 292,
-  "totalBytes": 45295725,
-  "fileLimitBytes": 100000000,
+  "scope": "Public source, synthetic training/evaluation, and explicitly experimental offline package. No clinical quality approval.",
+  "privacy": "Legacy supplied case replaced with synthetic demo; no patient documents, browser database, credentials, caches or unsplit large weights.",
+  "fileLimitBytesExclusive": 100000000,
   "files": [
     {
       "path": ".gitattributes",
@@ -28,8 +26,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 5488,
-      "sha256": "7ef8eab4e351bdbd602930d63017c3ddb5a3e3bbe34f8bacbb161241141d9841"
+      "bytes": 7515,
+      "sha256": "14bf9426d5e089672eb34a8dfdbb56950dbb2221af91074c0853a1a6c487bc0f"
     },
     {
       "path": "generative/README.md",
@@ -375,6 +373,11 @@
       "path": "skills/oncology-tcm-records/references/acceptance.md",
       "bytes": 6950,
       "sha256": "d68f82fb4865eafe4103c335f47ee8c101ebf43689afcd165569977ab67ddb4d"
+    },
+    {
+      "path": "source-publication-manifest.json",
+      "bytes": 53749,
+      "sha256": "568c4714ff2486ef966582936771e850a539bbdb3a3464320af61ca9c2fef33a"
     },
     {
       "path": "test-results/decision-rules/decision-rules-results.json",
@@ -1462,9 +1465,96 @@
       "sha256": "21bf43c54ff20d7b28e4771333051d21ed0e6fa0ff87cdb1dbb3905b4ebaacd3"
     },
     {
+      "path": "verification/candidate-review-ui.json",
+      "bytes": 779,
+      "sha256": "ce99aeb17075441c13ff2a680103889e785f817d9b8aeec68fedfa96c57a6a7e"
+    },
+    {
+      "path": "verification/public-offline-runtime.json",
+      "bytes": 1370,
+      "sha256": "69726d7a66a9bd2bca8db22f39defbb81d27a23030e7cdadb4df097b00aafcd6"
+    },
+    {
       "path": "病历书写简版.html",
       "bytes": 2192512,
       "sha256": "0ea38cae3394e2d423adb5a4deb0e4384abad1b40ece23bb2d6e3694839ce0c6"
+    },
+    {
+      "path": "离线病历AI/Qwen-LICENSE.txt",
+      "bytes": 11343,
+      "sha256": "832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e"
+    },
+    {
+      "path": "离线病历AI/SHA256SUMS.txt",
+      "bytes": 1300,
+      "sha256": "2aa87e34ebaec38b5357286e5e66922c9468c6e179995bb622f5b7ec3c0f1d7b"
+    },
+    {
+      "path": "离线病历AI/bingli-style-v2-Q2_K.gguf.part01-of-04.bin",
+      "bytes": 90000000,
+      "sha256": "7dcb8f5865c55b39bcc643a66e949fb06fcb990ce6a9b5d66b7d33d041292e72"
+    },
+    {
+      "path": "离线病历AI/bingli-style-v2-Q2_K.gguf.part02-of-04.bin",
+      "bytes": 90000000,
+      "sha256": "1fc6cd61e024799e59a1875a8186dec5aebd5f7d5ae82454b371b691dd266bde"
+    },
+    {
+      "path": "离线病历AI/bingli-style-v2-Q2_K.gguf.part03-of-04.bin",
+      "bytes": 90000000,
+      "sha256": "2dae2382aeaacb14ab5d7e87e48a554b392998884dbf8b8517cd083657fef523"
+    },
+    {
+      "path": "离线病历AI/bingli-style-v2-Q2_K.gguf.part04-of-04.bin",
+      "bytes": 68606944,
+      "sha256": "10c8a2122de26f7bed017ebde02c4054ab442c02dc0bab33b0c5a8b0cf3c4c83"
+    },
+    {
+      "path": "离线病历AI/llama-cpp-LICENSE.txt",
+      "bytes": 1078,
+      "sha256": "e562a2ddfaf8280537795ac5ecd34e3012b6582a147ef69ba6a6a5c08c84757d"
+    },
+    {
+      "path": "离线病历AI/manifest.json",
+      "bytes": 7248,
+      "sha256": "535f0eaed88e0f8460daf394011e30367ed4713322747749666226155c8e8ad0"
+    },
+    {
+      "path": "离线病历AI/training-metadata.json",
+      "bytes": 4177,
+      "sha256": "5f4cede6267fb3269852e73e6ab2b906c7b6059056e46d6eccc4c12c0482a394"
+    },
+    {
+      "path": "离线病历AI/wasm-feature-detect-LICENSE.txt",
+      "bytes": 11341,
+      "sha256": "bcf29b4fd3ec2cb5f9d40a0866da446f6da62170d2ccedf4aeca9cf9406dd20c"
+    },
+    {
+      "path": "离线病历AI/wllama-LICENCE.txt",
+      "bytes": 1071,
+      "sha256": "5866e3bd7e3cbd3f7c8bea6efd8a1e7fa7cc8de68c30f428aff7c6584a0fb720"
+    },
+    {
+      "path": "离线病历AI/先读我.txt",
+      "bytes": 2908,
+      "sha256": "6ad388440083a869687aa540cca120e9894316a7616c795dac9c0451adb63d42"
+    },
+    {
+      "path": "离线病历AI/病历书写AI.html",
+      "bytes": 52981187,
+      "sha256": "8e1d73abc90d9c21d6d2d51463dad4be64a3725d4455369b338fb06537a3ee77"
+    },
+    {
+      "path": "离线病历AI/训练与测试说明.txt",
+      "bytes": 2273,
+      "sha256": "2d1501a6b0435f6e55ef31597842a3256a3deb49158302a4aef578eb53142668"
+    },
+    {
+      "path": "离线病历AI/试写对照.txt",
+      "bytes": 9175,
+      "sha256": "bf58cb13b1045b112e54866301ca86607d801482eb856468c20052b32b4e92a3"
     }
-  ]
+  ],
+  "fileCount": 310,
+  "totalBytes": 436993695
 }

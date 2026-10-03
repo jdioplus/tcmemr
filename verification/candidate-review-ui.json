@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "model": "STUB; UI logic only",
+  "checks": [
+    "AI candidate stays separate, review gates adoption, accepted text resets final review",
+    "Selected-paragraph rewrite preserves surrounding text",
+    "Stale candidate cannot replace a revised case",
+    "Explicit example-library export/import retains classification and deduplicates text",
+    "Example retrieval restricts candidates to the current record type",
+    "Reference-case facts and free-text preferences stay outside the generation prompt; only predefined style instructions pass",
+    "Overlong unselected text is kept intact and does not reach the model",
+    "Repeated incomplete output cannot be adopted even after the review checkbox is selected"
+  ],
+  "errors": [],
+  "network": []
+}

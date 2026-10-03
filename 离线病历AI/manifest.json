@@ -1,0 +1,169 @@
+{
+  "model": {
+    "name": "病历段落整理微调试用版 V2",
+    "filename": "bingli-style-v2-Q2_K.gguf",
+    "bytes": 338606944,
+    "sha256": "dc4b0b935d8ec4fc6008c15083a906d6809a7cc48d81fd6b32b0bcaaa79a958e",
+    "license": "Apache-2.0",
+    "baseModel": {
+      "name": "mlx-community/Qwen2.5-0.5B-Instruct-4bit",
+      "revision": "a5339a4131f135d0fdc6a5c8b5bbed2753bbe0f3",
+      "upstream": "Qwen/Qwen2.5-0.5B-Instruct",
+      "source": "https://huggingface.co/mlx-community/Qwen2.5-0.5B-Instruct-4bit/tree/a5339a4131f135d0fdc6a5c8b5bbed2753bbe0f3",
+      "initialQuantization": "MLX affine 4bit"
+    }
+  },
+  "parts": [
+    {
+      "index": 1,
+      "name": "bingli-style-v2-Q2_K.gguf.part01-of-04.bin",
+      "bytes": 90000000,
+      "sha256": "7dcb8f5865c55b39bcc643a66e949fb06fcb990ce6a9b5d66b7d33d041292e72"
+    },
+    {
+      "index": 2,
+      "name": "bingli-style-v2-Q2_K.gguf.part02-of-04.bin",
+      "bytes": 90000000,
+      "sha256": "1fc6cd61e024799e59a1875a8186dec5aebd5f7d5ae82454b371b691dd266bde"
+    },
+    {
+      "index": 3,
+      "name": "bingli-style-v2-Q2_K.gguf.part03-of-04.bin",
+      "bytes": 90000000,
+      "sha256": "2dae2382aeaacb14ab5d7e87e48a554b392998884dbf8b8517cd083657fef523"
+    },
+    {
+      "index": 4,
+      "name": "bingli-style-v2-Q2_K.gguf.part04-of-04.bin",
+      "bytes": 68606944,
+      "sha256": "10c8a2122de26f7bed017ebde02c4054ab442c02dc0bab33b0c5a8b0cf3c4c83"
+    }
+  ],
+  "runtime": {
+    "name": "@wllama/wllama",
+    "version": "2.3.7",
+    "commit": "5e17fb070911688c10403b433499d64b03060400",
+    "npmIntegrity": "sha512-T273gBEqEZCHAoyNZDg+X6boQWktaq+efNF6bJo5aHToJr7jS1kCYImKXDdBi2/CccRuBUcMBHHLHiQN4+OfKQ==",
+    "npmIntegrityVerified": true,
+    "license": "MIT",
+    "llamaCppCommit": "4abef75f2cf2eee75eb5083b30a94cf981587394",
+    "assets": {
+      "index.min.js": {
+        "bytes": 226388,
+        "sha256": "29e4320f49c2d7a5b55233146d80f32a0b92443d8594fa88f06efa72f18238fa"
+      },
+      "wllama.wasm": {
+        "bytes": 2158740,
+        "sha256": "529c780d43cb57cb9ac7ef4c42e16463afb0b2dec4ecaae9a6df8179c435fd71"
+      }
+    },
+    "fileProtocolAdaptation": {
+      "worker": "one checked replacement: new Worker(r,{type:\"module\"}) to classic; official single-thread worker has no imports/exports",
+      "wasm": "embedded data URI decoded locally by Emscripten; no parent Blob fetch",
+      "rationale": "Chrome file:// opaque-origin module Worker fails; verified classic Worker succeeds"
+    }
+  },
+  "packaging": {
+    "partBytes": 90000000,
+    "method": "Raw ordered byte slices; browser Blob merge, not GGUF tensor shards",
+    "ggufVersion": 3
+  },
+  "licensing": {
+    "model": "Apache-2.0",
+    "runtime": "MIT (wllama and llama.cpp); Apache-2.0 (wasm-feature-detect)"
+  },
+  "trainingMetadata": {
+    "schemaVersion": 1,
+    "baseModel": {
+      "name": "mlx-community/Qwen2.5-0.5B-Instruct-4bit",
+      "revision": "a5339a4131f135d0fdc6a5c8b5bbed2753bbe0f3",
+      "upstream": "Qwen/Qwen2.5-0.5B-Instruct",
+      "source": "https://huggingface.co/mlx-community/Qwen2.5-0.5B-Instruct-4bit/tree/a5339a4131f135d0fdc6a5c8b5bbed2753bbe0f3",
+      "initialQuantization": "MLX affine 4bit"
+    },
+    "license": "Apache-2.0",
+    "licensePath": "training/model-LICENSE.txt",
+    "licenseSource": "https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct-GGUF/blob/9217f5db79a29953eb74d5343926648285ec7e67/LICENSE",
+    "modelCardPath": "training/base-model-card.md",
+    "toolSource": {
+      "repository": "https://github.com/ggml-org/llama.cpp",
+      "revision": "836d57176dc699a726c55418e4f96b8ca628e1bf",
+      "license": "MIT",
+      "download": "git sparse clone, official origin; no model example blobs"
+    },
+    "status": "trained_quantized_experimental",
+    "modelName": "中文病程段落整理实验版 v2 · Qwen2.5 0.5B",
+    "completedSteps": 96,
+    "selectedStep": 72,
+    "trainingType": "QLoRA; 4 layers; rank 8; completion-only masked loss",
+    "trainingParameters": {
+      "steps": 96,
+      "layers": 4,
+      "rank": 8,
+      "batchSize": 1,
+      "learningRate": 0.0001,
+      "maxSeqLength": 1024,
+      "maskPrompt": true,
+      "checkpointEvery": 24,
+      "seed": 20261004
+    },
+    "trainingSeconds": 25.113,
+    "trainingData": {
+      "name": "train",
+      "rows": 48,
+      "sha256": "5a29fce23d8e81053e094f90d525c0ca77e2fbffd839afa202b762f6494d3118",
+      "maximumChatTokens": 332
+    },
+    "validationData": {
+      "name": "valid",
+      "rows": 8,
+      "sha256": "5a3aa58a81ec2869588b93565235c643021a33b8a7570e872b51614af5362990",
+      "maximumChatTokens": 300
+    },
+    "validationLoss": 0.114,
+    "baselineValidationLoss": 0.653,
+    "testUsedForTrainingOrSelection": false,
+    "adapterSha256": "a1a8a0f729eb7e1a1c495d3f4ea29c19792e38da2a88fdb0e95f44603fa39db3",
+    "gguf": {
+      "path": "training/experiment-v2/bingli-style-v2-Q2_K.gguf",
+      "bytes": 338606944,
+      "sha256": "dc4b0b935d8ec4fc6008c15083a906d6809a7cc48d81fd6b32b0bcaaa79a958e",
+      "architecture": "qwen2",
+      "fileType": 10,
+      "quantizationVersion": 2,
+      "tensorCount": 290,
+      "tensorTypes": {
+        "F32": 121,
+        "Q8_0": 1,
+        "Q4_0": 120,
+        "Q5_0": 24,
+        "Q3_K": 24
+      }
+    },
+    "quantization": "Q2_K preset",
+    "quantizationNotes": "Tensor dimensions cause standard llama.cpp fallback; actual tensor type counts are recorded. This is not all-2bit quantization.",
+    "clinicalQualification": false,
+    "trialPurpose": "只对用户当前草稿的一段正文作整理候选，由确定性主程序负责完整病案结构，医生审核后采用。",
+    "limitations": [
+      "48条人工合成train、8条独立valid；数据量有限，包含大量保持原文样本。",
+      "只训练原稿表达和事实保持，不用于自主诊断、生成新处方或替代医生判断。",
+      "实际基础模型为固定社区MLX4bit，融合反量化后再GGUF量化，不能把与官方GGUF比较的全部差异归因微调。",
+      "验证loss只用于checkpoint选择；独立质量与浏览器结果另存报告。"
+    ],
+    "exportCommands": [
+      "training/.venv/bin/python training/run_training.py train --data-dir training/data-v2 --run-dir training/experiment-v2 --steps 96 --max-seq-length 1024",
+      "training/.venv/bin/python training/run_training.py select --data-dir training/data-v2 --run-dir training/experiment-v2",
+      "training/.venv/bin/python training/run_training.py fuse --data-dir training/data-v2 --run-dir training/experiment-v2",
+      "training/.venv/bin/python training/tools/llama-sparse/convert_hf_to_gguf.py training/experiment-v2/fused-hf --outfile training/experiment-v2/bingli-style-v2-f16.gguf --outtype f16",
+      "training/tools/llama-build/bin/llama-quantize training/experiment-v2/bingli-style-v2-f16.gguf training/experiment-v2/bingli-style-v2-Q2_K.gguf Q2_K 4"
+    ],
+    "logs": [
+      "training/experiment-v2/train.log",
+      "training/experiment-v2/validation-selection.json",
+      "training/experiment-v2/fuse.log",
+      "training/experiment-v2/convert-gguf.log",
+      "training/experiment-v2/quantize-Q2_K.log"
+    ]
+  },
+  "trainingMetadataSha256": "fa4313fc34db407b34a680e6bfdfad6afaf07122aa1ab348b439994bd75b2f1d"
+}

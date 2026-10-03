@@ -2,6 +2,29 @@
 
 这是个人使用的中文中医肿瘤病程辅助程序，提供首次病程、主治查房、主任查房和日常病程的资料整理、草稿生成与人工审核。程序按已录入事实和医生判断整理内容，保留中医四诊、辨证、病机、治法说明与西医问题分析。实际诊断、治疗和处方由医生核对、决定。
 
+## 直接下载（每个文件均小于100MB）
+
+- [常规版：病历书写简版.html，约2.2MB](https://github.com/jdioplus/tcmemr/raw/refs/heads/main/%E7%97%85%E5%8E%86%E4%B9%A6%E5%86%99%E7%AE%80%E7%89%88.html)
+- 实验AI只供合成病例试写。下面的网页和4个模型分包需放在同一文件夹；保持文件名不变。
+
+| 文件 | 大小（十进制MB） |
+| --- | ---: |
+| [病历书写AI.html](https://github.com/jdioplus/tcmemr/raw/refs/heads/main/%E7%A6%BB%E7%BA%BF%E7%97%85%E5%8E%86AI/%E7%97%85%E5%8E%86%E4%B9%A6%E5%86%99AI.html) | 52.98 |
+| [bingli-style-v2-Q2_K.gguf.part01-of-04.bin](https://github.com/jdioplus/tcmemr/raw/refs/heads/main/%E7%A6%BB%E7%BA%BF%E7%97%85%E5%8E%86AI/bingli-style-v2-Q2_K.gguf.part01-of-04.bin) | 90.00 |
+| [bingli-style-v2-Q2_K.gguf.part02-of-04.bin](https://github.com/jdioplus/tcmemr/raw/refs/heads/main/%E7%A6%BB%E7%BA%BF%E7%97%85%E5%8E%86AI/bingli-style-v2-Q2_K.gguf.part02-of-04.bin) | 90.00 |
+| [bingli-style-v2-Q2_K.gguf.part03-of-04.bin](https://github.com/jdioplus/tcmemr/raw/refs/heads/main/%E7%A6%BB%E7%BA%BF%E7%97%85%E5%8E%86AI/bingli-style-v2-Q2_K.gguf.part03-of-04.bin) | 90.00 |
+| [bingli-style-v2-Q2_K.gguf.part04-of-04.bin](https://github.com/jdioplus/tcmemr/raw/refs/heads/main/%E7%A6%BB%E7%BA%BF%E7%97%85%E5%8E%86AI/bingli-style-v2-Q2_K.gguf.part04-of-04.bin) | 68.61 |
+
+[先读我.txt](%E7%A6%BB%E7%BA%BF%E7%97%85%E5%8E%86AI/%E5%85%88%E8%AF%BB%E6%88%91.txt)
+
+[训练与测试说明.txt](%E7%A6%BB%E7%BA%BF%E7%97%85%E5%8E%86AI/%E8%AE%AD%E7%BB%83%E4%B8%8E%E6%B5%8B%E8%AF%95%E8%AF%B4%E6%98%8E.txt)
+
+[试写对照.txt](%E7%A6%BB%E7%BA%BF%E7%97%85%E5%8E%86AI/%E8%AF%95%E5%86%99%E5%AF%B9%E7%85%A7.txt)
+
+[SHA256SUMS.txt](%E7%A6%BB%E7%BA%BF%E7%97%85%E5%8E%86AI/SHA256SUMS.txt)
+
+若浏览器直接显示HTML源码，请右键下载链接“另存为”。模型分包无需手动合并；网页的“选择模型分包”会核验并在内存中合并。不要把整个源码ZIP作为一个大文件传入工作电脑。
+
 ## 直接使用常规版
 
 下载根目录的 **[病历书写简版.html](病历书写简版.html)**，用浏览器打开即可。常规版为约2.2MB的单文件，完整语料和辅助工具已内嵌，运行不需要模型、服务器或安装程序。
@@ -10,7 +33,7 @@
 
 ## 离线AI实验版
 
-`离线病历AI/` 是单独的实验包：用已有 Chrome 打开其中的 `病历书写AI.html`，一次选齐同目录4个 `.bin` 模型分片。模型总计338,606,944字节，前三片各90,000,000字节，最后一片68,606,944字节；每个传输文件均小于100MB。网页还包含本地运行库及语义检索资产，具体文件大小和SHA256以包内 `manifest.json` 为准。文件选择顺序不限，程序校验每片及整体哈希后在本机推理。
+`离线病历AI/` 是单独的实验包：用已有 Chrome 打开其中的 `病历书写AI.html`，一次选齐同目录4个 `.bin` 模型分片。模型总计338,606,944字节，前三片各90,000,000字节，最后一片68,606,944字节；每个传输文件均小于100MB。网页还包含本地运行库及语义检索资产，模型分包以 `manifest.json` 为准，全部交付文件大小及SHA256另见 `SHA256SUMS.txt`。文件选择顺序不限，程序校验每片及整体哈希后在本机推理。
 
 该模型确实进行了本地训练：固定Qwen2.5-0.5B社区MLX4bit起点，48条人工合成训练记录、8条独立验证记录，完成96步；按验证集选定72步，未用另8条新留出病例选择checkpoint。随后融合、导出并实际量化成浏览器GGUF。训练来源、数据哈希、工具版本和导出命令保留在训练元数据中。
 
