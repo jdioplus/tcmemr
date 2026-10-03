@@ -1,0 +1,51 @@
+{
+  "id": "te06",
+  "suite": "holdout",
+  "variant": "base",
+  "inputSha256": "65cae925789c268200e80bbab201dc2785aaf41e50da8692dec2a7f777cbd69c",
+  "output": "今天咳嗽较昨天频繁，否认发热、咯血。明日若出现黑便，需及时复评；目前没有黑便。尚无新胸部影像。医生只记咳嗽加重，拟核对氧合和适用胸部评估；条件计划中的黑便不可写成已出现，未决定新的用药。",
+  "elapsedMs": 316,
+  "estimatedGeneratedTokens": 66,
+  "suspectedTruncation": false,
+  "checks": {
+    "literalChecksPassed": false,
+    "required": {
+      "total": 6,
+      "retained": 3,
+      "missing": [
+        "咳嗽较昨日频繁",
+        "目前无黑便",
+        "新的用药尚未决定"
+      ]
+    },
+    "dates": {
+      "total": 0,
+      "retained": 0,
+      "missing": []
+    },
+    "numericUnits": {
+      "total": 0,
+      "retained": 0,
+      "missing": [],
+      "new": []
+    },
+    "negationUncertainty": {
+      "total": 4,
+      "retained": 2,
+      "missing": [
+        "目前无黑便",
+        "新的用药尚未决定"
+      ]
+    },
+    "forbiddenFactsFound": [],
+    "format": {
+      "headingsRetainedInOrder": true,
+      "headings": [],
+      "positions": [],
+      "addedHeadings": [],
+      "explanations": [],
+      "repeatedLines": []
+    },
+    "unrequestedStageMissingNotes": []
+  }
+}

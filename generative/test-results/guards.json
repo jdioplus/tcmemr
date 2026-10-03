@@ -1,0 +1,100 @@
+{
+  "testedAt": "2026-10-03T17:54:25.373Z",
+  "chrome": "154.0.8037.95",
+  "bytes": 3219603,
+  "sha256": "8920a7c28841fc8def42f243553cbdd7ff3d75513bfc16006cce82c838a4bc53",
+  "checks": [
+    "Same-size corrupt part rejected by SHA and loaded model remains available",
+    "Duplicate part number rejected",
+    "Overlong input rejected before inference without changing source",
+    "Concurrent generation rejected, first generation remains stoppable",
+    "First-token and decode timings measured from real inference",
+    "All guards run offline with zero HTTP"
+  ],
+  "badSameSizePart": {
+    "error": "第 1 片校验不通过，请重新获取该文件。",
+    "state": {
+      "state": "ready",
+      "model": "Qwen/Qwen2.5-0.5B-Instruct-GGUF Q2_K",
+      "mode": "本地生成待审核候选",
+      "error": "第 1 片校验不通过，请重新获取该文件。",
+      "loaded": true,
+      "progress": {
+        "phase": "checking",
+        "completed": 0,
+        "total": 5,
+        "message": "正在校验第 1 片"
+      },
+      "loadMs": 425,
+      "contextTokens": 8192,
+      "architecture": "qwen2"
+    }
+  },
+  "duplicatePart": {
+    "error": "模型分片序号重复或不完整。",
+    "state": {
+      "state": "ready",
+      "model": "Qwen/Qwen2.5-0.5B-Instruct-GGUF Q2_K",
+      "mode": "本地生成待审核候选",
+      "error": "第 1 片校验不通过，请重新获取该文件。",
+      "loaded": true,
+      "progress": {
+        "phase": "checking",
+        "completed": 0,
+        "total": 5,
+        "message": "正在校验第 1 片"
+      },
+      "loadMs": 425,
+      "contextTokens": 8192,
+      "architecture": "qwen2"
+    }
+  },
+  "longInput": {
+    "error": "材料过长，请按段润色；本地模型可用长度为 8192 tokens。",
+    "state": {
+      "state": "ready",
+      "model": "Qwen/Qwen2.5-0.5B-Instruct-GGUF Q2_K",
+      "mode": "本地生成待审核候选",
+      "error": "材料过长，请按段润色；本地模型可用长度为 8192 tokens。",
+      "loaded": true,
+      "progress": null,
+      "loadMs": 425,
+      "contextTokens": 8192,
+      "architecture": "qwen2",
+      "generatedTokens": 0
+    },
+    "sourceUnchanged": true
+  },
+  "timingAndConcurrent": {
+    "result": {
+      "text": "今日乏力；无发热",
+      "cancelled": true,
+      "truncated": false,
+      "usage": {
+        "promptTokens": 155,
+        "generatedTokens": 5,
+        "elapsedMs": 12516,
+        "firstTokenMs": 12127,
+        "decodeMs": 389,
+        "finishReason": "cancelled"
+      }
+    },
+    "concurrentError": "模型正在处理，请等待或停止后再生成。",
+    "state": {
+      "state": "ready",
+      "model": "Qwen/Qwen2.5-0.5B-Instruct-GGUF Q2_K",
+      "mode": "本地生成待审核候选",
+      "error": "",
+      "loaded": true,
+      "progress": null,
+      "loadMs": 425,
+      "contextTokens": 8192,
+      "architecture": "qwen2",
+      "generatedTokens": 5,
+      "lastGenerationMs": 12516,
+      "cancelled": true
+    }
+  },
+  "httpRequests": [],
+  "pass": true
+}

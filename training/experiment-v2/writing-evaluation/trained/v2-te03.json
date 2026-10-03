@@ -1,0 +1,59 @@
+{
+  "id": "v2-te03",
+  "suite": "holdout",
+  "variant": "trained",
+  "inputSha256": "a7476887d0145fa16c2833f1e808b6b82732010533487c6ffd56da1e59739333",
+  "output": "2026-10-02日，患者体温38.0℃，主治医师拟继续核对体温趋势，目前并未新增抗菌处方。",
+  "elapsedMs": 237,
+  "estimatedGeneratedTokens": 35,
+  "suspectedTruncation": false,
+  "checks": {
+    "literalChecksPassed": false,
+    "required": {
+      "total": 7,
+      "retained": 1,
+      "missing": [
+        "昨日未发热",
+        "今日采血已完成",
+        "血培养报告尚未回报",
+        "无寒战",
+        "未增加新的抗菌处方",
+        "2026-10-02 14:10"
+      ]
+    },
+    "dates": {
+      "total": 1,
+      "retained": 0,
+      "missing": [
+        "2026-10-02 14:10"
+      ],
+      "new": []
+    },
+    "numericUnits": {
+      "total": 1,
+      "retained": 1,
+      "missing": [],
+      "new": []
+    },
+    "negationUncertainty": {
+      "total": 4,
+      "retained": 0,
+      "missing": [
+        "昨日未发热",
+        "血培养报告尚未回报",
+        "无寒战",
+        "未增加新的抗菌处方"
+      ]
+    },
+    "forbiddenFactsFound": [],
+    "format": {
+      "headingsRetainedInOrder": true,
+      "headings": [],
+      "positions": [],
+      "addedHeadings": [],
+      "explanations": [],
+      "repeatedLines": []
+    },
+    "unrequestedStageMissingNotes": []
+  }
+}

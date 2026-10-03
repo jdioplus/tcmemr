@@ -1,0 +1,80 @@
+{
+  "id": "v2-te04",
+  "suite": "holdout",
+  "variant": "trained-native-q2-k",
+  "output": "今日吞咽固体食物仍有梗噎，喝水可通过，无呕血。医师考虑结合既往吻合口及内镜所见评估，拟明早记录摄入量，原检查预约仍保留，尚未进行扩张治疗。",
+  "returncode": 0,
+  "elapsedMs": 1019,
+  "endOfTextSuffixPresent": true,
+  "suspectedTruncation": false,
+  "inputSha256": "489f9b3982c4fac88a22f5cabd346199459bbe7c61c2fe2b3268ea62d4b6944f",
+  "command": [
+    "training/tools/llama-build/bin/llama-completion",
+    "-m",
+    "training/experiment-v2/bingli-style-v2-Q2_K.gguf",
+    "-f",
+    "training/experiment-v2/native-writing-evaluation/v2-te04.prompt.txt",
+    "-no-cnv",
+    "-n",
+    "512",
+    "--temp",
+    "0",
+    "--top-k",
+    "20",
+    "--top-p",
+    "0.8",
+    "--repeat-penalty",
+    "1.1",
+    "--repeat-last-n",
+    "64",
+    "--seed",
+    "20261004",
+    "--simple-io",
+    "--no-display-prompt",
+    "--no-escape",
+    "--log-verbosity",
+    "0",
+    "--offline",
+    "-ngl",
+    "0",
+    "-t",
+    "4"
+  ],
+  "checks": {
+    "literalChecksPassed": false,
+    "required": {
+      "total": 5,
+      "retained": 4,
+      "missing": [
+        "饮水可通过"
+      ]
+    },
+    "dates": {
+      "total": 0,
+      "retained": 0,
+      "missing": [],
+      "new": []
+    },
+    "numericUnits": {
+      "total": 0,
+      "retained": 0,
+      "missing": [],
+      "new": []
+    },
+    "negationUncertainty": {
+      "total": 2,
+      "retained": 2,
+      "missing": []
+    },
+    "forbiddenFactsFound": [],
+    "format": {
+      "headingsRetainedInOrder": true,
+      "headings": [],
+      "positions": [],
+      "addedHeadings": [],
+      "explanations": [],
+      "repeatedLines": []
+    },
+    "unrequestedStageMissingNotes": []
+  }
+}

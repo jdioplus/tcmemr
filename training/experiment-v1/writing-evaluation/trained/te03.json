@@ -1,0 +1,52 @@
+{
+  "id": "te03",
+  "suite": "holdout",
+  "variant": "trained",
+  "inputSha256": "5cfd00ff79b785fff4363e0b1e3f2c7a5b7831004a7b96d3ab25c5a9012a1527",
+  "output": "肝穿刺病理为腺癌，原发来源未定，患者无明确原发癌症。今日已纳少，舌绛、苔少、脉细数。中医诊断阴虚内热，舌绛、苔少、脉细数支持该判断。拟核对病理来源与完整影像，补盗汗病史。",
+  "elapsedMs": 386,
+  "estimatedGeneratedTokens": 71,
+  "suspectedTruncation": false,
+  "checks": {
+    "literalChecksPassed": false,
+    "required": {
+      "total": 6,
+      "retained": 3,
+      "missing": [
+        "原发来源待定",
+        "CA19-9 180 U/mL",
+        "阴虚内热证"
+      ]
+    },
+    "dates": {
+      "total": 0,
+      "retained": 0,
+      "missing": []
+    },
+    "numericUnits": {
+      "total": 1,
+      "retained": 0,
+      "missing": [
+        "180 U/mL"
+      ],
+      "new": []
+    },
+    "negationUncertainty": {
+      "total": 0,
+      "retained": 0,
+      "missing": []
+    },
+    "forbiddenFactsFound": [
+      "盗汗"
+    ],
+    "format": {
+      "headingsRetainedInOrder": true,
+      "headings": [],
+      "positions": [],
+      "addedHeadings": [],
+      "explanations": [],
+      "repeatedLines": []
+    },
+    "unrequestedStageMissingNotes": []
+  }
+}

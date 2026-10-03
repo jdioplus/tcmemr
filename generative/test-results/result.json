@@ -1,0 +1,152 @@
+{
+  "testedAt": "2026-10-03T17:47:37.757Z",
+  "source": "/Users/donne/Desktop/codex/bingli/generative/writer-demo.html",
+  "bytes": 3206819,
+  "sha256": "d168a6bb78db1999317d55bc34b3bfa53143ea5f666c104ee3048b31e8353070",
+  "chrome": "154.0.8037.95",
+  "platform": "macOS; Windows not tested",
+  "offline": true,
+  "model": {
+    "name": "Qwen/Qwen2.5-0.5B-Instruct-GGUF Q2_K",
+    "commit": "9217f5db79a29953eb74d5343926648285ec7e67",
+    "bytes": 415182688,
+    "sha256": "9ee36184e616dfc76df4f5dd66f908dbde6979524ae36e6cefb67f532f798cb8",
+    "license": "Apache-2.0",
+    "url": "https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct-GGUF/blob/9217f5db79a29953eb74d5343926648285ec7e67/qwen2.5-0.5b-instruct-q2_k.gguf",
+    "transport": "hf-mirror.com; checked against official public SHA256"
+  },
+  "checks": [
+    "Opening HTML does not load model or access storage",
+    "Incomplete model selection rejected without changing unloaded state",
+    "Five parts sorted, per-part and whole SHA checked, real Qwen model loaded",
+    "Real model produces Chinese candidate with token callbacks",
+    "Generating candidate does not mutate source text",
+    "Stop returns incomplete candidate and retains loaded model",
+    "After stop, next structured generation succeeds",
+    "390-pixel layout fits viewport",
+    "Offline inference makes zero HTTP requests",
+    "No automatic Storage, IndexedDB or OPFS access",
+    "No uncaught page errors"
+  ],
+  "invalidParts": {
+    "before": {
+      "state": "unloaded",
+      "model": "Qwen/Qwen2.5-0.5B-Instruct-GGUF Q2_K",
+      "mode": "本地生成待审核候选",
+      "error": "",
+      "loaded": false
+    },
+    "after": {
+      "state": "unloaded",
+      "model": "Qwen/Qwen2.5-0.5B-Instruct-GGUF Q2_K",
+      "mode": "本地生成待审核候选",
+      "error": "",
+      "loaded": false
+    },
+    "error": "请一次选择全部 5 个模型分片。"
+  },
+  "loadWallMs": 1011,
+  "loadedState": {
+    "state": "ready",
+    "model": "Qwen/Qwen2.5-0.5B-Instruct-GGUF Q2_K",
+    "mode": "本地生成待审核候选",
+    "error": "",
+    "loaded": true,
+    "progress": {
+      "phase": "ready",
+      "completed": 1,
+      "total": 1,
+      "message": "模型已就绪"
+    },
+    "loadMs": 353,
+    "contextTokens": 8192,
+    "architecture": "qwen2"
+  },
+  "shortRewrite": {
+    "text": "患者今日乏力，进食较前减少，无发热、无呕吐。今日血红蛋白86 g/L，较昨日92 g/L下降。医师考虑乏力与贫血和低摄入相关，拟结合复查血常规及铁代谢进一步评估。暂未提供舌脉资料。",
+    "cancelled": false,
+    "truncated": false,
+    "usage": {
+      "promptTokens": 252,
+      "generatedTokens": 60,
+      "elapsedMs": 25545,
+      "finishReason": "stop"
+    },
+    "callbacks": 60,
+    "firstCallback": {
+      "piece": "患者",
+      "full": "患者",
+      "count": 1
+    },
+    "lastCallback": {
+      "piece": "。",
+      "full": " g/L，较昨日92 g/L下降。医师考虑乏力与贫血和低摄入相关，拟结合复查血常规及铁代谢进一步评估。暂未提供舌脉资料。",
+      "count": 60
+    },
+    "original": "患者今日乏力，进食较前减少，无发热、无呕吐。今日血红蛋白86 g/L，较昨日92 g/L下降。医师考虑乏力与贫血和低摄入相关，拟结合复查血常规及铁代谢进一步评估。暂未提供舌脉资料。",
+    "state": {
+      "state": "ready",
+      "model": "Qwen/Qwen2.5-0.5B-Instruct-GGUF Q2_K",
+      "mode": "本地生成待审核候选",
+      "error": "",
+      "loaded": true,
+      "progress": {
+        "phase": "ready",
+        "completed": 1,
+        "total": 1,
+        "message": "模型已就绪"
+      },
+      "loadMs": 353,
+      "contextTokens": 8192,
+      "architecture": "qwen2",
+      "generatedTokens": 60,
+      "lastGenerationMs": 25545,
+      "cancelled": false
+    },
+    "observedPreservation": {
+      "has86": true,
+      "has92": true,
+      "hasNegativeFever": true,
+      "hasNegativeVomiting": true,
+      "hasUncertainJudgment": true
+    }
+  },
+  "cancelledRewrite": {
+    "text": "胃癌患者今日无",
+    "cancelled": true,
+    "truncated": false,
+    "usage": {
+      "promptTokens": 195,
+      "generatedTokens": 5,
+      "elapsedMs": 15254,
+      "finishReason": "cancelled"
+    }
+  },
+  "structuredRewrite": {
+    "text": "2026-10-04，患者乏力，进食减少，无发热，无黑便。Hb86g/L，昨日92g/L。医师考虑与贫血和低摄入相关，病因待核，明日复查血常规、铁代谢。未提供舌脉。",
+    "cancelled": false,
+    "truncated": false,
+    "usage": {
+      "promptTokens": 254,
+      "generatedTokens": 63,
+      "elapsedMs": 26075,
+      "finishReason": "stop"
+    },
+    "observedPreservation": {
+      "date": true,
+      "has86": true,
+      "has92": true,
+      "negativeFever": true,
+      "negativeMelena": true,
+      "uncertainty": true,
+      "tomorrow": true
+    }
+  },
+  "storageAccess": [],
+  "httpRequests": [],
+  "requests": [
+    "file:///Users/donne/Desktop/codex/bingli/generative/writer-demo.html"
+  ],
+  "pageErrors": [],
+  "pass": true
+}

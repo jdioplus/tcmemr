@@ -1,0 +1,149 @@
+{
+  "schemaVersion": 1,
+  "sampling": {
+    "temperature": 0,
+    "greedy": true,
+    "maxTokens": 512,
+    "seed": 20261004
+  },
+  "datasetFiles": {
+    "train.jsonl": {
+      "sha256": "a10ca23e0a99642f6cd4b79af319697f50b61663525790454d7eef3a5153d988",
+      "bytes": 43027,
+      "pairs": 32
+    },
+    "valid.jsonl": {
+      "sha256": "9b1762b5116e99f2987043f93ceab874bac051c25a0b9ca996009b53aece4ea0",
+      "bytes": 9220,
+      "pairs": 8
+    },
+    "test.jsonl": {
+      "sha256": "d220c2d69aa05d67b1726d44b4ea83cbb4d8ac009c80e634cd0758ced844a0d9",
+      "bytes": 20663,
+      "pairs": 16
+    }
+  },
+  "selectionDataset": {
+    "name": "valid",
+    "rows": 8,
+    "sha256": "9b1762b5116e99f2987043f93ceab874bac051c25a0b9ca996009b53aece4ea0"
+  },
+  "selectedCheckpoint": "0000096_adapters",
+  "base": "training/base-model",
+  "adapter": "training/experiment-v1/selected-adapter",
+  "adapterSha256": "135cef328d0c689adae5219affc1508184da139f046fb64a0b5d0fec34a40da6",
+  "holdoutUsedForSelection": false,
+  "clinicalQualification": false,
+  "metricLimits": "Literal checks may flag valid paraphrases and may miss unlisted clinical errors; raw outputs require review. MLX4bit comparison is distinct from the distributed Q2_K browser model.",
+  "challengeSha256": "b962dae425f02fd1d94e65d60361c862fad4b6d4792428bfc932071084e04a54",
+  "comparison": {
+    "base": {
+      "holdout": {
+        "cases": 16,
+        "literalChecksPassed": 0,
+        "casesWithForbiddenFacts": 2,
+        "casesWithAddedMeasures": 0,
+        "required": {
+          "retained": 29,
+          "total": 101,
+          "rate": 0.2871
+        },
+        "dates": {
+          "retained": 1,
+          "total": 9,
+          "rate": 0.1111
+        },
+        "numericUnits": {
+          "retained": 11,
+          "total": 15,
+          "rate": 0.7333
+        },
+        "negationUncertainty": {
+          "retained": 9,
+          "total": 31,
+          "rate": 0.2903
+        }
+      },
+      "challenge": {
+        "cases": 3,
+        "literalChecksPassed": 1,
+        "casesWithForbiddenFacts": 1,
+        "casesWithAddedMeasures": 0,
+        "required": {
+          "retained": 21,
+          "total": 21,
+          "rate": 1.0
+        },
+        "dates": {
+          "retained": 0,
+          "total": 0,
+          "rate": null
+        },
+        "numericUnits": {
+          "retained": 4,
+          "total": 4,
+          "rate": 1.0
+        },
+        "negationUncertainty": {
+          "retained": 6,
+          "total": 6,
+          "rate": 1.0
+        }
+      }
+    },
+    "trained": {
+      "holdout": {
+        "cases": 16,
+        "literalChecksPassed": 0,
+        "casesWithForbiddenFacts": 3,
+        "casesWithAddedMeasures": 0,
+        "required": {
+          "retained": 53,
+          "total": 101,
+          "rate": 0.5248
+        },
+        "dates": {
+          "retained": 6,
+          "total": 9,
+          "rate": 0.6667
+        },
+        "numericUnits": {
+          "retained": 14,
+          "total": 15,
+          "rate": 0.9333
+        },
+        "negationUncertainty": {
+          "retained": 14,
+          "total": 31,
+          "rate": 0.4516
+        }
+      },
+      "challenge": {
+        "cases": 3,
+        "literalChecksPassed": 1,
+        "casesWithForbiddenFacts": 1,
+        "casesWithAddedMeasures": 1,
+        "required": {
+          "retained": 13,
+          "total": 21,
+          "rate": 0.619
+        },
+        "dates": {
+          "retained": 0,
+          "total": 0,
+          "rate": null
+        },
+        "numericUnits": {
+          "retained": 2,
+          "total": 4,
+          "rate": 0.5
+        },
+        "negationUncertainty": {
+          "retained": 4,
+          "total": 6,
+          "rate": 0.6667
+        }
+      }
+    }
+  }
+}

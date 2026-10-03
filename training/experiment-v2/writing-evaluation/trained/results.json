@@ -1,0 +1,435 @@
+{
+  "summary": {
+    "holdout": {
+      "cases": 8,
+      "literalChecksPassed": 4,
+      "casesWithForbiddenFacts": 0,
+      "casesWithAddedMeasures": 0,
+      "required": {
+        "retained": 33,
+        "total": 44,
+        "rate": 0.75
+      },
+      "dates": {
+        "retained": 1,
+        "total": 2,
+        "rate": 0.5
+      },
+      "numericUnits": {
+        "retained": 5,
+        "total": 5,
+        "rate": 1.0
+      },
+      "negationUncertainty": {
+        "retained": 12,
+        "total": 19,
+        "rate": 0.6316
+      }
+    }
+  },
+  "results": [
+    {
+      "id": "v2-te01",
+      "suite": "holdout",
+      "variant": "trained",
+      "inputSha256": "020c9358cd91616532aec1630194da9e1b699c42e51fe7b15070e0161bc1864c",
+      "output": "病例特点：\n软组织肿物切除标本示梭形细胞肿瘤，病理建议补充免疫组化。\n患者局部胀痛，无发热。\n拟诊讨论：\n医师拟待补充病理后进一步判断性质，尚未确定新的抗肿瘤方案。\n诊疗计划：\n保留原下周门诊复评预约。",
+      "elapsedMs": 362,
+      "estimatedGeneratedTokens": 63,
+      "suspectedTruncation": false,
+      "checks": {
+        "literalChecksPassed": true,
+        "required": {
+          "total": 4,
+          "retained": 4,
+          "missing": []
+        },
+        "dates": {
+          "total": 0,
+          "retained": 0,
+          "missing": [],
+          "new": []
+        },
+        "numericUnits": {
+          "total": 0,
+          "retained": 0,
+          "missing": [],
+          "new": []
+        },
+        "negationUncertainty": {
+          "total": 2,
+          "retained": 2,
+          "missing": []
+        },
+        "forbiddenFactsFound": [],
+        "format": {
+          "headingsRetainedInOrder": true,
+          "headings": [
+            "病例特点：",
+            "拟诊讨论：",
+            "诊疗计划："
+          ],
+          "positions": [
+            0,
+            47,
+            83
+          ],
+          "addedHeadings": [],
+          "explanations": [],
+          "repeatedLines": []
+        },
+        "unrequestedStageMissingNotes": []
+      }
+    },
+    {
+      "id": "v2-te02",
+      "suite": "holdout",
+      "variant": "trained",
+      "inputSha256": "3a94b5c0cc7329c37262111b2d2d8b9efef56a548575c3de0fa9d19a85c9feb5",
+      "output": "内膜样癌手术病理记录(G2)，侵犯淋巴系统，无侵犯。患者今日腹痛，无阴道出血。医师拟核对分期结论及术后恢复情况，本日尚未作出辅助治疗决定。",
+      "elapsedMs": 272,
+      "estimatedGeneratedTokens": 45,
+      "suspectedTruncation": false,
+      "checks": {
+        "literalChecksPassed": false,
+        "required": {
+          "total": 4,
+          "retained": 2,
+          "missing": [
+            "淋巴血管间隙侵犯未见",
+            "无阴道流血"
+          ]
+        },
+        "dates": {
+          "total": 0,
+          "retained": 0,
+          "missing": [],
+          "new": []
+        },
+        "numericUnits": {
+          "total": 0,
+          "retained": 0,
+          "missing": [],
+          "new": []
+        },
+        "negationUncertainty": {
+          "total": 3,
+          "retained": 1,
+          "missing": [
+            "淋巴血管间隙侵犯未见",
+            "无阴道流血"
+          ]
+        },
+        "forbiddenFactsFound": [],
+        "format": {
+          "headingsRetainedInOrder": true,
+          "headings": [],
+          "positions": [],
+          "addedHeadings": [],
+          "explanations": [],
+          "repeatedLines": []
+        },
+        "unrequestedStageMissingNotes": []
+      }
+    },
+    {
+      "id": "v2-te03",
+      "suite": "holdout",
+      "variant": "trained",
+      "inputSha256": "a7476887d0145fa16c2833f1e808b6b82732010533487c6ffd56da1e59739333",
+      "output": "2026-10-02日，患者体温38.0℃，主治医师拟继续核对体温趋势，目前并未新增抗菌处方。",
+      "elapsedMs": 237,
+      "estimatedGeneratedTokens": 35,
+      "suspectedTruncation": false,
+      "checks": {
+        "literalChecksPassed": false,
+        "required": {
+          "total": 7,
+          "retained": 1,
+          "missing": [
+            "昨日未发热",
+            "今日采血已完成",
+            "血培养报告尚未回报",
+            "无寒战",
+            "未增加新的抗菌处方",
+            "2026-10-02 14:10"
+          ]
+        },
+        "dates": {
+          "total": 1,
+          "retained": 0,
+          "missing": [
+            "2026-10-02 14:10"
+          ],
+          "new": []
+        },
+        "numericUnits": {
+          "total": 1,
+          "retained": 1,
+          "missing": [],
+          "new": []
+        },
+        "negationUncertainty": {
+          "total": 4,
+          "retained": 0,
+          "missing": [
+            "昨日未发热",
+            "血培养报告尚未回报",
+            "无寒战",
+            "未增加新的抗菌处方"
+          ]
+        },
+        "forbiddenFactsFound": [],
+        "format": {
+          "headingsRetainedInOrder": true,
+          "headings": [],
+          "positions": [],
+          "addedHeadings": [],
+          "explanations": [],
+          "repeatedLines": []
+        },
+        "unrequestedStageMissingNotes": []
+      }
+    },
+    {
+      "id": "v2-te04",
+      "suite": "holdout",
+      "variant": "trained",
+      "inputSha256": "489f9b3982c4fac88a22f5cabd346199459bbe7c61c2fe2b3268ea62d4b6944f",
+      "output": "今日吞咽固体食物仍有梗噎，喝水可通过，无呕血。医师考虑结合既往吻合口及内镜所见评估，拟明早记录摄入量，原检查预约仍保留，尚未进行扩张治疗。",
+      "elapsedMs": 295,
+      "estimatedGeneratedTokens": 49,
+      "suspectedTruncation": false,
+      "checks": {
+        "literalChecksPassed": false,
+        "required": {
+          "total": 5,
+          "retained": 4,
+          "missing": [
+            "饮水可通过"
+          ]
+        },
+        "dates": {
+          "total": 0,
+          "retained": 0,
+          "missing": [],
+          "new": []
+        },
+        "numericUnits": {
+          "total": 0,
+          "retained": 0,
+          "missing": [],
+          "new": []
+        },
+        "negationUncertainty": {
+          "total": 2,
+          "retained": 2,
+          "missing": []
+        },
+        "forbiddenFactsFound": [],
+        "format": {
+          "headingsRetainedInOrder": true,
+          "headings": [],
+          "positions": [],
+          "addedHeadings": [],
+          "explanations": [],
+          "repeatedLines": []
+        },
+        "unrequestedStageMissingNotes": []
+      }
+    },
+    {
+      "id": "v2-te05",
+      "suite": "holdout",
+      "variant": "trained",
+      "inputSha256": "a036d7ebfe3c6e4a4f62d6b50a1582f432fa38d26686ed4e67b9552523b93982",
+      "output": "主治医师查房，患者今日Na 131 mmol/L，较2026-09-30的129 mmol/L上升，无头痛、抽搐。医师认为需结合变化趋势及实际摄入继续评估，拟按原计划复查，尚未决定补充剂量。",
+      "elapsedMs": 375,
+      "estimatedGeneratedTokens": 65,
+      "suspectedTruncation": false,
+      "checks": {
+        "literalChecksPassed": true,
+        "required": {
+          "total": 7,
+          "retained": 7,
+          "missing": []
+        },
+        "dates": {
+          "total": 1,
+          "retained": 1,
+          "missing": [],
+          "new": []
+        },
+        "numericUnits": {
+          "total": 2,
+          "retained": 2,
+          "missing": [],
+          "new": []
+        },
+        "negationUncertainty": {
+          "total": 2,
+          "retained": 2,
+          "missing": []
+        },
+        "forbiddenFactsFound": [],
+        "format": {
+          "headingsRetainedInOrder": true,
+          "headings": [],
+          "positions": [],
+          "addedHeadings": [],
+          "explanations": [],
+          "repeatedLines": []
+        },
+        "unrequestedStageMissingNotes": []
+      }
+    },
+    {
+      "id": "v2-te06",
+      "suite": "holdout",
+      "variant": "trained",
+      "inputSha256": "eeedecbf347af78991928c9f0a58622faaeb74eba1cf26fb6d386a748e459fec",
+      "output": "主治医师查房，患者舌淡紫、苔薄白、脉沉细，肢倦，无胸痛。医师当前辨为气虚血瘀，治法拟益气活血，仍待讨论具体方药，今日未开具新中药处方。",
+      "elapsedMs": 338,
+      "estimatedGeneratedTokens": 56,
+      "suspectedTruncation": false,
+      "checks": {
+        "literalChecksPassed": true,
+        "required": {
+          "total": 4,
+          "retained": 4,
+          "missing": []
+        },
+        "dates": {
+          "total": 0,
+          "retained": 0,
+          "missing": [],
+          "new": []
+        },
+        "numericUnits": {
+          "total": 0,
+          "retained": 0,
+          "missing": [],
+          "new": []
+        },
+        "negationUncertainty": {
+          "total": 2,
+          "retained": 2,
+          "missing": []
+        },
+        "forbiddenFactsFound": [],
+        "format": {
+          "headingsRetainedInOrder": true,
+          "headings": [],
+          "positions": [],
+          "addedHeadings": [],
+          "explanations": [],
+          "repeatedLines": []
+        },
+        "unrequestedStageMissingNotes": []
+      }
+    },
+    {
+      "id": "v2-te07",
+      "suite": "holdout",
+      "variant": "trained",
+      "inputSha256": "638fb4422458ecf2aa88a588fe2de810aa39a65b8ec9ecd5b237abd8c52fad71",
+      "output": "主任医师查房，患者引流液昨日240 mL，今日90 mL，今日统计尚未结束，无腹痛。主任认为应待完整24小时统计后比较，拟核对引流流畅性，尚未决定换引流管。",
+      "elapsedMs": 333,
+      "estimatedGeneratedTokens": 53,
+      "suspectedTruncation": false,
+      "checks": {
+        "literalChecksPassed": false,
+        "required": {
+          "total": 7,
+          "retained": 5,
+          "missing": [
+            "今日目前90 mL",
+            "尚未决定更换引流管"
+          ]
+        },
+        "dates": {
+          "total": 0,
+          "retained": 0,
+          "missing": [],
+          "new": []
+        },
+        "numericUnits": {
+          "total": 2,
+          "retained": 2,
+          "missing": [],
+          "new": []
+        },
+        "negationUncertainty": {
+          "total": 3,
+          "retained": 2,
+          "missing": [
+            "尚未决定更换引流管"
+          ]
+        },
+        "forbiddenFactsFound": [],
+        "format": {
+          "headingsRetainedInOrder": true,
+          "headings": [],
+          "positions": [],
+          "addedHeadings": [],
+          "explanations": [],
+          "repeatedLines": []
+        },
+        "unrequestedStageMissingNotes": []
+      }
+    },
+    {
+      "id": "v2-te08",
+      "suite": "holdout",
+      "variant": "trained",
+      "inputSha256": "5b2cffa612c31627a4bd6b7a4b42a87c406984404c040eb40df48659b82ff8b3",
+      "output": "主任查房意见：\n乳腺癌复评报告仅记靶病灶直径由22 mm变为19 mm，报告未给出疗效分类。\n病情分析：\n主任认为需按同一基线与完整测量复评，不直接写为部分缓解。\n诊疗计划：\n本日维持既有安排，原下月复查预约不变。",
+      "elapsedMs": 393,
+      "estimatedGeneratedTokens": 70,
+      "suspectedTruncation": false,
+      "checks": {
+        "literalChecksPassed": true,
+        "required": {
+          "total": 6,
+          "retained": 6,
+          "missing": []
+        },
+        "dates": {
+          "total": 0,
+          "retained": 0,
+          "missing": [],
+          "new": []
+        },
+        "numericUnits": {
+          "total": 0,
+          "retained": 0,
+          "missing": [],
+          "new": []
+        },
+        "negationUncertainty": {
+          "total": 1,
+          "retained": 1,
+          "missing": []
+        },
+        "forbiddenFactsFound": [],
+        "format": {
+          "headingsRetainedInOrder": true,
+          "headings": [
+            "主任查房意见：",
+            "病情分析：",
+            "诊疗计划："
+          ],
+          "positions": [
+            0,
+            47,
+            82
+          ],
+          "addedHeadings": [],
+          "explanations": [],
+          "repeatedLines": []
+        },
+        "unrequestedStageMissingNotes": []
+      }
+    }
+  ]
+}

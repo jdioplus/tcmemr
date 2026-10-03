@@ -1,0 +1,50 @@
+{
+  "id": "te12",
+  "suite": "holdout",
+  "variant": "trained",
+  "inputSha256": "976384089fc863b266b60f1f7d34d6fafe435a1dc76554d87152bcbe25817f27",
+  "output": "膀胱癌患者今日排尿困难，下腹胀，超声示残余尿量320 mL，钠128 mmol/L，今日已确认尿潴留，拟导尿并核对出入量，血钠异常另结合容量与复查评估。",
+  "elapsedMs": 336,
+  "estimatedGeneratedTokens": 59,
+  "suspectedTruncation": false,
+  "checks": {
+    "literalChecksPassed": false,
+    "required": {
+      "total": 6,
+      "retained": 3,
+      "missing": [
+        "排尿困难、下腹胀",
+        "拟安排导尿",
+        "尚未实施"
+      ]
+    },
+    "dates": {
+      "total": 0,
+      "retained": 0,
+      "missing": []
+    },
+    "numericUnits": {
+      "total": 2,
+      "retained": 2,
+      "missing": [],
+      "new": []
+    },
+    "negationUncertainty": {
+      "total": 1,
+      "retained": 0,
+      "missing": [
+        "尚未实施"
+      ]
+    },
+    "forbiddenFactsFound": [],
+    "format": {
+      "headingsRetainedInOrder": true,
+      "headings": [],
+      "positions": [],
+      "addedHeadings": [],
+      "explanations": [],
+      "repeatedLines": []
+    },
+    "unrequestedStageMissingNotes": []
+  }
+}

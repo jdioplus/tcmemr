@@ -1,0 +1,50 @@
+{
+  "id": "te02",
+  "suite": "holdout",
+  "variant": "trained",
+  "inputSha256": "d2ff4023ddd9fc6b46c1409e994473274b5b4f7e242c57a13b36adee054d7365",
+  "output": "2026-09-30起，患者已按既定医嘱服用左甲状腺素75 μg qd，今日未改用量，无心悸、手抖，2026-10-04 TSH0.32 mIU/L，已核对实际耐受与本例TSH目标，保留原药名、数值与单位。",
+  "elapsedMs": 450,
+  "estimatedGeneratedTokens": 84,
+  "suspectedTruncation": false,
+  "checks": {
+    "literalChecksPassed": false,
+    "required": {
+      "total": 5,
+      "retained": 3,
+      "missing": [
+        "今天未改剂量",
+        "无心悸、无手抖"
+      ]
+    },
+    "dates": {
+      "total": 2,
+      "retained": 2,
+      "missing": []
+    },
+    "numericUnits": {
+      "total": 2,
+      "retained": 2,
+      "missing": [],
+      "new": []
+    },
+    "negationUncertainty": {
+      "total": 2,
+      "retained": 0,
+      "missing": [
+        "今天未改剂量",
+        "无心悸、无手抖"
+      ]
+    },
+    "forbiddenFactsFound": [],
+    "format": {
+      "headingsRetainedInOrder": true,
+      "headings": [],
+      "positions": [],
+      "addedHeadings": [],
+      "explanations": [],
+      "repeatedLines": []
+    },
+    "unrequestedStageMissingNotes": []
+  }
+}

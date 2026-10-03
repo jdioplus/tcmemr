@@ -1,0 +1,53 @@
+{
+  "id": "v2-te08",
+  "suite": "holdout",
+  "variant": "base",
+  "inputSha256": "5b2cffa612c31627a4bd6b7a4b42a87c406984404c040eb40df48659b82ff8b3",
+  "output": "主任查房意见：\n\n所有事实以待整理正文为准。\n\n评报告仅记靶病灶直径由22 mm变为19 mm，报告未给出疗效分类。\n\n病情分析：\n主任认为需按同一基线与完整测量复评，不直接写为部分缓解。\n\n诊疗计划：\n本日维持既有安排，原下月复查预约不变。",
+  "elapsedMs": 374,
+  "estimatedGeneratedTokens": 75,
+  "suspectedTruncation": false,
+  "checks": {
+    "literalChecksPassed": true,
+    "required": {
+      "total": 6,
+      "retained": 6,
+      "missing": []
+    },
+    "dates": {
+      "total": 0,
+      "retained": 0,
+      "missing": [],
+      "new": []
+    },
+    "numericUnits": {
+      "total": 0,
+      "retained": 0,
+      "missing": [],
+      "new": []
+    },
+    "negationUncertainty": {
+      "total": 1,
+      "retained": 1,
+      "missing": []
+    },
+    "forbiddenFactsFound": [],
+    "format": {
+      "headingsRetainedInOrder": true,
+      "headings": [
+        "主任查房意见：",
+        "病情分析：",
+        "诊疗计划："
+      ],
+      "positions": [
+        0,
+        60,
+        96
+      ],
+      "addedHeadings": [],
+      "explanations": [],
+      "repeatedLines": []
+    },
+    "unrequestedStageMissingNotes": []
+  }
+}

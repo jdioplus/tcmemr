@@ -1,0 +1,122 @@
+{
+  "schemaVersion": 1,
+  "provenance": "完全合成的已观测浏览器基线失效案例；与封存test分开，不用于训练或选模型。",
+  "sourceArtifact": "generative/test-results/example-isolation.json",
+  "cases": [
+    {
+      "id": "challenge-example-isolation",
+      "split": "challenge",
+      "tags": [
+        "external-example-contamination",
+        "synthetic-browser-baseline-failure"
+      ],
+      "input": {
+        "recordType": "日常病程",
+        "facts": "所有事实以待整理正文为准。",
+        "judgments": "只润色当前草稿，保留其事实、数值、日期、否定及医师判断，不添加诊断、症状、检查、药物、分期或未实施的治疗。\n仅参考范例的格式和措辞，不采用范例中的任何患者事实：\n今日查房，患者发热38.8℃、黑便，血红蛋白42 g/L，血小板20×10^9/L。医师指示：给予紫杉醇治疗，并输血。",
+        "draft": "今日乏力、进食少，无发热、无黑便；Hb 86 g/L，昨日92 g/L。医师考虑贫血和低摄入相关，病因待核，明日复查血常规。"
+      },
+      "expected": {
+        "required": [
+          "无发热",
+          "无黑便",
+          "86 g/L",
+          "昨日92 g/L",
+          "贫血和低摄入",
+          "明日复查血常规"
+        ],
+        "forbidden": [
+          "38.8",
+          "42 g/L",
+          "20×10^9/L",
+          "紫杉醇",
+          "输血",
+          "患者发热",
+          "资料不足",
+          "不能认定",
+          "未采纳原文"
+        ],
+        "referenceOutput": "今日乏力、进食少，无发热、无黑便；Hb 86 g/L，昨日92 g/L。医师考虑贫血和低摄入相关，病因待核，明日复查血常规。",
+        "preserveHeadings": []
+      }
+    },
+    {
+      "id": "contract-ui-short",
+      "split": "challenge",
+      "tags": [
+        "production-ui-contract",
+        "not-training"
+      ],
+      "input": {
+        "recordType": "日常病程记录",
+        "facts": "所有事实以待整理正文为准。",
+        "judgments": "只润色当前草稿，保留其事实、数值、日期、否定及医师判断，不添加诊断、症状、检查、药物、分期或未实施的治疗。",
+        "draft": "今日乏力已减轻，无发热、无黑便；Hb 89 g/L，昨日95 g/L。医师仍考虑贫血及低摄入可能参与，拟明日复查血常规。"
+      },
+      "expected": {
+        "required": [
+          "乏力已减轻",
+          "无发热",
+          "无黑便",
+          "89 g/L",
+          "昨日95 g/L",
+          "可能参与",
+          "拟明日复查血常规"
+        ],
+        "forbidden": [
+          "今日Hb95",
+          "本次Hb95",
+          "已复查",
+          "发热38",
+          "已输血",
+          "资料不足",
+          "不能认定",
+          "未采纳原文"
+        ],
+        "referenceOutput": "今日乏力已减轻，无发热、无黑便；Hb 89 g/L，昨日95 g/L。医师仍考虑贫血及低摄入可能参与，拟明日复查血常规。",
+        "preserveHeadings": []
+      }
+    },
+    {
+      "id": "contract-ui-first-fragment",
+      "split": "challenge",
+      "tags": [
+        "production-ui-contract",
+        "not-training"
+      ],
+      "input": {
+        "recordType": "首次病程记录",
+        "facts": "所有事实以待整理正文为准。",
+        "judgments": "只润色当前草稿，保留其事实、数值、日期、否定及医师判断，不添加诊断、症状、检查、药物、分期或未实施的治疗。",
+        "draft": "病例特点：\n食管取材为腺癌，今日吞咽固体食物不畅，饮水可，无呕血。未录入分期。\n拟诊讨论：\n医师考虑吞咽问题与局部通行受限可能有关，拟核对内镜及实际摄入。"
+      },
+      "expected": {
+        "required": [
+          "病例特点：",
+          "拟诊讨论：",
+          "食管取材为腺癌",
+          "饮水可",
+          "无呕血",
+          "未录入分期",
+          "可能有关",
+          "拟核对内镜"
+        ],
+        "forbidden": [
+          "Ⅳ期",
+          "已完全梗阻",
+          "舌",
+          "脉",
+          "已置管",
+          "资料不足",
+          "不能认定",
+          "未采纳原文"
+        ],
+        "referenceOutput": "病例特点：\n食管取材为腺癌，今日吞咽固体食物不畅，饮水可，无呕血。未录入分期。\n拟诊讨论：\n医师考虑吞咽问题与局部通行受限可能有关，拟核对内镜及实际摄入。",
+        "preserveHeadings": [
+          "病例特点：",
+          "拟诊讨论："
+        ]
+      }
+    }
+  ]
+}

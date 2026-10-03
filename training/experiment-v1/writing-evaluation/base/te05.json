@@ -1,0 +1,57 @@
+{
+  "id": "te05",
+  "suite": "holdout",
+  "variant": "base",
+  "inputSha256": "c3298cf8090f63b8561aec288b1de3649eb723ae2ffd6c8118b771b596cce2dd",
+  "output": "2026年10月4日，患者Hb水平为113 g/L，旧报告为104 g/L。患者今日仍有乏力感，未发现黑便。患者继续观察体力，并按原计划进行复查。",
+  "elapsedMs": 281,
+  "estimatedGeneratedTokens": 53,
+  "suspectedTruncation": false,
+  "checks": {
+    "literalChecksPassed": false,
+    "required": {
+      "total": 7,
+      "retained": 1,
+      "missing": [
+        "2026-10-04 14:20",
+        "已无黑便",
+        "2026-10-04 07:00 Hb113 g/L",
+        "2026-09-30",
+        "回升",
+        "按原计划复查"
+      ]
+    },
+    "dates": {
+      "total": 3,
+      "retained": 0,
+      "missing": [
+        "2026-10-04 14:20",
+        "2026-10-04 07:00",
+        "2026-09-30"
+      ]
+    },
+    "numericUnits": {
+      "total": 2,
+      "retained": 2,
+      "missing": [],
+      "new": []
+    },
+    "negationUncertainty": {
+      "total": 1,
+      "retained": 0,
+      "missing": [
+        "已无黑便"
+      ]
+    },
+    "forbiddenFactsFound": [],
+    "format": {
+      "headingsRetainedInOrder": true,
+      "headings": [],
+      "positions": [],
+      "addedHeadings": [],
+      "explanations": [],
+      "repeatedLines": []
+    },
+    "unrequestedStageMissingNotes": []
+  }
+}

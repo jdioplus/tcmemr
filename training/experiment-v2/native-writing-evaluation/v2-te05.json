@@ -1,0 +1,87 @@
+{
+  "id": "v2-te05",
+  "suite": "holdout",
+  "variant": "trained-native-q2-k",
+  "output": "德国医师查房记录，患者今日Na 145 mmol/L，较2026-09-30的138 mmol/L上升，无头痛、抽搐。医师认为需结合变化趋势及实际摄入继续评估，拟按原计划复查，尚未决定补充剂量。",
+  "returncode": 0,
+  "elapsedMs": 1179,
+  "endOfTextSuffixPresent": true,
+  "suspectedTruncation": false,
+  "inputSha256": "a036d7ebfe3c6e4a4f62d6b50a1582f432fa38d26686ed4e67b9552523b93982",
+  "command": [
+    "training/tools/llama-build/bin/llama-completion",
+    "-m",
+    "training/experiment-v2/bingli-style-v2-Q2_K.gguf",
+    "-f",
+    "training/experiment-v2/native-writing-evaluation/v2-te05.prompt.txt",
+    "-no-cnv",
+    "-n",
+    "512",
+    "--temp",
+    "0",
+    "--top-k",
+    "20",
+    "--top-p",
+    "0.8",
+    "--repeat-penalty",
+    "1.1",
+    "--repeat-last-n",
+    "64",
+    "--seed",
+    "20261004",
+    "--simple-io",
+    "--no-display-prompt",
+    "--no-escape",
+    "--log-verbosity",
+    "0",
+    "--offline",
+    "-ngl",
+    "0",
+    "-t",
+    "4"
+  ],
+  "checks": {
+    "literalChecksPassed": false,
+    "required": {
+      "total": 7,
+      "retained": 5,
+      "missing": [
+        "131 mmol/L",
+        "129 mmol/L"
+      ]
+    },
+    "dates": {
+      "total": 1,
+      "retained": 1,
+      "missing": [],
+      "new": []
+    },
+    "numericUnits": {
+      "total": 2,
+      "retained": 0,
+      "missing": [
+        "131 mmol/L",
+        "129 mmol/L"
+      ],
+      "new": [
+        "145 mmol/L",
+        "138 mmol/L"
+      ]
+    },
+    "negationUncertainty": {
+      "total": 2,
+      "retained": 2,
+      "missing": []
+    },
+    "forbiddenFactsFound": [],
+    "format": {
+      "headingsRetainedInOrder": true,
+      "headings": [],
+      "positions": [],
+      "addedHeadings": [],
+      "explanations": [],
+      "repeatedLines": []
+    },
+    "unrequestedStageMissingNotes": []
+  }
+}

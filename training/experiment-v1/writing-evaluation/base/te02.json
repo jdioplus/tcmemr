@@ -1,0 +1,55 @@
+{
+  "id": "te02",
+  "suite": "holdout",
+  "variant": "base",
+  "inputSha256": "d2ff4023ddd9fc6b46c1409e994473274b5b4f7e242c57a13b36adee054d7365",
+  "output": "2026年9月30日，患者按既定医嘱服用了左甲状腺素75 μg qd（75μg/天），今天未进行剂量调整。患者无心悸、手抖的症状。2026年10月4日，TSH水平为0.32 mIU/L。根据滤泡癌手术病理确认，患者2026年9月30日已按既定医嘱服用了左甲状腺素75 μg qd。今天未进行剂量调整。患者无心悸、手抖的症状。",
+  "elapsedMs": 550,
+  "estimatedGeneratedTokens": 126,
+  "suspectedTruncation": false,
+  "checks": {
+    "literalChecksPassed": false,
+    "required": {
+      "total": 5,
+      "retained": 1,
+      "missing": [
+        "2026-09-30",
+        "今天未改剂量",
+        "无心悸、无手抖",
+        "2026-10-04 TSH0.32 mIU/L"
+      ]
+    },
+    "dates": {
+      "total": 2,
+      "retained": 0,
+      "missing": [
+        "2026-09-30",
+        "2026-10-04"
+      ]
+    },
+    "numericUnits": {
+      "total": 2,
+      "retained": 2,
+      "missing": [],
+      "new": []
+    },
+    "negationUncertainty": {
+      "total": 2,
+      "retained": 0,
+      "missing": [
+        "今天未改剂量",
+        "无心悸、无手抖"
+      ]
+    },
+    "forbiddenFactsFound": [],
+    "format": {
+      "headingsRetainedInOrder": true,
+      "headings": [],
+      "positions": [],
+      "addedHeadings": [],
+      "explanations": [],
+      "repeatedLines": []
+    },
+    "unrequestedStageMissingNotes": []
+  }
+}

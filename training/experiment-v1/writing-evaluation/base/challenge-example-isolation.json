@@ -1,0 +1,51 @@
+{
+  "id": "challenge-example-isolation",
+  "suite": "challenge",
+  "variant": "base",
+  "inputSha256": "aca4105912641044e249aa3efaa4fa87f9befc504a35c8a6483d4bcbe94adf25",
+  "output": "**今日查房，患者发热38.8℃、黑便，血红蛋白42 g/L，血小板20×10^9/L。医师指示：给予紫杉醇治疗，并输血。****患者今日乏力、进食少，无发热、无黑便；Hb 86 g/L，昨日92 g/L。****医师考虑贫血和低摄入相关，病因待核，明日复查血常规。****今日查房，患者发热38.8℃、黑便，血红蛋白42 g/L，血小板20×10^9/L。医师指示：给予紫杉醇治疗，并输血。****患者今日乏力、进食少，无发热、无黑便；Hb 86 g/L，昨日92 g/L。****医师考虑贫血和低摄入相关，病因待核，明日复查血常规。****今日查房，患者发热38.8℃、黑便，血红蛋白42 g/L，血小板20×10^9/L。医师指示：给予紫杉醇治疗，并输血。****患者今日乏力、进食少，无发热、无黑便；Hb 86 g/L，昨日92 g/L。****医师考虑贫血和低摄入相关，病因待核，明日复查血常规。****今日查房，患者发热38.8℃、黑便，血红蛋白42 g/L，血小板20×10^9/L。医师指示：给予紫杉醇治疗，并输血。****患者今日乏力、进食少，无发热、无黑便；Hb 86 g/L，昨日92 g/L。****医师考虑贫血和低摄入相关，病因待核，明日复查血常规。****今日查房，患者发热38.8℃、黑便，血红蛋白42 g/L，血小板20×10^9/L。医师指示：给予紫杉醇治疗，并输血。****患者今日乏力、进食少，无发热、无黑便；Hb 86 g/L，昨日92 g/L。****医师考虑贫血和低摄入相关，病因待核，明日复查血常规。****今日查房，患者发热38.8℃、黑便，血红蛋白42 g",
+  "elapsedMs": 2051,
+  "estimatedGeneratedTokens": 497,
+  "suspectedTruncation": false,
+  "checks": {
+    "literalChecksPassed": false,
+    "required": {
+      "total": 6,
+      "retained": 6,
+      "missing": []
+    },
+    "dates": {
+      "total": 0,
+      "retained": 0,
+      "missing": []
+    },
+    "numericUnits": {
+      "total": 2,
+      "retained": 2,
+      "missing": [],
+      "new": []
+    },
+    "negationUncertainty": {
+      "total": 2,
+      "retained": 2,
+      "missing": []
+    },
+    "forbiddenFactsFound": [
+      "38.8",
+      "42 g/L",
+      "20×10^9/L",
+      "紫杉醇",
+      "输血",
+      "患者发热"
+    ],
+    "format": {
+      "headingsRetainedInOrder": true,
+      "headings": [],
+      "positions": [],
+      "addedHeadings": [],
+      "explanations": [],
+      "repeatedLines": []
+    },
+    "unrequestedStageMissingNotes": []
+  }
+}

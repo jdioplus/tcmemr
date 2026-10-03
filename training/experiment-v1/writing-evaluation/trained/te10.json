@@ -1,0 +1,51 @@
+{
+  "id": "te10",
+  "suite": "holdout",
+  "variant": "trained",
+  "inputSha256": "049c2eecca9bb6c5c678dba4662e08619a6f7facc999c12cd63e8a71a4b00e84",
+  "output": "胃腺癌病理已给，HER2 IHC3+，ISH未回报。另基因报告BRCA1变异意义未明，没有致病性结论。胃腺癌HER2 IHC3+蛋白强阳性，ISH等报告，BRCA1 VUS意义未明。拟核对原报告及实际治疗背景后讨论，不新增方案。BRCA1变异意义未明，拟核对原报告及实际治疗背景，HER2 IHC3+蛋白强阳性，ISH等报告，BRCA1 VUS意义未明，拟核对原报告及实际治疗背景，HER2 IHC3+蛋白强阳性，ISH等报告，BRCA1 VUS意义未明，拟核对原报告及实际治疗背景，HER2 IHC3+蛋白强阳性，ISH等报告，BRCA1 VUS意义未明，拟核对原报告及实际治疗背景，HER2 IHC3+蛋白强阳性，ISH等报告，BRCA1 VUS意义未明，拟核对原报告及实际治疗背景，HER2 IHC3+蛋白强阳性，ISH等报告，BRCA1 VUS意义未明，拟核对原报告及实际治疗背景，HER2 IHC3+蛋白强阳性，ISH等报告，BRCA1 VUS意义未明，拟核对原报告及实际治疗背景，HER2 IHC3+蛋白强阳性，ISH等报告，BRCA1 VUS意义未明，拟核对原报告及实际治疗背景，HER2 IHC3+蛋白强阳性，ISH等报告，BRCA1 VUS意义未明，拟核对原报告及实际治疗背景，HER2 IHC3+蛋白强阳性，ISH等报告，BRCA1 VUS意义未明，拟核对原报告及实际治疗背景，HER2 IHC3+蛋白强阳性，ISH等报告，BRCA1 VUS意义未明，拟核对原报告及实际治疗背景，HER2 IHC3+蛋白强阳性，ISH等报告，BRCA1 VUS意义未明，拟核对原报告及实际治疗背景，HER2 IHC3+蛋白强阳性，ISH等报告，BRCA1 VUS意义未明，拟核对原报告及实际治疗背景，HER2 IHC3+蛋白强阳性，ISH等报告，BRCA1 VUS意义未",
+  "elapsedMs": 2317,
+  "estimatedGeneratedTokens": 512,
+  "suspectedTruncation": true,
+  "checks": {
+    "literalChecksPassed": false,
+    "required": {
+      "total": 5,
+      "retained": 2,
+      "missing": [
+        "HER2蛋白强阳性",
+        "BRCA1变异意义未明（VUS）",
+        "未给出致病性结论"
+      ]
+    },
+    "dates": {
+      "total": 0,
+      "retained": 0,
+      "missing": []
+    },
+    "numericUnits": {
+      "total": 0,
+      "retained": 0,
+      "missing": [],
+      "new": []
+    },
+    "negationUncertainty": {
+      "total": 3,
+      "retained": 1,
+      "missing": [
+        "BRCA1变异意义未明（VUS）",
+        "未给出致病性结论"
+      ]
+    },
+    "forbiddenFactsFound": [],
+    "format": {
+      "headingsRetainedInOrder": true,
+      "headings": [],
+      "positions": [],
+      "addedHeadings": [],
+      "explanations": [],
+      "repeatedLines": []
+    },
+    "unrequestedStageMissingNotes": []
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "id": "v2-te02",
+  "suite": "holdout",
+  "variant": "trained",
+  "inputSha256": "3a94b5c0cc7329c37262111b2d2d8b9efef56a548575c3de0fa9d19a85c9feb5",
+  "output": "内膜样癌手术病理记录(G2)，侵犯淋巴系统，无侵犯。患者今日腹痛，无阴道出血。医师拟核对分期结论及术后恢复情况，本日尚未作出辅助治疗决定。",
+  "elapsedMs": 272,
+  "estimatedGeneratedTokens": 45,
+  "suspectedTruncation": false,
+  "checks": {
+    "literalChecksPassed": false,
+    "required": {
+      "total": 4,
+      "retained": 2,
+      "missing": [
+        "淋巴血管间隙侵犯未见",
+        "无阴道流血"
+      ]
+    },
+    "dates": {
+      "total": 0,
+      "retained": 0,
+      "missing": [],
+      "new": []
+    },
+    "numericUnits": {
+      "total": 0,
+      "retained": 0,
+      "missing": [],
+      "new": []
+    },
+    "negationUncertainty": {
+      "total": 3,
+      "retained": 1,
+      "missing": [
+        "淋巴血管间隙侵犯未见",
+        "无阴道流血"
+      ]
+    },
+    "forbiddenFactsFound": [],
+    "format": {
+      "headingsRetainedInOrder": true,
+      "headings": [],
+      "positions": [],
+      "addedHeadings": [],
+      "explanations": [],
+      "repeatedLines": []
+    },
+    "unrequestedStageMissingNotes": []
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "status": "trained_quantized_experimental_failed_quality",
+  "modelName": "中文病程文字整理初版 Qwen2.5 0.5B",
+  "baseModel": {
+    "name": "mlx-community/Qwen2.5-0.5B-Instruct-4bit",
+    "revision": "a5339a4131f135d0fdc6a5c8b5bbed2753bbe0f3",
+    "upstream": "Qwen/Qwen2.5-0.5B-Instruct",
+    "source": "https://huggingface.co/mlx-community/Qwen2.5-0.5B-Instruct-4bit/tree/a5339a4131f135d0fdc6a5c8b5bbed2753bbe0f3",
+    "initialQuantization": "MLX affine 4bit"
+  },
+  "completedSteps": 96,
+  "selectedStep": 96,
+  "trainingType": "QLoRA; 4 layers; rank 8; completion-only masked loss",
+  "trainingData": {
+    "name": "train",
+    "rows": 32,
+    "sha256": "a10ca23e0a99642f6cd4b79af319697f50b61663525790454d7eef3a5153d988"
+  },
+  "validationData": {
+    "name": "valid",
+    "rows": 8,
+    "sha256": "9b1762b5116e99f2987043f93ceab874bac051c25a0b9ca996009b53aece4ea0"
+  },
+  "validationLoss": 1.299,
+  "baselineValidationLoss": 1.929,
+  "testUsedForTrainingOrSelection": false,
+  "license": "Apache-2.0",
+  "licensePath": "training/model-LICENSE.txt",
+  "licenseSource": "https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct-GGUF/blob/9217f5db79a29953eb74d5343926648285ec7e67/LICENSE",
+  "modelCardPath": "training/base-model-card.md",
+  "adapterSha256": "135cef328d0c689adae5219affc1508184da139f046fb64a0b5d0fec34a40da6",
+  "toolSource": {
+    "repository": "https://github.com/ggml-org/llama.cpp",
+    "revision": "836d57176dc699a726c55418e4f96b8ca628e1bf",
+    "license": "MIT",
+    "download": "git sparse clone, official origin; no model example blobs"
+  },
+  "exportCommands": [
+    "mlx_lm.fuse --model training/base-model --adapter-path training/experiment-v1/selected-adapter --save-path training/experiment-v1/fused-hf --dequantize",
+    "training/.venv/bin/python training/tools/llama-sparse/convert_hf_to_gguf.py training/experiment-v1/fused-hf --outfile training/experiment-v1/bingli-style-v1-f16.gguf --outtype f16",
+    "training/tools/llama-build/bin/llama-quantize training/experiment-v1/bingli-style-v1-f16.gguf training/experiment-v1/bingli-style-v1-Q2_K.gguf Q2_K 4"
+  ],
+  "logs": [
+    "training/experiment-v1/train.log",
+    "training/experiment-v1/validation-selection.json",
+    "training/experiment-v1/fuse.log",
+    "training/experiment-v1/convert-gguf.log",
+    "training/experiment-v1/quantize-Q2_K.log"
+  ],
+  "clinicalQualification": false,
+  "limitations": [
+    "仅32条人工合成训练记录，8条独立验证记录；数据量很少。",
+    "只训练整理表达和事实保持，不用于自主诊断或新处方。",
+    "起点是社区4bit MLX权重，融合反量化后再GGUF量化；与官方GGUF底模比较的差异不能全归因微调。",
+    "训练已完成；独立病例和实际页面契约测试发现事实与重复输出问题，v1不得作为通过验收的发布版。"
+  ],
+  "releaseApproved": false,
+  "evaluation": {
+    "status": "failed_initial_independent_review",
+    "report": "training/experiment-v1/writing-evaluation/comparison.json",
+    "holdoutCases": 16,
+    "testUsedForTrainingOrSelection": false,
+    "clinicalQualification": false,
+    "findings": [
+      "独立审查发现将拟行治疗改成已实施治疗。",
+      "生产页面短段出现重复直到生成上限，不能作为合格版本。"
+    ],
+    "metricLimits": "Literal checks are incomplete; output review and browser Q2_K checks remain necessary."
+  },
+  "gguf": {
+    "path": "training/experiment-v1/bingli-style-v1-Q2_K.gguf",
+    "bytes": 338606944,
+    "sha256": "7b091ff3eb60147a1349726a6befed9fc5e3c20465882c0d16eb5adbfbd9e7af",
+    "architecture": "qwen2",
+    "fileType": 10,
+    "quantizationVersion": 2,
+    "tensorCount": 290,
+    "tensorTypes": {
+      "F32": 121,
+      "Q8_0": 1,
+      "Q4_0": 120,
+      "Q5_0": 24,
+      "Q3_K": 24
+    },
+    "fallbackTensorCount": 144
+  },
+  "quantization": "Q2_K",
+  "quantizationNotes": "144 of 290 tensors used standard llama.cpp fallback because tensor shapes do not meet Q2_K block requirements; actual tensor types are recorded."
+}

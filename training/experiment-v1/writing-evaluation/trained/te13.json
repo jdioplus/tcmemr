@@ -1,0 +1,51 @@
+{
+  "id": "te13",
+  "suite": "holdout",
+  "variant": "trained",
+  "inputSha256": "7180e8003fc8827ec07ce2a7acc39190fc46688f5464cd01c1a8b94901f05298",
+  "output": "胆管癌患者今日已按原抗肿瘤方案继续治疗，昨日已作过原随访，今日主任决定拟调整，具体调整待专科确认。原随访安排尚未保留，昨日已录后天复查胆红素与体温，本日体温37.1℃，无寒战。",
+  "elapsedMs": 362,
+  "estimatedGeneratedTokens": 66,
+  "suspectedTruncation": false,
+  "checks": {
+    "literalChecksPassed": false,
+    "required": {
+      "total": 7,
+      "retained": 3,
+      "missing": [
+        "昨日拟继续",
+        "未实施",
+        "具体内容待专科确认",
+        "后天复查胆红素及体温"
+      ]
+    },
+    "dates": {
+      "total": 0,
+      "retained": 0,
+      "missing": []
+    },
+    "numericUnits": {
+      "total": 1,
+      "retained": 1,
+      "missing": [],
+      "new": []
+    },
+    "negationUncertainty": {
+      "total": 2,
+      "retained": 1,
+      "missing": [
+        "未实施"
+      ]
+    },
+    "forbiddenFactsFound": [],
+    "format": {
+      "headingsRetainedInOrder": true,
+      "headings": [],
+      "positions": [],
+      "addedHeadings": [],
+      "explanations": [],
+      "repeatedLines": []
+    },
+    "unrequestedStageMissingNotes": []
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "v2-te07",
+  "suite": "holdout",
+  "variant": "trained",
+  "inputSha256": "638fb4422458ecf2aa88a588fe2de810aa39a65b8ec9ecd5b237abd8c52fad71",
+  "output": "主任医师查房，患者引流液昨日240 mL，今日90 mL，今日统计尚未结束，无腹痛。主任认为应待完整24小时统计后比较，拟核对引流流畅性，尚未决定换引流管。",
+  "elapsedMs": 333,
+  "estimatedGeneratedTokens": 53,
+  "suspectedTruncation": false,
+  "checks": {
+    "literalChecksPassed": false,
+    "required": {
+      "total": 7,
+      "retained": 5,
+      "missing": [
+        "今日目前90 mL",
+        "尚未决定更换引流管"
+      ]
+    },
+    "dates": {
+      "total": 0,
+      "retained": 0,
+      "missing": [],
+      "new": []
+    },
+    "numericUnits": {
+      "total": 2,
+      "retained": 2,
+      "missing": [],
+      "new": []
+    },
+    "negationUncertainty": {
+      "total": 3,
+      "retained": 2,
+      "missing": [
+        "尚未决定更换引流管"
+      ]
+    },
+    "forbiddenFactsFound": [],
+    "format": {
+      "headingsRetainedInOrder": true,
+      "headings": [],
+      "positions": [],
+      "addedHeadings": [],
+      "explanations": [],
+      "repeatedLines": []
+    },
+    "unrequestedStageMissingNotes": []
+  }
+}

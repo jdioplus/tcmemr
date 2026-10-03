@@ -1,0 +1,56 @@
+{
+  "selectionDataset": {
+    "name": "valid",
+    "rows": 8,
+    "sha256": "5a3aa58a81ec2869588b93565235c643021a33b8a7570e872b51614af5362990"
+  },
+  "holdoutTestUsed": false,
+  "candidates": [
+    {
+      "name": "baseline",
+      "validationLoss": 0.653,
+      "perplexity": 1.922,
+      "adapter": null,
+      "log": "training/experiment-v2/validation-baseline.log"
+    },
+    {
+      "name": "0000024_adapters",
+      "validationLoss": 0.273,
+      "perplexity": 1.313,
+      "adapter": "training/experiment-v2/adapters/0000024_adapters.safetensors",
+      "log": "training/experiment-v2/validation-0000024_adapters.log"
+    },
+    {
+      "name": "0000048_adapters",
+      "validationLoss": 0.147,
+      "perplexity": 1.159,
+      "adapter": "training/experiment-v2/adapters/0000048_adapters.safetensors",
+      "log": "training/experiment-v2/validation-0000048_adapters.log"
+    },
+    {
+      "name": "0000072_adapters",
+      "validationLoss": 0.114,
+      "perplexity": 1.12,
+      "adapter": "training/experiment-v2/adapters/0000072_adapters.safetensors",
+      "log": "training/experiment-v2/validation-0000072_adapters.log"
+    },
+    {
+      "name": "0000096_adapters",
+      "validationLoss": 0.118,
+      "perplexity": 1.125,
+      "adapter": "training/experiment-v2/adapters/0000096_adapters.safetensors",
+      "log": "training/experiment-v2/validation-0000096_adapters.log"
+    }
+  ],
+  "selected": {
+    "name": "0000072_adapters",
+    "validationLoss": 0.114,
+    "perplexity": 1.12,
+    "adapter": "training/experiment-v2/adapters/0000072_adapters.safetensors",
+    "log": "training/experiment-v2/validation-0000072_adapters.log"
+  },
+  "baselineValidationLoss": 0.653,
+  "validationLossImproved": true,
+  "rule": "lowest validation completion loss among saved trained checkpoints; baseline retained as comparator",
+  "clinicalQualification": false
+}

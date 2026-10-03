@@ -1,0 +1,78 @@
+{
+  "id": "v2-te03",
+  "suite": "holdout",
+  "variant": "trained-native-q2-k",
+  "output": "{\n医生提供的内容:\n2026-10-02 14:10体温38.0℃，昨日未发热。今日采血已完成，血培养报告尚未回报，无寒战。医师拟继续核对体温趋势，当前未增加新的抗菌处方。医师认为血培养结果为阴性，医师认为血培养结果为阴性，医师认为血培养结果为阴性，医师认为血培养结果为阴性，医师认为血培养结果为阴性，医师认为血培养结果为阴性，医师认为血培养结果为阴性，医师认为血培养结果为阴性，医师认为血培养结果为阴性，医师认为血培养结果为阴性，医师认为血培养结果为阴性，医师认为血培养结果为阴性，医师认为血培养结果为阴性，医师认为血培养结果为阴性，医师认为血培养结果为阴性，医师认为血培养结果为阴性，医师认为血培养结果为阴性，医师认为血培养结果为阴性，医师认为血培养结果为阴性，医师认为血培养结果为阴性，医师认为血培养结果为阴性，医师认为血培养结果为阴性，医师认为血培养结果为阴性，医师认为血培养结果为阴性，医师认为血培养结果为阴性，医师认为血培养结果为阴性，医师认为血培养结果为阴性，医师认为血培养结果为阴性，医师认为血培养结果为阴性，医师认为血培养结果为阴性，医师认为血培养结果为阴性，医师认为血培养结果为阴性，医师认为血培养结果为阴性，医师认为血培养结果为阴性，医师认为血培养结果为阴性，医师认为血培养结果为阴性，医师认为血培养结果为阴性，医师认为血培养结果为阴性，医师认为血培养结果为阴性，医师认为血培养结果为阴性，医师认为血培养结果为阴性，医师认为血培养结果为阴性，医师认为血培养结果为阴性，医师认为血培养结果为阴性，医师认为血培养结果为阴性，医师认为血培养结果为阴性，医师认为血培养结果为阴性，医师认为血培养结果为阴性，医师认为血培养结果为阴性，医师认为血培养结果为阴性，",
+  "returncode": 0,
+  "elapsedMs": 4679,
+  "endOfTextSuffixPresent": false,
+  "suspectedTruncation": true,
+  "inputSha256": "a7476887d0145fa16c2833f1e808b6b82732010533487c6ffd56da1e59739333",
+  "command": [
+    "training/tools/llama-build/bin/llama-completion",
+    "-m",
+    "training/experiment-v2/bingli-style-v2-Q2_K.gguf",
+    "-f",
+    "training/experiment-v2/native-writing-evaluation/v2-te03.prompt.txt",
+    "-no-cnv",
+    "-n",
+    "512",
+    "--temp",
+    "0",
+    "--top-k",
+    "20",
+    "--top-p",
+    "0.8",
+    "--repeat-penalty",
+    "1.1",
+    "--repeat-last-n",
+    "64",
+    "--seed",
+    "20261004",
+    "--simple-io",
+    "--no-display-prompt",
+    "--no-escape",
+    "--log-verbosity",
+    "0",
+    "--offline",
+    "-ngl",
+    "0",
+    "-t",
+    "4"
+  ],
+  "checks": {
+    "literalChecksPassed": false,
+    "required": {
+      "total": 7,
+      "retained": 7,
+      "missing": []
+    },
+    "dates": {
+      "total": 1,
+      "retained": 1,
+      "missing": [],
+      "new": []
+    },
+    "numericUnits": {
+      "total": 1,
+      "retained": 1,
+      "missing": [],
+      "new": []
+    },
+    "negationUncertainty": {
+      "total": 4,
+      "retained": 4,
+      "missing": []
+    },
+    "forbiddenFactsFound": [],
+    "format": {
+      "headingsRetainedInOrder": true,
+      "headings": [],
+      "positions": [],
+      "addedHeadings": [],
+      "explanations": [],
+      "repeatedLines": []
+    },
+    "unrequestedStageMissingNotes": []
+  }
+}

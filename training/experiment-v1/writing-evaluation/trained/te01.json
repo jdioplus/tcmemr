@@ -1,0 +1,67 @@
+{
+  "id": "te01",
+  "suite": "holdout",
+  "variant": "trained",
+  "inputSha256": "bcf3c85e915152ee9145448d0daba83341797b94e961d9675d729fd0c3e5b6f7",
+  "output": "2026-10-04 11:10，模拟患者丙，女，46岁，便血3天，于2026-10-04 08:00入院。今早8点，10月1日直肠活检为高级别上皮内瘤变，浸润性癌，病理为浸润性癌，不能排除。无腹痛，无呕吐，未提供四诊。查房医师栏已填写，书写医师未提供，拟核对原病理及必要再取材，明日复评便血。",
+  "elapsedMs": 724,
+  "estimatedGeneratedTokens": 131,
+  "suspectedTruncation": false,
+  "checks": {
+    "literalChecksPassed": false,
+    "required": {
+      "total": 11,
+      "retained": 2,
+      "missing": [
+        "2026-10-04 11:10 首次病程记录",
+        "病例特点：",
+        "拟诊讨论：",
+        "诊疗计划：",
+        "2026-10-01",
+        "浸润性癌不能排除",
+        "无腹痛、无呕吐",
+        "直肠病变待定",
+        "【核对后签名】"
+      ]
+    },
+    "dates": {
+      "total": 3,
+      "retained": 2,
+      "missing": [
+        "2026-10-01"
+      ]
+    },
+    "numericUnits": {
+      "total": 0,
+      "retained": 0,
+      "missing": [],
+      "new": []
+    },
+    "negationUncertainty": {
+      "total": 2,
+      "retained": 0,
+      "missing": [
+        "浸润性癌不能排除",
+        "无腹痛、无呕吐"
+      ]
+    },
+    "forbiddenFactsFound": [],
+    "format": {
+      "headingsRetainedInOrder": false,
+      "headings": [
+        "病例特点：",
+        "拟诊讨论：",
+        "诊疗计划："
+      ],
+      "positions": [
+        -1,
+        -1,
+        -1
+      ],
+      "addedHeadings": [],
+      "explanations": [],
+      "repeatedLines": []
+    },
+    "unrequestedStageMissingNotes": []
+  }
+}

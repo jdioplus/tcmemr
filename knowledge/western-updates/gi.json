@@ -1,0 +1,137 @@
+{
+  "schemaVersion": "1.0",
+  "group": "gastrointestinal",
+  "reviewedAt": "2026-10-04",
+  "purpose": "供中文肿瘤病程分析、医生选择与核对使用的简明事实索引；按本次实际资料启用相关条目。",
+  "usePolicy": {
+    "evidenceKeysMeaning": "需要核对的语义字段，不能把疾病名或模板当成该字段已存在。",
+    "requiresCurrentPositiveEvidence": true,
+    "requiresClinicianSelectionForAssessment": true,
+    "noAutomaticStageOrResponse": true,
+    "noNewPrescriptionOrDose": true,
+    "noWholeGuidelineParagraphInNote": true,
+    "missingDataPlacement": "具体缺项进入核对区；正文保留有依据的判断及医师已决定的下一步。",
+    "sourceUse": "原创简明事实归纳，未复制指南正文、分期表或方案算法；PDQ 是专业证据摘要，不能标成正式指南。",
+    "recencyScope": "记录本次查到的公开版本与实际访问程度，不宣称已覆盖全部地区、学会或最新付费指南。"
+  },
+  "cancers": [
+    {
+      "kind": "gastric",
+      "cancer": "胃癌",
+      "sources": [
+        {"id":"gi-gastric-jgca7","title":"Japanese gastric cancer treatment guidelines 2025 (7th edition)","url":"https://pmc.ncbi.nlm.nih.gov/articles/PMC12956939/","version":"2025 第7版；英文版 2026-01-22 发表","publishedAt":"2026-01-22","reviewedAt":"2026-10-04","access":"公开原始指南，实际读取官方存档检索返回的正文；直接网页出现 reCAPTCHA","documentType":"clinical-practice-guideline","locator":"AGC patient criteria; biomarkers; CQ4/CQ5; postgastrectomy impairment"},
+        {"id":"gi-gastric-biomarker3","title":"日本胃癌学会 切除不能进展/复发胃癌生物标志物检测手引 第3版","url":"https://www.jgca.jp/wp-content/uploads/2023/08/tebiki_03_202607.pdf","version":"第3版，2026-07","publishedAt":"2026-07","reviewedAt":"2026-10-04","access":"官网公开15页PDF已读取","documentType":"biomarker-testing-guide","locator":"PDF pp.2,4-6,9-14"},
+        {"id":"gi-gastric-nci","title":"Gastric Cancer Treatment (PDQ®)–Health Professional Version","url":"https://www.cancer.gov/types/stomach/hp/stomach-treatment-pdq","version":"专业版；页面标示更新 2025-02-21","updatedAt":"2025-02-21","reviewedAt":"2026-10-04","access":"公开全文已读取","documentType":"professional-evidence-summary","locator":"Cellular Classification; Stage Information; Stage IV/Inoperable/Recurrent"}
+      ],
+      "diagnosisFocus": ["核对胃内原发部位及腺癌病理；结合部病灶同时核对食管受累。", "分开记录现有病理结论、影像所见与临床判断。"],
+      "stagingFocus": ["区分术前临床分期与术后病理分期，保留分期版本及原报告。", "核对浸润、淋巴结、远处及腹膜证据；分期腹腔镜用于适合的高风险情形，不能由癌名推定。"],
+      "biomarkers": ["拟启动不可切除进展/复发病系统治疗时，核对 HER2、PD-L1、MSI/MMR、CLDN18.2 原报告。", "PD-L1 记录抗体、评分方法和数值；CPS 与 TAP 不互换。HER2 保留 IHC/ISH 与标本日期。"],
+      "focusSourceIds": {"diagnosisFocus":["gi-gastric-nci"],"stagingFocus":["gi-gastric-nci","gi-gastric-jgca7"],"biomarkers":["gi-gastric-biomarker3"]},
+      "decisionPoints": [
+        {"id":"gastric-intake","label":"进食受限与症状负担","evidenceKeys":["currentSymptoms","oralIntake","weightTrend","exam","imaging","clinicianAssessment"],"activationWhen":"已记进食受限、呕吐、体重下降或相关梗阻所见","consideration":"进食受限伴呕吐时重点核对狭窄/梗阻及营养影响；是否属于肿瘤局部并发症需结合所见判断。","nextChecks":["实际摄入与体重变化","相关内镜/影像及当前支持处理的效果"],"sourceIds":["gi-gastric-jgca7","gi-gastric-nci"]},
+        {"id":"gastric-treatment-context","label":"治疗阶段与承受能力","evidenceKeys":["pathology","operation","treatmentIntent","priorTreatment","performanceStatus","organFunction","currentPlan"],"activationWhen":"医师正在评估已定手术、围术期或进展/复发病治疗","consideration":"同为胃癌，围术期与进展/复发病的决策依据不同；记录病理、治疗目的、既往经过及本次耐受情况。","nextChecks":["病理/切缘与治疗时间线","体能、器官功能及医师本次调整理由"],"sourceIds":["gi-gastric-jgca7"]},
+        {"id":"gastric-marker-review","label":"分子依据与报告时点","evidenceKeys":["advancedDisease","molecularReport","specimenDate","priorHER2Therapy","progressionEvidence","currentPlan"],"activationWhen":"进展/复发病的系统治疗决策，或医师明确提出分子结果核对","consideration":"分子结果关联具体治疗场景；抗 HER2 治疗后出现进展时，可由医师结合取材可行性评估 HER2 再检测。","nextChecks":["四项结果及标本质量/日期","既往抗 HER2 经过、进展证据及再取材可行性"],"sourceIds":["gi-gastric-biomarker3"]}
+      ],
+      "followupFocus": ["对照症状、摄入与治疗毒性，避免单凭症状好转认定肿瘤缓解。", "胃切除后补记营养及长期功能影响；复评采用医师已定安排。"],
+      "followupSourceIds": ["gi-gastric-jgca7"]
+    },
+    {
+      "kind": "esophageal",
+      "cancer": "食管癌",
+      "sources": [
+        {"id":"gi-esophageal-esmo25","title":"ESMO interim update: locally advanced oesophageal/OGJ adenocarcinoma and metastatic squamous-cell carcinoma","url":"https://pmc.ncbi.nlm.nih.gov/articles/PMC11889489/","version":"2025 interim update；2025-02-12 发表","publishedAt":"2025-02-12","reviewedAt":"2026-10-04","access":"公开原始指南，已读取官方存档检索返回的正文；直接网页出现 reCAPTCHA","documentType":"clinical-practice-guideline-update","locator":"Locally advanced resectable disease; advanced SCC; Figure 2 PD-L1 score annotations"},
+        {"id":"gi-esophageal-nci","title":"Esophageal Cancer Treatment (PDQ®)–Health Professional Version","url":"https://www.cancer.gov/types/esophageal/hp/esophageal-treatment-pdq","version":"专业版；页面标示更新 2025-03-21","updatedAt":"2025-03-21","reviewedAt":"2026-10-04","access":"公开全文已读取","documentType":"professional-evidence-summary","locator":"Staging Evaluation; Treatment Option Overview; palliation of dysphagia"}
+      ],
+      "diagnosisFocus": ["明确鳞癌或腺癌及肿瘤部位；结合部腺癌另核对原发中心。", "将吞咽程度、摄入变化与本次实际检查对应。"],
+      "stagingFocus": ["核对内镜/EUS、胸腹部影像及必要的远处分期检查。", "临床局部分期、可切除性与手术耐受度分别记录，不能相互替代。"],
+      "biomarkers": ["晚期鳞癌需要分子依据时核对 PD-L1 原报告；CPS、TPS、TAP 属不同评分。", "腺癌/结合部病灶按相应场景复核 HER2、MSI/MMR 等，不能照搬鳞癌分支。"],
+      "focusSourceIds": {"diagnosisFocus":["gi-esophageal-nci","gi-esophageal-esmo25"],"stagingFocus":["gi-esophageal-nci","gi-esophageal-esmo25"],"biomarkers":["gi-esophageal-esmo25","gi-gastric-biomarker3"]},
+      "decisionPoints": [
+        {"id":"esophageal-swallowing","label":"吞咽变化及进食影响","evidenceKeys":["dysphagia","oralIntake","weightTrend","endoscopy","currentSupportPlan"],"activationWhen":"已记吞咽困难或摄入下降","consideration":"吞咽困难加重提示局部通行受限可能，应与内镜/影像、摄入及体重变化对照，明确本次对症处理目标。","nextChecks":["流质/固体通行情况与实际摄入","狭窄所见及医师已定支持措施的效果"],"sourceIds":["gi-esophageal-nci"]},
+        {"id":"esophageal-local-assessment","label":"局部进展病的综合评估","evidenceKeys":["histology","clinicalStage","resectability","performanceStatus","comorbidity","currentPlan"],"activationWhen":"已证实局部进展病，医师正在评估治疗路径","consideration":"局部进展病例先区分腺癌与鳞癌，再结合可切除性和耐受情况记录综合治疗理由；新版腺癌证据不能直接套用于鳞癌。","nextChecks":["局部分期与远处证据","手术/MDT 意见及既往治疗经过"],"sourceIds":["gi-esophageal-esmo25"]},
+        {"id":"esophageal-pdl1-context","label":"晚期鳞癌的免疫依据","evidenceKeys":["squamousHistology","advancedDisease","PDL1","priorTreatment","currentPlan"],"activationWhen":"晚期鳞癌正在核对医师已定免疫治疗依据","consideration":"免疫相关论述应对应病理、既往线次及 PD-L1 评分方法；国外准入条件不等同于中国可用适应证。","nextChecks":["抗体、CPS/TPS/TAP 原始结果","既往药物与毒性、本院适应证核对"],"sourceIds":["gi-esophageal-esmo25"]}
+      ],
+      "followupFocus": ["复评吞咽、体重、摄入及已有治疗的毒性。", "术后或治疗后复评区分临床变化与病理/影像疗效。"],
+      "followupSourceIds": ["gi-esophageal-nci","gi-esophageal-esmo25"]
+    },
+    {
+      "kind": "colorectal",
+      "cancer": "结直肠癌",
+      "sources": [
+        {"id":"gi-colorectal-esmo26","title":"Metastatic colorectal cancer: ESMO Clinical Practice Guideline for diagnosis, treatment and follow-up","url":"https://www.annalsofoncology.org/article/S0923-7534%2826%2900108-0/fulltext","version":"2026 CPG；2026-03 更新，2026-04-14 在线发表；取代2023版","publishedAt":"2026-04-14","reviewedAt":"2026-10-04","access":"出版社公开检索返回的诊断/分子段已读；直接全文抓取403，未读取所有补充材料","documentType":"clinical-practice-guideline","locator":"Diagnosis, pathology and molecular biology: Recommendations"},
+        {"id":"gi-colon-nci","title":"Colon Cancer Treatment (PDQ®)–Health Professional Version","url":"https://www.cancer.gov/types/colorectal/hp/colon-treatment-pdq","version":"专业版；页面标示更新 2025-02-12","updatedAt":"2025-02-12","reviewedAt":"2026-10-04","access":"公开全文已读取","documentType":"professional-evidence-summary","locator":"Prognostic Factors; Stage II; Follow-Up and Survivorship"},
+        {"id":"gi-rectal-nci","title":"Rectal Cancer Treatment (PDQ®)–Health Professional Version","url":"https://www.cancer.gov/types/colorectal/hp/rectal-treatment-pdq","version":"专业版；页面标示更新 2025-02-12","updatedAt":"2025-02-12","reviewedAt":"2026-10-04","access":"公开全文已读取","documentType":"professional-evidence-summary","locator":"Staging Evaluation; clinical complete response and surveillance"},
+        {"id":"gi-colorectal-living26","title":"ESMO Guidelines News: Metastatic Colorectal Cancer Living Guideline","url":"https://www.esmo.org/guidelines/guidelines-news","version":"Living Guideline v2.0，2026-06","publishedAt":"2026-06","reviewedAt":"2026-10-04","access":"官网版本公告已核对；互动正文未完整读取","documentType":"version-announcement","contentUse":"仅版本溯源，不作为未读建议的依据"}
+      ],
+      "diagnosisFocus": ["病理确认与原发部位并记；区分结肠和直肠。", "当前便血、梗阻与术后状态按真实资料分开。"],
+      "stagingFocus": ["对照浸润、淋巴结及远处所见；术后保留 pTNM 与切缘资料。", "直肠病例核对盆腔 MRI 的局部侵犯、环周切缘风险及肿瘤位置。"],
+      "biomarkers": ["转移性病例核对 KRAS/NRAS 具体变异、BRAF V600E、MMR/MSI、HER2。", "NGS/融合检测、ctDNA 按明确场景记录；ctDNA 不替代影像与病理全部评估。"],
+      "focusSourceIds": {"diagnosisFocus":["gi-colorectal-esmo26","gi-colon-nci"],"stagingFocus":["gi-colon-nci","gi-rectal-nci"],"biomarkers":["gi-colorectal-esmo26"]},
+      "decisionPoints": [
+        {"id":"colorectal-postoperative","label":"术后风险依据","evidenceKeys":["operation","pathology","TCategory","nodeCount","margin","obstruction","perforation","MMR","currentPlan"],"activationWhen":"术后病例正在评估辅助治疗或复评理由","consideration":"术后风险需结合病理浸润、淋巴结取样与现有梗阻/穿孔等信息；不能仅由“术后”写出统一辅助方案。","nextChecks":["切缘、阳性/总淋巴结与实际病理分期","现有 MMR/MSI 与医师辅助治疗意见"],"sourceIds":["gi-colon-nci","gi-colorectal-esmo26"]},
+        {"id":"rectal-response","label":"直肠局部疗效复评","evidenceKeys":["rectalPrimary","priorNeoadjuvantTreatment","rectalExam","endoscopy","pelvicMRI","responseAssessment","currentPlan"],"activationWhen":"直肠病例正在复评新辅助治疗后反应或已定非手术随访","consideration":"临床完全缓解应来自直肠检查、内镜和影像的综合评估；症状缓解不能单独支持非手术管理。","nextChecks":["直肠检查、内镜及盆腔 MRI 的同期结果","医师/MDT 已定处理与密切复评安排"],"sourceIds":["gi-rectal-nci"]},
+        {"id":"colorectal-molecular","label":"转移病的分子与既往经过","evidenceKeys":["metastaticEvidence","molecularReport","primarySide","priorTreatment","performanceStatus","currentPlan"],"activationWhen":"转移性病例需要核对医师已定系统治疗依据","consideration":"转移病的决策应对应分子亚型、原发侧别及既往治疗；用原始检测结果支撑医师选择，不将“未检测”写成野生型。","nextChecks":["RAS/BRAF、MMR/MSI、HER2 原报告","既往获益与进展时间、器官功能和毒性"],"sourceIds":["gi-colorectal-esmo26"]}
+      ],
+      "followupFocus": ["将 CEA 趋势与症状和影像对照，单次升高不直接等同复发/进展。", "直肠非手术管理需保留内镜、MRI 与检查复评安排。"],
+      "followupSourceIds": ["gi-colon-nci","gi-rectal-nci"]
+    },
+    {
+      "kind": "liver",
+      "cancer": "原发性肝癌（以肝细胞癌为主）",
+      "sources": [
+        {"id":"gi-liver-nhc26","title":"国家卫生健康委 原发性肝癌诊疗指南（2026年版）","url":"https://www.nhc.gov.cn/yzygj/c100067/202604/3371c9cb2f7f4f55b18c709ff2c53ab8/files/%E5%8E%9F%E5%8F%91%E6%80%A7%E8%82%9D%E7%99%8C%E8%AF%8A%E7%96%97%E6%8C%87%E5%8D%97%EF%BC%882026%E7%89%88%EF%BC%89.pdf","version":"2026年版；发文2026-03-30，官网索引2026-04-09","publishedAt":"2026-04-09","reviewedAt":"2026-10-04","access":"官网公开PDF（226页、11,480,781字节）已在内存解析，读取分期、肝储备及监测段；未保存整本到产品","documentType":"national-diagnosis-treatment-guideline","locator":"PDF pp.10-11,18,27,37-39,41","sha256":"7e2d0e76ac7b5a9f773b25316f5e0e34c8fc4a338303cb95a6774732c084688f"},
+        {"id":"gi-liver-nci","title":"Primary Liver Cancer Treatment (PDQ®)–Health Professional Version","url":"https://www.cancer.gov/types/liver/hp/adult-liver-treatment-pdq","version":"专业版；页面标示更新 2025-04-17","updatedAt":"2025-04-17","reviewedAt":"2026-10-04","access":"公开全文已读取","documentType":"professional-evidence-summary","locator":"Treatment Option Overview; first-line safety; recurrent disease"}
+      ],
+      "diagnosisFocus": ["区分 HCC、肝内胆管癌、混合癌与肝转移瘤；肝占位不能自动等同 HCC。", "依据实际增强影像、血清指标及必要的病理资料记录判断。"],
+      "stagingFocus": ["CNLC 同时核对 PS、Child-Pugh、肿瘤数目/最大径、血管癌栓、肝外转移。", "肿瘤负荷与肝脏储备并重；CNLC、BCLC、TNM 名称及版本不混写。"],
+      "biomarkers": ["AFP 用于与影像/疗效对照，不能单值定分期。", "记录实际 HBV/HCV 状态及肝功能；PIVKA-II 等仅按已有报告核对。"],
+      "focusSourceIds": {"diagnosisFocus":["gi-liver-nhc26"],"stagingFocus":["gi-liver-nhc26"],"biomarkers":["gi-liver-nhc26"]},
+      "decisionPoints": [
+        {"id":"liver-reserve","label":"肿瘤与肝储备的双重评估","evidenceKeys":["imaging","tumorCount","tumorDiameter","vascularInvasion","extrahepaticSpread","performanceStatus","ChildPugh","ALBI","currentPlan"],"activationWhen":"已确诊 HCC 且正在复评局部/系统治疗依据","consideration":"本次治疗评估同时关注肿瘤范围与肝储备；新发腹水或胆红素升高时还需核对基础肝病和治疗后变化。","nextChecks":["增强影像及血管/肝外所见","胆红素、白蛋白、凝血与腹水变化"],"sourceIds":["gi-liver-nhc26","gi-liver-nci"]},
+        {"id":"liver-postlocal","label":"局部治疗后的活性复评","evidenceKeys":["priorAblationOrEmbolization","treatmentDate","contrastImaging","AFPTrend","clinicianResponse"],"activationWhen":"已行消融/介入并有本次复评资料","consideration":"局部治疗后需看残余活性与新病灶；病灶尺寸变化或周围反应性充血不能单独代表残留肿瘤。","nextChecks":["治疗时点与增强/造影表现","AFP 趋势、相关并发症及医师疗效判断"],"sourceIds":["gi-liver-nhc26"]},
+        {"id":"liver-systemic-safety","label":"当前系统治疗的风险依据","evidenceKeys":["currentSystemicTherapy","varicealHistory","bleeding","liverFunction","priorAdverseEvents","currentPlan"],"activationWhen":"已有系统治疗方案，需核对当前耐受及相关出血风险","consideration":"系统治疗记录应结合肝功能、既往毒性及活动性静脉曲张/出血情况解释医师决定。","nextChecks":["本次肝功能与实际出血相关资料","当前药物、既往毒性及暂停/调整的医师理由"],"sourceIds":["gi-liver-nci"]}
+      ],
+      "followupFocus": ["结合肝功能、AFP 与实际增强影像，区分肿瘤活性和基础肝病变化。", "复发病例重新核对病灶范围、肝储备及 MDT 已定意见。"],
+      "followupSourceIds": ["gi-liver-nhc26","gi-liver-nci"]
+    },
+    {
+      "kind": "pancreatic",
+      "cancer": "胰腺癌（外分泌/导管腺癌）",
+      "sources": [
+        {"id":"gi-pancreatic-paga25","title":"Pan-Asian adapted ESMO Clinical Practice Guidelines for pancreatic cancer","url":"https://pmc.ncbi.nlm.nih.gov/articles/PMC12546840/","version":"Pan-Asian adapted CPG；2025-10-09 发表","publishedAt":"2025-10-09","reviewedAt":"2026-10-04","access":"公开原始指南，已读取官方存档检索返回的诊断、分期和分子段；直接网页出现 reCAPTCHA","documentType":"clinical-practice-guideline","locator":"Table 2 recommendations 2h-2o,3a-3c; precision medicine"},
+        {"id":"gi-pancreatic-express26","title":"ESMO Express Update on daraxonrasib in metastatic pancreatic cancer","url":"https://www.annalsofoncology.org/article/S0923-7534%2826%2901457-2/fulltext","version":"Express Update；2026-08-19 在线发表","publishedAt":"2026-08-19","reviewedAt":"2026-10-04","access":"出版社题名、日期及公开 highlights 已读；直接全文抓取403，未核验全部分子/二线建议","documentType":"clinical-practice-guideline-update","contentUse":"仅提示2026已更新及需复核原文，不导入未读药物建议"},
+        {"id":"gi-pancreatic-nci","title":"Pancreatic Cancer Treatment (PDQ®)–Health Professional Version","url":"https://www.cancer.gov/types/pancreatic/hp/pancreatic-treatment-pdq","version":"专业版；页面标示更新 2025-02-12","updatedAt":"2025-02-12","reviewedAt":"2026-10-04","access":"公开全文已读取","documentType":"professional-evidence-summary","locator":"Diagnostic and Staging Evaluation; tumor markers; Palliative Therapy"}
+      ],
+      "diagnosisFocus": ["导管腺癌与胰腺神经内分泌等类型分开；核对病理及头/体/尾部位。", "拟行系统治疗前核对组织/细胞学依据和实际影像。"],
+      "stagingFocus": ["区分可切除、交界可切除、局部进展及转移病；记录血管关系与 MDT 判断。", "解剖可切除性还需结合生物学和体能/全身条件，不能只依据大小。"],
+      "biomarkers": ["核对 CA19-9 趋势，正常值也不能排除复发。", "按病程场景核对胚系 BRCA、肿瘤 KRAS；KRAS 野生型可进一步核对 MSI、NTRK 等罕见改变。"],
+      "focusSourceIds": {"diagnosisFocus":["gi-pancreatic-paga25","gi-pancreatic-nci"],"stagingFocus":["gi-pancreatic-paga25"],"biomarkers":["gi-pancreatic-paga25","gi-pancreatic-nci"]},
+      "decisionPoints": [
+        {"id":"pancreatic-jaundice-intake","label":"黄疸与进食、疼痛负担","evidenceKeys":["jaundice","bilirubin","ductDilation","pain","oralIntake","currentDrainage","currentSupportPlan"],"activationWhen":"已有黄疸、胆道扩张、进食受限或疼痛","consideration":"黄疸伴胆道扩张时考虑梗阻性因素；结合疼痛、摄入与已有引流情况，明确本次主要症状负担。","nextChecks":["胆红素及影像的梗阻部位","引流通畅与医师已定支持处理效果"],"sourceIds":["gi-pancreatic-nci"]},
+        {"id":"pancreatic-resectability","label":"可切除性及治疗时序","evidenceKeys":["pathology","pancreasImaging","vesselRelationship","metastaticEvidence","performanceStatus","MDT","currentPlan"],"activationWhen":"正在评估局限病的手术/围术期路径","consideration":"局限病的路径应结合血管关系、远处证据及全身条件，由胰腺专科 MDT 形成意见。","nextChecks":["专科影像对血管关系的描述","组织学、体能与 MDT 的本次判断"],"sourceIds":["gi-pancreatic-paga25"]},
+        {"id":"pancreatic-molecular-context","label":"分子报告与既往线次","evidenceKeys":["unresectableOrMetastatic","germlineBRCA","tumorKRAS","MSI","NTRK","priorTreatment","currentPlan"],"activationWhen":"不可切除/转移病的分子依据或后线评估","consideration":"胚系与体细胞结果分别记录，关联既往线次及当前体能。2026 已有专项更新，具体药物决策需核对可读原文与本院适应证。","nextChecks":["BRCA 来源、KRAS 具体结果及现有扩展检测","既往疗效、毒性和当前治疗目标"],"sourceIds":["gi-pancreatic-paga25","gi-pancreatic-express26"]}
+      ],
+      "followupFocus": ["将 CA19-9 与影像、疼痛、摄入及黄疸变化对照。", "记录已有引流、镇痛与抗肿瘤措施的效果及毒性，不凭单一标志物判进展。"],
+      "followupSourceIds": ["gi-pancreatic-nci","gi-pancreatic-paga25"]
+    },
+    {
+      "kind": "biliary",
+      "cancer": "胆道肿瘤（胆管癌/胆囊癌）",
+      "sources": [
+        {"id":"gi-biliary-esmo25","title":"ESMO Clinical Practice Guideline interim update on the management of biliary tract cancer","url":"https://pmc.ncbi.nlm.nih.gov/articles/PMC11846563/","version":"2025-01刊；2024-12-17 在线发表的 interim update","publishedAt":"2024-12-17","reviewedAt":"2026-10-04","access":"公开原始指南全文已读取","documentType":"clinical-practice-guideline-update","locator":"Molecular diagnostics; HER2 testing; Figure 1; recommendations"},
+        {"id":"gi-biliary-nci","title":"Bile Duct Cancer (Cholangiocarcinoma) Treatment (PDQ®)–Health Professional Version","url":"https://www.cancer.gov/types/liver/hp/bile-duct-treatment-pdq","version":"专业版；页面标示更新 2025-03-28","updatedAt":"2025-03-28","reviewedAt":"2026-10-04","access":"公开全文已读取；此篇范围为胆管癌，不能替代胆囊癌全部分期内容","documentType":"professional-evidence-summary","locator":"Diagnostic and Staging Evaluation; anatomical staging; palliation; targeted therapy"}
+      ],
+      "diagnosisFocus": ["先明确肝内、肝门、远端胆管或胆囊原发及病理类型。", "肝内病灶需结合病理/影像区分胆管原发与其他腺癌转移。"],
+      "stagingFocus": ["不同胆道原发部位适用的 TNM 分支不同，不能共用一个自动分期。", "核对局部血管/胆管范围、远处转移、切缘及可切除性；涉及肝切除时并记肝储备。"],
+      "biomarkers": ["进展病拟行系统治疗时核对分子检测；已有报告关注 FGFR2 融合/重排、IDH1、HER2、MMR/MSI 及相关融合。", "HER2 表达、扩增与突变分开写；检测标准/证据不可直接照搬其他癌种。"],
+      "focusSourceIds": {"diagnosisFocus":["gi-biliary-nci","gi-biliary-esmo25"],"stagingFocus":["gi-biliary-nci"],"biomarkers":["gi-biliary-nci","gi-biliary-esmo25"]},
+      "decisionPoints": [
+        {"id":"biliary-obstruction","label":"胆道梗阻与引流效果","evidenceKeys":["jaundice","pruritus","bilirubin","biliaryImaging","drainage","currentPlan"],"activationWhen":"有黄疸/瘙痒、胆道扩张或已有引流","consideration":"黄疸与胆道扩张相符时，重点核对梗阻及已有引流效果；肝功能变化与肿瘤负荷分别分析。","nextChecks":["梗阻部位、胆红素和肝功能趋势","支架/引流记录与通畅情况"],"sourceIds":["gi-biliary-nci"]},
+        {"id":"biliary-local-extent","label":"局部范围与手术依据","evidenceKeys":["primarySite","pathology","vascularRelationship","ductExtent","metastaticEvidence","liverReserve","MDT","currentPlan"],"activationWhen":"局限病正在核对手术或局部治疗意见","consideration":"完整切除的可行性取决于具体原发部位、局部范围及必要的肝储备；记录专科判断的依据。","nextChecks":["影像对血管与胆管范围的描述","病理/切缘、肝储备及 MDT 意见"],"sourceIds":["gi-biliary-nci"]},
+        {"id":"biliary-molecular-context","label":"进展病的分子结果应用","evidenceKeys":["advancedDisease","molecularReport","HER2Method","FGFR2","IDH1","MSI","priorTreatment","performanceStatus","currentPlan"],"activationWhen":"局部进展/转移病开始系统治疗或后线核对","consideration":"分子结果、既往线次及器官功能共同支撑医师决策；FGFR2 融合/重排不能改写成笼统 FGFR2 阳性。","nextChecks":["检测方法、具体改变及标本日期","既往疗效/毒性与本次医师选择理由"],"sourceIds":["gi-biliary-esmo25","gi-biliary-nci"]}
+      ],
+      "followupFocus": ["并记影像变化、胆红素/肝功能与已有引流效果。", "区分肿瘤相关变化、梗阻及治疗毒性，再呈现医师已定复评。"],
+      "followupSourceIds": ["gi-biliary-nci","gi-biliary-esmo25"]
+    }
+  ]
+}

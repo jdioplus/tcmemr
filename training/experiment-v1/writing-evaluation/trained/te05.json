@@ -1,0 +1,51 @@
+{
+  "id": "te05",
+  "suite": "holdout",
+  "variant": "trained",
+  "inputSha256": "c3298cf8090f63b8561aec288b1de3649eb723ae2ffd6c8118b771b596cce2dd",
+  "output": "2026-10-04 14:20，已录Hb113 g/L，已录旧报告为104 g/L，今日已乏力，已无黑便，今日已录Hb113 g/L，已录旧报告为104 g/L，乏力仍在黑便，今日已录Hb113 g/L，已录旧报告为104 g/L，乏力仍在黑便，继续观察体力并按原计划复查。",
+  "elapsedMs": 561,
+  "estimatedGeneratedTokens": 110,
+  "suspectedTruncation": false,
+  "checks": {
+    "literalChecksPassed": false,
+    "required": {
+      "total": 7,
+      "retained": 4,
+      "missing": [
+        "2026-10-04 07:00 Hb113 g/L",
+        "2026-09-30",
+        "回升"
+      ]
+    },
+    "dates": {
+      "total": 3,
+      "retained": 1,
+      "missing": [
+        "2026-10-04 07:00",
+        "2026-09-30"
+      ]
+    },
+    "numericUnits": {
+      "total": 2,
+      "retained": 2,
+      "missing": [],
+      "new": []
+    },
+    "negationUncertainty": {
+      "total": 1,
+      "retained": 1,
+      "missing": []
+    },
+    "forbiddenFactsFound": [],
+    "format": {
+      "headingsRetainedInOrder": true,
+      "headings": [],
+      "positions": [],
+      "addedHeadings": [],
+      "explanations": [],
+      "repeatedLines": []
+    },
+    "unrequestedStageMissingNotes": []
+  }
+}

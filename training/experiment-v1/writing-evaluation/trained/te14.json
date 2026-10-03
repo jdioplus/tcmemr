@@ -1,0 +1,51 @@
+{
+  "id": "te14",
+  "suite": "holdout",
+  "variant": "trained",
+  "inputSha256": "2d6d1ffa393b9e6b4411a78410456428f374decaab650d2f798d0d6321b3ee38",
+  "output": "胃脘隐痛、乏力，舌紫、苔薄白、脉弦涩，气虚血瘀证，已予益气活血，拟加治法为益气活血，复评胃脘疼痛与体力；新法未加具体方药。",
+  "elapsedMs": 336,
+  "estimatedGeneratedTokens": 57,
+  "suspectedTruncation": false,
+  "checks": {
+    "literalChecksPassed": false,
+    "required": {
+      "total": 7,
+      "retained": 3,
+      "missing": [
+        "主任确认气虚血瘀证",
+        "乏力为气虚线索",
+        "支持血瘀判断",
+        "具体方药未提供"
+      ]
+    },
+    "dates": {
+      "total": 0,
+      "retained": 0,
+      "missing": []
+    },
+    "numericUnits": {
+      "total": 0,
+      "retained": 0,
+      "missing": [],
+      "new": []
+    },
+    "negationUncertainty": {
+      "total": 1,
+      "retained": 0,
+      "missing": [
+        "具体方药未提供"
+      ]
+    },
+    "forbiddenFactsFound": [],
+    "format": {
+      "headingsRetainedInOrder": true,
+      "headings": [],
+      "positions": [],
+      "addedHeadings": [],
+      "explanations": [],
+      "repeatedLines": []
+    },
+    "unrequestedStageMissingNotes": []
+  }
+}

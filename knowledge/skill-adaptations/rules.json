@@ -1,0 +1,159 @@
+{
+  "schemaVersion": "1.0",
+  "id": "tcm-and-daily-rounds-local-adaptation",
+  "language": "zh-CN",
+  "noteTypeOrder": ["first", "attending", "chief", "daily"],
+  "sources": [
+    {
+      "id": "tcm",
+      "name": "TCM.Skill",
+      "author": "YuanZHAO321",
+      "url": "https://github.com/YuanZHAO321/TCM.Skill",
+      "license": "CC-BY-NC-4.0",
+      "licenseFile": "TCM.Skill-CC-BY-NC-4.0.txt",
+      "adapted": true,
+      "changeNotice": "改编为中文病程整理的事实字段、辨证核对、一般病机和方义组织规则；省去家庭调理建议、选方、剂量与外治操作。"
+    },
+    {
+      "id": "casemark",
+      "name": "conducting-daily-rounds",
+      "author": "CaseMark",
+      "copyright": "Copyright 2025 CaseMark, Inc.",
+      "url": "https://github.com/CaseMark/skills/blob/main/skills/med/conducting-daily-rounds/SKILL.md",
+      "license": "Apache-2.0",
+      "licenseFile": "CaseMark-Apache-2.0.txt",
+      "adapted": true,
+      "changeNotice": "译为本地日常病程组织与核对规则；使用中国医师病程叙述，省去美国计费要求、阈值、默认出院日期及自动医嘱。"
+    }
+  ],
+  "integration": {
+    "mode": "local-data-only",
+    "metadataFile": "source-metadata.json",
+    "patientFactsRequired": true,
+    "instructionTextInClinicalBody": false,
+    "newPrescriptionsAllowed": false,
+    "newDosagesAllowed": false,
+    "sourceFactsOverrideTemplates": true,
+    "hospitalExamplesOverrideSectionLabels": true,
+    "missingSections": "omit-and-review",
+    "mechanismMatching": "confirmed-syndrome-and-current-positive-fact",
+    "mechanismTermsAre": "review-terms-not-patient-facts-or-diagnostic-scores"
+  },
+  "tcm": {
+    "evidenceFields": [
+      {"id": "chiefComplaint", "label": "本次主症与病程", "sourceRefs": ["tcm-skill:就医沟通单"]},
+      {"id": "currentSymptoms", "label": "刻下症", "sourceRefs": ["tcm-skill:就医沟通单"]},
+      {"id": "tongue", "label": "舌质", "sourceRefs": ["tcm-diagnosis:L83"]},
+      {"id": "coat", "label": "舌苔", "sourceRefs": ["tcm-diagnosis:L83"]},
+      {"id": "pulse", "label": "脉象", "sourceRefs": ["tcm-diagnosis:L83"]},
+      {"id": "history", "label": "既往史与演变", "sourceRefs": ["tcm-skill:就医沟通单"]},
+      {"id": "currentMedication", "label": "本次在用中西药", "sourceRefs": ["tcm-skill:就医沟通单"]}
+    ],
+    "workflow": [
+      {"id": "evidence", "label": "四诊依据", "inputKeys": ["chiefComplaint", "currentSymptoms", "tongue", "coat", "pulse"], "omitWhenMissing": true, "sourceRefs": ["tcm-diagnosis:L83", "tcm-skill:就医沟通单"]},
+      {"id": "syndrome", "label": "辨证", "inputKeys": ["syndrome", "syndromeConfirmed", "matchedEvidence"], "omitWhenMissing": true, "sourceRefs": ["tcm-diagnosis:L82-L85"]},
+      {"id": "mechanism", "label": "病机", "inputKeys": ["clinicianMechanism", "syndrome", "syndromeConfirmed", "matchedEvidence"], "omitWhenMissing": true, "sourceRefs": ["tcm-diagnosis:L82-L85", "tcm-formula:L26"]},
+      {"id": "treatmentPrinciple", "label": "治法", "inputKeys": ["clinicianTreatmentPrinciple", "tcmPlan"], "omitWhenMissing": true, "useOnlyClinicianProvidedDecision": true, "sourceRefs": ["tcm-formula:L3", "tcm-formula:L26"]},
+      {"id": "formulaRationale", "label": "方药与方义", "inputKeys": ["currentPrescription", "clinicianFormulaRationale"], "omitWhenMissing": true, "useOnlyExistingPrescription": true, "sourceRefs": ["tcm-skill:处方解读与安全复核流程", "tcm-formula:L72-L75"]}
+    ],
+    "mechanismTemplates": {
+      "气虚": {
+        "mechanism": "气虚则机能减退。",
+        "syndromeTerms": ["气虚", "脾虚", "脾胃虚弱", "气血两虚"],
+        "requiredFacts": ["乏力", "神疲", "倦怠", "气短", "少气", "懒言", "自汗", "脉虚", "脉弱", "脉无力", "脉细软无力"],
+        "matchMode": "any",
+        "requiresConfirmedSyndrome": true,
+        "requiresCurrentPositiveFacts": true,
+        "reviewItems": ["结合实际寒象核对气虚与阳虚；未记录的寒象不自动补入。"],
+        "sourceRefs": ["tcm-qi-blood:L36", "tcm-mechanism:L40"]
+      },
+      "气滞": {
+        "mechanism": "气机郁滞，运行不畅。",
+        "syndromeTerms": ["气滞", "肝郁", "气郁"],
+        "requiredFacts": ["胀满", "胀闷", "胀痛", "窜痛", "阵发痛", "脉弦"],
+        "matchMode": "any",
+        "requiresConfirmedSyndrome": true,
+        "requiresCurrentPositiveFacts": true,
+        "reviewItems": ["结合症状部位与实际病史核对，不能由胀满自动推定情志病因。"],
+        "sourceRefs": ["tcm-qi-blood:L38", "tcm-mechanism:L43"]
+      },
+      "血瘀": {
+        "mechanism": "血行失常，瘀血内阻。",
+        "syndromeTerms": ["血瘀", "瘀血", "夹瘀", "瘀阻"],
+        "requiredFacts": ["刺痛", "痛有定处", "拒按", "夜间痛", "舌紫", "舌暗", "瘀斑", "脉涩", "弦涩", "细涩"],
+        "matchMode": "any",
+        "requiresConfirmedSyndrome": true,
+        "requiresCurrentPositiveFacts": true,
+        "reviewItems": ["以实际疼痛、色泽和舌脉核对；现代肿瘤或肿块病名本身不自动充当血瘀证据。"],
+        "sourceRefs": ["tcm-causes:L60-L61", "tcm-qi-blood:L46"]
+      },
+      "痰湿": {
+        "mechanism": "水液输布失常，湿浊困阻，痰饮凝聚。",
+        "syndromeTerms": ["痰湿", "痰浊", "湿困", "湿阻", "湿滞"],
+        "requiredFacts": ["胸脘满闷", "脘闷", "呕恶", "纳呆", "痰多", "苔白腻", "苔腻", "脉滑"],
+        "matchMode": "any",
+        "requiresConfirmedSyndrome": true,
+        "requiresCurrentPositiveFacts": true,
+        "reviewItems": ["只归纳本次湿痰相关表现，不能自动加入痰、浮肿、腹水或饮食病因。"],
+        "sourceRefs": ["tcm-mechanism:L59", "tcm-causes:L56-L57", "tcm-qi-blood:L64"]
+      },
+      "阴虚": {
+        "mechanism": "阴液亏耗，失于滋养。",
+        "syndromeTerms": ["阴虚", "阴亏", "阴液不足", "胃阴不足", "阴津亏耗"],
+        "requiredFacts": ["口咽干燥", "口干", "咽干", "五心烦热", "潮热", "盗汗", "颧红", "舌红少苔", "舌红少津", "脉细数"],
+        "matchMode": "any",
+        "requiresConfirmedSyndrome": true,
+        "requiresCurrentPositiveFacts": true,
+        "reviewItems": ["结合实际热象、舌脉核对；不能自动写潮热、盗汗或阴虚火旺。"],
+        "sourceRefs": ["tcm-mechanism:L31", "tcm-mechanism:L58", "tcm-patterns:胃阴虚"]
+      }
+    },
+    "differentialReview": [
+      {"id": "support", "label": "每个证型解释有本次正向事实支持", "inputKeys": ["matchedEvidence", "syndromeConfirmed"], "sourceRefs": ["tcm-diagnosis:L83"]},
+      {"id": "contradiction", "label": "核对反证与兼夹，不把矛盾表现藏掉", "inputKeys": ["contradictions", "currentSymptoms", "tongue", "coat", "pulse"], "sourceRefs": ["tcm-skill:问诊与辨证流程"]},
+      {"id": "course", "label": "区分既往与本次，变化需有对应资料", "inputKeys": ["history", "eventDates", "currentSymptoms"], "sourceRefs": ["tcm-diagnosis:L83"]},
+      {"id": "decision", "label": "治法和处方续停来自本次医师决定", "inputKeys": ["clinicianTreatmentPrinciple", "tcmPlan", "currentPrescription"], "sourceRefs": ["tcm-skill:处方解读与安全复核流程"]}
+    ],
+    "formulaRoles": [
+      {"id": "monarch", "label": "君药", "meaning": "针对主病或主证起主要作用。", "sourceRefs": ["tcm-formula:L72"]},
+      {"id": "minister", "label": "臣药", "meaning": "辅助君药，或针对重要兼病兼证。", "sourceRefs": ["tcm-formula:L73"]},
+      {"id": "assistant", "label": "佐药", "meaning": "辅助治疗、兼顾次要兼证，或制约药性。", "sourceRefs": ["tcm-formula:L74"]},
+      {"id": "envoy", "label": "使药", "meaning": "引经或调和诸药。", "sourceRefs": ["tcm-formula:L75"]}
+    ],
+    "formulaRationalePolicy": {
+      "actualPrescriptionOnly": true,
+      "clinicianRationaleFirst": true,
+      "unverifiedRoleInReviewOnly": true,
+      "noAutomaticAddRemoveOrDoseChange": true,
+      "noReferenceFormulaAsActualPlan": true
+    },
+    "classicLookup": {
+      "sourceRefs": ["tcm-skill:原文检索与临时研读接口"],
+      "searchBy": ["主症", "病机", "篇名", "同义或异写"],
+      "readContext": true,
+      "requiredCitationFields": ["book", "chapter", "text", "sourcePath"],
+      "preserveSourceText": true,
+      "mustMatchCurrentEvidence": true,
+      "mustBeExplicitlyRequested": true,
+      "noDoseOrPrescriptionDerivation": true
+    }
+  },
+  "dailyRounds": {
+    "sections": [
+      {"id": "overnightEvents", "label": "夜间及上次查房后变化", "inputKeys": ["overnightEvents"], "omitWhenMissing": true, "sourceRefs": ["casemark-rounds:Checkpoint A"]},
+      {"id": "currentCondition", "label": "本次病情与诉求", "inputKeys": ["currentSymptoms", "patientConcerns"], "omitWhenMissing": true, "sourceRefs": ["casemark-rounds:Step 2"]},
+      {"id": "objectiveFindings", "label": "本次查体与重要结果", "inputKeys": ["currentExam", "vitalSigns", "newResults", "treatmentResponse"], "omitWhenMissing": true, "sourceRefs": ["casemark-rounds:Step 1", "casemark-rounds:Step 2"]},
+      {"id": "assessment", "label": "主要问题评估与依据", "inputKeys": ["activeProblems", "clinicianAssessment", "matchedEvidence"], "omitWhenMissing": true, "sourceRefs": ["casemark-rounds:Step 3"]},
+      {"id": "plan", "label": "本次医师意见与调整理由", "inputKeys": ["clinicianPlan", "tcmPlan", "treatmentChanges", "changeReasons"], "omitWhenMissing": true, "sourceRefs": ["casemark-rounds:Step 3", "casemark-rounds:Step 5"]},
+      {"id": "followUp", "label": "待回结果与已定复评", "inputKeys": ["pendingResults", "clinicianFollowUp", "consultantAdvice", "dischargePlan"], "omitWhenMissing": true, "sourceRefs": ["casemark-rounds:Checkpoint B"]}
+    ],
+    "reviewChecks": [
+      {"id": "overnightSource", "label": "无夜间事件只有在原资料明确核实时才写", "inputKeys": ["overnightEvents", "overnightSource"], "sourceRefs": ["casemark-rounds:Guidelines"]},
+      {"id": "trajectory", "label": "好转、稳定、加重有可比资料或医师判断", "inputKeys": ["priorResults", "newResults", "clinicianAssessment"], "sourceRefs": ["casemark-rounds:Checkpoint A"]},
+      {"id": "activeProblemPlan", "label": "每项实际问题对应本次评估与医师计划", "inputKeys": ["activeProblems", "clinicianAssessment", "clinicianPlan"], "sourceRefs": ["casemark-rounds:Step 3", "casemark-rounds:Checkpoint B"]},
+      {"id": "changeReason", "label": "治疗调整保留已提供的理由", "inputKeys": ["treatmentChanges", "changeReasons"], "sourceRefs": ["casemark-rounds:Quality Audit"]},
+      {"id": "pendingResult", "label": "计划检查、待回结果与已完成结果分别记录", "inputKeys": ["pendingResults", "newResults", "clinicianFollowUp"], "sourceRefs": ["casemark-rounds:Checkpoint B"]},
+      {"id": "consultation", "label": "会诊意见和患者沟通仅写实际记录内容", "inputKeys": ["consultantAdvice", "patientConcerns", "communicationRecord"], "sourceRefs": ["casemark-rounds:Step 5", "casemark-rounds:Quality Audit"]}
+    ]
+  }
+}

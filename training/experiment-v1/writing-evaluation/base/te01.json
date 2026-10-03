@@ -1,0 +1,64 @@
+{
+  "id": "te01",
+  "suite": "holdout",
+  "variant": "base",
+  "inputSha256": "bcf3c85e915152ee9145448d0daba83341797b94e961d9675d729fd0c3e5b6f7",
+  "output": "2026-10-04 11:10 首次病程记录\n\n病例特点： \n- 女46岁，便血3天\n- 10月1日直肠活检：高级别上皮内瘤变，浸润性癌不能排除\n- 无腹痛，无呕吐\n- 未提供四诊\n- 查房医师栏为陈模拟，书写医师未给\n\n医生暂记直肠病变待定，病理不改为浸润癌确诊。拟核对原病理及必要再次取材，明日复评便血。\n\n查房医师姓名栏不能当首次书写签名。\n\n2026-10-04 11:10 首次病程记录",
+  "elapsedMs": 999,
+  "estimatedGeneratedTokens": 166,
+  "suspectedTruncation": false,
+  "checks": {
+    "literalChecksPassed": false,
+    "required": {
+      "total": 11,
+      "retained": 5,
+      "missing": [
+        "拟诊讨论：",
+        "诊疗计划：",
+        "2026-10-04 08:00",
+        "2026-10-01",
+        "无腹痛、无呕吐",
+        "【核对后签名】"
+      ]
+    },
+    "dates": {
+      "total": 3,
+      "retained": 1,
+      "missing": [
+        "2026-10-04 08:00",
+        "2026-10-01"
+      ]
+    },
+    "numericUnits": {
+      "total": 0,
+      "retained": 0,
+      "missing": [],
+      "new": []
+    },
+    "negationUncertainty": {
+      "total": 2,
+      "retained": 1,
+      "missing": [
+        "无腹痛、无呕吐"
+      ]
+    },
+    "forbiddenFactsFound": [],
+    "format": {
+      "headingsRetainedInOrder": false,
+      "headings": [
+        "病例特点：",
+        "拟诊讨论：",
+        "诊疗计划："
+      ],
+      "positions": [
+        25,
+        -1,
+        -1
+      ],
+      "addedHeadings": [],
+      "explanations": [],
+      "repeatedLines": []
+    },
+    "unrequestedStageMissingNotes": []
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "id": "v2-te05",
+  "suite": "holdout",
+  "variant": "trained",
+  "inputSha256": "a036d7ebfe3c6e4a4f62d6b50a1582f432fa38d26686ed4e67b9552523b93982",
+  "output": "主治医师查房，患者今日Na 131 mmol/L，较2026-09-30的129 mmol/L上升，无头痛、抽搐。医师认为需结合变化趋势及实际摄入继续评估，拟按原计划复查，尚未决定补充剂量。",
+  "elapsedMs": 375,
+  "estimatedGeneratedTokens": 65,
+  "suspectedTruncation": false,
+  "checks": {
+    "literalChecksPassed": true,
+    "required": {
+      "total": 7,
+      "retained": 7,
+      "missing": []
+    },
+    "dates": {
+      "total": 1,
+      "retained": 1,
+      "missing": [],
+      "new": []
+    },
+    "numericUnits": {
+      "total": 2,
+      "retained": 2,
+      "missing": [],
+      "new": []
+    },
+    "negationUncertainty": {
+      "total": 2,
+      "retained": 2,
+      "missing": []
+    },
+    "forbiddenFactsFound": [],
+    "format": {
+      "headingsRetainedInOrder": true,
+      "headings": [],
+      "positions": [],
+      "addedHeadings": [],
+      "explanations": [],
+      "repeatedLines": []
+    },
+    "unrequestedStageMissingNotes": []
+  }
+}

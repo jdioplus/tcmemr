@@ -1,0 +1,67 @@
+{
+  "reviewedAt": "2026-10-04",
+  "purpose": "Local Chinese semantic retrieval; encoder, not generative LLM or clinical decision maker",
+  "model": {
+    "name": "onnx-community/bge-small-zh-v1.5-ONNX",
+    "commit": "9507db33464b5da99a532ac26b2a251767cbc62b",
+    "baseModel": "BAAI/bge-small-zh-v1.5",
+    "baseCommit": "7999e1d3359715c523056ef9478215996d62a620",
+    "license": "MIT as declared by BAAI model card; ONNX conversion links base model, no separate license file",
+    "url": "https://huggingface.co/onnx-community/bge-small-zh-v1.5-ONNX/tree/9507db33464b5da99a532ac26b2a251767cbc62b",
+    "transport": "hf-mirror.com; graph and weight SHA256 checked against original Hugging Face file pages"
+  },
+  "runtime": {
+    "package": "onnxruntime-web",
+    "version": "1.22.0",
+    "license": "MIT with included ThirdPartyNotices",
+    "url": "https://registry.npmjs.org/onnxruntime-web/-/onnxruntime-web-1.22.0.tgz",
+    "npmIntegrity": "sha512-Ud/+EBo6mhuaQWt/OjaOk0iNWjXqJoeeMFr6xQEERZdIZH2OWpGzuujz7lfuOBjUa6TEE/sc4nb7Da5dNL34fg==",
+    "npmIntegrityVerified": true
+  },
+  "assets": {
+    "tokenizer_config.json": {
+      "bytes": 414,
+      "sha256": "7e3bd6113f18c20975eaa8e8cc03c95b727fd83d6357f8e171e22b3736bf706d"
+    },
+    "config.json": {
+      "bytes": 904,
+      "sha256": "34fa1ea6278c257de3cc8ce7e9bdc48647b802145a9da0fc32e95db620efd04f"
+    },
+    "ort-wasm-simd-threaded.wasm": {
+      "bytes": 11210254,
+      "sha256": "71aef04959c5c1b6de461b6538e2058e306610034a85aad2742d0c7fd4533fe4"
+    },
+    "ort.wasm.min.js": {
+      "bytes": 48327,
+      "sha256": "65e09376df69107e881b5c34d2d37aed333a366b6d941073ec518168e269b87d"
+    },
+    "tokenizer.json": {
+      "bytes": 362603,
+      "sha256": "3d09c84ebd10306706a79a8276b3ab736a40d8ec03251c7639f4e52c3a1a4f8e"
+    },
+    "ort-wasm-simd-threaded.mjs": {
+      "bytes": 20856,
+      "sha256": "30dd851d9c00622940500f71ddd2ff8820c5cb65270816080175b958705385a8"
+    },
+    "model_quantized.onnx_data": {
+      "bytes": 23774208,
+      "sha256": "952623481ca8beea884e3d3c9ecaf8a3c7bf1d0c21de29e970cd31af9d37a90b"
+    },
+    "model_quantized.onnx": {
+      "bytes": 168002,
+      "sha256": "99a6e522710c00220c89f8c52e0cc5aa09d4cbb1c34c0e932eab3a9dfdc65df3"
+    }
+  },
+  "totalUsefulBytes": 35585568,
+  "singleHTML": {
+    "bytes": 47559542,
+    "sha256": "12b6fa38991d48f67805ac0fcedae20be8f256ccf68eb806f24962c1a12673ea"
+  },
+  "test": {
+    "result": "test-results/result.json",
+    "chrome": "154.0.8037.95",
+    "platform": "macOS; Windows runtime not tested",
+    "offline": true,
+    "httpRequests": 0
+  }
+}

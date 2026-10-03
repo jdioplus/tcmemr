@@ -1,0 +1,667 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-10-04",
+  "provenance": {
+    "source": "synthetic-authored",
+    "realPatientData": false,
+    "description": "全部情境、编号和人物为人工合成。输入明确提供事实及医师判断；答案仅编辑已有资料，没有从外部病例抽取。"
+  },
+  "contract": {
+    "system": "你是中文病历文字整理助手。只改写医生提供的原文和已确认判断，不增加事实、病因、诊断、检查结果、处方或药物剂量。保留否定词、日期、数值、单位和不确定表述。未提供四诊不补写舌脉。不得把参考资料当患者事实。保留原文已有标题与段落次序，只输出整理后的正文，不加额外标题、解释或审阅提示。",
+    "userJsonKeys": [
+      "recordType",
+      "facts",
+      "judgments",
+      "draft"
+    ],
+    "factsType": "text",
+    "assistantTask": "保留事实与已给医生判断的中文病历段落编辑；四类型按原文重心及既有标题保留。"
+  },
+  "splitPolicy": "情境在撰写时分配，未随机拆开同一病例。train/valid/test无相同输入或答案；test不加入训练。不同集合可共有基本编辑规则。",
+  "counts": {
+    "train": 32,
+    "valid": 8,
+    "test": 16
+  },
+  "files": {
+    "train.jsonl": {
+      "sha256": "a10ca23e0a99642f6cd4b79af319697f50b61663525790454d7eef3a5153d988",
+      "bytes": 43027,
+      "pairs": 32
+    },
+    "valid.jsonl": {
+      "sha256": "9b1762b5116e99f2987043f93ceab874bac051c25a0b9ca996009b53aece4ea0",
+      "bytes": 9220,
+      "pairs": 8
+    },
+    "test.jsonl": {
+      "sha256": "d220c2d69aa05d67b1726d44b4ea83cbb4d8ac009c80e634cd0758ced844a0d9",
+      "bytes": 20663,
+      "pairs": 16
+    }
+  },
+  "limitations": [
+    "样本数量很少，仅可用于风格与事实保持微调的初步实验。",
+    "不是临床诊断训练或医疗合格证明；事实检查与医生核对仍为必要步骤。",
+    "精确子串验收只能检查列明事实，不能代替全文医学审查。"
+  ],
+  "catalog": [
+    {
+      "id": "tr01",
+      "split": "train",
+      "recordType": "首次病程记录",
+      "tags": [
+        "original-headings",
+        "first",
+        "tcm-confirmed",
+        "anemia-intake",
+        "no-stage"
+      ],
+      "source": "synthetic-authored"
+    },
+    {
+      "id": "tr02",
+      "split": "train",
+      "recordType": "首次病程记录",
+      "tags": [
+        "original-headings",
+        "lung-pathology-gene",
+        "no-tongue-pulse",
+        "no-inferred-stage"
+      ],
+      "source": "synthetic-authored"
+    },
+    {
+      "id": "tr03",
+      "split": "train",
+      "recordType": "首次病程记录",
+      "tags": [
+        "original-headings",
+        "ihc-vs-gene",
+        "unconfirmed-tcm",
+        "postoperative"
+      ],
+      "source": "synthetic-authored"
+    },
+    {
+      "id": "tr04",
+      "split": "train",
+      "recordType": "首次病程记录",
+      "tags": [
+        "original-headings",
+        "bleeding",
+        "no-inferred-stage",
+        "planned-referral"
+      ],
+      "source": "synthetic-authored"
+    },
+    {
+      "id": "tr05",
+      "split": "train",
+      "recordType": "主治中医师查房记录",
+      "tags": [
+        "original-headings",
+        "rounds-attending",
+        "resolved-symptom",
+        "lab-comparison"
+      ],
+      "source": "synthetic-authored"
+    },
+    {
+      "id": "tr06",
+      "split": "train",
+      "recordType": "主任中医师查房记录",
+      "tags": [
+        "original-headings",
+        "rounds-chief",
+        "no-inferred-response",
+        "pending-result"
+      ],
+      "source": "synthetic-authored"
+    },
+    {
+      "id": "tr07",
+      "split": "train",
+      "recordType": "首次病程记录",
+      "tags": [
+        "first-paragraph",
+        "bowel-patency",
+        "doctor-possibility"
+      ],
+      "source": "synthetic-authored"
+    },
+    {
+      "id": "tr08",
+      "split": "train",
+      "recordType": "首次病程记录",
+      "tags": [
+        "first-paragraph",
+        "history-not-causation",
+        "liver-reserve"
+      ],
+      "source": "synthetic-authored"
+    },
+    {
+      "id": "tr09",
+      "split": "train",
+      "recordType": "首次病程记录",
+      "tags": [
+        "first-paragraph",
+        "unknown-biomarker",
+        "treatment-timeline"
+      ],
+      "source": "synthetic-authored"
+    },
+    {
+      "id": "tr10",
+      "split": "train",
+      "recordType": "首次病程记录",
+      "tags": [
+        "first-paragraph",
+        "muscle-sampling",
+        "units"
+      ],
+      "source": "synthetic-authored"
+    },
+    {
+      "id": "tr11",
+      "split": "train",
+      "recordType": "日常病程记录",
+      "tags": [
+        "daily",
+        "old-result",
+        "no-present-lab"
+      ],
+      "source": "synthetic-authored"
+    },
+    {
+      "id": "tr12",
+      "split": "train",
+      "recordType": "日常病程记录",
+      "tags": [
+        "daily",
+        "resolved-negation",
+        "no-new-medicine"
+      ],
+      "source": "synthetic-authored"
+    },
+    {
+      "id": "tr13",
+      "split": "train",
+      "recordType": "日常病程记录",
+      "tags": [
+        "daily",
+        "constipation",
+        "unspecified-prescription"
+      ],
+      "source": "synthetic-authored"
+    },
+    {
+      "id": "tr14",
+      "split": "train",
+      "recordType": "日常病程记录",
+      "tags": [
+        "daily",
+        "negative-fever",
+        "lab-not-diagnosis"
+      ],
+      "source": "synthetic-authored"
+    },
+    {
+      "id": "tr15",
+      "split": "train",
+      "recordType": "日常病程记录",
+      "tags": [
+        "daily",
+        "unknown-unit",
+        "no-lab-classification"
+      ],
+      "source": "synthetic-authored"
+    },
+    {
+      "id": "tr16",
+      "split": "train",
+      "recordType": "日常病程记录",
+      "tags": [
+        "daily",
+        "unit-preservation",
+        "dated-comparison"
+      ],
+      "source": "synthetic-authored"
+    },
+    {
+      "id": "tr17",
+      "split": "train",
+      "recordType": "日常病程记录",
+      "tags": [
+        "daily",
+        "doctor-possibility",
+        "no-invented-exam"
+      ],
+      "source": "synthetic-authored"
+    },
+    {
+      "id": "tr18",
+      "split": "train",
+      "recordType": "日常病程记录",
+      "tags": [
+        "daily",
+        "future-test",
+        "past-implementation"
+      ],
+      "source": "synthetic-authored"
+    },
+    {
+      "id": "tr19",
+      "split": "train",
+      "recordType": "日常病程记录",
+      "tags": [
+        "daily",
+        "planned-not-performed",
+        "no-invented-result"
+      ],
+      "source": "synthetic-authored"
+    },
+    {
+      "id": "tr20",
+      "split": "train",
+      "recordType": "日常病程记录",
+      "tags": [
+        "daily",
+        "explicit-comparison",
+        "no-inferred-response"
+      ],
+      "source": "synthetic-authored"
+    },
+    {
+      "id": "tr21",
+      "split": "train",
+      "recordType": "日常病程记录",
+      "tags": [
+        "daily",
+        "yesterday-prescription-current-plan",
+        "no-tongue-pulse"
+      ],
+      "source": "synthetic-authored"
+    },
+    {
+      "id": "tr22",
+      "split": "train",
+      "recordType": "日常病程记录",
+      "tags": [
+        "daily",
+        "imaging-comparison",
+        "no-recist-inference"
+      ],
+      "source": "synthetic-authored"
+    },
+    {
+      "id": "tr23",
+      "split": "train",
+      "recordType": "主治中医师查房记录",
+      "tags": [
+        "attending",
+        "doctor-differential",
+        "no-causation-inference"
+      ],
+      "source": "synthetic-authored"
+    },
+    {
+      "id": "tr24",
+      "split": "train",
+      "recordType": "主治中医师查房记录",
+      "tags": [
+        "attending",
+        "respiratory-differential",
+        "no-result-invention"
+      ],
+      "source": "synthetic-authored"
+    },
+    {
+      "id": "tr25",
+      "split": "train",
+      "recordType": "主治中医师查房记录",
+      "tags": [
+        "attending",
+        "thyroid-antibody",
+        "no-dose-change"
+      ],
+      "source": "synthetic-authored"
+    },
+    {
+      "id": "tr26",
+      "split": "train",
+      "recordType": "主治中医师查房记录",
+      "tags": [
+        "attending",
+        "tissue-vs-plasma",
+        "dated-marker"
+      ],
+      "source": "synthetic-authored"
+    },
+    {
+      "id": "tr27",
+      "split": "train",
+      "recordType": "主治中医师查房记录",
+      "tags": [
+        "attending",
+        "ihc-vs-sequencing",
+        "doctor-confirmed"
+      ],
+      "source": "synthetic-authored"
+    },
+    {
+      "id": "tr28",
+      "split": "train",
+      "recordType": "主任中医师查房记录",
+      "tags": [
+        "chief",
+        "no-relapse-inference",
+        "renal-trend"
+      ],
+      "source": "synthetic-authored"
+    },
+    {
+      "id": "tr29",
+      "split": "train",
+      "recordType": "主任中医师查房记录",
+      "tags": [
+        "chief",
+        "treatment-sequence",
+        "unknown-marker"
+      ],
+      "source": "synthetic-authored"
+    },
+    {
+      "id": "tr30",
+      "split": "train",
+      "recordType": "主任中医师查房记录",
+      "tags": [
+        "chief",
+        "changed-plan",
+        "follow-plan-retained"
+      ],
+      "source": "synthetic-authored"
+    },
+    {
+      "id": "tr31",
+      "split": "train",
+      "recordType": "主任中医师查房记录",
+      "tags": [
+        "chief",
+        "recorded-stage-version",
+        "doctor-choice"
+      ],
+      "source": "synthetic-authored"
+    },
+    {
+      "id": "tr32",
+      "split": "train",
+      "recordType": "主任中医师查房记录",
+      "tags": [
+        "chief",
+        "current-vs-old-syndrome",
+        "tcm-evidence"
+      ],
+      "source": "synthetic-authored"
+    },
+    {
+      "id": "va01",
+      "split": "valid",
+      "recordType": "首次病程记录",
+      "tags": [
+        "validation-first",
+        "swallowing",
+        "no-stage"
+      ],
+      "source": "synthetic-authored"
+    },
+    {
+      "id": "va02",
+      "split": "valid",
+      "recordType": "首次病程记录",
+      "tags": [
+        "validation-first",
+        "jaundice",
+        "planned-not-done"
+      ],
+      "source": "synthetic-authored"
+    },
+    {
+      "id": "va03",
+      "split": "valid",
+      "recordType": "日常病程记录",
+      "tags": [
+        "validation-daily",
+        "conflicting-results"
+      ],
+      "source": "synthetic-authored"
+    },
+    {
+      "id": "va04",
+      "split": "valid",
+      "recordType": "日常病程记录",
+      "tags": [
+        "validation-daily",
+        "conditional-future"
+      ],
+      "source": "synthetic-authored"
+    },
+    {
+      "id": "va05",
+      "split": "valid",
+      "recordType": "主治中医师查房记录",
+      "tags": [
+        "validation-attending",
+        "iron-studies"
+      ],
+      "source": "synthetic-authored"
+    },
+    {
+      "id": "va06",
+      "split": "valid",
+      "recordType": "主治中医师查房记录",
+      "tags": [
+        "validation-attending",
+        "specific-variant"
+      ],
+      "source": "synthetic-authored"
+    },
+    {
+      "id": "va07",
+      "split": "valid",
+      "recordType": "主任中医师查房记录",
+      "tags": [
+        "validation-chief",
+        "new-symptom-not-stage"
+      ],
+      "source": "synthetic-authored"
+    },
+    {
+      "id": "va08",
+      "split": "valid",
+      "recordType": "主任中医师查房记录",
+      "tags": [
+        "validation-chief",
+        "changed-judgment"
+      ],
+      "source": "synthetic-authored"
+    },
+    {
+      "id": "te01",
+      "split": "test",
+      "recordType": "首次病程记录",
+      "tags": [
+        "test-first-template",
+        "uncertain-pathology",
+        "signature-not-round-doctor"
+      ],
+      "source": "synthetic-authored"
+    },
+    {
+      "id": "te02",
+      "split": "test",
+      "recordType": "首次病程记录",
+      "tags": [
+        "test-first",
+        "prescribed-dose-copy-only",
+        "no-new-dose"
+      ],
+      "source": "synthetic-authored"
+    },
+    {
+      "id": "te03",
+      "split": "test",
+      "recordType": "首次病程记录",
+      "tags": [
+        "test-first",
+        "primary-origin-unknown",
+        "tcm-confirmed-new-pattern"
+      ],
+      "source": "synthetic-authored"
+    },
+    {
+      "id": "te04",
+      "split": "test",
+      "recordType": "首次病程记录",
+      "tags": [
+        "test-first",
+        "lung-subtype",
+        "score-not-interchangeable"
+      ],
+      "source": "synthetic-authored"
+    },
+    {
+      "id": "te05",
+      "split": "test",
+      "recordType": "日常病程记录",
+      "tags": [
+        "test-daily",
+        "mixed-old-current-result",
+        "resolved-bleeding"
+      ],
+      "source": "synthetic-authored"
+    },
+    {
+      "id": "te06",
+      "split": "test",
+      "recordType": "日常病程记录",
+      "tags": [
+        "test-daily",
+        "positive-comparison",
+        "future-condition"
+      ],
+      "source": "synthetic-authored"
+    },
+    {
+      "id": "te07",
+      "split": "test",
+      "recordType": "日常病程记录",
+      "tags": [
+        "test-daily",
+        "known-and-unknown-units",
+        "planned-medication"
+      ],
+      "source": "synthetic-authored"
+    },
+    {
+      "id": "te08",
+      "split": "test",
+      "recordType": "日常病程记录",
+      "tags": [
+        "test-daily",
+        "reference-not-observed-facts",
+        "no-editorial-comment"
+      ],
+      "source": "synthetic-authored"
+    },
+    {
+      "id": "te09",
+      "split": "test",
+      "recordType": "主治中医师查房记录",
+      "tags": [
+        "test-attending",
+        "range-boundary",
+        "physician-choice-no-anemia"
+      ],
+      "source": "synthetic-authored"
+    },
+    {
+      "id": "te10",
+      "split": "test",
+      "recordType": "主治中医师查房记录",
+      "tags": [
+        "test-attending",
+        "protein-vs-gene",
+        "vus-uncertainty"
+      ],
+      "source": "synthetic-authored"
+    },
+    {
+      "id": "te11",
+      "split": "test",
+      "recordType": "主治中医师查房记录",
+      "tags": [
+        "test-attending",
+        "dated-tcm-change",
+        "no-pattern-invention"
+      ],
+      "source": "synthetic-authored"
+    },
+    {
+      "id": "te12",
+      "split": "test",
+      "recordType": "主治中医师查房记录",
+      "tags": [
+        "test-attending",
+        "confirmed-vs-planned",
+        "no-paraneoplastic-inference"
+      ],
+      "source": "synthetic-authored"
+    },
+    {
+      "id": "te13",
+      "split": "test",
+      "recordType": "主任中医师查房记录",
+      "tags": [
+        "test-chief",
+        "current-adjust-vs-old-continue",
+        "source-plan-retained"
+      ],
+      "source": "synthetic-authored"
+    },
+    {
+      "id": "te14",
+      "split": "test",
+      "recordType": "主任中医师查房记录",
+      "tags": [
+        "test-chief",
+        "observed-tcm-evidence",
+        "no-etiology-formula"
+      ],
+      "source": "synthetic-authored"
+    },
+    {
+      "id": "te15",
+      "split": "test",
+      "recordType": "主任中医师查房记录",
+      "tags": [
+        "test-chief",
+        "negative-marker-not-negative-diagnosis",
+        "no-imputed-value"
+      ],
+      "source": "synthetic-authored"
+    },
+    {
+      "id": "te16",
+      "split": "test",
+      "recordType": "主任中医师查房记录",
+      "tags": [
+        "test-chief",
+        "doctor-choice-over-stale-draft",
+        "new-facts-forbidden"
+      ],
+      "source": "synthetic-authored"
+    }
+  ]
+}

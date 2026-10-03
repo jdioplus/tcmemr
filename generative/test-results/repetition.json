@@ -1,0 +1,179 @@
+{
+  "testedAt": "2026-10-03T18:29:48.079Z",
+  "writerSha256": "58bd59c30f6276acfe5db1e8e700b172d68dc7736b9e16c794b96d127d99a9c7",
+  "checks": [
+    "Three consecutive long paragraphs detected",
+    "Inline repeat detected even after fourth copy begins",
+    "Three completed lines plus prefix of fourth detected",
+    "Two copies do not trigger",
+    "Different chapter headings break consecutive repetition",
+    "Short normal repeated phrase does not trigger",
+    "Punctuation dividers do not trigger",
+    "Distinct paragraphs with shared clinical words do not trigger",
+    "Actual streaming callback stops a looping mock early",
+    "Runtime receives documented repetition sampling keys",
+    "Repeated candidate has explicit finish reason and state reason",
+    "Writer never edits original draft",
+    "AbortError completion also keeps repetition and incomplete flags",
+    "Next normal generation clears previous repetition state",
+    "Manual stop is distinguished from loop detection",
+    "Simulation runs file:// offline with zero HTTP and no page errors"
+  ],
+  "mode": "Pure helper and simulated runtime callbacks; no model quality claim.",
+  "chrome": "154.0.8037.95",
+  "normalAbortReturn": {
+    "run": {
+      "text": "患者今日仍诉乏力，未诉发热及黑便，血红蛋白86g/L，较昨日92g/L下降；拟于明日复查血常规，原因尚待评估。患者今日仍诉乏力，未诉发热及黑便，血红蛋白86g/L，较昨日92g/L下降；拟于明日复查血常规，原因尚待评估。患者今日仍诉乏力，未诉发热及黑便，血红蛋白86g/L，较昨日92g/L下降；拟于明日复查血常规，原因尚待评估。患者今",
+      "cancelled": true,
+      "truncated": false,
+      "repetition": true,
+      "incomplete": true,
+      "reason": "检测到连续重复段落，已停止生成；候选未完成。",
+      "usage": {
+        "promptTokens": 3,
+        "generatedTokens": 24,
+        "elapsedMs": 1,
+        "firstTokenMs": 0,
+        "decodeMs": 1,
+        "finishReason": "repetition"
+      }
+    },
+    "state": {
+      "state": "ready",
+      "model": "owned-test-mock",
+      "mode": "本地生成待审核候选",
+      "error": "",
+      "loaded": true,
+      "progress": null,
+      "loadMs": 0,
+      "contextTokens": 8192,
+      "architecture": "owned-test-mock",
+      "generatedTokens": 24,
+      "repetition": true,
+      "incomplete": true,
+      "stopReason": "repetition",
+      "reason": "检测到连续重复段落，已停止生成；候选未完成。",
+      "cancelled": true,
+      "lastGenerationMs": 1
+    },
+    "source": "原稿保持不变"
+  },
+  "sampling": {
+    "temp": 0,
+    "top_k": 20,
+    "top_p": 0.8,
+    "penalty_repeat": 1.1,
+    "penalty_last_n": 64
+  },
+  "throwAbort": {
+    "run": {
+      "text": "患者今日仍诉乏力，未诉发热及黑便，血红蛋白86g/L，较昨日92g/L下降；拟于明日复查血常规，原因尚待评估。\n患者今日仍诉乏力，未诉发热及黑便，血红蛋白86g/L，较昨日92g/L下降；拟于明日复查血常规，原因尚待评估。\n患者今日仍诉乏力，未诉发热及黑便，血红蛋白86g/L，较昨日92g/L下降；拟于明日复查血常规，原因尚待评估。\n",
+      "cancelled": true,
+      "truncated": false,
+      "repetition": true,
+      "incomplete": true,
+      "reason": "检测到连续重复段落，已停止生成；候选未完成。",
+      "usage": {
+        "promptTokens": 3,
+        "generatedTokens": 24,
+        "elapsedMs": 1,
+        "firstTokenMs": 0,
+        "decodeMs": 1,
+        "finishReason": "repetition"
+      }
+    },
+    "state": {
+      "state": "ready",
+      "model": "owned-test-mock",
+      "mode": "本地生成待审核候选",
+      "error": "",
+      "loaded": true,
+      "progress": null,
+      "loadMs": 0,
+      "contextTokens": 8192,
+      "architecture": "owned-test-mock",
+      "generatedTokens": 24,
+      "repetition": true,
+      "incomplete": true,
+      "stopReason": "repetition",
+      "reason": "检测到连续重复段落，已停止生成；候选未完成。",
+      "cancelled": true,
+      "lastGenerationMs": 1
+    }
+  },
+  "next": {
+    "run": {
+      "text": "患者今日仍诉乏力，未诉发热及黑便，血红蛋白86g/L，较昨日92g/L下降；拟于明日复查血常规，原因尚待评估。",
+      "cancelled": false,
+      "truncated": false,
+      "repetition": false,
+      "incomplete": false,
+      "reason": "",
+      "usage": {
+        "promptTokens": 3,
+        "generatedTokens": 8,
+        "elapsedMs": 0,
+        "firstTokenMs": 0,
+        "decodeMs": 0,
+        "finishReason": "stop"
+      }
+    },
+    "state": {
+      "state": "ready",
+      "model": "owned-test-mock",
+      "mode": "本地生成待审核候选",
+      "error": "",
+      "loaded": true,
+      "progress": null,
+      "loadMs": 0,
+      "contextTokens": 8192,
+      "architecture": "owned-test-mock",
+      "generatedTokens": 8,
+      "repetition": false,
+      "incomplete": false,
+      "stopReason": "",
+      "reason": "",
+      "cancelled": false,
+      "lastGenerationMs": 0
+    }
+  },
+  "manualCancel": {
+    "run": {
+      "text": "患者今日仍诉乏力，未诉发热及黑便，血红蛋白",
+      "cancelled": true,
+      "truncated": false,
+      "repetition": false,
+      "incomplete": true,
+      "reason": "",
+      "usage": {
+        "promptTokens": 3,
+        "generatedTokens": 3,
+        "elapsedMs": 0,
+        "firstTokenMs": 0,
+        "decodeMs": 0,
+        "finishReason": "cancelled"
+      }
+    },
+    "state": {
+      "state": "ready",
+      "model": "owned-test-mock",
+      "mode": "本地生成待审核候选",
+      "error": "",
+      "loaded": true,
+      "progress": null,
+      "loadMs": 0,
+      "contextTokens": 8192,
+      "architecture": "owned-test-mock",
+      "generatedTokens": 3,
+      "repetition": false,
+      "incomplete": true,
+      "stopReason": "cancelled",
+      "reason": "",
+      "cancelled": true,
+      "lastGenerationMs": 0
+    }
+  },
+  "httpRequests": [],
+  "pageErrors": [],
+  "pass": true
+}

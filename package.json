@@ -1,0 +1,13 @@
+{
+  "name": "tcmemr",
+  "private": true,
+  "version": "0.1.0",
+  "description": "中文中医肿瘤病程辅助与离线文字模型试验",
+  "devDependencies": {
+    "playwright": "1.62.1"
+  },
+  "scripts": {
+    "test:rules": "node tests/decision-rules-test.cjs",
+    "build": "python3 tests/build-minimal.py"
+  }
+}

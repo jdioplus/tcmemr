@@ -1,0 +1,17 @@
+.DS_Store
+__pycache__/
+*.pyc
+.venv/
+node_modules/
+training/base-model/
+training/tools/
+training/pip-cache/
+training/hf-cache/
+training/**/fused-hf/
+training/**/adapters/
+training/**/selected-adapter/
+training/**/*.gguf
+training/**/*.safetensors
+generative/assets/*.gguf
+semantic/semantic-demo.html
+generative/writer-demo.html

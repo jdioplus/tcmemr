@@ -1,0 +1,16 @@
+{
+  "path": "training/experiment-v2/bingli-style-v2-Q2_K.gguf",
+  "bytes": 338606944,
+  "sha256": "dc4b0b935d8ec4fc6008c15083a906d6809a7cc48d81fd6b32b0bcaaa79a958e",
+  "architecture": "qwen2",
+  "fileType": 10,
+  "quantizationVersion": 2,
+  "tensorCount": 290,
+  "tensorTypes": {
+    "F32": 121,
+    "Q8_0": 1,
+    "Q4_0": 120,
+    "Q5_0": 24,
+    "Q3_K": 24
+  }
+}

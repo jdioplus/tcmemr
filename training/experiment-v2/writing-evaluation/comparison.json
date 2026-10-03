@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 2,
+  "sampling": {
+    "temperature": 0,
+    "greedy": true,
+    "maxTokens": 512,
+    "seed": 20261004,
+    "repetitionPenalty": 1.1,
+    "repetitionContextSize": 64
+  },
+  "datasetFiles": {
+    "train.jsonl": {
+      "sha256": "5a29fce23d8e81053e094f90d525c0ca77e2fbffd839afa202b762f6494d3118",
+      "bytes": 59026,
+      "pairs": 48
+    },
+    "valid.jsonl": {
+      "sha256": "5a3aa58a81ec2869588b93565235c643021a33b8a7570e872b51614af5362990",
+      "bytes": 9418,
+      "pairs": 8
+    },
+    "test.jsonl": {
+      "sha256": "b8d33bad11577f902938edb7fbac74f22e920369c9d7d46490369e1adb3a1b3d",
+      "bytes": 10203,
+      "pairs": 8
+    },
+    "eval-cases.json": {
+      "sha256": "03921fb14e2d0c14521b7bb00a4a72ce3bc678ea80e17c0cc43b5ac23d26b6d7",
+      "bytes": 83548,
+      "cases": 64
+    }
+  },
+  "selectionDataset": {
+    "name": "valid",
+    "rows": 8,
+    "sha256": "5a3aa58a81ec2869588b93565235c643021a33b8a7570e872b51614af5362990"
+  },
+  "selectedCheckpoint": "0000072_adapters",
+  "base": "training/base-model",
+  "adapter": "training/experiment-v2/selected-adapter",
+  "adapterSha256": "a1a8a0f729eb7e1a1c495d3f4ea29c19792e38da2a88fdb0e95f44603fa39db3",
+  "holdoutUsedForSelection": false,
+  "clinicalQualification": false,
+  "metricLimits": "Literal checks may flag valid paraphrases and may miss unlisted clinical errors; raw outputs require review. MLX4bit comparison is distinct from the distributed Q2_K browser model.",
+  "challengeSha256": null,
+  "comparison": {
+    "base": {
+      "holdout": {
+        "cases": 8,
+        "literalChecksPassed": 1,
+        "casesWithForbiddenFacts": 0,
+        "casesWithAddedMeasures": 2,
+        "required": {
+          "retained": 32,
+          "total": 44,
+          "rate": 0.7273
+        },
+        "dates": {
+          "retained": 1,
+          "total": 2,
+          "rate": 0.5
+        },
+        "numericUnits": {
+          "retained": 5,
+          "total": 5,
+          "rate": 1.0
+        },
+        "negationUncertainty": {
+          "retained": 11,
+          "total": 19,
+          "rate": 0.5789
+        }
+      }
+    },
+    "trained": {
+      "holdout": {
+        "cases": 8,
+        "literalChecksPassed": 4,
+        "casesWithForbiddenFacts": 0,
+        "casesWithAddedMeasures": 0,
+        "required": {
+          "retained": 33,
+          "total": 44,
+          "rate": 0.75
+        },
+        "dates": {
+          "retained": 1,
+          "total": 2,
+          "rate": 0.5
+        },
+        "numericUnits": {
+          "retained": 5,
+          "total": 5,
+          "rate": 1.0
+        },
+        "negationUncertainty": {
+          "retained": 12,
+          "total": 19,
+          "rate": 0.6316
+        }
+      }
+    }
+  }
+}

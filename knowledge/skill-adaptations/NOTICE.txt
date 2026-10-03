@@ -1,0 +1,19 @@
+本地病程规则包：来源与改编声明
+
+TCM.Skill
+作者/项目维护者：YuanZHAO321
+原项目：https://github.com/YuanZHAO321/TCM.Skill
+原许可：Creative Commons Attribution-NonCommercial 4.0 International
+完整许可：TCM.Skill-CC-BY-NC-4.0.txt
+TCM 改编部分继续按 CC BY-NC 4.0 提供，适用于本项目个人非商业使用。
+修改：从工作流及已读参考中选取病情归纳、事实支持、辨证核对、一般病机、已有方义组织与经典溯源规则，改写为 JSON 数据。未移植全量教材、古籍、方剂库、剂量、选方、家庭外治或调理操作。
+
+CaseMark conducting-daily-rounds
+Copyright 2025 CaseMark, Inc.
+原文件：https://github.com/CaseMark/skills/blob/main/skills/med/conducting-daily-rounds/SKILL.md
+原许可：Apache License, Version 2.0
+完整许可：CaseMark-Apache-2.0.txt
+修改：将查房资料、夜间事件、逐问题评估、计划调整及待回结果的组织和核对改编为中文 JSON 数据。使用本项目医师样例的正文格式；没有采纳美国计费条款、评分阈值、默认出院日期或自动医嘱。
+本包读取官方根目录时未发现上游 NOTICE 文件；保留上游 LICENSE 中的 CaseMark 版权声明。检查记录见 source-metadata.json。
+
+本包是经过选择与中文改编的本地数据，不代表原项目作者对本项目或病案合格性的认可。文件来源、路径与读取时 SHA-256 见 source-metadata.json。

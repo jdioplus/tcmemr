@@ -1,0 +1,82 @@
+{
+  "id": "v2-te07",
+  "suite": "holdout",
+  "variant": "trained-native-q2-k",
+  "output": "很抱歉，主任医师查房，患者引流液昨日240 mL，今日目前90 mL，今日统计尚未结束，无腹痛。主任认为应待完整24小时统计后比较，拟核对引流顺畅，尚未决定换引流管。",
+  "returncode": 0,
+  "elapsedMs": 1100,
+  "endOfTextSuffixPresent": true,
+  "suspectedTruncation": false,
+  "inputSha256": "638fb4422458ecf2aa88a588fe2de810aa39a65b8ec9ecd5b237abd8c52fad71",
+  "command": [
+    "training/tools/llama-build/bin/llama-completion",
+    "-m",
+    "training/experiment-v2/bingli-style-v2-Q2_K.gguf",
+    "-f",
+    "training/experiment-v2/native-writing-evaluation/v2-te07.prompt.txt",
+    "-no-cnv",
+    "-n",
+    "512",
+    "--temp",
+    "0",
+    "--top-k",
+    "20",
+    "--top-p",
+    "0.8",
+    "--repeat-penalty",
+    "1.1",
+    "--repeat-last-n",
+    "64",
+    "--seed",
+    "20261004",
+    "--simple-io",
+    "--no-display-prompt",
+    "--no-escape",
+    "--log-verbosity",
+    "0",
+    "--offline",
+    "-ngl",
+    "0",
+    "-t",
+    "4"
+  ],
+  "checks": {
+    "literalChecksPassed": false,
+    "required": {
+      "total": 7,
+      "retained": 6,
+      "missing": [
+        "尚未决定更换引流管"
+      ]
+    },
+    "dates": {
+      "total": 0,
+      "retained": 0,
+      "missing": [],
+      "new": []
+    },
+    "numericUnits": {
+      "total": 2,
+      "retained": 2,
+      "missing": [],
+      "new": []
+    },
+    "negationUncertainty": {
+      "total": 3,
+      "retained": 2,
+      "missing": [
+        "尚未决定更换引流管"
+      ]
+    },
+    "forbiddenFactsFound": [],
+    "format": {
+      "headingsRetainedInOrder": true,
+      "headings": [],
+      "positions": [],
+      "addedHeadings": [],
+      "explanations": [],
+      "repeatedLines": []
+    },
+    "unrequestedStageMissingNotes": []
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "id": "te14",
+  "suite": "holdout",
+  "variant": "base",
+  "inputSha256": "2d6d1ffa393b9e6b4411a78410456428f374decaab650d2f798d0d6321b3ee38",
+  "output": "**主任中医师查房记录**\n\n**诊记录人：** 张某某\n\n**诊记录日期：** 2023-04-15\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：**",
+  "elapsedMs": 2062,
+  "estimatedGeneratedTokens": 512,
+  "suspectedTruncation": true,
+  "checks": {
+    "literalChecksPassed": false,
+    "required": {
+      "total": 7,
+      "retained": 0,
+      "missing": [
+        "胃脘隐痛、乏力",
+        "舌紫、苔薄白、脉弦涩",
+        "主任确认气虚血瘀证",
+        "乏力为气虚线索",
+        "支持血瘀判断",
+        "益气活血",
+        "具体方药未提供"
+      ]
+    },
+    "dates": {
+      "total": 0,
+      "retained": 0,
+      "missing": []
+    },
+    "numericUnits": {
+      "total": 0,
+      "retained": 0,
+      "missing": [],
+      "new": []
+    },
+    "negationUncertainty": {
+      "total": 1,
+      "retained": 0,
+      "missing": [
+        "具体方药未提供"
+      ]
+    },
+    "forbiddenFactsFound": [],
+    "format": {
+      "headingsRetainedInOrder": true,
+      "headings": [],
+      "positions": [],
+      "addedHeadings": [],
+      "explanations": [],
+      "repeatedLines": [
+        "**诊记录人：** 张某某"
+      ]
+    },
+    "unrequestedStageMissingNotes": []
+  }
+}

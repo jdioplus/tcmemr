@@ -1,0 +1,1078 @@
+{
+  "summary": {
+    "holdout": {
+      "cases": 16,
+      "literalChecksPassed": 0,
+      "casesWithForbiddenFacts": 2,
+      "casesWithAddedMeasures": 0,
+      "required": {
+        "retained": 29,
+        "total": 101,
+        "rate": 0.2871
+      },
+      "dates": {
+        "retained": 1,
+        "total": 9,
+        "rate": 0.1111
+      },
+      "numericUnits": {
+        "retained": 11,
+        "total": 15,
+        "rate": 0.7333
+      },
+      "negationUncertainty": {
+        "retained": 9,
+        "total": 31,
+        "rate": 0.2903
+      }
+    },
+    "challenge": {
+      "cases": 3,
+      "literalChecksPassed": 1,
+      "casesWithForbiddenFacts": 1,
+      "casesWithAddedMeasures": 0,
+      "required": {
+        "retained": 21,
+        "total": 21,
+        "rate": 1.0
+      },
+      "dates": {
+        "retained": 0,
+        "total": 0,
+        "rate": null
+      },
+      "numericUnits": {
+        "retained": 4,
+        "total": 4,
+        "rate": 1.0
+      },
+      "negationUncertainty": {
+        "retained": 6,
+        "total": 6,
+        "rate": 1.0
+      }
+    }
+  },
+  "results": [
+    {
+      "id": "te01",
+      "suite": "holdout",
+      "variant": "base",
+      "inputSha256": "bcf3c85e915152ee9145448d0daba83341797b94e961d9675d729fd0c3e5b6f7",
+      "output": "2026-10-04 11:10 首次病程记录\n\n病例特点： \n- 女46岁，便血3天\n- 10月1日直肠活检：高级别上皮内瘤变，浸润性癌不能排除\n- 无腹痛，无呕吐\n- 未提供四诊\n- 查房医师栏为陈模拟，书写医师未给\n\n医生暂记直肠病变待定，病理不改为浸润癌确诊。拟核对原病理及必要再次取材，明日复评便血。\n\n查房医师姓名栏不能当首次书写签名。\n\n2026-10-04 11:10 首次病程记录",
+      "elapsedMs": 999,
+      "estimatedGeneratedTokens": 166,
+      "suspectedTruncation": false,
+      "checks": {
+        "literalChecksPassed": false,
+        "required": {
+          "total": 11,
+          "retained": 5,
+          "missing": [
+            "拟诊讨论：",
+            "诊疗计划：",
+            "2026-10-04 08:00",
+            "2026-10-01",
+            "无腹痛、无呕吐",
+            "【核对后签名】"
+          ]
+        },
+        "dates": {
+          "total": 3,
+          "retained": 1,
+          "missing": [
+            "2026-10-04 08:00",
+            "2026-10-01"
+          ]
+        },
+        "numericUnits": {
+          "total": 0,
+          "retained": 0,
+          "missing": [],
+          "new": []
+        },
+        "negationUncertainty": {
+          "total": 2,
+          "retained": 1,
+          "missing": [
+            "无腹痛、无呕吐"
+          ]
+        },
+        "forbiddenFactsFound": [],
+        "format": {
+          "headingsRetainedInOrder": false,
+          "headings": [
+            "病例特点：",
+            "拟诊讨论：",
+            "诊疗计划："
+          ],
+          "positions": [
+            25,
+            -1,
+            -1
+          ],
+          "addedHeadings": [],
+          "explanations": [],
+          "repeatedLines": []
+        },
+        "unrequestedStageMissingNotes": []
+      }
+    },
+    {
+      "id": "te02",
+      "suite": "holdout",
+      "variant": "base",
+      "inputSha256": "d2ff4023ddd9fc6b46c1409e994473274b5b4f7e242c57a13b36adee054d7365",
+      "output": "2026年9月30日，患者按既定医嘱服用了左甲状腺素75 μg qd（75μg/天），今天未进行剂量调整。患者无心悸、手抖的症状。2026年10月4日，TSH水平为0.32 mIU/L。根据滤泡癌手术病理确认，患者2026年9月30日已按既定医嘱服用了左甲状腺素75 μg qd。今天未进行剂量调整。患者无心悸、手抖的症状。",
+      "elapsedMs": 550,
+      "estimatedGeneratedTokens": 126,
+      "suspectedTruncation": false,
+      "checks": {
+        "literalChecksPassed": false,
+        "required": {
+          "total": 5,
+          "retained": 1,
+          "missing": [
+            "2026-09-30",
+            "今天未改剂量",
+            "无心悸、无手抖",
+            "2026-10-04 TSH0.32 mIU/L"
+          ]
+        },
+        "dates": {
+          "total": 2,
+          "retained": 0,
+          "missing": [
+            "2026-09-30",
+            "2026-10-04"
+          ]
+        },
+        "numericUnits": {
+          "total": 2,
+          "retained": 2,
+          "missing": [],
+          "new": []
+        },
+        "negationUncertainty": {
+          "total": 2,
+          "retained": 0,
+          "missing": [
+            "今天未改剂量",
+            "无心悸、无手抖"
+          ]
+        },
+        "forbiddenFactsFound": [],
+        "format": {
+          "headingsRetainedInOrder": true,
+          "headings": [],
+          "positions": [],
+          "addedHeadings": [],
+          "explanations": [],
+          "repeatedLines": []
+        },
+        "unrequestedStageMissingNotes": []
+      }
+    },
+    {
+      "id": "te03",
+      "suite": "holdout",
+      "variant": "base",
+      "inputSha256": "5cfd00ff79b785fff4363e0b1e3f2c7a5b7831004a7b96d3ab25c5a9012a1527",
+      "output": "肝内腺癌来源待定，CA19-9 180 U/mL，纳少舌绛苔少脉细数。医生阴虚内热，查病理来源完整片。",
+      "elapsedMs": 239,
+      "estimatedGeneratedTokens": 42,
+      "suspectedTruncation": false,
+      "checks": {
+        "literalChecksPassed": false,
+        "required": {
+          "total": 6,
+          "retained": 1,
+          "missing": [
+            "肝穿刺病理为腺癌",
+            "原发来源待定",
+            "舌绛、苔少、脉细数",
+            "阴虚内热证",
+            "完整影像"
+          ]
+        },
+        "dates": {
+          "total": 0,
+          "retained": 0,
+          "missing": []
+        },
+        "numericUnits": {
+          "total": 1,
+          "retained": 1,
+          "missing": [],
+          "new": []
+        },
+        "negationUncertainty": {
+          "total": 0,
+          "retained": 0,
+          "missing": []
+        },
+        "forbiddenFactsFound": [],
+        "format": {
+          "headingsRetainedInOrder": true,
+          "headings": [],
+          "positions": [],
+          "addedHeadings": [],
+          "explanations": [],
+          "repeatedLines": []
+        },
+        "unrequestedStageMissingNotes": []
+      }
+    },
+    {
+      "id": "te04",
+      "suite": "holdout",
+      "variant": "base",
+      "inputSha256": "88af6370a8b970bbf9f8282a5d3e02b01c17dcf2821eba64b053a513c61d6b2f",
+      "output": "肺穿刺病理小细胞癌。胸部CT示右肺病灶，颅脑影像未完成。PD-L1报告写CPS3，未提供TPS。未录入局限期或广泛期判断。医生确认肺小细胞癌，拟补齐疾病范围；PD-L1按原评分记录，CPS不改成TPS，也不由其选择新药。",
+      "elapsedMs": 369,
+      "estimatedGeneratedTokens": 79,
+      "suspectedTruncation": false,
+      "checks": {
+        "literalChecksPassed": false,
+        "required": {
+          "total": 5,
+          "retained": 3,
+          "missing": [
+            "TPS未提供",
+            "局限期或广泛期判断未录入"
+          ]
+        },
+        "dates": {
+          "total": 0,
+          "retained": 0,
+          "missing": []
+        },
+        "numericUnits": {
+          "total": 0,
+          "retained": 0,
+          "missing": [],
+          "new": []
+        },
+        "negationUncertainty": {
+          "total": 3,
+          "retained": 1,
+          "missing": [
+            "TPS未提供",
+            "局限期或广泛期判断未录入"
+          ]
+        },
+        "forbiddenFactsFound": [],
+        "format": {
+          "headingsRetainedInOrder": true,
+          "headings": [],
+          "positions": [],
+          "addedHeadings": [],
+          "explanations": [],
+          "repeatedLines": []
+        },
+        "unrequestedStageMissingNotes": []
+      }
+    },
+    {
+      "id": "te05",
+      "suite": "holdout",
+      "variant": "base",
+      "inputSha256": "c3298cf8090f63b8561aec288b1de3649eb723ae2ffd6c8118b771b596cce2dd",
+      "output": "2026年10月4日，患者Hb水平为113 g/L，旧报告为104 g/L。患者今日仍有乏力感，未发现黑便。患者继续观察体力，并按原计划进行复查。",
+      "elapsedMs": 281,
+      "estimatedGeneratedTokens": 53,
+      "suspectedTruncation": false,
+      "checks": {
+        "literalChecksPassed": false,
+        "required": {
+          "total": 7,
+          "retained": 1,
+          "missing": [
+            "2026-10-04 14:20",
+            "已无黑便",
+            "2026-10-04 07:00 Hb113 g/L",
+            "2026-09-30",
+            "回升",
+            "按原计划复查"
+          ]
+        },
+        "dates": {
+          "total": 3,
+          "retained": 0,
+          "missing": [
+            "2026-10-04 14:20",
+            "2026-10-04 07:00",
+            "2026-09-30"
+          ]
+        },
+        "numericUnits": {
+          "total": 2,
+          "retained": 2,
+          "missing": [],
+          "new": []
+        },
+        "negationUncertainty": {
+          "total": 1,
+          "retained": 0,
+          "missing": [
+            "已无黑便"
+          ]
+        },
+        "forbiddenFactsFound": [],
+        "format": {
+          "headingsRetainedInOrder": true,
+          "headings": [],
+          "positions": [],
+          "addedHeadings": [],
+          "explanations": [],
+          "repeatedLines": []
+        },
+        "unrequestedStageMissingNotes": []
+      }
+    },
+    {
+      "id": "te06",
+      "suite": "holdout",
+      "variant": "base",
+      "inputSha256": "65cae925789c268200e80bbab201dc2785aaf41e50da8692dec2a7f777cbd69c",
+      "output": "今天咳嗽较昨天频繁，否认发热、咯血。明日若出现黑便，需及时复评；目前没有黑便。尚无新胸部影像。医生只记咳嗽加重，拟核对氧合和适用胸部评估；条件计划中的黑便不可写成已出现，未决定新的用药。",
+      "elapsedMs": 316,
+      "estimatedGeneratedTokens": 66,
+      "suspectedTruncation": false,
+      "checks": {
+        "literalChecksPassed": false,
+        "required": {
+          "total": 6,
+          "retained": 3,
+          "missing": [
+            "咳嗽较昨日频繁",
+            "目前无黑便",
+            "新的用药尚未决定"
+          ]
+        },
+        "dates": {
+          "total": 0,
+          "retained": 0,
+          "missing": []
+        },
+        "numericUnits": {
+          "total": 0,
+          "retained": 0,
+          "missing": [],
+          "new": []
+        },
+        "negationUncertainty": {
+          "total": 4,
+          "retained": 2,
+          "missing": [
+            "目前无黑便",
+            "新的用药尚未决定"
+          ]
+        },
+        "forbiddenFactsFound": [],
+        "format": {
+          "headingsRetainedInOrder": true,
+          "headings": [],
+          "positions": [],
+          "addedHeadings": [],
+          "explanations": [],
+          "repeatedLines": []
+        },
+        "unrequestedStageMissingNotes": []
+      }
+    },
+    {
+      "id": "te07",
+      "suite": "holdout",
+      "variant": "base",
+      "inputSha256": "fe47be10adfcaa00563755cab3c2203f3ef9d0a091413005d9b16456f9f0bbbf",
+      "output": "本日Mg0.61 mmol/L，报告参考0.66–1.07 mmol/L；钾4.1单位未给，无抽搐，原中药拟服还没服。复查核对电解质。",
+      "elapsedMs": 271,
+      "estimatedGeneratedTokens": 52,
+      "suspectedTruncation": false,
+      "checks": {
+        "literalChecksPassed": false,
+        "required": {
+          "total": 7,
+          "retained": 4,
+          "missing": [
+            "血镁低于报告范围",
+            "单位未列",
+            "尚未服用"
+          ]
+        },
+        "dates": {
+          "total": 0,
+          "retained": 0,
+          "missing": []
+        },
+        "numericUnits": {
+          "total": 2,
+          "retained": 2,
+          "missing": [],
+          "new": []
+        },
+        "negationUncertainty": {
+          "total": 3,
+          "retained": 1,
+          "missing": [
+            "单位未列",
+            "尚未服用"
+          ]
+        },
+        "forbiddenFactsFound": [],
+        "format": {
+          "headingsRetainedInOrder": true,
+          "headings": [],
+          "positions": [],
+          "addedHeadings": [],
+          "explanations": [],
+          "repeatedLines": []
+        },
+        "unrequestedStageMissingNotes": []
+      }
+    },
+    {
+      "id": "te08",
+      "suite": "holdout",
+      "variant": "base",
+      "inputSha256": "93f871adca09911d50c0bdc0344c487c158881770486b305c8479cbf1c32bdff",
+      "output": "患者今日轻度腹胀，无腹痛，未提供舌脉。附带参考材料说“气滞血瘀常见刺痛、舌紫暗、脉弦涩”，这些不是本次所见。医生当前仅选择腹胀考虑胃肠功能因素，拟复评腹部及排便排气，不确认中医证型，不采用参考主症作为事实。轻腹胀没腹痛。腹胀考虑胃肠功能因素，复评腹部、排便排气。",
+      "elapsedMs": 451,
+      "estimatedGeneratedTokens": 100,
+      "suspectedTruncation": false,
+      "checks": {
+        "literalChecksPassed": false,
+        "required": {
+          "total": 4,
+          "retained": 2,
+          "missing": [
+            "胃肠功能因素可能",
+            "拟复评腹部情况及排便排气"
+          ]
+        },
+        "dates": {
+          "total": 0,
+          "retained": 0,
+          "missing": []
+        },
+        "numericUnits": {
+          "total": 0,
+          "retained": 0,
+          "missing": [],
+          "new": []
+        },
+        "negationUncertainty": {
+          "total": 1,
+          "retained": 1,
+          "missing": []
+        },
+        "forbiddenFactsFound": [
+          "刺痛",
+          "舌紫暗",
+          "脉弦涩"
+        ],
+        "format": {
+          "headingsRetainedInOrder": true,
+          "headings": [],
+          "positions": [],
+          "addedHeadings": [],
+          "explanations": [],
+          "repeatedLines": []
+        },
+        "unrequestedStageMissingNotes": []
+      }
+    },
+    {
+      "id": "te09",
+      "suite": "holdout",
+      "variant": "base",
+      "inputSha256": "2740753a11336d4b03474aa67b40688f81f0d98bf28b23f99476269770fa3077",
+      "output": "**患者基本信息**：女性，62岁，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族",
+      "elapsedMs": 2030,
+      "estimatedGeneratedTokens": 512,
+      "suspectedTruncation": true,
+      "checks": {
+        "literalChecksPassed": false,
+        "required": {
+          "total": 6,
+          "retained": 0,
+          "missing": [
+            "无黑便",
+            "Hb110 g/L",
+            "110–150 g/L",
+            "未标低",
+            "白蛋白34 g/L",
+            "主要考虑摄入减少"
+          ]
+        },
+        "dates": {
+          "total": 0,
+          "retained": 0,
+          "missing": []
+        },
+        "numericUnits": {
+          "total": 3,
+          "retained": 0,
+          "missing": [
+            "110 g/L",
+            "150 g/L",
+            "34 g/L"
+          ],
+          "new": []
+        },
+        "negationUncertainty": {
+          "total": 2,
+          "retained": 0,
+          "missing": [
+            "无黑便",
+            "未标低"
+          ]
+        },
+        "forbiddenFactsFound": [],
+        "format": {
+          "headingsRetainedInOrder": true,
+          "headings": [],
+          "positions": [],
+          "addedHeadings": [],
+          "explanations": [],
+          "repeatedLines": []
+        },
+        "unrequestedStageMissingNotes": []
+      }
+    },
+    {
+      "id": "te10",
+      "suite": "holdout",
+      "variant": "base",
+      "inputSha256": "049c2eecca9bb6c5c678dba4662e08619a6f7facc999c12cd63e8a71a4b00e84",
+      "output": "**主治中医师查房记录**\n\n**记录人：** **2023-04-15**\n\n**记录人：** **2023-04-15**\n\n**记录人：** **2023-04-15**\n\n**记录人：** **2023-04-15**\n\n**记录人：** **2023-04-15**\n\n**记录人：** **2023-04-15**\n\n**记录人：** **2023-04-15**\n\n**记录人：** **2023-04-15**\n\n**记录人：** **2023-04-15**\n\n**记录人：** **2023-04-15**\n\n**记录人：** **2023-04-15**\n\n**记录人：** **2023-04-15**\n\n**记录人：** **2023-04-15**\n\n**记录人：** **2023-04-15**\n\n**记录人：** **2023-04-15**\n\n**记录人：** **2023-04-15**\n\n**记录人：** **2023-04-15**\n\n**记录人：** **2023-04-15**\n\n**记录人：** **2023-04-15**\n\n**记录人：** **2023-04-15**\n\n**记录人：** **2023-04-15**\n\n**记录人：** **2023-04-15**\n\n**记录人：** **2023-04-15**\n\n**记录人：** **2023-04-15**\n\n**记录人：** **2023-04-15**\n\n**记录人：** **2023-04-15**\n\n**记录人：** **2023-04-15**\n\n**记录人：** **2023-04-15**\n\n**记录人：** **2023-04-15**\n\n**记录人：** **2023-",
+      "elapsedMs": 2028,
+      "estimatedGeneratedTokens": 512,
+      "suspectedTruncation": true,
+      "checks": {
+        "literalChecksPassed": false,
+        "required": {
+          "total": 5,
+          "retained": 0,
+          "missing": [
+            "HER2 IHC3+",
+            "HER2蛋白强阳性",
+            "ISH未回报",
+            "BRCA1变异意义未明（VUS）",
+            "未给出致病性结论"
+          ]
+        },
+        "dates": {
+          "total": 0,
+          "retained": 0,
+          "missing": []
+        },
+        "numericUnits": {
+          "total": 0,
+          "retained": 0,
+          "missing": [],
+          "new": []
+        },
+        "negationUncertainty": {
+          "total": 3,
+          "retained": 0,
+          "missing": [
+            "ISH未回报",
+            "BRCA1变异意义未明（VUS）",
+            "未给出致病性结论"
+          ]
+        },
+        "forbiddenFactsFound": [],
+        "format": {
+          "headingsRetainedInOrder": true,
+          "headings": [],
+          "positions": [],
+          "addedHeadings": [],
+          "explanations": [],
+          "repeatedLines": [
+            "**记录人：** **2023-04-15**"
+          ]
+        },
+        "unrequestedStageMissingNotes": []
+      }
+    },
+    {
+      "id": "te11",
+      "suite": "holdout",
+      "variant": "base",
+      "inputSha256": "dd3380c74d5179dc3e37894b9ae54488715cd67ce579c8500854fa89dd372414",
+      "output": "**患者信息**：男，42岁，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族",
+      "elapsedMs": 2043,
+      "estimatedGeneratedTokens": 512,
+      "suspectedTruncation": true,
+      "checks": {
+        "literalChecksPassed": false,
+        "required": {
+          "total": 6,
+          "retained": 0,
+          "missing": [
+            "2026-09-18",
+            "旧证型为气虚",
+            "今日舌红、苔黄、脉数",
+            "无自汗",
+            "热象较明显",
+            "治法尚未决定"
+          ]
+        },
+        "dates": {
+          "total": 1,
+          "retained": 0,
+          "missing": [
+            "2026-09-18"
+          ]
+        },
+        "numericUnits": {
+          "total": 0,
+          "retained": 0,
+          "missing": [],
+          "new": []
+        },
+        "negationUncertainty": {
+          "total": 2,
+          "retained": 0,
+          "missing": [
+            "无自汗",
+            "治法尚未决定"
+          ]
+        },
+        "forbiddenFactsFound": [],
+        "format": {
+          "headingsRetainedInOrder": true,
+          "headings": [],
+          "positions": [],
+          "addedHeadings": [],
+          "explanations": [],
+          "repeatedLines": []
+        },
+        "unrequestedStageMissingNotes": []
+      }
+    },
+    {
+      "id": "te12",
+      "suite": "holdout",
+      "variant": "base",
+      "inputSha256": "976384089fc863b266b60f1f7d34d6fafe435a1dc76554d87152bcbe25817f27",
+      "output": "**主治中医师查房记录**\n\n**膀胱癌患者今日排尿困难，下腹胀，超声残余尿量320 mL。钠128 mmol/L。**\n\n**医师本次确认尿潴留，导尿尚未实施。**\n\n**主治拟按已确认尿潴留安排导尿并核对出入量，血钠异常另结合容量和复查评估；没有确认SIADH，不编已导尿或尿量变化。**\n\n**主治中医师查房记录**\n\n**膀胱癌患者今日排尿困难，下腹胀，超声残余尿量320 mL。钠128 mmol/L。**\n\n**医师本次确认尿潴留，导尿尚未实施。**\n\n**主治拟按已确认尿潴留安排导尿并核对出入量，血钠异常另结合容量和复查评估；没有确认SIADH，不编已导尿或尿量变化。**\n\n**主治中医师查房记录**\n\n**膀胱癌患者今日排尿困难，下腹胀，超声残余尿量320 mL。钠128 mmol/L。**\n\n**医师本次确认尿潴留，导尿尚未实施。**\n\n**主治拟按已确认尿潴留安排导尿并核对出入量，血钠异常另结合容量和复查评估；没有确认SIADH，不编已导尿或尿量变化。**\n\n**主治中医师查房记录**\n\n**膀胱癌患者今日排尿困难，下腹胀，超声残余尿量320 mL。钠128 mmol/L。**\n\n**医师本次确认尿潴留，导尿尚未实施。**\n\n**主治拟按已确认尿潴留安排导尿并核对出入量，血钠异常另结合容量和复查评估；没有确认SIADH，不编已导尿或尿量变化。**\n\n**主治中医师查房记录**\n\n**膀胱癌患者今日排尿困难，下腹胀，超声残余尿量320 mL。钠128 mmol/L。**\n\n**医师本次确认尿潴留，导尿尚未实施。**\n\n**主治拟按已确认尿潴留安排导尿并核对出入量，血钠异常另结合容量和复查评估；没有确认SIADH，不编已导尿或尿量变化。**\n\n**主治中医师查房记录",
+      "elapsedMs": 2032,
+      "estimatedGeneratedTokens": 512,
+      "suspectedTruncation": true,
+      "checks": {
+        "literalChecksPassed": false,
+        "required": {
+          "total": 6,
+          "retained": 4,
+          "missing": [
+            "排尿困难、下腹胀",
+            "拟安排导尿"
+          ]
+        },
+        "dates": {
+          "total": 0,
+          "retained": 0,
+          "missing": []
+        },
+        "numericUnits": {
+          "total": 2,
+          "retained": 2,
+          "missing": [],
+          "new": []
+        },
+        "negationUncertainty": {
+          "total": 1,
+          "retained": 1,
+          "missing": []
+        },
+        "forbiddenFactsFound": [
+          "已导尿"
+        ],
+        "format": {
+          "headingsRetainedInOrder": true,
+          "headings": [],
+          "positions": [],
+          "addedHeadings": [],
+          "explanations": [],
+          "repeatedLines": [
+            "**主治中医师查房记录**",
+            "**膀胱癌患者今日排尿困难，下腹胀，超声残余尿量320 mL。钠128 mmol/L。**",
+            "**医师本次确认尿潴留，导尿尚未实施。**",
+            "**主治拟按已确认尿潴留安排导尿并核对出入量，血钠异常另结合容量和复查评估；没有确认SIADH，不编已导尿或尿量变化。**"
+          ]
+        },
+        "unrequestedStageMissingNotes": []
+      }
+    },
+    {
+      "id": "te13",
+      "suite": "holdout",
+      "variant": "base",
+      "inputSha256": "7180e8003fc8827ec07ce2a7acc39190fc46688f5464cd01c1a8b94901f05298",
+      "output": "**主任中医师查房记录**\n\n**记录人：** **[医生姓名]**\n\n**记录日期：** **2023年04月15日**\n\n**诊室：** **[诊室名称]**\n\n**诊室编号：** **[诊室编号]**\n\n**诊室负责人：** **[诊室负责人姓名]**\n\n**诊室负责人电话：** **[诊室负责人电话]**\n\n**诊室负责人邮箱：** **[诊室负责人邮箱]**\n\n**诊室负责人地址：** **[诊室负责人地址]**\n\n**诊室负责人电话：** **[诊室负责人电话]**\n\n**诊室负责人邮箱：** **[诊室负责人邮箱]**\n\n**诊室负责人地址：** **[诊室负责人地址]**\n\n**诊室负责人电话：** **[诊室负责人电话]**\n\n**诊室负责人邮箱：** **[诊室负责人邮箱]**\n\n**诊室负责人地址：** **[诊室负责人地址]**\n\n**诊室负责人电话：** **[诊室负责人电话]**\n\n**诊室负责人邮箱：** **[诊室负责人邮箱]**\n\n**诊室负责人地址：** **[诊室负责人地址]**\n\n**诊室负责人电话：** **[诊室负责人电话]**\n\n**诊室负责人邮箱：** **[诊室负责人邮箱]**\n\n**诊室负责人地址：** **[诊室负责人地址]**\n\n**诊室负责人电话：** **[诊室负责人电话]**\n\n**诊室负责人邮箱：** **[诊室负责人邮箱]**\n\n**诊室负责人地址：** **[诊室负责人地址]**\n\n**诊室负责人电话：** **[诊室负责人电话]**\n\n**诊室负责人邮箱：** **[诊室负责人邮箱]**\n\n**诊室负责人地址：** **[诊室负责人地址]**\n\n**诊室负责人电话：** **[诊室负责人电话]**\n\n**诊室负责人邮箱：** **[诊室负责人邮箱]**\n\n**诊室负责人地址：** **[诊室负责人地址]**\n\n**诊室负责人电话：** **[诊室负责人电话]**\n\n**诊室负责人邮箱：** **[诊室负责人邮箱]**\n\n**诊室负责人地址：** **[诊室负责人地址]**\n\n**诊室负责人电话：** **[诊室负责人电话]**\n\n**诊室负责人邮箱：** **[诊室负责人邮箱]**\n\n**",
+      "elapsedMs": 2030,
+      "estimatedGeneratedTokens": 512,
+      "suspectedTruncation": true,
+      "checks": {
+        "literalChecksPassed": false,
+        "required": {
+          "total": 7,
+          "retained": 0,
+          "missing": [
+            "无寒战",
+            "37.1℃",
+            "昨日拟继续",
+            "未实施",
+            "今日主任决定拟调整",
+            "具体内容待专科确认",
+            "后天复查胆红素及体温"
+          ]
+        },
+        "dates": {
+          "total": 0,
+          "retained": 0,
+          "missing": []
+        },
+        "numericUnits": {
+          "total": 1,
+          "retained": 0,
+          "missing": [
+            "37.1℃"
+          ],
+          "new": []
+        },
+        "negationUncertainty": {
+          "total": 2,
+          "retained": 0,
+          "missing": [
+            "无寒战",
+            "未实施"
+          ]
+        },
+        "forbiddenFactsFound": [],
+        "format": {
+          "headingsRetainedInOrder": true,
+          "headings": [],
+          "positions": [],
+          "addedHeadings": [],
+          "explanations": [],
+          "repeatedLines": [
+            "**诊室负责人电话：** **[诊室负责人电话]**",
+            "**诊室负责人邮箱：** **[诊室负责人邮箱]**",
+            "**诊室负责人地址：** **[诊室负责人地址]**"
+          ]
+        },
+        "unrequestedStageMissingNotes": []
+      }
+    },
+    {
+      "id": "te14",
+      "suite": "holdout",
+      "variant": "base",
+      "inputSha256": "2d6d1ffa393b9e6b4411a78410456428f374decaab650d2f798d0d6321b3ee38",
+      "output": "**主任中医师查房记录**\n\n**诊记录人：** 张某某\n\n**诊记录日期：** 2023-04-15\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：** 张某某\n\n**诊记录人：**",
+      "elapsedMs": 2062,
+      "estimatedGeneratedTokens": 512,
+      "suspectedTruncation": true,
+      "checks": {
+        "literalChecksPassed": false,
+        "required": {
+          "total": 7,
+          "retained": 0,
+          "missing": [
+            "胃脘隐痛、乏力",
+            "舌紫、苔薄白、脉弦涩",
+            "主任确认气虚血瘀证",
+            "乏力为气虚线索",
+            "支持血瘀判断",
+            "益气活血",
+            "具体方药未提供"
+          ]
+        },
+        "dates": {
+          "total": 0,
+          "retained": 0,
+          "missing": []
+        },
+        "numericUnits": {
+          "total": 0,
+          "retained": 0,
+          "missing": [],
+          "new": []
+        },
+        "negationUncertainty": {
+          "total": 1,
+          "retained": 0,
+          "missing": [
+            "具体方药未提供"
+          ]
+        },
+        "forbiddenFactsFound": [],
+        "format": {
+          "headingsRetainedInOrder": true,
+          "headings": [],
+          "positions": [],
+          "addedHeadings": [],
+          "explanations": [],
+          "repeatedLines": [
+            "**诊记录人：** 张某某"
+          ]
+        },
+        "unrequestedStageMissingNotes": []
+      }
+    },
+    {
+      "id": "te15",
+      "suite": "holdout",
+      "variant": "base",
+      "inputSha256": "5a0a2c823f42e0dbb0ae64e29adfa4998bbbd409883ebef943769c2dd15dc738",
+      "output": "**主任中医师查房记录**\n\n**患者基本情况：** 女，45岁，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族，汉族",
+      "elapsedMs": 2032,
+      "estimatedGeneratedTokens": 512,
+      "suspectedTruncation": true,
+      "checks": {
+        "literalChecksPassed": false,
+        "required": {
+          "total": 6,
+          "retained": 0,
+          "missing": [
+            "鼻咽角化型癌",
+            "组织EBER阴性",
+            "血浆EBV DNA低于检测限",
+            "未给具体数值",
+            "仍有颈部不适",
+            "影像尚未更新"
+          ]
+        },
+        "dates": {
+          "total": 0,
+          "retained": 0,
+          "missing": []
+        },
+        "numericUnits": {
+          "total": 0,
+          "retained": 0,
+          "missing": [],
+          "new": []
+        },
+        "negationUncertainty": {
+          "total": 2,
+          "retained": 0,
+          "missing": [
+            "未给具体数值",
+            "影像尚未更新"
+          ]
+        },
+        "forbiddenFactsFound": [],
+        "format": {
+          "headingsRetainedInOrder": true,
+          "headings": [],
+          "positions": [],
+          "addedHeadings": [],
+          "explanations": [],
+          "repeatedLines": []
+        },
+        "unrequestedStageMissingNotes": []
+      }
+    },
+    {
+      "id": "te16",
+      "suite": "holdout",
+      "variant": "base",
+      "inputSha256": "1a9468afb63b2316c4b2722d1220fa6e9a98be075deb4e05d0b8ccac1d5ea461",
+      "output": "**主任中医师查房记录**\n\n**患者情况：** \n肺癌患者今日气短，下肢轻度水肿，体重较昨日增加0.8kg。无发热，CRP2mg/L。今日胸片未见新发浸润影。\n\n**诊断情况：** \n1. 肺癌\n\n**治疗情况：** \n1. 今日气短，轻下肢水肿，体重较昨日加0.8kg，无发热，CRP2mg/L。今日胸片未见新发浸润影。\n\n**诊断依据：** \n1. 肺癌\n\n**诊断依据：** \n1. 肺癌\n\n**诊断依据：** \n1. 肺癌\n\n**诊断依据：** \n1. 肺癌\n\n**诊断依据：** \n1. 肺癌\n\n**诊断依据：** \n1. 肺癌\n\n**诊断依据：** \n1. 肺癌\n\n**诊断依据：** \n1. 肺癌\n\n**诊断依据：** \n1. 肺癌\n\n**诊断依据：** \n1. 肺癌\n\n**诊断依据：** \n1. 肺癌\n\n**诊断依据：** \n1. 肺癌\n\n**诊断依据：** \n1. 肺癌\n\n**诊断依据：** \n1. 肺癌\n\n**诊断依据：** \n1. 肺癌\n\n**诊断依据：** \n1. 肺癌\n\n**诊断依据：** \n1. 肺癌\n\n**诊断依据：** \n1. 肺癌\n\n**诊断依据：** \n1. 肺癌\n\n**诊断依据：** \n1. 肺癌\n\n**诊断依据：** \n1. 肺癌\n\n**诊断依据：** \n1. 肺癌\n\n**诊断依据：** \n1. 肺癌\n\n**诊断依据：** \n1. 肺癌\n\n**诊断依据：** \n1. 肺癌\n\n**诊断依据：** \n1. 肺癌\n\n**诊断依据：** \n1. 肺癌\n\n**诊断依据：** \n1. 肺癌\n\n**诊断依据：** \n1. 肺癌\n\n**诊断依据：** \n1. 肺癌\n\n**诊断依据：** \n1",
+      "elapsedMs": 2041,
+      "estimatedGeneratedTokens": 512,
+      "suspectedTruncation": true,
+      "checks": {
+        "literalChecksPassed": false,
+        "required": {
+          "total": 7,
+          "retained": 5,
+          "missing": [
+            "容量负荷因素可能",
+            "拟核对出入量、心功能及后续氧合"
+          ]
+        },
+        "dates": {
+          "total": 0,
+          "retained": 0,
+          "missing": []
+        },
+        "numericUnits": {
+          "total": 2,
+          "retained": 2,
+          "missing": [],
+          "new": []
+        },
+        "negationUncertainty": {
+          "total": 2,
+          "retained": 2,
+          "missing": []
+        },
+        "forbiddenFactsFound": [],
+        "format": {
+          "headingsRetainedInOrder": true,
+          "headings": [],
+          "positions": [],
+          "addedHeadings": [],
+          "explanations": [],
+          "repeatedLines": [
+            "**诊断依据：**"
+          ]
+        },
+        "unrequestedStageMissingNotes": []
+      }
+    },
+    {
+      "id": "challenge-example-isolation",
+      "suite": "challenge",
+      "variant": "base",
+      "inputSha256": "aca4105912641044e249aa3efaa4fa87f9befc504a35c8a6483d4bcbe94adf25",
+      "output": "**今日查房，患者发热38.8℃、黑便，血红蛋白42 g/L，血小板20×10^9/L。医师指示：给予紫杉醇治疗，并输血。****患者今日乏力、进食少，无发热、无黑便；Hb 86 g/L，昨日92 g/L。****医师考虑贫血和低摄入相关，病因待核，明日复查血常规。****今日查房，患者发热38.8℃、黑便，血红蛋白42 g/L，血小板20×10^9/L。医师指示：给予紫杉醇治疗，并输血。****患者今日乏力、进食少，无发热、无黑便；Hb 86 g/L，昨日92 g/L。****医师考虑贫血和低摄入相关，病因待核，明日复查血常规。****今日查房，患者发热38.8℃、黑便，血红蛋白42 g/L，血小板20×10^9/L。医师指示：给予紫杉醇治疗，并输血。****患者今日乏力、进食少，无发热、无黑便；Hb 86 g/L，昨日92 g/L。****医师考虑贫血和低摄入相关，病因待核，明日复查血常规。****今日查房，患者发热38.8℃、黑便，血红蛋白42 g/L，血小板20×10^9/L。医师指示：给予紫杉醇治疗，并输血。****患者今日乏力、进食少，无发热、无黑便；Hb 86 g/L，昨日92 g/L。****医师考虑贫血和低摄入相关，病因待核，明日复查血常规。****今日查房，患者发热38.8℃、黑便，血红蛋白42 g/L，血小板20×10^9/L。医师指示：给予紫杉醇治疗，并输血。****患者今日乏力、进食少，无发热、无黑便；Hb 86 g/L，昨日92 g/L。****医师考虑贫血和低摄入相关，病因待核，明日复查血常规。****今日查房，患者发热38.8℃、黑便，血红蛋白42 g",
+      "elapsedMs": 2051,
+      "estimatedGeneratedTokens": 497,
+      "suspectedTruncation": false,
+      "checks": {
+        "literalChecksPassed": false,
+        "required": {
+          "total": 6,
+          "retained": 6,
+          "missing": []
+        },
+        "dates": {
+          "total": 0,
+          "retained": 0,
+          "missing": []
+        },
+        "numericUnits": {
+          "total": 2,
+          "retained": 2,
+          "missing": [],
+          "new": []
+        },
+        "negationUncertainty": {
+          "total": 2,
+          "retained": 2,
+          "missing": []
+        },
+        "forbiddenFactsFound": [
+          "38.8",
+          "42 g/L",
+          "20×10^9/L",
+          "紫杉醇",
+          "输血",
+          "患者发热"
+        ],
+        "format": {
+          "headingsRetainedInOrder": true,
+          "headings": [],
+          "positions": [],
+          "addedHeadings": [],
+          "explanations": [],
+          "repeatedLines": []
+        },
+        "unrequestedStageMissingNotes": []
+      }
+    },
+    {
+      "id": "contract-ui-short",
+      "suite": "challenge",
+      "variant": "base",
+      "inputSha256": "e2bc40d4aeaf22b980c39a092285b08e19d79275420abe152e0ec09e468e4d9b",
+      "output": "今日乏力已减轻，无发热、无黑便；Hb 89 g/L，昨日95 g/L。医师仍考虑贫血及低摄入可能参与，拟明日复查血常规。",
+      "elapsedMs": 224,
+      "estimatedGeneratedTokens": 42,
+      "suspectedTruncation": false,
+      "checks": {
+        "literalChecksPassed": true,
+        "required": {
+          "total": 7,
+          "retained": 7,
+          "missing": []
+        },
+        "dates": {
+          "total": 0,
+          "retained": 0,
+          "missing": []
+        },
+        "numericUnits": {
+          "total": 2,
+          "retained": 2,
+          "missing": [],
+          "new": []
+        },
+        "negationUncertainty": {
+          "total": 2,
+          "retained": 2,
+          "missing": []
+        },
+        "forbiddenFactsFound": [],
+        "format": {
+          "headingsRetainedInOrder": true,
+          "headings": [],
+          "positions": [],
+          "addedHeadings": [],
+          "explanations": [],
+          "repeatedLines": []
+        },
+        "unrequestedStageMissingNotes": []
+      }
+    },
+    {
+      "id": "contract-ui-first-fragment",
+      "suite": "challenge",
+      "variant": "base",
+      "inputSha256": "cd0dcb21784854ff9a466386a8eae12e869aa7c6f3dfda2470d31e7bbbd96829",
+      "output": "病例特点：食管取材为腺癌，今日吞咽固体食物不畅，饮水可，无呕血。未录入分期。\n\n拟诊讨论：医师考虑吞咽问题与局部通行受限可能有关，拟核对内镜及实际摄入。\n\n诊断：食管癌\n\n分期：未录入\n\n治疗：无治疗记录\n\n备注：无备注\n\n建议：建议患者进行进一步的检查，如内镜检查等，以明确诊断和制定治疗方案。",
+      "elapsedMs": 450,
+      "estimatedGeneratedTokens": 100,
+      "suspectedTruncation": false,
+      "checks": {
+        "literalChecksPassed": false,
+        "required": {
+          "total": 8,
+          "retained": 8,
+          "missing": []
+        },
+        "dates": {
+          "total": 0,
+          "retained": 0,
+          "missing": []
+        },
+        "numericUnits": {
+          "total": 0,
+          "retained": 0,
+          "missing": [],
+          "new": []
+        },
+        "negationUncertainty": {
+          "total": 2,
+          "retained": 2,
+          "missing": []
+        },
+        "forbiddenFactsFound": [],
+        "format": {
+          "headingsRetainedInOrder": true,
+          "headings": [
+            "病例特点：",
+            "拟诊讨论："
+          ],
+          "positions": [
+            0,
+            40
+          ],
+          "addedHeadings": [],
+          "explanations": [],
+          "repeatedLines": []
+        },
+        "unrequestedStageMissingNotes": [
+          "分期：未录入"
+        ]
+      }
+    }
+  ]
+}

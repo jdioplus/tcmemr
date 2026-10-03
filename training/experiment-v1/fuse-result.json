@@ -1,0 +1,43 @@
+{
+  "status": "fused_hf_created",
+  "selectedCheckpoint": "0000096_adapters",
+  "quantizedBaseDequantized": true,
+  "ggufExported": false,
+  "files": [
+    {
+      "name": "README.md",
+      "bytes": 81,
+      "sha256": "748c964f9b7e5f2c3770ce013bbc0153be7c54311d9692c343b6188eefe77ac6"
+    },
+    {
+      "name": "chat_template.jinja",
+      "bytes": 2509,
+      "sha256": "d5495a1e5db0611132a97e46a65dbb64a642a499421228b9c8b93229097fa9a4"
+    },
+    {
+      "name": "config.json",
+      "bytes": 710,
+      "sha256": "bc8d587c364e4905e8510be14d07c5e69c84347c17f7c7607d5ee4470e72cb50"
+    },
+    {
+      "name": "model.safetensors",
+      "bytes": 988097440,
+      "sha256": "1842def8931e6b24a95c329f06931f906be251f616ad7029fec89c9afad3eaff"
+    },
+    {
+      "name": "model.safetensors.index.json",
+      "bytes": 20608,
+      "sha256": "1bedf57232220c80a35efc2f68512c1c160f924d6e365a43ece782fe79c87967"
+    },
+    {
+      "name": "tokenizer.json",
+      "bytes": 11421892,
+      "sha256": "3fd169731d2cbde95e10bf356d66d5997fd885dd8dbb6fb4684da3f23b2585d8"
+    },
+    {
+      "name": "tokenizer_config.json",
+      "bytes": 728,
+      "sha256": "5aa5069e1b0c0d623ce38e0df387e506b843e5c4d612a36d2e79e46a400e6450"
+    }
+  ]
+}

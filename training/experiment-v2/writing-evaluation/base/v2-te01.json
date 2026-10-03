@@ -1,0 +1,60 @@
+{
+  "id": "v2-te01",
+  "suite": "holdout",
+  "variant": "base",
+  "inputSha256": "020c9358cd91616532aec1630194da9e1b699c42e51fe7b15070e0161bc1864c",
+  "output": "**病例特点：**\n\n所有事实以待整理正文为准。\n\n**记录人：** **2023-04-15**\n\n**记录日期：** 无\n\n**诊断依据及治疗方案：**\n\n**医师拟待补充病理后进一步判断性质，尚未确定新的抗肿瘤方案。**\n\n**诊疗计划：**\n\n保留原下周门诊复评预约。",
+  "elapsedMs": 689,
+  "estimatedGeneratedTokens": 78,
+  "suspectedTruncation": false,
+  "checks": {
+    "literalChecksPassed": false,
+    "required": {
+      "total": 4,
+      "retained": 2,
+      "missing": [
+        "梭形细胞肿瘤",
+        "无发热"
+      ]
+    },
+    "dates": {
+      "total": 0,
+      "retained": 0,
+      "missing": [],
+      "new": [
+        "2023-04-15"
+      ]
+    },
+    "numericUnits": {
+      "total": 0,
+      "retained": 0,
+      "missing": [],
+      "new": []
+    },
+    "negationUncertainty": {
+      "total": 2,
+      "retained": 1,
+      "missing": [
+        "无发热"
+      ]
+    },
+    "forbiddenFactsFound": [],
+    "format": {
+      "headingsRetainedInOrder": false,
+      "headings": [
+        "病例特点：",
+        "拟诊讨论：",
+        "诊疗计划："
+      ],
+      "positions": [
+        2,
+        -1,
+        117
+      ],
+      "addedHeadings": [],
+      "explanations": [],
+      "repeatedLines": []
+    },
+    "unrequestedStageMissingNotes": []
+  }
+}

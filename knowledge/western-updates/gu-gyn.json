@@ -1,0 +1,95 @@
+{
+  "reviewedAt": "2026-10-04",
+  "scope": "公开权威资料的重点改写摘要，供病程分析与医师选择；非完整指南。版本仅指实际访问资料，metadata-only 来源不参与临床选项生成。",
+  "entries": [
+    {
+      "cancer": "前列腺癌",
+      "sources": [
+        {"id":"nci-prostate-pdq","title":"NCI Prostate Cancer Treatment (PDQ), Health Professional Version","url":"https://www.cancer.gov/types/prostate/hp/prostate-treatment-pdq","version":"页面更新 2025-05-14","reviewedAt":"2026-10-04","access":"public-fulltext-summary；完整公开证据摘要，非指南全文"},
+        {"id":"esmo-prostate-advanced-2026","title":"ESMO Advanced and metastatic prostate cancer guideline","url":"https://discovery.ucl.ac.uk/id/eprint/10222399/1/1-s2.0-S0923753426000426-main.pdf","version":"2026-01批准；2026-02-10在线发表，作者接受稿","reviewedAt":"2026-10-04","access":"public-fulltext；UCL作者接受稿，非补充材料"}
+      ],
+      "diagnosisFocus": ["核对取材病理、Gleason各组成及分级组，结合PSA和既往治疗；排尿症状另作原因评估。"],
+      "stagingFocus": ["记录原发、淋巴结和远处病变依据，区分局限/转移及激素敏感/去势抵抗状态，并注明评估日期。"],
+      "biomarkers": ["晚期分子讨论核对BRCA1/2及其他HRR改变的具体基因、致病性与来源；PSMA影像按拟定路径解释。"],
+      "decisionPoints": [
+        {"id":"prostate-state","label":"核对当前疾病状态","evidenceKeys":["stage","history","labRaw","imagingReport"],"consideration":"拟结合既往去势治疗、睾酮、连续PSA及影像核对当前状态，再讨论继续或调整依据。","nextChecks":["末次治疗及睾酮结果","PSA趋势与同部位影像"],"sourceIds":["nci-prostate-pdq","esmo-prostate-advanced-2026"]},
+        {"id":"prostate-sequence","label":"后续治疗场景讨论","evidenceKeys":["history","molecularReport","assessment"],"consideration":"拟结合既往ARPI或化疗暴露、疗效耐受及实际分子/PSMA结果讨论后续路径。","nextChecks":["既往方案及停止原因","具体HRR改变或PSMA病灶对应"],"sourceIds":["esmo-prostate-advanced-2026"]}
+      ],
+      "followupFocus": ["结合症状、影像及PSA趋势复评，兼顾骨痛、排尿、骨健康和既用治疗不良反应。"]
+    },
+    {
+      "cancer": "肾癌",
+      "sources": [
+        {"id":"nci-rcc-pdq","title":"NCI Renal Cell Cancer Treatment (PDQ), Health Professional Version","url":"https://www.cancer.gov/types/kidney/hp/kidney-treatment-pdq","version":"页面更新 2025-05-13","reviewedAt":"2026-10-04","access":"public-fulltext-summary；完整公开证据摘要，非指南全文"},
+        {"id":"esmo-rcc-2024-record","title":"ESMO Renal cell carcinoma guideline publication record","url":"https://www.annalsofoncology.org/article/S0923-7534%2824%2900676-8/fulltext","version":"2024-05-22在线发表；2024-08刊期","reviewedAt":"2026-10-04","access":"metadata-only；检索可见发布信息，正文直接访问失败"}
+      ],
+      "diagnosisFocus": ["核对肾细胞癌具体亚型及取材依据，结合局部影像；肾占位性质与已录诊断相互对应。"],
+      "stagingFocus": ["核对肿瘤局部侵犯、肾静脉/下腔静脉、淋巴结及远处病变，结合肾功能和体能。"],
+      "biomarkers": ["保留已录组织亚型；已有PD-L1等检测仅结合相应方案证据解释，不替代病变范围和临床风险评估。"],
+      "decisionPoints": [
+        {"id":"rcc-local","label":"局部控制与肾功能讨论","evidenceKeys":["pathologyReport","imagingReport","stage"],"consideration":"拟结合病灶位置、局部范围和可切除条件讨论局部处理，同时评估肾功能保留。","nextChecks":["局部影像及血管关系","双肾情况与肾功能"],"sourceIds":["nci-rcc-pdq"]},
+        {"id":"rcc-systemic","label":"晚期系统治疗评估","evidenceKeys":["stage","history","assessment"],"consideration":"拟按实际亚型、病变分布、风险及既往免疫或靶向暴露讨论系统治疗和局部处理先后。","nextChecks":["体能及器官功能","既往疗效和残余毒性"],"sourceIds":["nci-rcc-pdq"]}
+      ],
+      "followupFocus": ["对照同部位病灶和肾功能，记录实际血尿、疼痛及治疗耐受变化。"]
+    },
+    {
+      "cancer": "膀胱癌",
+      "sources": [
+        {"id":"nci-bladder-pdq","title":"NCI Bladder Cancer Treatment (PDQ), Health Professional Version","url":"https://www.cancer.gov/types/bladder/hp/bladder-treatment-pdq","version":"页面更新 2025-05-02，含围术期化疗免疫治疗更新","reviewedAt":"2026-10-04","access":"public-fulltext-summary；完整公开证据摘要，非指南全文"}
+      ],
+      "diagnosisFocus": ["核对经尿道取材的组织学类型、级别、是否包含肌层及肌层浸润，结合既往切除/灌注经过。"],
+      "stagingFocus": ["区分非肌层浸润与肌层浸润；核对膀胱外、邻近器官、淋巴结及远处病变和分期日期。"],
+      "biomarkers": ["拟讨论特定分子靶向路径时，核对FGFR改变的实际检测结果；相关检测按具体治疗场景解释。"],
+      "decisionPoints": [
+        {"id":"bladder-local","label":"局部及围术期路径讨论","evidenceKeys":["pathologyReport","stage","history"],"consideration":"拟根据肌层浸润依据、局部处理条件和肾功能，讨论围术期治疗、根治或适宜的保留膀胱路径。","nextChecks":["肌层取材和病理复核","器官功能与患者意愿"],"sourceIds":["nci-bladder-pdq"]},
+        {"id":"bladder-advanced","label":"晚期方案衔接","evidenceKeys":["stage","history","molecularReport"],"consideration":"拟结合既往含铂、免疫或抗体药物暴露、疗效及耐受，讨论后续系统治疗场景。","nextChecks":["既往方案及进展依据","适用分子结果与肾功能"],"sourceIds":["nci-bladder-pdq"]}
+      ],
+      "followupFocus": ["按实际病理风险与所选局部路径复评，核对血尿、排尿、肾功能及既有尿流改道情况。"]
+    },
+    {
+      "cancer": "宫颈癌",
+      "sources": [
+        {"id":"nci-cervical-pdq","title":"NCI Cervical Cancer Treatment (PDQ), Health Professional Version","url":"https://www.cancer.gov/types/cervical/hp/cervical-treatment-pdq","version":"页面更新 2025-05-13","reviewedAt":"2026-10-04","access":"public-fulltext-summary；完整公开证据摘要，非指南全文"},
+        {"id":"esmo-cervical-2026-record","title":"ESMO cervical cancer guideline release record","url":"https://www.esmo.org/guidelines/esmo-clinical-practice-guidelines-gynaecological-cancers","version":"官网检索目录显示 2026-09-24新版","reviewedAt":"2026-10-04","access":"metadata-only；新版正文访问失败，不据目录新增建议"}
+      ],
+      "diagnosisFocus": ["核对活检组织学、宫颈原发部位和局部检查；实际阴道流血、排液及泌尿问题分别分析。"],
+      "stagingFocus": ["注明FIGO版本，结合肿瘤大小、宫旁/阴道/盆壁及盆腔或腹主动脉旁淋巴结；保存影像或病理依据。"],
+      "biomarkers": ["复发转移治疗讨论核对PD-L1 CPS及其检测报告，结合具体治疗场景和既往治疗。"],
+      "decisionPoints": [
+        {"id":"cervix-local","label":"局部治疗条件讨论","evidenceKeys":["stage","pathologyReport","imagingReport"],"consideration":"拟结合局部侵犯、淋巴结及既往手术/放疗，讨论适宜局部路径及同步治疗条件。","nextChecks":["盆腔和淋巴结评估","既往放疗范围与器官功能"],"sourceIds":["nci-cervical-pdq"]},
+        {"id":"cervix-recurrent","label":"复发转移与耐受评估","evidenceKeys":["history","imagingReport","molecularReport"],"consideration":"拟结合复发部位、既往含铂或免疫暴露及PD-L1结果讨论后续场景，兼顾出血、瘘与治疗耐受。","nextChecks":["复发病灶与既往影像对应","血象、肾功能及盆腔并发症"],"sourceIds":["nci-cervical-pdq"]}
+      ],
+      "followupFocus": ["以病史、查体和实际症状为中心复评，必要时针对阳性发现检查，同时关注既往治疗并发症。"]
+    },
+    {
+      "cancer": "卵巢癌",
+      "sources": [
+        {"id":"nci-ovarian-pdq","title":"NCI Ovarian Epithelial, Fallopian Tube, and Primary Peritoneal Cancer Treatment (PDQ), HP","url":"https://www.cancer.gov/types/ovarian/hp/ovarian-epithelial-treatment-pdq","version":"页面更新 2025-05-14","reviewedAt":"2026-10-04","access":"public-fulltext-summary；限上皮性肿瘤"},
+        {"id":"esmo-ovarian-express-2026","title":"ESMO Clinical Practice Guideline Express Update on epithelial ovarian cancer","url":"https://pmc.ncbi.nlm.nih.gov/articles/PMC12947637/","version":"2026-01-28在线；ESMO Open 11(2):106032","reviewedAt":"2026-10-04","access":"public-fulltext；2023主指南的专项更新"}
+      ],
+      "diagnosisFocus": ["核对上皮性组织类型、卵巢/输卵管/腹膜来源及手术病理；本条不替代生殖细胞或性索间质肿瘤路径。"],
+      "stagingFocus": ["结合手术、腹膜及远处病变确定已录FIGO阶段，记录减灭术后残余病灶和实际病变分布。"],
+      "biomarkers": ["维持讨论核对BRCA1/2、HRD与实际含铂疗效；特定复发场景核对FRα检测方法和表达水平。"],
+      "decisionPoints": [
+        {"id":"ovary-maintenance","label":"一线后维持条件","evidenceKeys":["history","molecularReport","assessment"],"consideration":"拟结合一线含铂后NED、完全或部分缓解，BRCA/HRD及耐受讨论维持路径。","nextChecks":["一线后疗效依据","BRCA、HRD及血象"],"sourceIds":["esmo-ovarian-express-2026"]},
+        {"id":"ovary-recurrence","label":"复发路径与FRα条件","evidenceKeys":["history","molecularReport","imagingReport"],"consideration":"拟结合末次铂类后间隔、既往反应及耐受评估再用铂适宜性；特定高等级浆液性复发场景可讨论FRα相关路径。","nextChecks":["铂间隔和既往线数","FRα报告与病理对应"],"sourceIds":["esmo-ovarian-express-2026"]}
+      ],
+      "followupFocus": ["结合症状、同部位影像与CA125趋势复评；治疗续停由医师综合评估。"]
+    },
+    {
+      "cancer": "子宫内膜癌",
+      "sources": [
+        {"id":"nci-endometrial-pdq","title":"NCI Endometrial Cancer Treatment (PDQ), Health Professional Version","url":"https://www.cancer.gov/types/uterine/hp/endometrial-treatment-pdq","version":"页面更新 2025-05-14；含FIGO 2023分子分期","reviewedAt":"2026-10-04","access":"public-fulltext-summary；完整公开证据摘要"},
+        {"id":"esgo-endometrial-2025","title":"ESGO-ESTRO-ESP endometrial carcinoma guidelines update 2025","url":"https://guidelines.esgo.org/media/2025/09/ESGO-ESTRO-ESP-Guidelines-for-EC_-LO-July-2025.pdf","version":"Lancet Oncology 2025-08;26:e423-e435","reviewedAt":"2026-10-04","access":"public-fulltext；正文13页，未将未访问附录当正文"}
+      ],
+      "diagnosisFocus": ["核对组织学类型、级别、侵肌、宫颈/宫外受累及LVSI，结合实际分子分类评价风险。"],
+      "stagingFocus": ["明确FIGO版本；2023体系核对解剖、病理与分子注记，区分原分期和后续复发记录。"],
+      "biomarkers": ["核对POLE、MMR/MSI、p53与NSMP分类；按场景记录ER及HER2等实际结果。"],
+      "decisionPoints": [
+        {"id":"endo-adjuvant","label":"术后风险与辅助治疗","evidenceKeys":["pathologyReport","stage","molecularReport"],"consideration":"拟结合侵肌、LVSI、淋巴结和分子亚型综合风险，再讨论辅助治疗与观察路径。","nextChecks":["完整手术病理","分子分类及风险组依据"],"sourceIds":["esgo-endometrial-2025","nci-endometrial-pdq"]},
+        {"id":"endo-recurrent","label":"复发转移系统治疗场景","evidenceKeys":["history","molecularReport","assessment"],"consideration":"拟结合MMR状态、实际受体/分子结果、既往免疫及化疗暴露和病灶范围讨论后续路径。","nextChecks":["复发证据与既往方案","器官功能及适用分子结果"],"sourceIds":["esgo-endometrial-2025"]}
+      ],
+      "followupFocus": ["按风险、已用治疗及患者需要制定复评，关注出血、治疗后并发症及身心健康。"]
+    }
+  ]
+}

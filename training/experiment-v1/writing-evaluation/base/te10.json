@@ -1,0 +1,56 @@
+{
+  "id": "te10",
+  "suite": "holdout",
+  "variant": "base",
+  "inputSha256": "049c2eecca9bb6c5c678dba4662e08619a6f7facc999c12cd63e8a71a4b00e84",
+  "output": "**主治中医师查房记录**\n\n**记录人：** **2023-04-15**\n\n**记录人：** **2023-04-15**\n\n**记录人：** **2023-04-15**\n\n**记录人：** **2023-04-15**\n\n**记录人：** **2023-04-15**\n\n**记录人：** **2023-04-15**\n\n**记录人：** **2023-04-15**\n\n**记录人：** **2023-04-15**\n\n**记录人：** **2023-04-15**\n\n**记录人：** **2023-04-15**\n\n**记录人：** **2023-04-15**\n\n**记录人：** **2023-04-15**\n\n**记录人：** **2023-04-15**\n\n**记录人：** **2023-04-15**\n\n**记录人：** **2023-04-15**\n\n**记录人：** **2023-04-15**\n\n**记录人：** **2023-04-15**\n\n**记录人：** **2023-04-15**\n\n**记录人：** **2023-04-15**\n\n**记录人：** **2023-04-15**\n\n**记录人：** **2023-04-15**\n\n**记录人：** **2023-04-15**\n\n**记录人：** **2023-04-15**\n\n**记录人：** **2023-04-15**\n\n**记录人：** **2023-04-15**\n\n**记录人：** **2023-04-15**\n\n**记录人：** **2023-04-15**\n\n**记录人：** **2023-04-15**\n\n**记录人：** **2023-04-15**\n\n**记录人：** **2023-",
+  "elapsedMs": 2028,
+  "estimatedGeneratedTokens": 512,
+  "suspectedTruncation": true,
+  "checks": {
+    "literalChecksPassed": false,
+    "required": {
+      "total": 5,
+      "retained": 0,
+      "missing": [
+        "HER2 IHC3+",
+        "HER2蛋白强阳性",
+        "ISH未回报",
+        "BRCA1变异意义未明（VUS）",
+        "未给出致病性结论"
+      ]
+    },
+    "dates": {
+      "total": 0,
+      "retained": 0,
+      "missing": []
+    },
+    "numericUnits": {
+      "total": 0,
+      "retained": 0,
+      "missing": [],
+      "new": []
+    },
+    "negationUncertainty": {
+      "total": 3,
+      "retained": 0,
+      "missing": [
+        "ISH未回报",
+        "BRCA1变异意义未明（VUS）",
+        "未给出致病性结论"
+      ]
+    },
+    "forbiddenFactsFound": [],
+    "format": {
+      "headingsRetainedInOrder": true,
+      "headings": [],
+      "positions": [],
+      "addedHeadings": [],
+      "explanations": [],
+      "repeatedLines": [
+        "**记录人：** **2023-04-15**"
+      ]
+    },
+    "unrequestedStageMissingNotes": []
+  }
+}

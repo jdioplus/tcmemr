@@ -1,0 +1,44 @@
+{
+  "id": "contract-ui-short",
+  "suite": "challenge",
+  "variant": "base",
+  "inputSha256": "e2bc40d4aeaf22b980c39a092285b08e19d79275420abe152e0ec09e468e4d9b",
+  "output": "今日乏力已减轻，无发热、无黑便；Hb 89 g/L，昨日95 g/L。医师仍考虑贫血及低摄入可能参与，拟明日复查血常规。",
+  "elapsedMs": 224,
+  "estimatedGeneratedTokens": 42,
+  "suspectedTruncation": false,
+  "checks": {
+    "literalChecksPassed": true,
+    "required": {
+      "total": 7,
+      "retained": 7,
+      "missing": []
+    },
+    "dates": {
+      "total": 0,
+      "retained": 0,
+      "missing": []
+    },
+    "numericUnits": {
+      "total": 2,
+      "retained": 2,
+      "missing": [],
+      "new": []
+    },
+    "negationUncertainty": {
+      "total": 2,
+      "retained": 2,
+      "missing": []
+    },
+    "forbiddenFactsFound": [],
+    "format": {
+      "headingsRetainedInOrder": true,
+      "headings": [],
+      "positions": [],
+      "addedHeadings": [],
+      "explanations": [],
+      "repeatedLines": []
+    },
+    "unrequestedStageMissingNotes": []
+  }
+}

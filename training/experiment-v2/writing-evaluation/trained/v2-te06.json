@@ -1,0 +1,45 @@
+{
+  "id": "v2-te06",
+  "suite": "holdout",
+  "variant": "trained",
+  "inputSha256": "eeedecbf347af78991928c9f0a58622faaeb74eba1cf26fb6d386a748e459fec",
+  "output": "主治医师查房，患者舌淡紫、苔薄白、脉沉细，肢倦，无胸痛。医师当前辨为气虚血瘀，治法拟益气活血，仍待讨论具体方药，今日未开具新中药处方。",
+  "elapsedMs": 338,
+  "estimatedGeneratedTokens": 56,
+  "suspectedTruncation": false,
+  "checks": {
+    "literalChecksPassed": true,
+    "required": {
+      "total": 4,
+      "retained": 4,
+      "missing": []
+    },
+    "dates": {
+      "total": 0,
+      "retained": 0,
+      "missing": [],
+      "new": []
+    },
+    "numericUnits": {
+      "total": 0,
+      "retained": 0,
+      "missing": [],
+      "new": []
+    },
+    "negationUncertainty": {
+      "total": 2,
+      "retained": 2,
+      "missing": []
+    },
+    "forbiddenFactsFound": [],
+    "format": {
+      "headingsRetainedInOrder": true,
+      "headings": [],
+      "positions": [],
+      "addedHeadings": [],
+      "explanations": [],
+      "repeatedLines": []
+    },
+    "unrequestedStageMissingNotes": []
+  }
+}

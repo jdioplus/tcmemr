@@ -1,0 +1,207 @@
+{
+  "reviewedAt": "2026-10-04",
+  "scope": "公开原始指南及专业证据摘要的有限重点整理，供医师审核选择；保留实际版本、适用亚型和访问范围，不代表完整指南或所有内容均为最新版。正文摘段来源仅用于已读取部分，未读取的补充材料不参与生成。",
+  "entries": [
+    {
+      "cancer": "肺癌",
+      "sources": [
+        {
+          "id": "other-lung-esmo-early-2025",
+          "title": "ESMO Early and locally advanced non-small-cell lung cancer guideline",
+          "url": "https://www.annalsofoncology.org/article/S0923-7534%2825%2900923-8/fulltext",
+          "version": "2025-08-28 在线发表；Ann Oncol 36(11):1245–1262",
+          "reviewedAt": "2026-10-04",
+          "access": "public-body-excerpts；实际读取出版社检索缓存的分期/可切除性正文，直开失败；非全文或2026 living版本"
+        },
+        {
+          "id": "other-lung-esmo-paga-2024",
+          "title": "Pan-Asian adapted ESMO oncogene-addicted metastatic NSCLC guideline",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11648200/",
+          "version": "2024；ESMO Open 9(12):103996，2024-04-27 共识会议",
+          "reviewedAt": "2026-10-04",
+          "access": "public-fulltext；原始泛亚洲适配指南正文，非2026 living版本"
+        },
+        {
+          "id": "other-lung-nci-nsclc",
+          "title": "NCI Non-Small Cell Lung Cancer Treatment (PDQ), professional version",
+          "url": "https://www.cancer.gov/types/lung/hp/non-small-cell-lung-treatment-pdq",
+          "version": "页面更新 2025-05-15",
+          "reviewedAt": "2026-10-04",
+          "access": "public-fulltext-summary；完整公开证据摘要，非正式指南全文"
+        },
+        {
+          "id": "other-lung-nci-sclc",
+          "title": "NCI Small Cell Lung Cancer Treatment (PDQ), professional version",
+          "url": "https://www.cancer.gov/types/lung/hp/small-cell-lung-treatment-pdq",
+          "version": "页面更新 2025-05-14",
+          "reviewedAt": "2026-10-04",
+          "access": "public-fulltext-summary；完整公开证据摘要，非正式指南全文"
+        }
+      ],
+      "diagnosisFocus": ["先核对小细胞/非小细胞及具体病理亚型、取材部位，肺部多灶不自动认定转移；保留标本以核对实际分子报告。"],
+      "stagingFocus": ["2025早期/局部NSCLC指南采用TNM第9版，原报告版本须保留；N2站位及可切除性需专科综合评估。小细胞癌另核对疾病范围，不能由癌名推定局限或广泛期。"],
+      "biomarkers": ["NSCLC按实际亚型和场景核对EGFR、ALK、ROS1、BRAF、KRAS、MET、RET、NTRK及HER2结果；PD-L1评分与驱动变异分别记录，不以单项结果替代全部治疗依据。"],
+      "decisionPoints": [
+        {
+          "id": "lung-extent",
+          "label": "病理亚型与疾病范围",
+          "evidenceKeys": ["pathologyReport", "imagingReport", "stage", "westernDiagnosis"],
+          "consideration": "拟结合实际病理亚型、胸部与适用的颅脑资料核对疾病范围，再讨论局部路径或系统治疗场景。",
+          "nextChecks": ["病理亚型、取材部位与分期版本", "胸部病灶、淋巴结站位及适用的远处评估"],
+          "sourceIds": ["other-lung-esmo-early-2025", "other-lung-nci-sclc"]
+        },
+        {
+          "id": "lung-molecular",
+          "label": "分子结果与治疗时序",
+          "evidenceKeys": ["molecularReport", "history", "assessment", "pathologyReport"],
+          "activationTerms": ["非小细胞", "肺腺癌", "NSCLC", "EGFR", "ALK", "ROS1", "MET", "RET", "NTRK", "PD-L1", "KRAS", "HER2", "BRAF"],
+          "consideration": "拟核对检测标本、具体驱动变异及PD-L1评分，结合既往实际暴露、疗效和耐受讨论后续路径；出现已证实进展时再评估再取材或耐药检测的价值。",
+          "nextChecks": ["检测方法、标本日期与具体变异", "既往治疗、进展证据及再取材可行性"],
+          "sourceIds": ["other-lung-esmo-paga-2024", "other-lung-nci-nsclc"]
+        }
+      ],
+      "followupFocus": ["肿瘤反应以可比影像和既定复评为依据；新增咳嗽、气短等另核对感染、局部问题与实际治疗毒性，症状变化不单独等同于肿瘤进展。"]
+    },
+    {
+      "cancer": "乳腺癌",
+      "sources": [
+        {
+          "id": "other-breast-esmo-2026",
+          "title": "ESMO Metastatic breast cancer guideline",
+          "url": "https://www.annalsofoncology.org/article/S0923-7534%2826%2900902-6/fulltext",
+          "version": "2026-05-29 在线发表；Ann Oncol 37(9):1203–1219，doi:10.1016/j.annonc.2026.05.707",
+          "reviewedAt": "2026-10-04",
+          "access": "public-body-excerpts；实际读取出版社检索缓存的分期、复评及转移部位决策正文，直开失败；非全文/补充材料"
+        },
+        {
+          "id": "other-breast-nci",
+          "title": "NCI Breast Cancer Treatment (PDQ), professional version",
+          "url": "https://www.cancer.gov/types/breast/hp/breast-treatment-pdq",
+          "version": "页面更新 2025-04-25",
+          "reviewedAt": "2026-10-04",
+          "access": "public-fulltext-summary；完整公开证据摘要，非正式指南全文"
+        }
+      ],
+      "diagnosisFocus": ["核对原发/复发取材、病理类型与分级，并区分ER、PR、HER2原始结果；HER2保留IHC/ISH，不把笼统阴性改写为HER2低表达。"],
+      "stagingFocus": ["分开记录局部、区域结节与远处证据及日期；转移病影像应与基线可比，新的神经症状另评估颅脑。"],
+      "biomarkers": ["按实际分型与治疗场景核对BRCA1/2胚系、PIK3CA、ESR1及适用PD-L1结果；未检测不等同野生型。"],
+      "decisionPoints": [
+        {
+          "id": "breast-subtype",
+          "label": "受体分型与实际治疗背景",
+          "evidenceKeys": ["pathologyReport", "molecularReport", "history", "westernDiagnosis"],
+          "consideration": "拟核对本例病理及ER、PR、HER2原始结果，结合既往治疗、疗效和耐受讨论后续路径。",
+          "nextChecks": ["病理与ER/PR、HER2的IHC/ISH结果", "既往治疗、停止原因与实际分子结果"],
+          "sourceIds": ["other-breast-nci"]
+        },
+        {
+          "id": "breast-response",
+          "label": "转移病复评与局部问题",
+          "evidenceKeys": ["imagingReport", "stage", "assessment", "followPlan"],
+          "activationTerms": ["转移", "复发", "M1", "Ⅳ期", "IV期", "晚期"],
+          "consideration": "拟对照可比影像、症状和实际治疗时序评估病情变化，结合具体受累部位讨论系统与局部处理的关系。",
+          "nextChecks": ["同部位基线/复评影像及治疗起止时间", "相关局部症状与已定复评安排"],
+          "sourceIds": ["other-breast-esmo-2026"]
+        }
+      ],
+      "followupFocus": ["复评时兼顾病灶变化与已用治疗毒性；内分泌治疗相关骨健康、抗HER2相关心功能等按实际治疗核对，不生成固定复查间隔或新处方。"]
+    },
+    {
+      "cancer": "鼻咽癌",
+      "sources": [
+        {
+          "id": "other-npc-seom-2025",
+          "title": "SEOM–TTCC clinical guideline for nasopharyngeal carcinoma (update 2025)",
+          "url": "https://link.springer.com/article/10.1007/s12094-026-04252-5",
+          "version": "2025-07 更新；2026-02-17 发表，Clin Transl Oncol 28:1151–1164",
+          "reviewedAt": "2026-10-04",
+          "access": "public-fulltext；原始指南完整正文，适应证背景为西班牙，不直接照搬地区准入"
+        },
+        {
+          "id": "other-npc-nci",
+          "title": "NCI Nasopharyngeal Carcinoma Treatment (PDQ), professional version",
+          "url": "https://www.cancer.gov/types/head-and-neck/hp/adult/nasopharyngeal-treatment-pdq",
+          "version": "页面更新 2025-05-14",
+          "reviewedAt": "2026-10-04",
+          "access": "public-fulltext-summary；完整公开证据摘要，非正式指南全文"
+        }
+      ],
+      "diagnosisFocus": ["核对鼻咽取材病理与组织EBER；血浆EBV DNA作为辅助信息，不替代组织确诊，也不由单次升高写出复发。"],
+      "stagingFocus": ["记录鼻咽/颅底、颈部结节与远处范围；指南正文用AJCC第8版，病例实际分期版本须保留。MRI与内镜应对应具体部位。"],
+      "biomarkers": ["EBV DNA记录检测方法、单位、日期及趋势；组织EBER和血浆DNA不是同一检测。"],
+      "decisionPoints": [
+        {
+          "id": "npc-extent",
+          "label": "鼻咽局部范围与EBV证据",
+          "evidenceKeys": ["pathologyReport", "imagingReport", "stage", "labRaw"],
+          "consideration": "拟将鼻咽病理、局部及颈部所见与血浆EBV DNA对应，结合远处资料讨论本例局部或复发转移治疗场景。",
+          "nextChecks": ["鼻咽病理/EBER、内镜及对应MRI", "血浆EBV DNA方法、单位与连续结果"],
+          "sourceIds": ["other-npc-seom-2025", "other-npc-nci"]
+        },
+        {
+          "id": "npc-post-treatment",
+          "label": "疗效与治疗后局部影响",
+          "evidenceKeys": ["history", "imagingReport", "assessment", "followPlan"],
+          "activationTerms": ["放疗后", "治疗后", "已完成放疗", "复发", "残留", "再程放疗"],
+          "consideration": "拟结合治疗结束时间、内镜及可比影像核对残留或复发依据，同时评估黏膜、吞咽、营养和既往放疗相关影响。",
+          "nextChecks": ["实际治疗结束时间及内镜/影像变化", "实际口腔、吞咽、听力及甲状腺功能资料"],
+          "sourceIds": ["other-npc-seom-2025"]
+        }
+      ],
+      "followupFocus": ["复评关注鼻咽与颈部、EBV趋势和适用影像；出现局部变化需区分治疗反应与病灶，放疗后兼顾迟发毒性。"]
+    },
+    {
+      "cancer": "甲状腺癌",
+      "sources": [
+        {
+          "id": "other-thyroid-ata-2025",
+          "title": "2025 ATA Management Guidelines for Adult Patients with Differentiated Thyroid Cancer",
+          "url": "https://journals.sagepub.com/doi/10.1177/10507256251363120",
+          "version": "2025-08；Thyroid 35(8):841–985",
+          "reviewedAt": "2026-10-04",
+          "access": "public-fulltext；原始成人分化型甲状腺癌指南完整正文，不用于髓样或未分化癌"
+        },
+        {
+          "id": "other-thyroid-nci",
+          "title": "NCI Thyroid Cancer Treatment (PDQ), professional version",
+          "url": "https://www.cancer.gov/types/thyroid/hp/thyroid-treatment-pdq",
+          "version": "页面更新 2025-05-09",
+          "reviewedAt": "2026-10-04",
+          "access": "public-fulltext-summary；完整公开证据摘要，非正式指南全文"
+        }
+      ],
+      "diagnosisFocus": ["先区分分化型、髓样与未分化亚型；细针穿刺/手术病理及颈部所见分别保存，不以分子结果代替组织诊断。"],
+      "stagingFocus": ["分化型记录AJCC分期与ATA复发风险的不同目的；实际病理、术后影像和生化反应支持动态风险评估，不由癌名自动定级。"],
+      "biomarkers": ["分化型随访Tg须同时看TgAb、检测方法和手术范围；髓样核对RET致病变异及遗传来源，未分化核对BRAF V600E；不同亚型结果不互套。"],
+      "decisionPoints": [
+        {
+          "id": "thyroid-subtype",
+          "label": "病理亚型与局部范围",
+          "evidenceKeys": ["pathologyReport", "imagingReport", "westernDiagnosis", "stage"],
+          "consideration": "拟按本例病理亚型、颈部范围和既往实际处理核对后续评估重点，分别讨论分化型、髓样或未分化癌的适用路径。",
+          "nextChecks": ["病理亚型、局部侵犯及淋巴结所见", "既往手术/局部处理与实际分期记录"],
+          "sourceIds": ["other-thyroid-nci"]
+        },
+        {
+          "id": "thyroid-dtc-follow",
+          "label": "分化型术后反应与动态风险",
+          "evidenceKeys": ["history", "labRaw", "imagingReport", "pathologyReport", "assessment"],
+          "activationTerms": ["分化型", "乳头状", "滤泡", "嗜酸细胞", "TgAb", "甲状腺球蛋白"],
+          "consideration": "拟结合手术范围、病理风险、颈部影像及Tg/TgAb趋势核对治疗反应，再讨论本例复评及TSH管理目标。",
+          "nextChecks": ["手术范围、既往碘治疗与病理风险要点", "同方法Tg/TgAb、TSH及可比颈部影像"],
+          "sourceIds": ["other-thyroid-ata-2025"]
+        },
+        {
+          "id": "thyroid-subtype-marker",
+          "label": "亚型对应分子依据",
+          "evidenceKeys": ["pathologyReport", "molecularReport", "assessment"],
+          "activationTerms": ["髓样", "未分化", "RET", "BRAF"],
+          "consideration": "拟按具体亚型核对RET或BRAF等实际结果、胚系/体细胞来源与既往治疗，再讨论其对本例后续路径的意义。",
+          "nextChecks": ["具体亚型、变异形式与检测来源", "已有遗传评估或实际治疗时序"],
+          "sourceIds": ["other-thyroid-nci"]
+        }
+      ],
+      "followupFocus": ["分化型结合动态反应安排复评，Tg解读须考虑残余正常甲状腺及TgAb干扰；髓样或未分化沿本例亚型与已定安排核对。"]
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "id": "contract-ui-first-fragment",
+  "suite": "challenge",
+  "variant": "trained",
+  "inputSha256": "cd0dcb21784854ff9a466386a8eae12e869aa7c6f3dfda2470d31e7bbbd96829",
+  "output": "病例特点：\n食管取材为腺癌，今日吞咽固体食物不畅，饮水可，无呕血。未录入分期。\n拟诊讨论：\n医师考虑吞咽问题与局部通行受限可能有关，拟核对内镜及实际摄入情况。",
+  "elapsedMs": 320,
+  "estimatedGeneratedTokens": 56,
+  "suspectedTruncation": false,
+  "checks": {
+    "literalChecksPassed": true,
+    "required": {
+      "total": 8,
+      "retained": 8,
+      "missing": []
+    },
+    "dates": {
+      "total": 0,
+      "retained": 0,
+      "missing": []
+    },
+    "numericUnits": {
+      "total": 0,
+      "retained": 0,
+      "missing": [],
+      "new": []
+    },
+    "negationUncertainty": {
+      "total": 2,
+      "retained": 2,
+      "missing": []
+    },
+    "forbiddenFactsFound": [],
+    "format": {
+      "headingsRetainedInOrder": true,
+      "headings": [
+        "病例特点：",
+        "拟诊讨论："
+      ],
+      "positions": [
+        0,
+        40
+      ],
+      "addedHeadings": [],
+      "explanations": [],
+      "repeatedLines": []
+    },
+    "unrequestedStageMissingNotes": []
+  }
+}

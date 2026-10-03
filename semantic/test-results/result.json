@@ -1,0 +1,434 @@
+{
+  "testedAt": "2026-10-03T17:28:17.183Z",
+  "source": "/Users/donne/Desktop/codex/bingli/semantic/semantic-demo.html",
+  "bytes": 47559542,
+  "sha256": "12b6fa38991d48f67805ac0fcedae20be8f256ccf68eb806f24962c1a12673ea",
+  "chrome": "154.0.8037.95",
+  "contextOffline": true,
+  "checks": [
+    "No model loading until requested",
+    "Chinese positive and negative tokens remain distinct",
+    "Mixed Chinese report keeps numbers and units as valid token IDs",
+    "WordPiece overlong word emits unknown token",
+    "Real local encoder returns normalized 512-dimensional vector",
+    "Relevant anemia or intake passage precedes unrelated UI text",
+    "Similarity scores are finite and ordered",
+    "Document vectors are reused in memory",
+    "Mixed report retrieves lung change differential passage",
+    "Long documents search beyond first model window through chunks",
+    "Visible demo uses search API and displays matches",
+    "390-pixel display fits viewport",
+    "Completely offline execution emits zero HTTP requests",
+    "No localStorage or IndexedDB writes",
+    "No uncaught page errors"
+  ],
+  "tokenization": [
+    {
+      "text": "无发热、无咳嗽。",
+      "ids": [
+        101,
+        3187,
+        1355,
+        4178,
+        510,
+        3187,
+        1495,
+        1644,
+        511,
+        102
+      ],
+      "totalTokens": 10,
+      "truncated": false
+    },
+    {
+      "text": "有发热、有咳嗽。",
+      "ids": [
+        101,
+        3300,
+        1355,
+        4178,
+        510,
+        3300,
+        1495,
+        1644,
+        511,
+        102
+      ],
+      "totalTokens": 10,
+      "truncated": false
+    },
+    {
+      "text": "Hb 86 g/L，WBC 3.2×10^9/L；CT：新发磨玻璃影",
+      "ids": [
+        101,
+        100,
+        8352,
+        149,
+        120,
+        100,
+        8024,
+        100,
+        124,
+        119,
+        123,
+        9569,
+        8311,
+        141,
+        130,
+        120,
+        100,
+        8039,
+        100,
+        8038,
+        3173,
+        1355,
+        4836,
+        4390,
+        4461,
+        2512,
+        102
+      ],
+      "totalTokens": 27,
+      "truncated": false
+    },
+    {
+      "text": "肝胃不和，舌淡红、苔薄白，脉弦",
+      "ids": [
+        101,
+        5498,
+        5517,
+        679,
+        1469,
+        8024,
+        5649,
+        3909,
+        5273,
+        510,
+        5726,
+        5946,
+        4635,
+        8024,
+        5549,
+        2478,
+        102
+      ],
+      "totalTokens": 17,
+      "truncated": false
+    },
+    {
+      "text": "[CLS] x\u0000�\t中 文",
+      "ids": [
+        101,
+        101,
+        166,
+        704,
+        3152,
+        102
+      ],
+      "totalTokens": 6,
+      "truncated": false
+    },
+    {
+      "text": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "ids": [
+        101,
+        100,
+        102
+      ],
+      "totalTokens": 3,
+      "truncated": false
+    }
+  ],
+  "embedding": {
+    "vector": [
+      -0.08115120232105255,
+      -0.037628497928380966,
+      0.001205231761559844,
+      -0.01662556640803814,
+      -0.06406315416097641,
+      -0.0013523552333936095,
+      0.0027212370187044144,
+      0.0216273944824934
+    ],
+    "dimension": 512,
+    "tokenCount": 19,
+    "truncated": false,
+    "norm": 1.0000000007952334,
+    "elapsedMs": 190,
+    "status": {
+      "state": "ready",
+      "mode": "本地中文语义检索",
+      "model": "BAAI/bge-small-zh-v1.5 / ONNX int8",
+      "dimension": 512,
+      "lastError": "",
+      "cachedChunks": 0,
+      "completedChunks": 0,
+      "totalChunks": 0,
+      "initializationMs": 141,
+      "inputNames": [
+        "input_ids",
+        "attention_mask",
+        "token_type_ids"
+      ],
+      "outputNames": [
+        "last_hidden_state",
+        "sentence_embedding"
+      ]
+    }
+  },
+  "firstEmbeddingWallMs": 191,
+  "firstSearch": {
+    "elapsedMs": 199,
+    "matches": [
+      {
+        "id": "anemia",
+        "text": "肿瘤患者乏力伴血红蛋白下降，评估贫血的程度和动态变化，结合网织红细胞、铁代谢、出血及既往治疗情况分析可能原因。",
+        "document": {
+          "id": "anemia",
+          "text": "肿瘤患者乏力伴血红蛋白下降，评估贫血的程度和动态变化，结合网织红细胞、铁代谢、出血及既往治疗情况分析可能原因。"
+        },
+        "index": 0,
+        "score": 0.7023623243693754,
+        "chunkIndex": 0
+      },
+      {
+        "id": "intake",
+        "text": "肿瘤患者进食减少、体重下降时，核对实际能量和蛋白摄入，评估营养状态、恶心呕吐、吞咽问题及消化道症状，复查相关指标。",
+        "document": {
+          "id": "intake",
+          "text": "肿瘤患者进食减少、体重下降时，核对实际能量和蛋白摄入，评估营养状态、恶心呕吐、吞咽问题及消化道症状，复查相关指标。"
+        },
+        "index": 1,
+        "score": 0.6417370801490923,
+        "chunkIndex": 0
+      },
+      {
+        "id": "tcm",
+        "text": "中医辨证须结合已提供的症状、舌象和脉象。肝胃不和的一般病机为肝失疏泄、胃失和降；应由医师核实对应四诊依据。",
+        "document": {
+          "id": "tcm",
+          "text": "中医辨证须结合已提供的症状、舌象和脉象。肝胃不和的一般病机为肝失疏泄、胃失和降；应由医师核实对应四诊依据。"
+        },
+        "index": 4,
+        "score": 0.5207094662906826,
+        "chunkIndex": 0
+      },
+      {
+        "id": "infection",
+        "text": "出现发热、咳嗽和新发肺部影像变化时，应结合感染、肿瘤进展、药物或放射治疗相关肺损伤等可能性进行鉴别，完善针对性检查。",
+        "document": {
+          "id": "infection",
+          "text": "出现发热、咳嗽和新发肺部影像变化时，应结合感染、肿瘤进展、药物或放射治疗相关肺损伤等可能性进行鉴别，完善针对性检查。"
+        },
+        "index": 2,
+        "score": 0.4634549001998152,
+        "chunkIndex": 0
+      },
+      {
+        "id": "staging",
+        "text": "肺癌分期需注明所采用的TNM版本及临床或病理前缀，依据原发肿瘤、区域淋巴结和远处转移证据核对，不以单项症状替代分期依据。",
+        "document": {
+          "id": "staging",
+          "text": "肺癌分期需注明所采用的TNM版本及临床或病理前缀，依据原发肿瘤、区域淋巴结和远处转移证据核对，不以单项症状替代分期依据。"
+        },
+        "index": 3,
+        "score": 0.4436252494743412,
+        "chunkIndex": 0
+      },
+      {
+        "id": "unrelated",
+        "text": "文件导出后可以使用浏览器打开，窗口宽度改变时按钮会自动换行，查询结果在当前页面显示。",
+        "document": {
+          "id": "unrelated",
+          "text": "文件导出后可以使用浏览器打开，窗口宽度改变时按钮会自动换行，查询结果在当前页面显示。"
+        },
+        "index": 5,
+        "score": 0.31199995318768065,
+        "chunkIndex": 0
+      }
+    ],
+    "status": {
+      "state": "ready",
+      "mode": "本地中文语义检索",
+      "model": "BAAI/bge-small-zh-v1.5 / ONNX int8",
+      "dimension": 512,
+      "lastError": "",
+      "cachedChunks": 6,
+      "completedChunks": 6,
+      "totalChunks": 6,
+      "initializationMs": 141,
+      "inputNames": [
+        "input_ids",
+        "attention_mask",
+        "token_type_ids"
+      ],
+      "outputNames": [
+        "last_hidden_state",
+        "sentence_embedding"
+      ],
+      "queryTruncated": false,
+      "lastSearchMs": 198
+    }
+  },
+  "warmSearch": {
+    "elapsedMs": 19,
+    "matches": [
+      {
+        "id": "anemia",
+        "text": "肿瘤患者乏力伴血红蛋白下降，评估贫血的程度和动态变化，结合网织红细胞、铁代谢、出血及既往治疗情况分析可能原因。",
+        "document": {
+          "id": "anemia",
+          "text": "肿瘤患者乏力伴血红蛋白下降，评估贫血的程度和动态变化，结合网织红细胞、铁代谢、出血及既往治疗情况分析可能原因。"
+        },
+        "index": 0,
+        "score": 0.6835885155284676,
+        "chunkIndex": 0
+      },
+      {
+        "id": "intake",
+        "text": "肿瘤患者进食减少、体重下降时，核对实际能量和蛋白摄入，评估营养状态、恶心呕吐、吞咽问题及消化道症状，复查相关指标。",
+        "document": {
+          "id": "intake",
+          "text": "肿瘤患者进食减少、体重下降时，核对实际能量和蛋白摄入，评估营养状态、恶心呕吐、吞咽问题及消化道症状，复查相关指标。"
+        },
+        "index": 1,
+        "score": 0.48678871310552696,
+        "chunkIndex": 0
+      }
+    ],
+    "status": {
+      "state": "ready",
+      "mode": "本地中文语义检索",
+      "model": "BAAI/bge-small-zh-v1.5 / ONNX int8",
+      "dimension": 512,
+      "lastError": "",
+      "cachedChunks": 6,
+      "completedChunks": 6,
+      "totalChunks": 6,
+      "initializationMs": 141,
+      "inputNames": [
+        "input_ids",
+        "attention_mask",
+        "token_type_ids"
+      ],
+      "outputNames": [
+        "last_hidden_state",
+        "sentence_embedding"
+      ],
+      "queryTruncated": false,
+      "lastSearchMs": 19
+    }
+  },
+  "mixedReportSearch": {
+    "elapsedMs": 30,
+    "matches": [
+      {
+        "id": "infection",
+        "text": "出现发热、咳嗽和新发肺部影像变化时，应结合感染、肿瘤进展、药物或放射治疗相关肺损伤等可能性进行鉴别，完善针对性检查。",
+        "document": {
+          "id": "infection",
+          "text": "出现发热、咳嗽和新发肺部影像变化时，应结合感染、肿瘤进展、药物或放射治疗相关肺损伤等可能性进行鉴别，完善针对性检查。"
+        },
+        "index": 2,
+        "score": 0.6997444509046362,
+        "chunkIndex": 0
+      },
+      {
+        "id": "staging",
+        "text": "肺癌分期需注明所采用的TNM版本及临床或病理前缀，依据原发肿瘤、区域淋巴结和远处转移证据核对，不以单项症状替代分期依据。",
+        "document": {
+          "id": "staging",
+          "text": "肺癌分期需注明所采用的TNM版本及临床或病理前缀，依据原发肿瘤、区域淋巴结和远处转移证据核对，不以单项症状替代分期依据。"
+        },
+        "index": 3,
+        "score": 0.5788364082593758,
+        "chunkIndex": 0
+      },
+      {
+        "id": "intake",
+        "text": "肿瘤患者进食减少、体重下降时，核对实际能量和蛋白摄入，评估营养状态、恶心呕吐、吞咽问题及消化道症状，复查相关指标。",
+        "document": {
+          "id": "intake",
+          "text": "肿瘤患者进食减少、体重下降时，核对实际能量和蛋白摄入，评估营养状态、恶心呕吐、吞咽问题及消化道症状，复查相关指标。"
+        },
+        "index": 1,
+        "score": 0.5031205741627626,
+        "chunkIndex": 0
+      }
+    ]
+  },
+  "negationProbe": {
+    "query": "患者无发热，无咳嗽，无咳痰",
+    "matches": [
+      {
+        "id": "negative",
+        "text": "患者无发热，无咳嗽，无咳痰。",
+        "document": {
+          "id": "negative",
+          "text": "患者无发热，无咳嗽，无咳痰。"
+        },
+        "index": 0,
+        "score": 0.8144418262134842,
+        "chunkIndex": 0
+      },
+      {
+        "id": "positive",
+        "text": "患者有发热，有咳嗽，有咳痰。",
+        "document": {
+          "id": "positive",
+          "text": "患者有发热，有咳嗽，有咳痰。"
+        },
+        "index": 1,
+        "score": 0.7738754546802277,
+        "chunkIndex": 0
+      },
+      {
+        "id": "unrelated",
+        "text": "患者下肢水肿，记录每日体重变化。",
+        "document": {
+          "id": "unrelated",
+          "text": "患者下肢水肿，记录每日体重变化。"
+        },
+        "index": 2,
+        "score": 0.46953813516674614,
+        "chunkIndex": 0
+      }
+    ],
+    "interpretation": "编码器相似度不保证否定识别；临床事实仍需原文规则与医师核对。"
+  },
+  "longPassage": {
+    "matches": [
+      {
+        "id": "long",
+        "text": "浏览器显示按钮和页面，文件可以保存。浏览器显示按钮和页面，文件可以保存。浏览器显示按钮和页面，文件可以保存。浏览器显示按钮和页面，文件可以保存。浏览器显示按钮和页面，文件可以保存。浏览器显示按钮和页面，文件可以保存。浏览器显示按钮和页面，文件可以保存。浏览器显示按钮和页面，文件可以保存。浏览器显示按钮和页面，文件可以保存。浏览器显示按钮和页面，文件可以保存。浏览器显示按钮和页面，文件可以保存。浏览器显示按钮和页面，文件可以保存。浏览器显示按钮和页面，文件可以保存。浏览器显示按钮和页面，文件可以保存。浏览器显示按钮和页面，文件可以保存。浏览器显示按钮和页面，文件可以保存。浏览器显示按钮和页面，文件可以保存。浏览器显示按钮和页面，文件可以保存。浏览器显示按钮和页面，文件可以保存。浏览器显示按钮和页面，文件可以保存。浏览器显示按钮和页面，文件可以保存。浏览器显示按钮和页面，文件可以保存。浏览器显示按钮和页面，文件可以保存。浏览器显示按钮和页面，文件可以保存。浏览器显示按钮和页面，文件可以保存。浏览器显示按钮和页面，文件可以保存。浏览器显示按钮和页面，文件可以保存。浏览器显示按钮和页面，文件可以保存。浏览器显示按钮和页面，文件可以保存。浏览器显示按钮和页面，文件可以保存。浏览器显示按钮和页面，文件可以保存。浏览器显示按钮和页面，文件可以保存。 贫血导致相关乏力需要结合血红蛋白下降、网织红细胞与铁代谢复查评估。",
+        "document": {
+          "id": "long",
+          "text": "浏览器显示按钮和页面，文件可以保存。浏览器显示按钮和页面，文件可以保存。浏览器显示按钮和页面，文件可以保存。浏览器显示按钮和页面，文件可以保存。浏览器显示按钮和页面，文件可以保存。浏览器显示按钮和页面，文件可以保存。浏览器显示按钮和页面，文件可以保存。浏览器显示按钮和页面，文件可以保存。浏览器显示按钮和页面，文件可以保存。浏览器显示按钮和页面，文件可以保存。浏览器显示按钮和页面，文件可以保存。浏览器显示按钮和页面，文件可以保存。浏览器显示按钮和页面，文件可以保存。浏览器显示按钮和页面，文件可以保存。浏览器显示按钮和页面，文件可以保存。浏览器显示按钮和页面，文件可以保存。浏览器显示按钮和页面，文件可以保存。浏览器显示按钮和页面，文件可以保存。浏览器显示按钮和页面，文件可以保存。浏览器显示按钮和页面，文件可以保存。浏览器显示按钮和页面，文件可以保存。浏览器显示按钮和页面，文件可以保存。浏览器显示按钮和页面，文件可以保存。浏览器显示按钮和页面，文件可以保存。浏览器显示按钮和页面，文件可以保存。浏览器显示按钮和页面，文件可以保存。浏览器显示按钮和页面，文件可以保存。浏览器显示按钮和页面，文件可以保存。浏览器显示按钮和页面，文件可以保存。浏览器显示按钮和页面，文件可以保存。浏览器显示按钮和页面，文件可以保存。浏览器显示按钮和页面，文件可以保存。 贫血导致相关乏力需要结合血红蛋白下降、网织红细胞与铁代谢复查评估。"
+        },
+        "index": 0,
+        "score": 0.5043692469249673,
+        "chunkIndex": 2
+      },
+      {
+        "id": "other",
+        "text": "天气晴朗，页面窗口和按钮可以移动。",
+        "document": {
+          "id": "other",
+          "text": "天气晴朗，页面窗口和按钮可以移动。"
+        },
+        "index": 1,
+        "score": 0.3094884318584757,
+        "chunkIndex": 0
+      }
+    ],
+    "tokens": 611
+  },
+  "browserWrites": [],
+  "httpRequests": [],
+  "requests": [
+    "file:///Users/donne/Desktop/codex/bingli/semantic/semantic-demo.html"
+  ],
+  "pageErrors": [],
+  "consoleMessages": [],
+  "pass": true
+}

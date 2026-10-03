@@ -1,0 +1,54 @@
+{
+  "id": "te12",
+  "suite": "holdout",
+  "variant": "base",
+  "inputSha256": "976384089fc863b266b60f1f7d34d6fafe435a1dc76554d87152bcbe25817f27",
+  "output": "**主治中医师查房记录**\n\n**膀胱癌患者今日排尿困难，下腹胀，超声残余尿量320 mL。钠128 mmol/L。**\n\n**医师本次确认尿潴留，导尿尚未实施。**\n\n**主治拟按已确认尿潴留安排导尿并核对出入量，血钠异常另结合容量和复查评估；没有确认SIADH，不编已导尿或尿量变化。**\n\n**主治中医师查房记录**\n\n**膀胱癌患者今日排尿困难，下腹胀，超声残余尿量320 mL。钠128 mmol/L。**\n\n**医师本次确认尿潴留，导尿尚未实施。**\n\n**主治拟按已确认尿潴留安排导尿并核对出入量，血钠异常另结合容量和复查评估；没有确认SIADH，不编已导尿或尿量变化。**\n\n**主治中医师查房记录**\n\n**膀胱癌患者今日排尿困难，下腹胀，超声残余尿量320 mL。钠128 mmol/L。**\n\n**医师本次确认尿潴留，导尿尚未实施。**\n\n**主治拟按已确认尿潴留安排导尿并核对出入量，血钠异常另结合容量和复查评估；没有确认SIADH，不编已导尿或尿量变化。**\n\n**主治中医师查房记录**\n\n**膀胱癌患者今日排尿困难，下腹胀，超声残余尿量320 mL。钠128 mmol/L。**\n\n**医师本次确认尿潴留，导尿尚未实施。**\n\n**主治拟按已确认尿潴留安排导尿并核对出入量，血钠异常另结合容量和复查评估；没有确认SIADH，不编已导尿或尿量变化。**\n\n**主治中医师查房记录**\n\n**膀胱癌患者今日排尿困难，下腹胀，超声残余尿量320 mL。钠128 mmol/L。**\n\n**医师本次确认尿潴留，导尿尚未实施。**\n\n**主治拟按已确认尿潴留安排导尿并核对出入量，血钠异常另结合容量和复查评估；没有确认SIADH，不编已导尿或尿量变化。**\n\n**主治中医师查房记录",
+  "elapsedMs": 2032,
+  "estimatedGeneratedTokens": 512,
+  "suspectedTruncation": true,
+  "checks": {
+    "literalChecksPassed": false,
+    "required": {
+      "total": 6,
+      "retained": 4,
+      "missing": [
+        "排尿困难、下腹胀",
+        "拟安排导尿"
+      ]
+    },
+    "dates": {
+      "total": 0,
+      "retained": 0,
+      "missing": []
+    },
+    "numericUnits": {
+      "total": 2,
+      "retained": 2,
+      "missing": [],
+      "new": []
+    },
+    "negationUncertainty": {
+      "total": 1,
+      "retained": 1,
+      "missing": []
+    },
+    "forbiddenFactsFound": [
+      "已导尿"
+    ],
+    "format": {
+      "headingsRetainedInOrder": true,
+      "headings": [],
+      "positions": [],
+      "addedHeadings": [],
+      "explanations": [],
+      "repeatedLines": [
+        "**主治中医师查房记录**",
+        "**膀胱癌患者今日排尿困难，下腹胀，超声残余尿量320 mL。钠128 mmol/L。**",
+        "**医师本次确认尿潴留，导尿尚未实施。**",
+        "**主治拟按已确认尿潴留安排导尿并核对出入量，血钠异常另结合容量和复查评估；没有确认SIADH，不编已导尿或尿量变化。**"
+      ]
+    },
+    "unrequestedStageMissingNotes": []
+  }
+}

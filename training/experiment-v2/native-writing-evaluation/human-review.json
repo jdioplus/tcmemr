@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-04",
+  "method": "逐例人工比对同8条封存draft与Q2_K原生CLI原始输出。检查文字事实保留、已给判断、计划/实施状态和格式；不是自主临床判断能力验证。",
+  "posthocReview": true,
+  "sealedDataChanged": false,
+  "selectionChanged": false,
+  "modelChanged": false,
+  "clinicalQualification": false,
+  "releaseApproved": false,
+  "summary": {
+    "cases": 8,
+    "noMaterialChangeObservedAndNoFormattingIssue": 2,
+    "materialErrorOmissionRepetitionOrRefusal": 4,
+    "factsMostlyPreservedButEditorialOrFormatIssue": 2,
+    "literalChecksPassed": 2
+  },
+  "limits": [
+    "同一8条已用于MLX和量化部署回归，后者不是新独立留出集；不据结果再选模型。",
+    "native执行不验证浏览器UI、复制审核或重复中止保护。",
+    "量化结果与MLX4bit明显不同，不能把MLX6/8事实基本保留写成部署通过。",
+    "只记录本轮少量合成样本，不能代表其他病例可靠性。"
+  ],
+  "cases": [
+    {
+      "id": "v2-te01",
+      "status": "material-omission-and-repetition",
+      "note": "只反复输出病例特点/病例描述标题，未输出患者病理、症状、判断或计划，达到生成上限。",
+      "rawText": "training/experiment-v2/native-writing-evaluation/v2-te01.txt",
+      "untouchedStdout": "training/experiment-v2/native-writing-evaluation/v2-te01.stdout.txt",
+      "untouchedStderr": "training/experiment-v2/native-writing-evaluation/v2-te01.stderr.txt",
+      "literalChecksPassed": false
+    },
+    {
+      "id": "v2-te02",
+      "status": "no-material-change-observed",
+      "note": "病理G2、淋巴血管间隙侵犯未见、切口疼痛、无阴道流血、未决定辅助治疗保留。",
+      "rawText": "training/experiment-v2/native-writing-evaluation/v2-te02.txt",
+      "untouchedStdout": "training/experiment-v2/native-writing-evaluation/v2-te02.stdout.txt",
+      "untouchedStderr": "training/experiment-v2/native-writing-evaluation/v2-te02.stderr.txt",
+      "literalChecksPassed": true
+    },
+    {
+      "id": "v2-te03",
+      "status": "invented-result-and-repetition",
+      "note": "先照录采血已完成、血培养尚未回报，随后增造血培养结果阴性，并反复输出这一未提供结果；正文自相矛盾。",
+      "rawText": "training/experiment-v2/native-writing-evaluation/v2-te03.txt",
+      "untouchedStdout": "training/experiment-v2/native-writing-evaluation/v2-te03.stdout.txt",
+      "untouchedStderr": "training/experiment-v2/native-writing-evaluation/v2-te03.stderr.txt",
+      "literalChecksPassed": false
+    },
+    {
+      "id": "v2-te04",
+      "status": "no-material-change-observed",
+      "note": "照录原文；喝水/饮水是合理同义表达，子串假阴性。",
+      "rawText": "training/experiment-v2/native-writing-evaluation/v2-te04.txt",
+      "untouchedStdout": "training/experiment-v2/native-writing-evaluation/v2-te04.stdout.txt",
+      "untouchedStderr": "training/experiment-v2/native-writing-evaluation/v2-te04.stderr.txt",
+      "literalChecksPassed": false
+    },
+    {
+      "id": "v2-te05",
+      "status": "material-number-change",
+      "note": "将今日Na131 mmol/L/既往129 mmol/L改为145 mmol/L/138 mmol/L，并把主治医师改写成德国医师。",
+      "rawText": "training/experiment-v2/native-writing-evaluation/v2-te05.txt",
+      "untouchedStdout": "training/experiment-v2/native-writing-evaluation/v2-te05.stdout.txt",
+      "untouchedStderr": "training/experiment-v2/native-writing-evaluation/v2-te05.stderr.txt",
+      "literalChecksPassed": false
+    },
+    {
+      "id": "v2-te06",
+      "status": "refusal",
+      "note": "只输出无法满足要求，没有病程正文。",
+      "rawText": "training/experiment-v2/native-writing-evaluation/v2-te06.txt",
+      "untouchedStdout": "training/experiment-v2/native-writing-evaluation/v2-te06.stdout.txt",
+      "untouchedStderr": "training/experiment-v2/native-writing-evaluation/v2-te06.stderr.txt",
+      "literalChecksPassed": false
+    },
+    {
+      "id": "v2-te07",
+      "status": "editorial-prefix",
+      "note": "患者事实及未更换引流管状态基本保留，但无故添加很抱歉；换/更换同义不是事实错误。",
+      "rawText": "training/experiment-v2/native-writing-evaluation/v2-te07.txt",
+      "untouchedStdout": "training/experiment-v2/native-writing-evaluation/v2-te07.stdout.txt",
+      "untouchedStderr": "training/experiment-v2/native-writing-evaluation/v2-te07.stderr.txt",
+      "literalChecksPassed": false
+    },
+    {
+      "id": "v2-te08",
+      "status": "editorial-prefix-and-format-loss",
+      "note": "列明事实保留，但无故添加很抱歉、把原三段标题及正文合并，部分句号缺失；自动子串通过没有检出该问题。",
+      "rawText": "training/experiment-v2/native-writing-evaluation/v2-te08.txt",
+      "untouchedStdout": "training/experiment-v2/native-writing-evaluation/v2-te08.stdout.txt",
+      "untouchedStderr": "training/experiment-v2/native-writing-evaluation/v2-te08.stderr.txt",
+      "literalChecksPassed": true
+    }
+  ]
+}

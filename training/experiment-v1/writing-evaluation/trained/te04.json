@@ -1,0 +1,50 @@
+{
+  "id": "te04",
+  "suite": "holdout",
+  "variant": "trained",
+  "inputSha256": "88af6370a8b970bbf9f8282a5d3e02b01c17dcf2821eba64b053a513c61d6b2f",
+  "output": "肺穿刺病理小细胞癌。胸部CT示右肺病灶，颅脑影像未完成。PD-L1报告写CPS3，未提供TPS。未录入局限期或广泛期判断。肺穿刺病理小细胞癌。胸部CT示右肺病灶，颅脑影像未完成。PD-L1报告写CPS3，未提供TPS。",
+  "elapsedMs": 430,
+  "estimatedGeneratedTokens": 81,
+  "suspectedTruncation": false,
+  "checks": {
+    "literalChecksPassed": false,
+    "required": {
+      "total": 5,
+      "retained": 3,
+      "missing": [
+        "TPS未提供",
+        "局限期或广泛期判断未录入"
+      ]
+    },
+    "dates": {
+      "total": 0,
+      "retained": 0,
+      "missing": []
+    },
+    "numericUnits": {
+      "total": 0,
+      "retained": 0,
+      "missing": [],
+      "new": []
+    },
+    "negationUncertainty": {
+      "total": 3,
+      "retained": 1,
+      "missing": [
+        "TPS未提供",
+        "局限期或广泛期判断未录入"
+      ]
+    },
+    "forbiddenFactsFound": [],
+    "format": {
+      "headingsRetainedInOrder": true,
+      "headings": [],
+      "positions": [],
+      "addedHeadings": [],
+      "explanations": [],
+      "repeatedLines": []
+    },
+    "unrequestedStageMissingNotes": []
+  }
+}

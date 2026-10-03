@@ -1,0 +1,94 @@
+{
+  "tcm-skill": {
+    "repo": "YuanZHAO321/TCM.Skill",
+    "path": "SKILL.md",
+    "rawUrl": "https://raw.githubusercontent.com/YuanZHAO321/TCM.Skill/main/SKILL.md",
+    "sourceUrl": "https://github.com/YuanZHAO321/TCM.Skill/blob/main/SKILL.md",
+    "bytes": 46659,
+    "sha256": "a406bd46ed4bb859ee2d7f357f3dac75bcb32f335e488215da230933ab7996b6"
+  },
+  "tcm-mechanism": {
+    "repo": "YuanZHAO321/TCM.Skill",
+    "path": "references/06-病机.md",
+    "rawUrl": "https://raw.githubusercontent.com/YuanZHAO321/TCM.Skill/main/references/06-%E7%97%85%E6%9C%BA.md",
+    "sourceUrl": "https://github.com/YuanZHAO321/TCM.Skill/blob/main/references/06-%E7%97%85%E6%9C%BA.md",
+    "bytes": 11358,
+    "sha256": "08a3a8a37385830a1a506efefc4be900ac0620503a77ff9fce63871977462690"
+  },
+  "tcm-qi-blood": {
+    "repo": "YuanZHAO321/TCM.Skill",
+    "path": "references/12-病因与气血津液辨证.md",
+    "rawUrl": "https://raw.githubusercontent.com/YuanZHAO321/TCM.Skill/main/references/12-%E7%97%85%E5%9B%A0%E4%B8%8E%E6%B0%94%E8%A1%80%E6%B4%A5%E6%B6%B2%E8%BE%A8%E8%AF%81.md",
+    "sourceUrl": "https://github.com/YuanZHAO321/TCM.Skill/blob/main/references/12-%E7%97%85%E5%9B%A0%E4%B8%8E%E6%B0%94%E8%A1%80%E6%B4%A5%E6%B6%B2%E8%BE%A8%E8%AF%81.md",
+    "bytes": 6704,
+    "sha256": "a54e0105e0d6c8c547af10b235802fae1acf89745aecc5545bc6611216dfd57b"
+  },
+  "tcm-patterns": {
+    "repo": "YuanZHAO321/TCM.Skill",
+    "path": "references/13-脏腑辨证.md",
+    "rawUrl": "https://raw.githubusercontent.com/YuanZHAO321/TCM.Skill/main/references/13-%E8%84%8F%E8%85%91%E8%BE%A8%E8%AF%81.md",
+    "sourceUrl": "https://github.com/YuanZHAO321/TCM.Skill/blob/main/references/13-%E8%84%8F%E8%85%91%E8%BE%A8%E8%AF%81.md",
+    "bytes": 9405,
+    "sha256": "ee894ea16192a51d478d2a4961b5d74c8942c02619ffd194d58ced5e22b4aa67"
+  },
+  "tcm-diagnosis": {
+    "repo": "YuanZHAO321/TCM.Skill",
+    "path": "references/14-六经卫气营血三焦经络辨证.md",
+    "rawUrl": "https://raw.githubusercontent.com/YuanZHAO321/TCM.Skill/main/references/14-%E5%85%AD%E7%BB%8F%E5%8D%AB%E6%B0%94%E8%90%A5%E8%A1%80%E4%B8%89%E7%84%A6%E7%BB%8F%E7%BB%9C%E8%BE%A8%E8%AF%81.md",
+    "sourceUrl": "https://github.com/YuanZHAO321/TCM.Skill/blob/main/references/14-%E5%85%AD%E7%BB%8F%E5%8D%AB%E6%B0%94%E8%90%A5%E8%A1%80%E4%B8%89%E7%84%A6%E7%BB%8F%E7%BB%9C%E8%BE%A8%E8%AF%81.md",
+    "bytes": 9936,
+    "sha256": "e60991e191306fe55117bc787a1609da251073c7dc75082c92dad12a5be303f8"
+  },
+  "tcm-formula": {
+    "repo": "YuanZHAO321/TCM.Skill",
+    "path": "references/24-方剂总论.md",
+    "rawUrl": "https://raw.githubusercontent.com/YuanZHAO321/TCM.Skill/main/references/24-%E6%96%B9%E5%89%82%E6%80%BB%E8%AE%BA.md",
+    "sourceUrl": "https://github.com/YuanZHAO321/TCM.Skill/blob/main/references/24-%E6%96%B9%E5%89%82%E6%80%BB%E8%AE%BA.md",
+    "bytes": 12598,
+    "sha256": "dff5b11148413ccdade9493d7d3793c03586eeb0e4d260d53bfb38feeea263fa"
+  },
+  "casemark-rounds": {
+    "repo": "CaseMark/skills",
+    "path": "skills/med/conducting-daily-rounds/SKILL.md",
+    "rawUrl": "https://raw.githubusercontent.com/CaseMark/skills/main/skills/med/conducting-daily-rounds/SKILL.md",
+    "sourceUrl": "https://github.com/CaseMark/skills/blob/main/skills/med/conducting-daily-rounds/SKILL.md",
+    "bytes": 9141,
+    "sha256": "80eabeec5670fc948d631ba7b1ba297fee6c54e763adcbea68dc17f569f4782e"
+  },
+  "tcm-license": {
+    "repo": "YuanZHAO321/TCM.Skill",
+    "path": "LICENSE.txt",
+    "rawUrl": "https://raw.githubusercontent.com/YuanZHAO321/TCM.Skill/main/LICENSE.txt",
+    "sourceUrl": "https://github.com/YuanZHAO321/TCM.Skill/blob/main/LICENSE.txt",
+    "bytes": 19347,
+    "sha256": "41003d4a74749c0220e33dd415042164b5a1093ed401f36277234f772d22d3d0"
+  },
+  "casemark-license": {
+    "repo": "CaseMark/skills",
+    "path": "LICENSE",
+    "rawUrl": "https://raw.githubusercontent.com/CaseMark/skills/main/LICENSE",
+    "sourceUrl": "https://github.com/CaseMark/skills/blob/main/LICENSE",
+    "bytes": 10765,
+    "sha256": "6326d6e5607844e8dc83356d8696cf59c16dee652b74d5d5dd7e4442a7565208"
+  },
+  "casemark-notice-review": {
+    "checkedUrl": "https://api.github.com/repos/CaseMark/skills/contents",
+    "rootNoticePresent": false,
+    "rootFiles": [
+      ".gitignore",
+      "CONTRIBUTING.md",
+      "LICENSE",
+      "PLAN.md",
+      "README.md",
+      "SKILL.md"
+    ]
+  },
+  "tcm-causes": {
+    "repo": "YuanZHAO321/TCM.Skill",
+    "path": "references/05-病因.md",
+    "rawUrl": "https://raw.githubusercontent.com/YuanZHAO321/TCM.Skill/main/references/05-%E7%97%85%E5%9B%A0.md",
+    "sourceUrl": "https://github.com/YuanZHAO321/TCM.Skill/blob/main/references/05-%E7%97%85%E5%9B%A0.md",
+    "bytes": 9402,
+    "sha256": "ef99504eb66c1154aad1a20f1145548fbcf023b32da0c85ae322be4ba888e607"
+  }
+}

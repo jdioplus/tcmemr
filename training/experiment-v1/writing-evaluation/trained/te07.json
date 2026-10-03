@@ -1,0 +1,49 @@
+{
+  "id": "te07",
+  "suite": "holdout",
+  "variant": "trained",
+  "inputSha256": "fe47be10adfcaa00563755cab3c2203f3ef9d0a091413005d9b16456f9f0bbbf",
+  "output": "本日，患者Mg0.61 mmol/L，报告参考0.66–1.07 mmol/L，患者无抽搐。原中药本日拟服，尚未服用。血镁低于报告范围，拟复查并核对相关电解质。钾先核对原报告单位，原报告未列单位，原中药未服用，复查核对电解质。",
+  "elapsedMs": 445,
+  "estimatedGeneratedTokens": 84,
+  "suspectedTruncation": false,
+  "checks": {
+    "literalChecksPassed": false,
+    "required": {
+      "total": 7,
+      "retained": 5,
+      "missing": [
+        "钾4.1",
+        "单位未列"
+      ]
+    },
+    "dates": {
+      "total": 0,
+      "retained": 0,
+      "missing": []
+    },
+    "numericUnits": {
+      "total": 2,
+      "retained": 2,
+      "missing": [],
+      "new": []
+    },
+    "negationUncertainty": {
+      "total": 3,
+      "retained": 2,
+      "missing": [
+        "单位未列"
+      ]
+    },
+    "forbiddenFactsFound": [],
+    "format": {
+      "headingsRetainedInOrder": true,
+      "headings": [],
+      "positions": [],
+      "addedHeadings": [],
+      "explanations": [],
+      "repeatedLines": []
+    },
+    "unrequestedStageMissingNotes": []
+  }
+}

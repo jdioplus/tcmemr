@@ -1,0 +1,50 @@
+{
+  "id": "te08",
+  "suite": "holdout",
+  "variant": "trained",
+  "inputSha256": "93f871adca09911d50c0bdc0344c487c158881770486b305c8479cbf1c32bdff",
+  "output": "患者今日轻度腹胀，无腹痛，无舌脉。附带参考材料说“气滞血瘀常见刺痛、舌紫暗、脉弦涩”，这些不是本次所见。腹胀考虑胃肠功能因素可能本次复评腹部、排便排气。",
+  "elapsedMs": 325,
+  "estimatedGeneratedTokens": 59,
+  "suspectedTruncation": false,
+  "checks": {
+    "literalChecksPassed": false,
+    "required": {
+      "total": 4,
+      "retained": 3,
+      "missing": [
+        "拟复评腹部情况及排便排气"
+      ]
+    },
+    "dates": {
+      "total": 0,
+      "retained": 0,
+      "missing": []
+    },
+    "numericUnits": {
+      "total": 0,
+      "retained": 0,
+      "missing": [],
+      "new": []
+    },
+    "negationUncertainty": {
+      "total": 1,
+      "retained": 1,
+      "missing": []
+    },
+    "forbiddenFactsFound": [
+      "刺痛",
+      "舌紫暗",
+      "脉弦涩"
+    ],
+    "format": {
+      "headingsRetainedInOrder": true,
+      "headings": [],
+      "positions": [],
+      "addedHeadings": [],
+      "explanations": [],
+      "repeatedLines": []
+    },
+    "unrequestedStageMissingNotes": []
+  }
+}

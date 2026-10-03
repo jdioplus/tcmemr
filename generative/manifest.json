@@ -1,0 +1,68 @@
+{
+  "model": {
+    "name": "Qwen/Qwen2.5-0.5B-Instruct-GGUF Q2_K",
+    "commit": "9217f5db79a29953eb74d5343926648285ec7e67",
+    "bytes": 415182688,
+    "sha256": "9ee36184e616dfc76df4f5dd66f908dbde6979524ae36e6cefb67f532f798cb8",
+    "license": "Apache-2.0",
+    "url": "https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct-GGUF/blob/9217f5db79a29953eb74d5343926648285ec7e67/qwen2.5-0.5b-instruct-q2_k.gguf",
+    "transport": "hf-mirror.com; checked against official public SHA256"
+  },
+  "parts": [
+    {
+      "index": 1,
+      "name": "qwen2.5-0.5b-instruct-q2_k.gguf.part01-of-05.bin",
+      "bytes": 90000000,
+      "sha256": "bfcbd4ca9313b247c36f019ce14b5b284ab290bb4081d1ddfae8b44d7de34e8b"
+    },
+    {
+      "index": 2,
+      "name": "qwen2.5-0.5b-instruct-q2_k.gguf.part02-of-05.bin",
+      "bytes": 90000000,
+      "sha256": "9458a6bef183199c133cdd826c37c4da427d9f72d2e59ac1096d03d51c7e91a7"
+    },
+    {
+      "index": 3,
+      "name": "qwen2.5-0.5b-instruct-q2_k.gguf.part03-of-05.bin",
+      "bytes": 90000000,
+      "sha256": "830f813639bb016dc408b83aca6244352a47571b8bb0cbed2141c9f28d94afe9"
+    },
+    {
+      "index": 4,
+      "name": "qwen2.5-0.5b-instruct-q2_k.gguf.part04-of-05.bin",
+      "bytes": 90000000,
+      "sha256": "bd7ae6f3dedd4c9020b570802a08e0b565ba3f40153cc5aa53918c0cc4a1835a"
+    },
+    {
+      "index": 5,
+      "name": "qwen2.5-0.5b-instruct-q2_k.gguf.part05-of-05.bin",
+      "bytes": 55182688,
+      "sha256": "db0af9ef6583be8f53cdfe1a43cc870bdce6f2f91b28e8d3b04c60ec1f0c2b7c"
+    }
+  ],
+  "runtime": {
+    "name": "@wllama/wllama",
+    "version": "2.3.7",
+    "commit": "5e17fb070911688c10403b433499d64b03060400",
+    "npmIntegrity": "sha512-T273gBEqEZCHAoyNZDg+X6boQWktaq+efNF6bJo5aHToJr7jS1kCYImKXDdBi2/CccRuBUcMBHHLHiQN4+OfKQ==",
+    "npmIntegrityVerified": true,
+    "license": "MIT",
+    "llamaCppCommit": "4abef75f2cf2eee75eb5083b30a94cf981587394",
+    "assets": {
+      "index.min.js": {
+        "bytes": 226388,
+        "sha256": "29e4320f49c2d7a5b55233146d80f32a0b92443d8594fa88f06efa72f18238fa"
+      },
+      "wllama.wasm": {
+        "bytes": 2158740,
+        "sha256": "529c780d43cb57cb9ac7ef4c42e16463afb0b2dec4ecaae9a6df8179c435fd71"
+      }
+    },
+    "fileProtocolAdaptation": {
+      "worker": "one checked replacement: new Worker(r,{type:\"module\"}) to classic; official single-thread worker has no imports/exports",
+      "wasm": "embedded data URI decoded locally by Emscripten; no parent Blob fetch",
+      "rationale": "Chrome file:// opaque-origin module Worker fails; verified classic Worker succeeds"
+    }
+  },
+  "reviewedAt": "2026-10-04"
+}

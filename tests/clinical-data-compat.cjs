@@ -1,0 +1,17 @@
+/** Synthetic database compatibility check; no browser storage or real patient data. */
+const fs=require('fs'),vm=require('vm'),crypto=require('crypto'),path=require('path');
+const originalPath=path.resolve(process.argv[2]||'123.html'),latestPath=path.resolve(process.argv[3]||'123-v6.3.html'),output=path.resolve(process.argv[4]||'test-results/final-clinical');
+function load(file){const html=fs.readFileSync(file,'utf8');const c=vm.createContext({TextEncoder,TextDecoder,Uint8Array,ArrayBuffer,crypto:crypto.webcrypto,URL,setTimeout,clearTimeout,structuredClone,atob,btoa});for(const s of [...html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/gi)].filter(x=>!/(?:application\/json|corpusData)/.test(x[1])))vm.runInContext(s[2],c);const corpus=[...html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/gi)].find(x=>x[1].includes('corpusData'));return {html,c,inventory:{corpusEntries:JSON.parse(corpus[2]).length,tcmProfiles:vm.runInContext('TCM_PROFILES.length',c),tcmDiseases:vm.runInContext('TCM_DISEASES.length',c),stagingSystems:vm.runInContext('Object.keys(STAGING_DEFS).sort()',c),dataAPIs:Object.keys(c.V5Data).sort(),clinicalAPIs:Object.keys(c.V5Clinical).sort(),prescriptionAPIs:Object.keys(c.V5Rx).sort()}};}
+const into=(context,value)=>vm.runInContext('JSON.parse('+JSON.stringify(JSON.stringify(value))+')',context);
+const old=load(originalPath),latest=load(latestPath),o=old.c.V5Data,n=latest.c.V5Data;
+let legacy=o.savePatient(o.emptyDB(),into(old.c,{id:'synthetic-compat-p',alias:'合成兼容性患者',cancer:'胃癌',stage:''}));
+legacy=o.saveEncounter(legacy,into(old.c,{id:'synthetic-compat-e',patientId:'synthetic-compat-p',date:'2026-10-03',recordType:'日常病程记录',symptoms:'今日乏力（合成样本）。'}));
+const currentLegacy=into(latest.c,legacy);
+const legacyValidation=n.validateDB(currentLegacy),legacyParsed=n.parseBackup(o.backupJSON(legacy));
+const stage='合成测试：已提供cT2N0M0，分期版本及依据待核对';
+const upgraded=n.saveEncounter(currentLegacy,into(latest.c,{id:'synthetic-compat-e',patientId:'synthetic-compat-p',date:'2026-10-03',stage}));
+const upgradedValidation=n.validateDB(upgraded),restored=n.parseBackup(n.backupJSON(upgraded));
+const inventoryEqual=Object.fromEntries(Object.keys(old.inventory).map(k=>[k,JSON.stringify(old.inventory[k])===JSON.stringify(latest.inventory[k])]));
+const assertions={legacyValidationAccepted:legacyValidation.valid,legacyBackupAccepted:legacyParsed.encounters.length===1,encounterStageAccepted:upgradedValidation.valid,encounterStagePreserved:upgraded.encounters[0].stage===stage,stageBackupRoundTrip:restored.encounters[0].stage===stage,patientStageUnchanged:restored.patients[0].stage==='',originalInventoryPreserved:Object.values(inventoryEqual).every(Boolean)};
+const result={purpose:'合成数据库兼容性与功能库存核查；不代表全部页面功能或临床合格。',originalPath,latestPath,sourceHash:crypto.createHash('sha256').update(latest.html).digest('hex'),assertions,legacyValidation,upgradedValidation,stage,restoredStage:restored.encounters[0].stage,originalInventory:old.inventory,latestInventory:latest.inventory,inventoryEqual};
+fs.mkdirSync(output,{recursive:true});fs.writeFileSync(path.join(output,'clinical-data-compatibility.json'),JSON.stringify(result,null,2));console.log(JSON.stringify({assertions,inventory:{entries:latest.inventory.corpusEntries,profiles:latest.inventory.tcmProfiles,diseases:latest.inventory.tcmDiseases},errors:upgradedValidation.errors},null,2));process.exitCode=Object.values(assertions).every(Boolean)?0:1;

@@ -1,0 +1,53 @@
+{
+  "id": "v2-te01",
+  "suite": "holdout",
+  "variant": "trained",
+  "inputSha256": "020c9358cd91616532aec1630194da9e1b699c42e51fe7b15070e0161bc1864c",
+  "output": "病例特点：\n软组织肿物切除标本示梭形细胞肿瘤，病理建议补充免疫组化。\n患者局部胀痛，无发热。\n拟诊讨论：\n医师拟待补充病理后进一步判断性质，尚未确定新的抗肿瘤方案。\n诊疗计划：\n保留原下周门诊复评预约。",
+  "elapsedMs": 362,
+  "estimatedGeneratedTokens": 63,
+  "suspectedTruncation": false,
+  "checks": {
+    "literalChecksPassed": true,
+    "required": {
+      "total": 4,
+      "retained": 4,
+      "missing": []
+    },
+    "dates": {
+      "total": 0,
+      "retained": 0,
+      "missing": [],
+      "new": []
+    },
+    "numericUnits": {
+      "total": 0,
+      "retained": 0,
+      "missing": [],
+      "new": []
+    },
+    "negationUncertainty": {
+      "total": 2,
+      "retained": 2,
+      "missing": []
+    },
+    "forbiddenFactsFound": [],
+    "format": {
+      "headingsRetainedInOrder": true,
+      "headings": [
+        "病例特点：",
+        "拟诊讨论：",
+        "诊疗计划："
+      ],
+      "positions": [
+        0,
+        47,
+        83
+      ],
+      "addedHeadings": [],
+      "explanations": [],
+      "repeatedLines": []
+    },
+    "unrequestedStageMissingNotes": []
+  }
+}

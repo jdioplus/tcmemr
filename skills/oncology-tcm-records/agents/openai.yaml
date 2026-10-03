@@ -1,0 +1,3 @@
+interface:
+  display_name: "中医肿瘤病程辅助"
+  short_description: "辅助起草和核对四类中医肿瘤病程记录，保留事实来源并标记缺项与矛盾"

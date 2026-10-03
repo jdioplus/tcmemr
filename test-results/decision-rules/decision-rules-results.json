@@ -1,0 +1,128 @@
+{
+  "purpose": "合成纯规则与选择解析测试，不代表医生判断或临床合格。",
+  "results": [
+    {
+      "id": "no_positive_symptoms",
+      "passed": true,
+      "observed": {
+        "cards": [],
+        "contract": "only sanitized positiveText is used; raw historical symptoms are not reread"
+      }
+    },
+    {
+      "id": "hb_unclassified_or_unknown_units",
+      "passed": true,
+      "observed": "unclassified and unknown-unit Hb excluded"
+    },
+    {
+      "id": "hb_conflicting_or_duplicate",
+      "passed": true,
+      "observed": "duplicate, conflicting and ambiguous Hb excluded"
+    },
+    {
+      "id": "fatigue_evidence_default",
+      "passed": true,
+      "observed": {
+        "cards": [
+          "fatigue",
+          "intake",
+          "anemia"
+        ],
+        "defaultText": "乏力考虑贫血及摄入减少可能参与，可结合血红蛋白趋势及实际摄入量进一步判断。"
+      }
+    },
+    {
+      "id": "fatigue_without_low_hb",
+      "passed": true,
+      "observed": "本次乏力，需结合活动耐量及近期病情变化评估原因。"
+    },
+    {
+      "id": "current_problem_coverage",
+      "passed": true,
+      "observed": [
+        "fatigue",
+        "intake",
+        "abdomen",
+        "respiratory",
+        "fever",
+        "bleeding",
+        "constipation",
+        "urinary"
+      ]
+    },
+    {
+      "id": "classified_lab_coverage",
+      "passed": true,
+      "observed": [
+        "anemia",
+        "sodium",
+        "magnesium",
+        "potassium",
+        "inflammation",
+        "liver"
+      ]
+    },
+    {
+      "id": "treatment_trigger_and_status",
+      "passed": true,
+      "observed": {
+        "defaultText": "治疗方案及继续或调整依据待医师填写。",
+        "recorded": "拟暂停本次治疗，复评后再定。"
+      }
+    },
+    {
+      "id": "physician_choices_json_to_prose",
+      "passed": true,
+      "observed": {
+        "input": "{\"fatigue\":{\"primary\":\"anemia\",\"secondary\":[\"intake\",\"anemia\",\"intake\"],\"checks\":[\"cbc\"],\"extra\":\"今日拟结合实际摄入量复评\"},\"anemia\":{\"primary\":\"iron\",\"secondary\":[],\"checks\":[\"iron\"],\"extra\":\"\"}}",
+        "selections": {
+          "fatigue": {
+            "primary": "anemia",
+            "secondary": [
+              "intake"
+            ],
+            "checks": [
+              "cbc"
+            ],
+            "extra": "今日拟结合实际摄入量复评"
+          },
+          "intake": {
+            "primary": "",
+            "secondary": [],
+            "checks": [],
+            "extra": ""
+          },
+          "anemia": {
+            "primary": "iron",
+            "secondary": [],
+            "checks": [
+              "iron"
+            ],
+            "extra": ""
+          }
+        },
+        "textById": {
+          "fatigue": "乏力主要考虑与贫血有关。乏力考虑摄入减少可能参与，拟结合实际摄入量评估。拟完善血常规及血红蛋白趋势。今日拟结合实际摄入量复评。",
+          "intake": "纳食减少，后续重点评估实际摄入量与胃肠耐受。",
+          "anemia": "贫血考虑缺铁相关可能。拟完善铁蛋白、转铁蛋白饱和度。"
+        }
+      }
+    },
+    {
+      "id": "invalid_choices_do_not_enter_prose",
+      "passed": true,
+      "observed": {
+        "warnings": [
+          "已忽略非本次问题卡的选择：not-current-card",
+          "乏力分析的主要判断无效，未采用该选项。",
+          "乏力分析的兼顾因素包含无效选项，已忽略。",
+          "乏力分析的拟完善项目包含无效选项，已忽略。"
+        ],
+        "textById": {
+          "fatigue": "乏力考虑贫血可能参与，可结合血红蛋白趋势进一步判断。",
+          "anemia": "血检示血红蛋白降低，贫血原因可结合血象趋势及相关检查进一步判断。"
+        }
+      }
+    }
+  ]
+}

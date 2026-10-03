@@ -1,0 +1,132 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-04",
+  "method": "逐例人工比对封存draft与原始模型输出，只检查文字事实保留；不是诊断/治疗或临床合格验证。",
+  "posthocReview": true,
+  "sealedDataChanged": false,
+  "selectionChanged": false,
+  "clinicalQualification": false,
+  "summary": {
+    "base": {
+      "cases": 8,
+      "noMaterialChangeObserved": 0
+    },
+    "trained": {
+      "cases": 8,
+      "noMaterialChangeObserved": 6,
+      "materialErrorsOrOmissions": 2
+    }
+  },
+  "metricNotes": [
+    "自动字面结果base1/8、trained4/8，仅是列明子串检查。",
+    "trained te04喝水/饮水、te07换/更换是合理同义表达，人工未发现实质事实变化；不得当成医学错误计数。",
+    "base te08虽自动字面通过，却删除了乳腺癌诊断并加入输入指令，显示列明子串不能代替全文比对。",
+    "8条是小规模、全新、一次性留出检查，不证明对其他病例可靠；不得据本轮结果重新选模型再宣称留出通过。"
+  ],
+  "cases": [
+    {
+      "id": "v2-te01",
+      "base": {
+        "status": "missing-facts-and-inventions",
+        "note": "删除梭形细胞肿瘤及症状，加入2023-04-15记录日期和输入指令。",
+        "raw": "training/experiment-v2/writing-evaluation/base/v2-te01.txt"
+      },
+      "trained": {
+        "status": "no-material-change-observed",
+        "note": "病理、当前症状、否定、未决定方案、预约和原标题顺序保留；只拆开段内句子。",
+        "raw": "training/experiment-v2/writing-evaluation/trained/v2-te01.txt"
+      }
+    },
+    {
+      "id": "v2-te02",
+      "base": {
+        "status": "negation-change-and-inventions",
+        "note": "将病理淋巴血管间隙侵犯未见改成侵犯，编姓名、年龄、性别和住院日期并重复。",
+        "raw": "training/experiment-v2/writing-evaluation/base/v2-te02.txt"
+      },
+      "trained": {
+        "status": "material-error",
+        "note": "原文淋巴血管间隙侵犯未见改为“侵犯淋巴系统，无侵犯”，引入矛盾；切口轻微疼痛改为腹痛。阴道流血/阴道出血是同义表达，不计作错误。",
+        "raw": "training/experiment-v2/writing-evaluation/trained/v2-te02.txt"
+      }
+    },
+    {
+      "id": "v2-te03",
+      "base": {
+        "status": "time-change-and-inventions",
+        "note": "改变14:10时间，混同昨日未发热与当前38.0℃，增造后续多个日期/体温并重复。",
+        "raw": "training/experiment-v2/writing-evaluation/base/v2-te03.txt"
+      },
+      "trained": {
+        "status": "material-omission",
+        "note": "删除14:10、昨日未发热、今日已采血、培养报告尚未回报及无寒战；新增原文没有的主治医师级别。保留当前体温与未新增抗菌处方仍不足抵消缺失。",
+        "raw": "training/experiment-v2/writing-evaluation/trained/v2-te03.txt"
+      }
+    },
+    {
+      "id": "v2-te04",
+      "base": {
+        "status": "symptom-change-and-inventions",
+        "note": "无呕血改成无呕吐；新增姓名年龄、饮食建议和模板并重复。",
+        "raw": "training/experiment-v2/writing-evaluation/base/v2-te04.txt"
+      },
+      "trained": {
+        "status": "no-material-change-observed",
+        "note": "完整照录原文；喝水可通过与目标饮水可通过是同义表达，子串假阴性。",
+        "raw": "training/experiment-v2/writing-evaluation/trained/v2-te04.txt"
+      }
+    },
+    {
+      "id": "v2-te05",
+      "base": {
+        "status": "repetition",
+        "note": "正文事实一段基本保留，但反复复制记录标题、输入指令和正文至上限。",
+        "raw": "training/experiment-v2/writing-evaluation/base/v2-te05.txt"
+      },
+      "trained": {
+        "status": "no-material-change-observed",
+        "note": "Na数值日期、上升方向、无头痛抽搐、计划复查、未决定补充剂量保留。",
+        "raw": "training/experiment-v2/writing-evaluation/trained/v2-te05.txt"
+      }
+    },
+    {
+      "id": "v2-te06",
+      "base": {
+        "status": "invented-date-and-repetition",
+        "note": "保留主要四诊，却增造2019-04-15日期并反复复制。",
+        "raw": "training/experiment-v2/writing-evaluation/base/v2-te06.txt"
+      },
+      "trained": {
+        "status": "no-material-change-observed",
+        "note": "真实四诊、已给辨证、拟治法和未开新处方保留。",
+        "raw": "training/experiment-v2/writing-evaluation/trained/v2-te06.txt"
+      }
+    },
+    {
+      "id": "v2-te07",
+      "base": {
+        "status": "volume-state-change-and-inventions",
+        "note": "当前统计未结束的90 mL改写成24小时量；新增年龄体重、腹部超声和处理建议并重复。",
+        "raw": "training/experiment-v2/writing-evaluation/base/v2-te07.txt"
+      },
+      "trained": {
+        "status": "no-material-change-observed",
+        "note": "虽然省略“目前”，仍明确今日统计尚未结束；90 mL不被写成全天总量。换/更换同义，流畅性/通畅性为措辞变化。",
+        "raw": "training/experiment-v2/writing-evaluation/trained/v2-te07.txt"
+      }
+    },
+    {
+      "id": "v2-te08",
+      "base": {
+        "status": "missing-diagnosis-and-instruction-leak",
+        "note": "删除乳腺癌诊断，输出固定facts指令；自动列明子串检查漏检。",
+        "raw": "training/experiment-v2/writing-evaluation/base/v2-te08.txt"
+      },
+      "trained": {
+        "status": "no-material-change-observed",
+        "note": "病种、22/19 mm、未给疗效分类、不直接部分缓解、原复查安排和三段标题保留。",
+        "raw": "training/experiment-v2/writing-evaluation/trained/v2-te08.txt"
+      }
+    }
+  ]
+}

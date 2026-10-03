@@ -1,0 +1,36 @@
+{
+  "testedAt": "2026-10-03T18:03:22.372Z",
+  "chrome": "154.0.8037.95",
+  "sourceBytes": 3219603,
+  "sourceSha256": "8920a7c28841fc8def42f243553cbdd7ff3d75513bfc16006cce82c838a4bc53",
+  "modelName": "Qwen/Qwen2.5-0.5B-Instruct-GGUF Q2_K",
+  "input": {
+    "recordType": "日常病程",
+    "facts": "所有事实以待整理正文为准。",
+    "draft": "今日乏力、进食少，无发热、无黑便；Hb 86 g/L，昨日92 g/L。医师考虑贫血和低摄入相关，病因待核，明日复查血常规。",
+    "judgments": "只润色当前草稿，保留其事实、数值、日期、否定及医师判断，不添加诊断、症状、检查、药物、分期或未实施的治疗。\n仅参考范例的格式和措辞，不采用范例中的任何患者事实：\n今日查房，患者发热38.8℃、黑便，血红蛋白42 g/L，血小板20×10^9/L。医师指示：给予紫杉醇治疗，并输血。"
+  },
+  "rewrite": {
+    "text": "今日查房，患者发热38.8℃、黑便，血红蛋白42 g/L，血小板20×10^9/L。医师指示：给予紫杉醇治疗，并输血。",
+    "cancelled": false,
+    "truncated": false,
+    "usage": {
+      "promptTokens": 281,
+      "generatedTokens": 47,
+      "elapsedMs": 27045,
+      "firstTokenMs": 22290,
+      "decodeMs": 4755,
+      "finishReason": "stop"
+    }
+  },
+  "leakedReferenceFacts": [
+    "38.8",
+    "42",
+    "20",
+    "紫杉醇",
+    "输血"
+  ],
+  "httpRequests": [],
+  "scope": "One synthetic baseline probe only; no evidence of general immunity to example contamination",
+  "pass": false
+}

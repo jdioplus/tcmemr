@@ -1,0 +1,50 @@
+{
+  "id": "te15",
+  "suite": "holdout",
+  "variant": "trained",
+  "inputSha256": "5a0a2c823f42e0dbb0ae64e29adfa4998bbbd409883ebef943769c2dd15dc738",
+  "output": "鼻咽角化型癌已有取材依据，组织EBER阴性，血浆DNA低于检测限，尚未写具体数值。颈部影像尚未更新，患者有颈部不适，拟核对当前颈部所见。",
+  "elapsedMs": 280,
+  "estimatedGeneratedTokens": 47,
+  "suspectedTruncation": false,
+  "checks": {
+    "literalChecksPassed": false,
+    "required": {
+      "total": 6,
+      "retained": 3,
+      "missing": [
+        "血浆EBV DNA低于检测限",
+        "未给具体数值",
+        "仍有颈部不适"
+      ]
+    },
+    "dates": {
+      "total": 0,
+      "retained": 0,
+      "missing": []
+    },
+    "numericUnits": {
+      "total": 0,
+      "retained": 0,
+      "missing": [],
+      "new": []
+    },
+    "negationUncertainty": {
+      "total": 2,
+      "retained": 1,
+      "missing": [
+        "未给具体数值"
+      ]
+    },
+    "forbiddenFactsFound": [],
+    "format": {
+      "headingsRetainedInOrder": true,
+      "headings": [],
+      "positions": [],
+      "addedHeadings": [],
+      "explanations": [],
+      "repeatedLines": []
+    },
+    "unrequestedStageMissingNotes": []
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "id": "te16",
+  "suite": "holdout",
+  "variant": "trained",
+  "inputSha256": "1a9468afb63b2316c4b2722d1220fa6e9a98be075deb4e05d0b8ccac1d5ea461",
+  "output": "肺癌患者今日气短，下肢轻度水肿，体重较昨日增加0.8 kg，无发热，CRP2 mg/L，今日胸片未见新发浸润影。气短考虑感染因素，拟核对出入量、心功能及后续氧合。",
+  "elapsedMs": 349,
+  "estimatedGeneratedTokens": 60,
+  "suspectedTruncation": false,
+  "checks": {
+    "literalChecksPassed": false,
+    "required": {
+      "total": 7,
+      "retained": 6,
+      "missing": [
+        "容量负荷因素可能"
+      ]
+    },
+    "dates": {
+      "total": 0,
+      "retained": 0,
+      "missing": []
+    },
+    "numericUnits": {
+      "total": 2,
+      "retained": 2,
+      "missing": [],
+      "new": []
+    },
+    "negationUncertainty": {
+      "total": 2,
+      "retained": 2,
+      "missing": []
+    },
+    "forbiddenFactsFound": [
+      "气短考虑感染"
+    ],
+    "format": {
+      "headingsRetainedInOrder": true,
+      "headings": [],
+      "positions": [],
+      "addedHeadings": [],
+      "explanations": [],
+      "repeatedLines": []
+    },
+    "unrequestedStageMissingNotes": []
+  }
+}

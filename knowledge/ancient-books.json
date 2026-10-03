@@ -1,0 +1,95 @@
+{
+  "sourceArchive": {
+    "name": "TCM-Ancient-Books-master.zip",
+    "sha256": "b436a64348f39b13800851c34a83cbd08a9bb2ad8fdc1794a8db3d5bc203b249"
+  },
+  "catalogSummary": {
+    "archiveBytes": 84402007,
+    "entryCount": 705,
+    "fileCount": 704,
+    "textFileCount": 701,
+    "uncompressedBytes": 171745952,
+    "formatCounts": {
+      ".txt": 701,
+      ".downloading": 1,
+      ".cfg": 1,
+      ".md": 1
+    },
+    "unsafePathCount": 0
+  },
+  "encoding": "gb18030",
+  "entries": [
+    {
+      "title": "脾胃虚弱与饮食、形体",
+      "book": "脾胃论",
+      "chapter": "卷上 / 脾胃胜衰论",
+      "text": "胃中元气盛，则能食而不伤，过时而不饥。脾胃俱旺，则能食而肥；脾胃俱虚，则不能 \n食而瘦。",
+      "sourcePath": "TCM-Ancient-Books-master/614-脾胃论.txt",
+      "sourceStartLine": 99,
+      "sourceEndLine": 100
+    },
+    {
+      "title": "脾为胃行津液与四肢得养",
+      "book": "黄帝内经素问",
+      "chapter": "卷第八 / 太阴阳明论篇第二十九",
+      "text": "帝曰∶脾病而四肢不用何也？岐伯曰∶四肢皆禀气于胃，而不得至经，必因于脾，乃得禀也。今脾 \n病不能为胃行其津液，四肢不得禀水谷气，气日以衰，脉道不利，筋骨肌肉，皆无气以生，故不用焉。",
+      "sourcePath": "TCM-Ancient-Books-master/437-黄帝内经素问.txt",
+      "sourceStartLine": 1016,
+      "sourceEndLine": 1017
+    },
+    {
+      "title": "宿谷不化与胃反",
+      "book": "金匮要略方论",
+      "chapter": "卷中 / 呕吐哕下利病脉证治第十七",
+      "text": "脾伤则不磨，朝食暮吐，暮食朝吐，宿谷不化，名曰胃反。",
+      "sourcePath": "TCM-Ancient-Books-master/499-金匮要略方论.txt",
+      "sourceStartLine": 1073,
+      "sourceEndLine": 1073
+    },
+    {
+      "title": "噎膈与食物难入、久而复出",
+      "book": "医学心悟",
+      "chapter": "卷三 / 噎膈",
+      "text": "凡噎膈症，不出胃脘干槁四字。槁在上脘者， \n水饮可行，食物难入。槁在下脘者，食虽可入，久而复出。",
+      "sourcePath": "TCM-Ancient-Books-master/601-医学心悟.txt",
+      "sourceStartLine": 4897,
+      "sourceEndLine": 4898
+    },
+    {
+      "title": "虚劳与脾胃气弱、不能食",
+      "book": "诸病源候论",
+      "chapter": "卷之三\\虚劳病诸候上（凡三十九论） / 三、虚劳不能食候",
+      "text": "脾候身之肌肉，胃为水谷之海。虚劳则脏腑不和，脾胃气弱，故不能食也。",
+      "sourcePath": "TCM-Ancient-Books-master/571-诸病源候论.txt",
+      "sourceStartLine": 954,
+      "sourceEndLine": 954
+    },
+    {
+      "title": "血气虚弱与羸瘦",
+      "book": "诸病源候论",
+      "chapter": "卷之三\\虚劳病诸候上（凡三十九论） / 二、虚劳羸瘦候",
+      "text": "夫血气者，所以荣养其身也。虚劳之人，精髓萎竭，血气虚弱，不能充盛肌肤，此故羸 \n瘦也。",
+      "sourcePath": "TCM-Ancient-Books-master/571-诸病源候论.txt",
+      "sourceStartLine": 942,
+      "sourceEndLine": 943
+    },
+    {
+      "title": "虚劳与血气凝涩、积聚",
+      "book": "诸病源候论",
+      "chapter": "卷之三\\虚劳病诸候上（凡三十九论） / 十、虚劳积聚候",
+      "text": "积聚者，腑脏之病也。积者，脏病也，阴气所生也；聚者，腑病也，阳气所成也。虚劳 \n之人，阴阳伤损，血气凝涩，不能宣通经络，故积聚于内也。",
+      "sourcePath": "TCM-Ancient-Books-master/571-诸病源候论.txt",
+      "sourceStartLine": 1017,
+      "sourceEndLine": 1018
+    },
+    {
+      "title": "寒热虚实表里阴阳的辨证总要",
+      "book": "医学心悟",
+      "chapter": "卷一 / 寒热虚实表里阴阳辨",
+      "text": "病有总要，寒、热、虚、实、表、里、阴、阳，八字而已。病情既不外此，则辨证之法 \n亦不出此。",
+      "sourcePath": "TCM-Ancient-Books-master/601-医学心悟.txt",
+      "sourceStartLine": 333,
+      "sourceEndLine": 334
+    }
+  ]
+}
