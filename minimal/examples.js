@@ -3,7 +3,7 @@
  'use strict';
  const host=document.getElementById('inputs');if(!host)return;
  const panel=document.createElement('details');panel.id='exampleLibrary';
- panel.innerHTML='<summary>我的书写范例</summary><p class="mini-help muted">收藏认可的脱敏范例，便于查阅。AI 可沿用简洁、连续成段等表达偏好；范例中的患者内容不送入生成。关闭页面前可导出范例库，导入范例不改变模型权重。</p><label>范例标题<input id="exampleTitle" placeholder="如：胃癌主治查房"></label><label>范例正文（脱敏后）<textarea id="exampleText" rows="5"></textarea></label><label>希望沿用的写法<input id="examplePreference" placeholder="如：查房指示连续成段，先说明主要判断，再写进一步检查"></label><div class="actions"><button id="exampleAdd" type="button">收录范例</button><button id="exampleImport" type="button">导入 TXT／范例库</button><button id="exampleExport" type="button">导出范例库</button><input id="exampleFile" type="file" accept=".txt,.json" multiple hidden></div><p id="exampleStatus" class="status" role="status"></p><div id="exampleList"></div>';
+ panel.innerHTML='<summary>我的书写范例</summary><p class="mini-help muted">收藏认可的脱敏范例，便于查阅。范例用于对照书写风格；当前 AI 只整理预设用语，范例中的患者内容不送入生成。关闭页面前可导出范例库，导入范例不改变模型权重。</p><label>范例标题<input id="exampleTitle" placeholder="如：胃癌主治查房"></label><label>范例正文（脱敏后）<textarea id="exampleText" rows="5"></textarea></label><label>希望沿用的写法<input id="examplePreference" placeholder="如：查房指示连续成段，先说明主要判断，再写进一步检查"></label><div class="actions"><button id="exampleAdd" type="button">收录范例</button><button id="exampleImport" type="button">导入 TXT／范例库</button><button id="exampleExport" type="button">导出范例库</button><input id="exampleFile" type="file" accept=".txt,.json" multiple hidden></div><p id="exampleStatus" class="status" role="status"></p><div id="exampleList"></div>';
  host.append(panel);
  const $=id=>document.getElementById(id),S=v=>String(v??'').trim();let examples=[];
  function render(){

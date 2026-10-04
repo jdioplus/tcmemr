@@ -45,9 +45,15 @@ engines+='\nconst SKILL_LICENSE_TEXTS='+json.dumps(licenses,ensure_ascii=False)+
 legacy_spec=importlib.util.spec_from_file_location('legacy',root/'tests/build-legacy-tools.py')
 legacy=importlib.util.module_from_spec(legacy_spec);legacy_spec.loader.exec_module(legacy)
 engines+='\nconst LEGACY_APP_HTML='+json.dumps(legacy.prepare_legacy(s),ensure_ascii=False)+';\n'
-for rel in ['minimal/record-parser.js','minimal/clinical-analysis.js','minimal/western-knowledge.js','minimal/legacy-tools.js']:
+for rel in ['minimal/record-parser.js','minimal/clinical-analysis.js','minimal/western-knowledge.js','minimal/legacy-tools.js','minimal/writing-policy.js']:
     if (root/rel).exists():engines+='\n'+(root/rel).read_text()
-page=(root/'minimal/page.html').read_text().replace('<!-- ENGINES -->','<script>'+engines.replace('</script','<\\/script')+'</script>')
+page=(root/'minimal/page.html').read_text()
+notice_start='<!-- SOURCE_ENTRY_NOTICE_START -->'
+notice_end='<!-- SOURCE_ENTRY_NOTICE_END -->'
+assert page.count(notice_start)==page.count(notice_end)==1,'Expected one source-only entry notice'
+begin=page.index(notice_start);end=page.index(notice_end,begin)+len(notice_end)
+page=page[:begin]+page[end:]
+page=page.replace('<!-- ENGINES -->','<script>'+engines.replace('</script','<\\/script')+'</script>')
 page=page.replace('<!-- APP -->','<script>'+((root/'minimal/app.js').read_text()+'\n'+(root/'minimal/examples.js').read_text()).replace('</script','<\\/script')+'</script>')
 (root/'病历书写简版.html').write_text(page)
 print('Built 病历书写简版.html:',len(page.encode()),'bytes,',len(profiles),'syndromes,',len(books),'book excerpts')

@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "scope": "Fixed wording text policy only; no model, browser or medical-semantic validation",
+  "checks": [
+    "Exact unchanged text is safe and explicitly unchanged",
+    "Only the eight narrow wording replacements are applied",
+    "Dates, quantities, units and repeated numbers stay literal",
+    "Same number inventory with changed chronology is rejected",
+    "Contradictory negatives and changed scope are rejected",
+    "Pending results cannot become negative",
+    "Planned medicine cannot become administered; drugs and doses cannot change",
+    "Disease or judgment additions and omissions are rejected",
+    "Punctuation, spaces and line structure are not normalized",
+    "Chinese and ASCII quotations, templates and book titles remain verbatim",
+    "Nested, escaped and unclosed protected spans are preserved",
+    "Patient speech rule does not corrupt compound verbs",
+    "No broad symptom, severity or nutrition rewrites are allowed",
+    "Comparisons use the same whitelist on both sides, without requiring all replacements",
+    "Grammar choices are confined to the exact allowed edit spans",
+    "Grammar without edits is a single exact literal and tells UI to skip inference",
+    "Grammar freezes protected quotations, templates, book titles and line structure",
+    "Grammar escapes quotes, slashes, control characters and injection-shaped text as literals",
+    "Invalid isolated UTF-16 surrogates fail closed instead of changing text during encoding"
+  ]
+}

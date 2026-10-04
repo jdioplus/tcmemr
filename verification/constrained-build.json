@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "checkedJavaScriptBlocks": 10,
+  "browserTest": false,
+  "artifacts": [
+    {
+      "file": "病历书写简版.html",
+      "bytes": 2197168,
+      "sha256": "2882667838722382acd0f56af1aaddcddcb537cfaaebd38b9675149c86e885bb"
+    },
+    {
+      "file": "离线病历AI/病历书写AI.html",
+      "bytes": 52989121,
+      "sha256": "a2c44e4280c949c90c9e10127c543da774a8d7a691f3a3f754eb55dde504ed13"
+    }
+  ]
+}

@@ -2,6 +2,7 @@
 <style>
 :root{--ink:#23363c;--muted:#667c82;--accent:#216b68;--line:#d6e1df;--paper:#fff}*{box-sizing:border-box}body{margin:0;color:var(--ink);background:#f3f6f5;font:16px/1.65 -apple-system,BlinkMacSystemFont,"Microsoft YaHei",sans-serif}header,main{max-width:1080px;margin:auto;padding:24px}header{display:flex;justify-content:space-between;align-items:center;padding-bottom:8px}h1{font-size:25px;margin:0}h2{font-size:19px;margin:0 0 15px}p{margin:8px 0}.muted,small{color:var(--muted)}.badge{font-size:13px;padding:4px 10px;border-radius:20px;background:#deede6;color:#275d50}.card{background:var(--paper);border:1px solid var(--line);padding:22px;border-radius:14px;margin:0 0 18px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.three{grid-template-columns:repeat(3,minmax(0,1fr))}label{display:block;font-size:14px;color:#536c73}input,select,textarea,button{font:inherit}input,select,textarea{width:100%;background:#fff;border:1px solid #bfd0ce;border-radius:7px;padding:10px;color:var(--ink);margin:5px 0}textarea{resize:vertical}button{border:1px solid #bfd0ce;background:#fff;border-radius:7px;padding:8px 15px;color:var(--ink);cursor:pointer}button.primary{background:var(--accent);color:#fff;border-color:var(--accent)}button:disabled{opacity:.5;cursor:default}input[type=checkbox]{width:auto;accent-color:var(--accent);margin:0 7px 0 0}summary{cursor:pointer;color:#315f61;padding:8px 0;font-size:14px}details{border-top:1px solid #e7efed;margin-top:12px}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.check{display:flex;align-items:center;gap:4px;margin:12px 0}.status{font-size:14px;min-height:24px;color:#275f55}#qNote{font-size:16px;line-height:1.9;min-height:400px}#reviewWarnings{font-size:14px;color:#78572f}.book-entry{border-top:1px solid #e2eae8;padding:12px 0}.book-entry p{white-space:pre-wrap}.books-tools{display:flex;gap:8px}.book-source{font-size:12px;color:var(--muted);overflow-wrap:anywhere}#qDecisionReview{margin-bottom:16px}.mini-help{font-size:13px}.review-heading{background:#f1f7f4;border-radius:8px;padding:12px;margin-bottom:12px}.review-heading h3{font-size:16px;margin:0}.review-heading p{font-size:13px;color:var(--muted);margin:3px 0}input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid #2f8175;outline-offset:2px}@media(min-width:1050px){.workspace{display:grid;grid-template-columns:430px minmax(0,1fr);gap:18px;align-items:start}.workspace>.card{margin-bottom:0}.output-card{min-width:0}}@media(max-width:620px){header,main{padding:16px}header{align-items:flex-start;gap:10px}h1{font-size:22px}.card{padding:16px}.three{grid-template-columns:1fr}.grid{gap:10px}.badge{white-space:nowrap;font-size:11px}button{padding:8px 11px}#qNote{font-size:15px}}
 </style></head><body>
+
 <style>.tool-actions{display:flex;gap:6px;flex-wrap:wrap;margin:12px 0}.tool-actions button{font-size:13px;padding:6px 10px}.subfields{display:grid;gap:8px}#legacyToolsDialog{width:min(1500px,96vw);max-width:96vw;height:94vh;border:1px solid #bfd0ce;border-radius:10px;padding:12px}#legacyToolsDialog::backdrop{background:#20363888}.dialog-head{display:flex;justify-content:space-between;align-items:center;gap:12px}.dialog-head h2{margin:0}#legacyToolsFrame,#legacyWorkbenchFrame{width:100%;height:calc(100% - 94px);border:0}#qNote{height:62vh;min-height:420px}#qExtractSummary{font-size:13px}.first-only[hidden]{display:none}.sources-note{font-size:12px;color:#667c82;overflow-wrap:anywhere}.sources-note pre{white-space:pre-wrap;font:inherit}.source-entry{padding:8px 0}.source-entry strong{color:#23363c}#qDecisionReview details{border:0;margin:0}#qDecisionReview summary{font-weight:600}#qConflict{color:#a33223;background:#fff1eb;padding:10px}.formats-info{font-size:13px;color:#536c73}</style>
 <header><div><h1>病历书写简版</h1><p class="mini-help muted">粘贴本次资料 → 按病历格式生成 → 审核分析、复制</p></div><span class="badge">完整语料 · 离线使用</span></header>
 <main><div class="workspace">
@@ -1890,6 +1891,104 @@ const LEGACY_APP_HTML="<!doctype html><html lang=\"zh-CN\"><head><meta charset=\
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',setup,{once:true});else setup();
  g.BingliTools=Object.freeze({open,close,invalidate});
 })(globalThis);
+
+/* Fixed wording changes only. This policy does not verify medical meaning. */
+(function(g){
+ 'use strict';
+ const RULES=Object.freeze([
+  {id:'today',from:'今天',to:'今日'},
+  {id:'yesterday',from:'昨天',to:'昨日'},
+  {id:'tomorrow',from:'明天',to:'明日'},
+  {id:'patient-says',from:'患者说',to:'患者诉'},
+  {id:'no-fever',from:'没有发热',to:'无发热'},
+  {id:'no-chills',from:'没有寒战',to:'无寒战'},
+  {id:'no-abdominal-pain',from:'没有腹痛',to:'无腹痛'},
+  {id:'report-pending',from:'报告还没出来',to:'报告尚未回报'}
+ ].map(Object.freeze));
+ const OPENERS=new Map([['“','”'],['‘','’'],['"','"'],["'","'"],['「','」'],['『','』'],['【','】'],['《','》']]);
+ const asText=value=>String(value??'');
+ const lineEndings=value=>asText(value).replace(/\r\n/g,'\n');
+
+ // An unclosed quotation/template protects the rest of the input. Its contents
+ // are never guessed, repaired, or passed through wording substitutions.
+ function protectedEnd(text,start){
+  const stack=[OPENERS.get(text[start])];
+  for(let i=start+1;i<text.length;i++){
+   const character=text[i];
+   if(character==='\\'&&(stack[stack.length-1]==='"'||stack[stack.length-1]==="'")){i++;continue;}
+   if(character===stack[stack.length-1]){stack.pop();if(!stack.length)return i+1;}
+   else if(OPENERS.has(character))stack.push(OPENERS.get(character));
+  }
+  return text.length;
+ }
+
+ function ruleMatches(rule,text,at){
+  if(!text.startsWith(rule.from,at))return false;
+  // Recognize only a narrow speech boundary. A blacklist of compounds would
+  // miss expressions such as "患者说漏了"; unknown continuations stay verbatim.
+  if(rule.id==='patient-says'&&!/^(?:$|[\s：:，,。！？!?；;“‘"'「『]|今天|昨天|明天|今日|昨日|明日|目前|现在|近日|近来|仍|已经|已|没有|无|有|感觉|感到|觉得|自觉)/.test(text.slice(at+rule.from.length)))return false;
+  return true;
+ }
+
+ function standardize(value){
+  const source=asText(value),edits=[];let text='';
+  for(let at=0;at<source.length;){
+   if(OPENERS.has(source[at])){
+    const end=protectedEnd(source,at);text+=source.slice(at,end);at=end;continue;
+   }
+   const rule=RULES.find(item=>ruleMatches(item,source,at));
+   if(rule){
+    const end=at+rule.from.length;
+    edits.push({ruleId:rule.id,from:rule.from,to:rule.to,start:at,end});
+    text+=rule.to;at=end;
+   }else{text+=source[at];at++;}
+  }
+  return {text,edits,changed:text!==source};
+ }
+
+ function assess(original,candidate){
+  const before=lineEndings(original),after=lineEndings(candidate);
+  if(before===after)return {safe:true,unchanged:true,code:'unchanged',reason:'候选与原文相同，无措辞变化。'};
+  if(standardize(before).text===standardize(after).text){
+   return {safe:true,unchanged:false,code:'allowed-wording',reason:'变化仅在固定措辞词表内；未进行医学语义验证。'};
+  }
+  return {safe:false,unchanged:false,code:'outside-wording-policy',reason:'候选包含固定措辞词表以外的变化，保留原文。'};
+ }
+
+ // GBNF quoted strings support these escapes. Never interpolate raw text as a
+ // grammar expression: only this literal encoder or fixed grammar punctuation
+ // may contribute to the generated rule.
+ function grammarLiteral(value){
+  let result='"';
+  for(const character of value){
+   const code=character.codePointAt(0);
+   if(code>=0xd800&&code<=0xdfff)throw new Error('原文含孤立的 Unicode 代理字符，不能生成措辞约束；请保留原文。');
+   if(character==='"')result+='\\"';
+   else if(character==='\\')result+='\\\\';
+   else if(character==='\n')result+='\\n';
+   else if(character==='\r')result+='\\r';
+   else if(character==='\t')result+='\\t';
+   else if(code<0x20||(code>=0x7f&&code<=0x9f)||code===0x2028||code===0x2029)result+='\\u'+code.toString(16).padStart(4,'0');
+   else result+=character;
+  }
+  return result+'"';
+ }
+
+ function buildGrammar(value){
+  const original=asText(value),result=standardize(original),parts=[];let at=0;
+  for(const edit of result.edits){
+   if(edit.start>at)parts.push(grammarLiteral(original.slice(at,edit.start)));
+   parts.push('('+grammarLiteral(edit.from)+' | '+grammarLiteral(edit.to)+')');
+   at=edit.end;
+  }
+  if(at<original.length||!parts.length)parts.push(grammarLiteral(original.slice(at)));
+  return {grammar:'root ::= '+parts.join(' ')+'\n',changed:result.changed,editCount:result.edits.length};
+ }
+
+ const api=Object.freeze({standardize,assess,buildGrammar});
+ g.BingliWritingPolicy=api;
+ if(typeof module!=='undefined'&&module.exports)module.exports=api;
+})(typeof globalThis!=='undefined'?globalThis:window);
 </script>
 <script>(function(){
  'use strict';
@@ -2120,7 +2219,7 @@ const LEGACY_APP_HTML="<!doctype html><html lang=\"zh-CN\"><head><meta charset=\
  'use strict';
  const host=document.getElementById('inputs');if(!host)return;
  const panel=document.createElement('details');panel.id='exampleLibrary';
- panel.innerHTML='<summary>我的书写范例</summary><p class="mini-help muted">收藏认可的脱敏范例，便于查阅。AI 可沿用简洁、连续成段等表达偏好；范例中的患者内容不送入生成。关闭页面前可导出范例库，导入范例不改变模型权重。</p><label>范例标题<input id="exampleTitle" placeholder="如：胃癌主治查房"></label><label>范例正文（脱敏后）<textarea id="exampleText" rows="5"></textarea></label><label>希望沿用的写法<input id="examplePreference" placeholder="如：查房指示连续成段，先说明主要判断，再写进一步检查"></label><div class="actions"><button id="exampleAdd" type="button">收录范例</button><button id="exampleImport" type="button">导入 TXT／范例库</button><button id="exampleExport" type="button">导出范例库</button><input id="exampleFile" type="file" accept=".txt,.json" multiple hidden></div><p id="exampleStatus" class="status" role="status"></p><div id="exampleList"></div>';
+ panel.innerHTML='<summary>我的书写范例</summary><p class="mini-help muted">收藏认可的脱敏范例，便于查阅。范例用于对照书写风格；当前 AI 只整理预设用语，范例中的患者内容不送入生成。关闭页面前可导出范例库，导入范例不改变模型权重。</p><label>范例标题<input id="exampleTitle" placeholder="如：胃癌主治查房"></label><label>范例正文（脱敏后）<textarea id="exampleText" rows="5"></textarea></label><label>希望沿用的写法<input id="examplePreference" placeholder="如：查房指示连续成段，先说明主要判断，再写进一步检查"></label><div class="actions"><button id="exampleAdd" type="button">收录范例</button><button id="exampleImport" type="button">导入 TXT／范例库</button><button id="exampleExport" type="button">导出范例库</button><input id="exampleFile" type="file" accept=".txt,.json" multiple hidden></div><p id="exampleStatus" class="status" role="status"></p><div id="exampleList"></div>';
  host.append(panel);
  const $=id=>document.getElementById(id),S=v=>String(v??'').trim();let examples=[];
  function render(){

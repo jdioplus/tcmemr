@@ -1,0 +1,72 @@
+{
+  "scope": "Actual unchanged V2 Q2_K model, native CPU constrained generation. Not browser or clinical qualification.",
+  "modelSha256": "dc4b0b935d8ec4fc6008c15083a906d6809a7cc48d81fd6b32b0bcaaa79a958e",
+  "cases": [
+    {
+      "id": "day",
+      "original": "患者今天没有发热。医师打算明天复查血常规。",
+      "output": "患者今天无发热。医师打算明日复查血常规。",
+      "exitCode": 0,
+      "elapsedSeconds": 0.76,
+      "ended": true,
+      "changed": true,
+      "policy": {
+        "safe": true,
+        "unchanged": false,
+        "code": "allowed-wording",
+        "reason": "变化仅在固定措辞词表内；未进行医学语义验证。"
+      }
+    },
+    {
+      "id": "pending",
+      "original": "今天14:10患者体温38.0℃，没有寒战。昨天没有发热。今天已经抽血送培养，报告还没出来。",
+      "output": "今天14:10患者体温38.0℃，无寒战。昨日无发热。今日已经抽血送培养，报告尚未回报。",
+      "exitCode": 0,
+      "elapsedSeconds": 0.98,
+      "ended": true,
+      "changed": true,
+      "policy": {
+        "safe": true,
+        "unchanged": false,
+        "code": "allowed-wording",
+        "reason": "变化仅在固定措辞词表内；未进行医学语义验证。"
+      }
+    },
+    {
+      "id": "quantity",
+      "original": "主任查房指示：昨天引流总量120 mL，今天到现在90 mL，今天还没有统计完。患者没有腹痛。尚未决定更换引流管。",
+      "output": "主任查房指示：昨日引流总量120 mL，今日到现在90 mL，今日还没有统计完。患者无腹痛。尚未决定更换引流管。",
+      "exitCode": 0,
+      "elapsedSeconds": 1.01,
+      "ended": true,
+      "changed": true,
+      "policy": {
+        "safe": true,
+        "unchanged": false,
+        "code": "allowed-wording",
+        "reason": "变化仅在固定措辞词表内；未进行医学语义验证。"
+      }
+    },
+    {
+      "id": "tcm",
+      "original": "中医分析：今天患者乏力。舌淡，苔薄白，脉细。医师辨为脾气虚证。治法拟益气健脾，今天尚未开具中药处方。",
+      "output": "中医分析：今日患者乏力。舌淡，苔薄白，脉细。医师辨为脾气虚证。治法拟益气健脾，今日尚未开具中药处方。",
+      "exitCode": 0,
+      "elapsedSeconds": 0.96,
+      "ended": true,
+      "changed": true,
+      "policy": {
+        "safe": true,
+        "unchanged": false,
+        "code": "allowed-wording",
+        "reason": "变化仅在固定措辞词表内；未进行医学语义验证。"
+      }
+    }
+  ],
+  "checks": {
+    "changed": 4,
+    "completed": 4,
+    "withinFixedWordingScope": 4
+  },
+  "clinicalQualification": false
+}

@@ -129,7 +129,7 @@
     }
     return null;
   }
-  async function generate(input, {onToken, maxTokens = 384} = {}) {
+  async function generate(input, {onToken, maxTokens = 384, grammar} = {}) {
     if (!engine?.isModelLoaded()) throw new Error('请先选择并载入模型的全部分片。');
     if (generating || initializing) throw new Error('模型正在处理，请等待或停止后再生成。');
     const prompt = userPrompt(input);
@@ -152,7 +152,7 @@
       const text = await engine.createChatCompletion(messages, {
         nPredict: limit,
         useCache: false,
-        sampling: {temp: 0, top_k: 20, top_p: 0.8, penalty_repeat: 1.1, penalty_last_n: 64},
+        sampling: {temp: 0, top_k: 20, top_p: 0.8, penalty_repeat: 1.1, penalty_last_n: 64, ...(grammar ? {grammar} : {})},
         abortSignal: controller.signal,
         onNewToken(token, piece, text) {
           currentText = text;

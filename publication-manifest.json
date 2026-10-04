@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "scope": "Public source, synthetic training/evaluation, and explicitly experimental offline package. No clinical quality approval.",
+  "scope": "Public source, synthetic tests and unchanged experimental V2 model with constrained wording generation. No clinical quality approval.",
   "privacy": "Legacy supplied case replaced with synthetic demo; no patient documents, browser database, credentials, caches or unsplit large weights.",
   "fileLimitBytesExclusive": 100000000,
   "files": [
@@ -11,8 +11,8 @@
     },
     {
       "path": ".gitignore",
-      "bytes": 326,
-      "sha256": "b0c6bd080b1e9f550494fff34a71fbf53a767f0d6abaa96ac6bb66be9523352a"
+      "bytes": 340,
+      "sha256": "091cf97c59c9f067923f89836278b281c72efa93cb730f02f287238fa7785933"
     },
     {
       "path": "123-v6.3.html",
@@ -26,8 +26,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 7580,
-      "sha256": "370d27e1a42d2dbbe739993b28219fd9b6a1b42bde1bedba54054a3b54c9cbae"
+      "bytes": 9142,
+      "sha256": "d4c51c719be4f5de8d80e3b12ccd9e6a5368234b448e325e1ae27f09e4a3dcc0"
     },
     {
       "path": "generative/README.md",
@@ -146,8 +146,8 @@
     },
     {
       "path": "generative/writer.js",
-      "bytes": 13082,
-      "sha256": "58bd59c30f6276acfe5db1e8e700b172d68dc7736b9e16c794b96d127d99a9c7"
+      "bytes": 13122,
+      "sha256": "cb1599fe0362745ac8e4dfe21171ada79c85aafc6f87f0d33f677fdd5868bc95"
     },
     {
       "path": "knowledge/ancient-books-catalog.json",
@@ -221,8 +221,8 @@
     },
     {
       "path": "minimal/examples.js",
-      "bytes": 5014,
-      "sha256": "988672a267f18668f2d289ab14e9917bd65fe044d404739007a71f5571a54800"
+      "bytes": 5030,
+      "sha256": "f733254dae5383f29b65d27900603c64806c4a07bc7e98deb15a234863e43b45"
     },
     {
       "path": "minimal/legacy-tools.js",
@@ -231,13 +231,13 @@
     },
     {
       "path": "minimal/local-writer-ui.js",
-      "bytes": 7738,
-      "sha256": "d842fa58051556f2878170ba778521623fc859f1f7e9fb66e9ebd9b5ea6394ee"
+      "bytes": 10973,
+      "sha256": "7993a0fb0cff7633701c50825eb93e5db3e83c041e2366d3e321214d745b859a"
     },
     {
       "path": "minimal/page.html",
-      "bytes": 12393,
-      "sha256": "17b56d00dea1f014ad2b349a45ac3777e934c5c2ac31ec93106c9b6b844d2db9"
+      "bytes": 12859,
+      "sha256": "47ade98133ccf503ec32a738972479fe8b384f4c2f8b524f4ddcd134242f4254"
     },
     {
       "path": "minimal/record-parser.js",
@@ -248,6 +248,11 @@
       "path": "minimal/western-knowledge.js",
       "bytes": 11100,
       "sha256": "83b8eabc2e838f62f17563a69503f5ef0250a2ccf899e1359537c20bed954587"
+    },
+    {
+      "path": "minimal/writing-policy.js",
+      "bytes": 4638,
+      "sha256": "b7b3388dd9d159290faf158db206d64c50f44e723534869370d25435ceee9242"
     },
     {
       "path": "package.json",
@@ -396,8 +401,8 @@
     },
     {
       "path": "tests/build-minimal.py",
-      "bytes": 3836,
-      "sha256": "78c8a9c33b968d15777c50c64a3426a18e4e4aa595a8f32fd1fa4c91fc384447"
+      "bytes": 4178,
+      "sha256": "820fdb75c7b77e1197cf9efa67ec1cf947c81408f9cdeca748ba8abfc99b7e27"
     },
     {
       "path": "tests/build-offline-ai.py",
@@ -445,6 +450,11 @@
       "sha256": "1fdcaa14a0d91992358ce7bdcc9b978c9846bd6c9cc759e52b526cbcdb125d75"
     },
     {
+      "path": "tests/local-writer-ui-state.cjs",
+      "bytes": 12308,
+      "sha256": "6fa0c594a3826559cdf0b7a96f1ea729c45404878307a6114ae99f344bc1a46d"
+    },
+    {
       "path": "tests/mini-compose-audit.cjs",
       "bytes": 5770,
       "sha256": "67439450f3fb2c3098d05084dfc32aa68f98f4be12fb601ca6d39ce28187493b"
@@ -456,8 +466,8 @@
     },
     {
       "path": "tests/offline-ai-integration.cjs",
-      "bytes": 3822,
-      "sha256": "deca0ac2995565d97cce0e2d4e506f562479db6bfc02c1f4a4c3082bcd7a2fe2"
+      "bytes": 4126,
+      "sha256": "3e4ec8a4b9f827f07c9b235348db42dabe7ef2314813a2e53eaab66865e1ad84"
     },
     {
       "path": "tests/sanitize-public-examples.py",
@@ -495,6 +505,11 @@
       "sha256": "f266a27682e6bd6b173c26e6c504ee27aae7f02b5e26802acb31aea2a811bddd"
     },
     {
+      "path": "tests/writing-policy-test.cjs",
+      "bytes": 10137,
+      "sha256": "58f09367879d360e27be1cb3c351a1b49e9cd7c46e6371804246fcb20d2c3326"
+    },
+    {
       "path": "training/README.md",
       "bytes": 3695,
       "sha256": "c987b84c2ab22fac7caeed545b917e7b3ae659a2ab83249d686b5c6d9ffd06e6"
@@ -508,6 +523,31 @@
       "path": "training/base-model-manifest.json",
       "bytes": 2058,
       "sha256": "b3143f7fb8f65debdd054fb1b0b49d4d3fd189383a65ebbc24a981e1b7627e98"
+    },
+    {
+      "path": "training/data-v2/eval-cases.json",
+      "bytes": 83548,
+      "sha256": "03921fb14e2d0c14521b7bb00a4a72ce3bc678ea80e17c0cc43b5ac23d26b6d7"
+    },
+    {
+      "path": "training/data-v2/metadata.json",
+      "bytes": 18199,
+      "sha256": "1419dc77dcd2165969196161e28dcf8b86177108eaa65642e3b8979795e72a58"
+    },
+    {
+      "path": "training/data-v2/test.jsonl",
+      "bytes": 10203,
+      "sha256": "b8d33bad11577f902938edb7fbac74f22e920369c9d7d46490369e1adb3a1b3d"
+    },
+    {
+      "path": "training/data-v2/train.jsonl",
+      "bytes": 59026,
+      "sha256": "5a29fce23d8e81053e094f90d525c0ca77e2fbffd839afa202b762f6494d3118"
+    },
+    {
+      "path": "training/data-v2/valid.jsonl",
+      "bytes": 9418,
+      "sha256": "5a3aa58a81ec2869588b93565235c643021a33b8a7570e872b51614af5362990"
     },
     {
       "path": "training/data/challenge-cases.json",
@@ -538,31 +578,6 @@
       "path": "training/data/valid.jsonl",
       "bytes": 9220,
       "sha256": "9b1762b5116e99f2987043f93ceab874bac051c25a0b9ca996009b53aece4ea0"
-    },
-    {
-      "path": "training/data-v2/eval-cases.json",
-      "bytes": 83548,
-      "sha256": "03921fb14e2d0c14521b7bb00a4a72ce3bc678ea80e17c0cc43b5ac23d26b6d7"
-    },
-    {
-      "path": "training/data-v2/metadata.json",
-      "bytes": 18199,
-      "sha256": "1419dc77dcd2165969196161e28dcf8b86177108eaa65642e3b8979795e72a58"
-    },
-    {
-      "path": "training/data-v2/test.jsonl",
-      "bytes": 10203,
-      "sha256": "b8d33bad11577f902938edb7fbac74f22e920369c9d7d46490369e1adb3a1b3d"
-    },
-    {
-      "path": "training/data-v2/train.jsonl",
-      "bytes": 59026,
-      "sha256": "5a29fce23d8e81053e094f90d525c0ca77e2fbffd839afa202b762f6494d3118"
-    },
-    {
-      "path": "training/data-v2/valid.jsonl",
-      "bytes": 9418,
-      "sha256": "5a3aa58a81ec2869588b93565235c643021a33b8a7570e872b51614af5362990"
     },
     {
       "path": "training/evaluate-gguf-writing.py",
@@ -1465,9 +1480,24 @@
       "sha256": "21bf43c54ff20d7b28e4771333051d21ed0e6fa0ff87cdb1dbb3905b4ebaacd3"
     },
     {
+      "path": "verification/candidate-review-state.json",
+      "bytes": 1670,
+      "sha256": "abcb47d4a17597c96d9d331c5f21ee3b46377bcbbce25a131c0c38529e0b5de1"
+    },
+    {
       "path": "verification/candidate-review-ui.json",
       "bytes": 779,
       "sha256": "ce99aeb17075441c13ff2a680103889e785f817d9b8aeec68fedfa96c57a6a7e"
+    },
+    {
+      "path": "verification/constrained-build.json",
+      "bytes": 434,
+      "sha256": "e538865291744627f2f35601e3ee0068c7e8278ab13ed5c9173bbe774b968f4e"
+    },
+    {
+      "path": "verification/constrained-native-model.json",
+      "bytes": 2777,
+      "sha256": "f2d178b9a304dba7c544fa604f84c2e1f86fd6c02ae1f9bf2932a3e65a10a7ed"
     },
     {
       "path": "verification/public-offline-runtime.json",
@@ -1475,9 +1505,14 @@
       "sha256": "69726d7a66a9bd2bca8db22f39defbb81d27a23030e7cdadb4df097b00aafcd6"
     },
     {
+      "path": "verification/writing-policy.json",
+      "bytes": 1505,
+      "sha256": "e199e1361b57a7ba5345e36ebaa5a57ff94f1ff1fdb10fed9aa750a6a82a1496"
+    },
+    {
       "path": "病历书写简版.html",
-      "bytes": 2192512,
-      "sha256": "0ea38cae3394e2d423adb5a4deb0e4384abad1b40ece23bb2d6e3694839ce0c6"
+      "bytes": 2197168,
+      "sha256": "2882667838722382acd0f56af1aaddcddcb537cfaaebd38b9675149c86e885bb"
     },
     {
       "path": "离线病历AI/Qwen-LICENSE.txt",
@@ -1487,7 +1522,7 @@
     {
       "path": "离线病历AI/SHA256SUMS.txt",
       "bytes": 1300,
-      "sha256": "2aa87e34ebaec38b5357286e5e66922c9468c6e179995bb622f5b7ec3c0f1d7b"
+      "sha256": "cd54f796da802534e1378172e9e01c5ff88f449855ed33cd042ef87fe787f16b"
     },
     {
       "path": "离线病历AI/bingli-style-v2-Q2_K.gguf.part01-of-04.bin",
@@ -1536,18 +1571,18 @@
     },
     {
       "path": "离线病历AI/先读我.txt",
-      "bytes": 2908,
-      "sha256": "6ad388440083a869687aa540cca120e9894316a7616c795dac9c0451adb63d42"
+      "bytes": 3176,
+      "sha256": "c177a2dab003afefd1df513bba026ae9049c86c68afe42d070fac46290a320fb"
     },
     {
       "path": "离线病历AI/病历书写AI.html",
-      "bytes": 52981187,
-      "sha256": "8e1d73abc90d9c21d6d2d51463dad4be64a3725d4455369b338fb06537a3ee77"
+      "bytes": 52989121,
+      "sha256": "a2c44e4280c949c90c9e10127c543da774a8d7a691f3a3f754eb55dde504ed13"
     },
     {
       "path": "离线病历AI/训练与测试说明.txt",
-      "bytes": 2273,
-      "sha256": "2d1501a6b0435f6e55ef31597842a3256a3deb49158302a4aef578eb53142668"
+      "bytes": 2821,
+      "sha256": "39f6a1ddb61c903276414cc1ab539a85018ce691057830b10f27e622925ae362"
     },
     {
       "path": "离线病历AI/试写对照.txt",
@@ -1555,6 +1590,6 @@
       "sha256": "bf58cb13b1045b112e54866301ca86607d801482eb856468c20052b32b4e92a3"
     }
   ],
-  "fileCount": 310,
-  "totalBytes": 436993824
+  "fileCount": 317,
+  "totalBytes": 437046678
 }

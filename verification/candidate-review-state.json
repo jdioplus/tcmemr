@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "scope": "Node VM + minimal DOM stub; no browser launched and no model quality or Windows compatibility claim",
+  "checks": [
+    "Loading reports readiness without implying a rewrite",
+    "Identical output shows original/candidate comparison and elapsed time, and cannot be adopted",
+    "An edited identical candidate can be adopted only after renewed review and resets final review",
+    "Selected paragraph adoption preserves surrounding text",
+    "Changed patient input prevents stale adoption",
+    "Exact source snapshot detects whitespace edits and preserves original formatting",
+    "Cancelled, truncated, repetitive and incomplete output remain blocked even after editing",
+    "Stop controls retain the original and show cancellation",
+    "Overlong unselected text does not call the model",
+    "Only fixed wording choices and their exact grammar reach the model; example facts and preferences do not",
+    "Model changes to negatives or numbers cannot be adopted even after review",
+    "Fixed normalization works without loading or calling the model, shows its source and requires review",
+    "Fixed normalization handles an entire long note and preserves line structure",
+    "Fixed normalization of a selection leaves all surrounding text unchanged",
+    "Fixed normalization with no matching wording reports no change and cannot be adopted",
+    "Model source is labeled and manual edits must also stay within the wording policy",
+    "Already formal text skips model inference, reports that clearly and restores controls",
+    "Source template links to runnable pages; build has one explicitly delimited removal block"
+  ]
+}
