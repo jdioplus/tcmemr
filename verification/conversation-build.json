@@ -1,0 +1,23 @@
+{
+  "scope": "Conversation dual-mode source and embedded JavaScript checks; no browser or clinical qualification",
+  "browserVerified": false,
+  "windowsVerified": false,
+  "modelChanged": false,
+  "conversationChecksPassed": 19,
+  "diagnosisStageRegressionPassed": 7,
+  "candidateReviewSimulationPassed": 18,
+  "artifacts": [
+    {
+      "path": "病历书写简版.html",
+      "bytes": 2225029,
+      "sha256": "6547ab31383363375414d7cef19d8a615f2aa052547898e9824d6d0c96845fc4",
+      "embeddedJavaScriptBlocksParsed": 2
+    },
+    {
+      "path": "离线病历AI/病历书写AI.html",
+      "bytes": 53016983,
+      "sha256": "45d7867eb967dd9c2a5a1fab8277e4758e93f55f8afba89ec3df02acead92099",
+      "embeddedJavaScriptBlocksParsed": 8
+    }
+  ]
+}

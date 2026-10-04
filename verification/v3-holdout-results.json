@@ -1,0 +1,2267 @@
+{
+  "clinicalQualification": false,
+  "releaseEligible": false,
+  "runtime": "Native Apple MLX; not browser or final GGUF",
+  "scope": "20 synthetic records from five held-out scenario groups; compare baseline and validation-selected adapter, no training or selection on this set.",
+  "testSha256": "7c987adb3eadf7e488c30e69eedd973ac780cb60ee45e14d0df27f84da9b5238",
+  "selection": {
+    "candidates": [
+      {
+        "checkpoint": "baseline",
+        "validationLoss": 2.7508153915405273
+      },
+      {
+        "checkpoint": "0000024_adapters.safetensors",
+        "validationLoss": 0.5713056921958923
+      },
+      {
+        "checkpoint": "0000048_adapters.safetensors",
+        "validationLoss": 0.46781089901924133
+      },
+      {
+        "checkpoint": "0000072_adapters.safetensors",
+        "validationLoss": 0.4394051432609558
+      },
+      {
+        "checkpoint": "0000096_adapters.safetensors",
+        "validationLoss": 0.46863871812820435
+      }
+    ],
+    "selected": {
+      "checkpoint": "0000072_adapters.safetensors",
+      "validationLoss": 0.4394051432609558
+    },
+    "validationImproved": true,
+    "validationSha256": "1748fd9f117efc5a882e5e589c8adef722f5fcd05a0088a81d592e5557fc631b",
+    "holdoutRead": false,
+    "clinicalQualification": false,
+    "releaseEligible": false,
+    "requiredNextGate": "independent semantic evaluation; reject trained candidate if baseline validation loss is better"
+  },
+  "sampling": {
+    "temperature": 0,
+    "repetitionPenalty": 1.1,
+    "lastNTokens": 64,
+    "maxTokens": 650
+  },
+  "cases": [
+    {
+      "id": "test-pathology_provenance_negative-1",
+      "variant": "base",
+      "scenarioGroup": "pathology_provenance_negative",
+      "recordType": "首次病程记录",
+      "source": "首次病程记录（合成病例）\n入院诊断：乙状结肠腺癌。\n请按原有记录类型整理以下散项，判断和安排均来自接诊医师。\n背景一项：入院资料注明已确诊乙状结肠腺癌。\n已有安排一项：拟核对原始病理报告及手术记录；目前尚未完成该项核对。\n实际观察一项：2032-04-09外院病理写中分化腺癌，脉管侵犯未见。患者没便血，没黑便。\n原有判断一项：医师拟结合病理报告及手术记录评估分期。",
+      "gold": "首次病程记录（合成病例）\n病例特点：\n入院资料注明已确诊乙状结肠腺癌。2032-04-09外院病理示中分化腺癌，未见脉管侵犯；无便血、黑便。\n拟诊讨论：\n西医诊断依据及鉴别诊断：接诊医师拟结合病理报告及手术记录评估分期。\n入院诊断：\n乙状结肠腺癌。\n诊疗计划：\n拟核对原始病理报告及手术记录；目前尚未完成该项核对。",
+      "output": "首次病程记录（合成病例）  \n入院诊断：乙状结肠腺癌  \n\n背景项：入院资料已明确确诊乙状结肠腺癌。  \n已有安排项：拟核对原始病理报告及手术记录，目前尚未完成该项核对。  \n实际观察项：患者无便血，无黑便；2032-04-09外院病理诊断为中分化腺癌，脉管侵犯未见。  \n原有判断项：医师拟结合病理报告及手术记录评估分期。",
+      "reviewCriteria": [
+        "保留全部原始事实、侧别、数字、单位、报告来源和相对时间。",
+        "不把考虑或可能改成确定病因，不把未决定改为决定不做。",
+        "阴性范围、未检、待回、拟实施、已完成分别保留。",
+        "标题及医师归属须保留；未给四诊、分期、经典或方药不补写。",
+        "病理未见不改肯定；未注明不同于阴性；0/8及取材部位、报告来源完整保留。"
+      ],
+      "factLedger": [
+        {
+          "kind": "diagnosis",
+          "original": "乙状结肠腺癌",
+          "expected": "乙状结肠腺癌"
+        },
+        {
+          "kind": "history",
+          "original": "入院资料注明已确诊乙状结肠腺癌。",
+          "expected": "入院资料注明已确诊乙状结肠腺癌。"
+        },
+        {
+          "kind": "observations",
+          "original": "2032-04-09外院病理写中分化腺癌，脉管侵犯未见。患者没便血，没黑便。",
+          "expected": "2032-04-09外院病理示中分化腺癌，未见脉管侵犯；无便血、黑便。"
+        },
+        {
+          "kind": "doctor_judgment",
+          "original": "医师拟结合病理报告及手术记录评估分期。",
+          "expected": "接诊医师拟结合病理报告及手术记录评估分期。"
+        },
+        {
+          "kind": "doctor_plan",
+          "original": "拟核对原始病理报告及手术记录；目前尚未完成该项核对。",
+          "expected": "拟核对原始病理报告及手术记录；目前尚未完成该项核对。"
+        }
+      ],
+      "finishReason": "stop",
+      "generatedTokens": 115,
+      "elapsedSeconds": 2.375,
+      "promptSha256": "dcd7d68a82436266a67ce54968114bb0e3e71bfd8bf93a7f6a4188e7db7b2e13",
+      "sameAsSource": false,
+      "sourceSimilarity": 0.7884,
+      "numericMissing": {
+        "2032-04-09": 1
+      },
+      "numericAdded": {
+        "2032": 1,
+        "04": 1,
+        "09": 1
+      },
+      "reasoningTagsPresent": false,
+      "needsSemanticReview": true
+    },
+    {
+      "id": "test-pathology_provenance_negative-2",
+      "variant": "base",
+      "scenarioGroup": "pathology_provenance_negative",
+      "recordType": "主治中医师查房记录",
+      "source": "主治中医师查房记录（合成病例）\n请按原有记录类型整理以下散项，判断和安排均来自主治中医师。\n背景一项：入院资料注明已确诊乙状结肠腺癌。\n已有安排一项：拟核对原始病理报告及手术记录；目前尚未完成该项核对。\n实际观察一项：本院2032-04-11的会诊意见是低分化腺癌，神经侵犯未见；外院分化级别没写。\n原有判断一项：医师拟结合病理报告及手术记录评估分期。",
+      "gold": "主治中医师查房记录（合成病例）\n入院资料注明已确诊乙状结肠腺癌。本院2032-04-11会诊意见为低分化腺癌，未见神经侵犯；外院未注明分化级别。\n主治中医师查房指示：拟结合病理报告及手术记录评估分期。拟核对原始病理报告及手术记录；目前尚未完成该项核对。",
+      "output": "主治中医师查房记录（合成病例）  \n背景项：入院资料已确诊乙状结肠腺癌。  \n已有安排项：拟核对原始病理报告及手术记录，目前尚未完成该项核对。  \n实际观察项：本院2032-04-11会诊意见为低分化腺癌，神经侵犯未见；外院分化级别未写。  \n原有判断项：医师拟结合病理报告及手术记录评估分期。",
+      "reviewCriteria": [
+        "保留全部原始事实、侧别、数字、单位、报告来源和相对时间。",
+        "不把考虑或可能改成确定病因，不把未决定改为决定不做。",
+        "阴性范围、未检、待回、拟实施、已完成分别保留。",
+        "标题及医师归属须保留；未给四诊、分期、经典或方药不补写。",
+        "病理未见不改肯定；未注明不同于阴性；0/8及取材部位、报告来源完整保留。"
+      ],
+      "factLedger": [
+        {
+          "kind": "diagnosis",
+          "original": "乙状结肠腺癌",
+          "expected": "乙状结肠腺癌"
+        },
+        {
+          "kind": "history",
+          "original": "入院资料注明已确诊乙状结肠腺癌。",
+          "expected": "入院资料注明已确诊乙状结肠腺癌。"
+        },
+        {
+          "kind": "observations",
+          "original": "本院2032-04-11的会诊意见是低分化腺癌，神经侵犯未见；外院分化级别没写。",
+          "expected": "本院2032-04-11会诊意见为低分化腺癌，未见神经侵犯；外院未注明分化级别。"
+        },
+        {
+          "kind": "doctor_judgment",
+          "original": "医师拟结合病理报告及手术记录评估分期。",
+          "expected": "主治中医师查房指示：拟结合病理报告及手术记录评估分期。"
+        },
+        {
+          "kind": "doctor_plan",
+          "original": "拟核对原始病理报告及手术记录；目前尚未完成该项核对。",
+          "expected": "拟核对原始病理报告及手术记录；目前尚未完成该项核对。"
+        }
+      ],
+      "finishReason": "stop",
+      "generatedTokens": 103,
+      "elapsedSeconds": 1.695,
+      "promptSha256": "4085d57fe69b066919541b3812f4e8d250f1f939d92ba49be34908be346fe5f8",
+      "sameAsSource": false,
+      "sourceSimilarity": 0.8421,
+      "numericMissing": {
+        "2032-04-11": 1
+      },
+      "numericAdded": {
+        "2032": 1,
+        "04": 1,
+        "11": 1
+      },
+      "reasoningTagsPresent": false,
+      "needsSemanticReview": true
+    },
+    {
+      "id": "test-pathology_provenance_negative-3",
+      "variant": "base",
+      "scenarioGroup": "pathology_provenance_negative",
+      "recordType": "主任中医师查房记录",
+      "source": "主任中医师查房记录（合成病例）\n请按原有记录类型整理以下散项，判断和安排均来自主任中医师。\n背景一项：入院资料注明已确诊乙状结肠腺癌。\n已有安排一项：拟核对原始病理报告及手术记录；目前尚未完成该项核对。\n实际观察一项：报告写切缘未见癌，淋巴结送了8枚，0枚见转移。今天没有新的腹痛。\n原有判断一项：医师拟结合病理报告及手术记录评估分期。",
+      "gold": "主任中医师查房记录（合成病例）\n入院资料注明已确诊乙状结肠腺癌。病理报告记切缘未见癌，送检淋巴结8枚，见转移0枚，今日无新发腹痛。\n主任中医师查房指示：拟结合病理报告及手术记录评估分期。拟核对原始病理报告及手术记录；目前尚未完成该项核对。",
+      "output": "主任中医师查房记录（合成病例）  \n背景项：入院资料已确诊乙状结肠腺癌。  \n已有安排项：拟核对原始病理报告及手术记录，目前尚未完成该项核对。  \n实际观察项：报告提示切缘未见癌，淋巴结送检8枚，0枚见转移；今日无新腹痛。  \n原有判断项：医师拟结合病理报告及手术记录评估分期。",
+      "reviewCriteria": [
+        "保留全部原始事实、侧别、数字、单位、报告来源和相对时间。",
+        "不把考虑或可能改成确定病因，不把未决定改为决定不做。",
+        "阴性范围、未检、待回、拟实施、已完成分别保留。",
+        "标题及医师归属须保留；未给四诊、分期、经典或方药不补写。",
+        "病理未见不改肯定；未注明不同于阴性；0/8及取材部位、报告来源完整保留。"
+      ],
+      "factLedger": [
+        {
+          "kind": "diagnosis",
+          "original": "乙状结肠腺癌",
+          "expected": "乙状结肠腺癌"
+        },
+        {
+          "kind": "history",
+          "original": "入院资料注明已确诊乙状结肠腺癌。",
+          "expected": "入院资料注明已确诊乙状结肠腺癌。"
+        },
+        {
+          "kind": "observations",
+          "original": "报告写切缘未见癌，淋巴结送了8枚，0枚见转移。今天没有新的腹痛。",
+          "expected": "病理报告记切缘未见癌，送检淋巴结8枚，见转移0枚，今日无新发腹痛。"
+        },
+        {
+          "kind": "doctor_judgment",
+          "original": "医师拟结合病理报告及手术记录评估分期。",
+          "expected": "主任中医师查房指示：拟结合病理报告及手术记录评估分期。"
+        },
+        {
+          "kind": "doctor_plan",
+          "original": "拟核对原始病理报告及手术记录；目前尚未完成该项核对。",
+          "expected": "拟核对原始病理报告及手术记录；目前尚未完成该项核对。"
+        }
+      ],
+      "finishReason": "stop",
+      "generatedTokens": 96,
+      "elapsedSeconds": 2.104,
+      "promptSha256": "e9afb164c5c4df29732aca8e8796899744c30575b7d519c6e840b836aad47c2c",
+      "sameAsSource": false,
+      "sourceSimilarity": 0.8078,
+      "numericMissing": {},
+      "numericAdded": {},
+      "reasoningTagsPresent": false,
+      "needsSemanticReview": true
+    },
+    {
+      "id": "test-pathology_provenance_negative-4",
+      "variant": "base",
+      "scenarioGroup": "pathology_provenance_negative",
+      "recordType": "日常病程记录",
+      "source": "日常病程记录（合成病例）\n请按原有记录类型整理以下散项，判断和安排均来自经治医师。\n背景一项：入院资料注明已确诊乙状结肠腺癌。\n已有安排一项：拟核对原始病理报告及手术记录；目前尚未完成该项核对。\n实际观察一项：2032-05-03取的是乙状结肠标本，不是肝标本。病理写腺癌，分级没有写。\n原有判断一项：医师拟结合病理报告及手术记录评估分期。",
+      "gold": "日常病程记录（合成病例）\n入院资料注明已确诊乙状结肠腺癌。2032-05-03病理标本来源为乙状结肠而非肝，报告为腺癌，未注明分级。\n病情分析：经治医师拟结合病理报告及手术记录评估分期。\n诊疗计划：拟核对原始病理报告及手术记录；目前尚未完成该项核对。",
+      "output": "日常病程记录（合成病例）  \n背景项：入院资料已确诊乙状结肠腺癌。  \n已有安排项：拟核对原始病理报告及手术记录，目前尚未完成该项核对。  \n实际观察项：2032-05-03取乙状结肠标本，而非肝标本；病理诊断为腺癌，但分级未写。  \n原有判断项：医师拟结合病理报告及手术记录评估分期。",
+      "reviewCriteria": [
+        "保留全部原始事实、侧别、数字、单位、报告来源和相对时间。",
+        "不把考虑或可能改成确定病因，不把未决定改为决定不做。",
+        "阴性范围、未检、待回、拟实施、已完成分别保留。",
+        "标题及医师归属须保留；未给四诊、分期、经典或方药不补写。",
+        "病理未见不改肯定；未注明不同于阴性；0/8及取材部位、报告来源完整保留。"
+      ],
+      "factLedger": [
+        {
+          "kind": "diagnosis",
+          "original": "乙状结肠腺癌",
+          "expected": "乙状结肠腺癌"
+        },
+        {
+          "kind": "history",
+          "original": "入院资料注明已确诊乙状结肠腺癌。",
+          "expected": "入院资料注明已确诊乙状结肠腺癌。"
+        },
+        {
+          "kind": "observations",
+          "original": "2032-05-03取的是乙状结肠标本，不是肝标本。病理写腺癌，分级没有写。",
+          "expected": "2032-05-03病理标本来源为乙状结肠而非肝，报告为腺癌，未注明分级。"
+        },
+        {
+          "kind": "doctor_judgment",
+          "original": "医师拟结合病理报告及手术记录评估分期。",
+          "expected": "经治医师拟结合病理报告及手术记录评估分期。"
+        },
+        {
+          "kind": "doctor_plan",
+          "original": "拟核对原始病理报告及手术记录；目前尚未完成该项核对。",
+          "expected": "拟核对原始病理报告及手术记录；目前尚未完成该项核对。"
+        }
+      ],
+      "finishReason": "stop",
+      "generatedTokens": 102,
+      "elapsedSeconds": 3.169,
+      "promptSha256": "5adc0628343265ea0ff72e1b0aece70ac33782beaf90a36127c15fed5b906e06",
+      "sameAsSource": false,
+      "sourceSimilarity": 0.8051,
+      "numericMissing": {
+        "2032-05-03": 1
+      },
+      "numericAdded": {
+        "2032": 1,
+        "05": 1,
+        "03": 1
+      },
+      "reasoningTagsPresent": false,
+      "needsSemanticReview": true
+    },
+    {
+      "id": "test-culture_pending_decision-1",
+      "variant": "base",
+      "scenarioGroup": "culture_pending_decision",
+      "recordType": "首次病程记录",
+      "source": "首次病程记录（合成病例）\n入院诊断：弥漫大B细胞淋巴瘤。\n请按原有记录类型整理以下散项，判断和安排均来自接诊医师。\n背景一项：既往已确诊弥漫大B细胞淋巴瘤，本次核对发热相关资料。\n已有安排一项：按医师意见追踪已送检项目的结果并复核体温记录。\n实际观察一项：今天09:25体温38.2℃，没寒战。昨晚没发热。血已抽了，培养报告还没回。\n原有判断一项：医师考虑发热原因需结合培养结果继续评估，尚未决定新增抗菌药物。",
+      "gold": "首次病程记录（合成病例）\n病例特点：\n既往已确诊弥漫大B细胞淋巴瘤，本次核对发热相关资料。今日09:25体温38.2℃，无寒战，昨晚无发热；已采血，培养结果尚未回报。\n拟诊讨论：\n西医诊断依据及鉴别诊断：接诊医师考虑发热原因需结合培养结果继续评估，尚未决定新增抗菌药物。\n入院诊断：\n弥漫大B细胞淋巴瘤。\n诊疗计划：\n按医师意见追踪已送检项目的结果并复核体温记录。",
+      "output": "首次病程记录（合成病例）  \n入院诊断：弥漫大B细胞淋巴瘤  \n\n背景项：既往确诊为弥漫大B细胞淋巴瘤，现因发热前来就诊。  \n\n已有安排项：按医师意见追踪已送检项目结果并复核体温记录。  \n\n实际观察项：今日09:25体温38.2℃，无寒战。昨夜未发热。血样已抽出，培养报告尚未回传。  \n\n原有判断项：医师考虑发热原因需结合培养结果继续评估，暂不决定新增抗菌药物。",
+      "reviewCriteria": [
+        "保留全部原始事实、侧别、数字、单位、报告来源和相对时间。",
+        "不把考虑或可能改成确定病因，不把未决定改为决定不做。",
+        "阴性范围、未检、待回、拟实施、已完成分别保留。",
+        "标题及医师归属须保留；未给四诊、分期、经典或方药不补写。",
+        "既往阴性不属于本次；未决定加药不等于决定不用药；待回结果不得补阴性。"
+      ],
+      "factLedger": [
+        {
+          "kind": "diagnosis",
+          "original": "弥漫大B细胞淋巴瘤",
+          "expected": "弥漫大B细胞淋巴瘤"
+        },
+        {
+          "kind": "history",
+          "original": "既往已确诊弥漫大B细胞淋巴瘤，本次核对发热相关资料。",
+          "expected": "既往已确诊弥漫大B细胞淋巴瘤，本次核对发热相关资料。"
+        },
+        {
+          "kind": "observations",
+          "original": "今天09:25体温38.2℃，没寒战。昨晚没发热。血已抽了，培养报告还没回。",
+          "expected": "今日09:25体温38.2℃，无寒战，昨晚无发热；已采血，培养结果尚未回报。"
+        },
+        {
+          "kind": "doctor_judgment",
+          "original": "医师考虑发热原因需结合培养结果继续评估，尚未决定新增抗菌药物。",
+          "expected": "接诊医师考虑发热原因需结合培养结果继续评估，尚未决定新增抗菌药物。"
+        },
+        {
+          "kind": "doctor_plan",
+          "original": "按医师意见追踪已送检项目的结果并复核体温记录。",
+          "expected": "按医师意见追踪已送检项目的结果并复核体温记录。"
+        }
+      ],
+      "finishReason": "stop",
+      "generatedTokens": 123,
+      "elapsedSeconds": 2.188,
+      "promptSha256": "0430d06d14c2e12c7eb9394a34ffe079b208c91e5a4bb2a61709788b7b164ad6",
+      "sameAsSource": false,
+      "sourceSimilarity": 0.7866,
+      "numericMissing": {
+        "09:25": 1
+      },
+      "numericAdded": {
+        "09": 1,
+        "25": 1
+      },
+      "reasoningTagsPresent": false,
+      "needsSemanticReview": true
+    },
+    {
+      "id": "test-culture_pending_decision-2",
+      "variant": "base",
+      "scenarioGroup": "culture_pending_decision",
+      "recordType": "主治中医师查房记录",
+      "source": "主治中医师查房记录（合成病例）\n请按原有记录类型整理以下散项，判断和安排均来自主治中医师。\n背景一项：既往已确诊弥漫大B细胞淋巴瘤，本次核对发热相关资料。\n已有安排一项：按医师意见追踪已送检项目的结果并复核体温记录。\n实际观察一项：上午送了2套血培养，下午还没出结果。现在体温37.8℃，没有新咳嗽。\n原有判断一项：医师考虑发热原因需结合培养结果继续评估，尚未决定新增抗菌药物。",
+      "gold": "主治中医师查房记录（合成病例）\n既往已确诊弥漫大B细胞淋巴瘤，本次核对发热相关资料。上午已送检2套血培养，下午结果仍未回报；目前体温37.8℃，无新发咳嗽。\n主治中医师查房指示：考虑发热原因需结合培养结果继续评估，尚未决定新增抗菌药物。按医师意见追踪已送检项目的结果并复核体温记录。",
+      "output": "主治中医师查房记录（合成病例）  \n背景项：已确诊弥漫大B细胞淋巴瘤，现因发热复诊。  \n已有安排项：按医师意见追踪已送检项目结果并复核体温记录。  \n实际观察项：上午送检2套血培养，下午未出结果；当前体温37.8℃，无新咳嗽。  \n原有判断项：考虑发热原因需结合培养结果继续评估，尚未决定新增抗菌药物。",
+      "reviewCriteria": [
+        "保留全部原始事实、侧别、数字、单位、报告来源和相对时间。",
+        "不把考虑或可能改成确定病因，不把未决定改为决定不做。",
+        "阴性范围、未检、待回、拟实施、已完成分别保留。",
+        "标题及医师归属须保留；未给四诊、分期、经典或方药不补写。",
+        "既往阴性不属于本次；未决定加药不等于决定不用药；待回结果不得补阴性。"
+      ],
+      "factLedger": [
+        {
+          "kind": "diagnosis",
+          "original": "弥漫大B细胞淋巴瘤",
+          "expected": "弥漫大B细胞淋巴瘤"
+        },
+        {
+          "kind": "history",
+          "original": "既往已确诊弥漫大B细胞淋巴瘤，本次核对发热相关资料。",
+          "expected": "既往已确诊弥漫大B细胞淋巴瘤，本次核对发热相关资料。"
+        },
+        {
+          "kind": "observations",
+          "original": "上午送了2套血培养，下午还没出结果。现在体温37.8℃，没有新咳嗽。",
+          "expected": "上午已送检2套血培养，下午结果仍未回报；目前体温37.8℃，无新发咳嗽。"
+        },
+        {
+          "kind": "doctor_judgment",
+          "original": "医师考虑发热原因需结合培养结果继续评估，尚未决定新增抗菌药物。",
+          "expected": "主治中医师查房指示：考虑发热原因需结合培养结果继续评估，尚未决定新增抗菌药物。"
+        },
+        {
+          "kind": "doctor_plan",
+          "original": "按医师意见追踪已送检项目的结果并复核体温记录。",
+          "expected": "按医师意见追踪已送检项目的结果并复核体温记录。"
+        }
+      ],
+      "finishReason": "stop",
+      "generatedTokens": 101,
+      "elapsedSeconds": 1.83,
+      "promptSha256": "5ec053f68594c141095d27a5073845c901568e61418f240d88e288a219d7bb94",
+      "sameAsSource": false,
+      "sourceSimilarity": 0.7859,
+      "numericMissing": {},
+      "numericAdded": {},
+      "reasoningTagsPresent": false,
+      "needsSemanticReview": true
+    },
+    {
+      "id": "test-culture_pending_decision-3",
+      "variant": "base",
+      "scenarioGroup": "culture_pending_decision",
+      "recordType": "主任中医师查房记录",
+      "source": "主任中医师查房记录（合成病例）\n请按原有记录类型整理以下散项，判断和安排均来自主任中医师。\n背景一项：既往已确诊弥漫大B细胞淋巴瘤，本次核对发热相关资料。\n已有安排一项：按医师意见追踪已送检项目的结果并复核体温记录。\n实际观察一项：先前一次培养阴性，是2032-06-01的。这次2032-06-06又送了，结果还没有。\n原有判断一项：医师考虑发热原因需结合培养结果继续评估，尚未决定新增抗菌药物。",
+      "gold": "主任中医师查房记录（合成病例）\n既往已确诊弥漫大B细胞淋巴瘤，本次核对发热相关资料。2032-06-01培养结果阴性；2032-06-06再次送检，本次结果尚未回报。\n主任中医师查房指示：考虑发热原因需结合培养结果继续评估，尚未决定新增抗菌药物。按医师意见追踪已送检项目的结果并复核体温记录。",
+      "output": "主任中医师查房记录（合成病例）  \n背景项：已确诊为弥漫大B细胞淋巴瘤，现因发热需进一步评估。  \n已有安排项：按医师意见追踪已送检项目结果并复核体温记录。  \n实际观察项：先前培养结果阴性，于2032-06-01送检；今又于2032-06-06送检，结果尚未出具。  \n原有判断项：发热原因需结合培养结果继续评估，暂未决定新增抗菌药物。",
+      "reviewCriteria": [
+        "保留全部原始事实、侧别、数字、单位、报告来源和相对时间。",
+        "不把考虑或可能改成确定病因，不把未决定改为决定不做。",
+        "阴性范围、未检、待回、拟实施、已完成分别保留。",
+        "标题及医师归属须保留；未给四诊、分期、经典或方药不补写。",
+        "既往阴性不属于本次；未决定加药不等于决定不用药；待回结果不得补阴性。"
+      ],
+      "factLedger": [
+        {
+          "kind": "diagnosis",
+          "original": "弥漫大B细胞淋巴瘤",
+          "expected": "弥漫大B细胞淋巴瘤"
+        },
+        {
+          "kind": "history",
+          "original": "既往已确诊弥漫大B细胞淋巴瘤，本次核对发热相关资料。",
+          "expected": "既往已确诊弥漫大B细胞淋巴瘤，本次核对发热相关资料。"
+        },
+        {
+          "kind": "observations",
+          "original": "先前一次培养阴性，是2032-06-01的。这次2032-06-06又送了，结果还没有。",
+          "expected": "2032-06-01培养结果阴性；2032-06-06再次送检，本次结果尚未回报。"
+        },
+        {
+          "kind": "doctor_judgment",
+          "original": "医师考虑发热原因需结合培养结果继续评估，尚未决定新增抗菌药物。",
+          "expected": "主任中医师查房指示：考虑发热原因需结合培养结果继续评估，尚未决定新增抗菌药物。"
+        },
+        {
+          "kind": "doctor_plan",
+          "original": "按医师意见追踪已送检项目的结果并复核体温记录。",
+          "expected": "按医师意见追踪已送检项目的结果并复核体温记录。"
+        }
+      ],
+      "finishReason": "stop",
+      "generatedTokens": 118,
+      "elapsedSeconds": 2.081,
+      "promptSha256": "02c3f7f1fe5ddb3a84e63f3ff92ef93379c02e0d521c36a541db1fd9d224685a",
+      "sameAsSource": false,
+      "sourceSimilarity": 0.7446,
+      "numericMissing": {
+        "2032-06-01": 1,
+        "2032-06-06": 1
+      },
+      "numericAdded": {
+        "2032": 2,
+        "06": 3,
+        "01": 1
+      },
+      "reasoningTagsPresent": false,
+      "needsSemanticReview": true
+    },
+    {
+      "id": "test-culture_pending_decision-4",
+      "variant": "base",
+      "scenarioGroup": "culture_pending_decision",
+      "recordType": "日常病程记录",
+      "source": "日常病程记录（合成病例）\n请按原有记录类型整理以下散项，判断和安排均来自经治医师。\n背景一项：既往已确诊弥漫大B细胞淋巴瘤，本次核对发热相关资料。\n已有安排一项：按医师意见追踪已送检项目的结果并复核体温记录。\n实际观察一项：体温最高38.4℃是昨天，今天测到37.3℃。培养还在做，没有最终报告。\n原有判断一项：医师考虑发热原因需结合培养结果继续评估，尚未决定新增抗菌药物。",
+      "gold": "日常病程记录（合成病例）\n既往已确诊弥漫大B细胞淋巴瘤，本次核对发热相关资料。昨日最高体温38.4℃，今日测得37.3℃；培养仍在进行，尚无最终报告。\n病情分析：经治医师考虑发热原因需结合培养结果继续评估，尚未决定新增抗菌药物。\n诊疗计划：按医师意见追踪已送检项目的结果并复核体温记录。",
+      "output": "日常病程记录（合成病例）  \n背景项：已确诊弥漫大B细胞淋巴瘤，现查体温。  \n已有安排项：按医师意见追踪送检项目结果并复核体温记录。  \n实际观察项：体温最高38.4℃于昨日，今日测得37.3℃。培养仍在进行，未获最终报告。  \n原有判断项：发热原因需结合培养结果继续评估，暂不决定新增抗菌药物。",
+      "reviewCriteria": [
+        "保留全部原始事实、侧别、数字、单位、报告来源和相对时间。",
+        "不把考虑或可能改成确定病因，不把未决定改为决定不做。",
+        "阴性范围、未检、待回、拟实施、已完成分别保留。",
+        "标题及医师归属须保留；未给四诊、分期、经典或方药不补写。",
+        "既往阴性不属于本次；未决定加药不等于决定不用药；待回结果不得补阴性。"
+      ],
+      "factLedger": [
+        {
+          "kind": "diagnosis",
+          "original": "弥漫大B细胞淋巴瘤",
+          "expected": "弥漫大B细胞淋巴瘤"
+        },
+        {
+          "kind": "history",
+          "original": "既往已确诊弥漫大B细胞淋巴瘤，本次核对发热相关资料。",
+          "expected": "既往已确诊弥漫大B细胞淋巴瘤，本次核对发热相关资料。"
+        },
+        {
+          "kind": "observations",
+          "original": "体温最高38.4℃是昨天，今天测到37.3℃。培养还在做，没有最终报告。",
+          "expected": "昨日最高体温38.4℃，今日测得37.3℃；培养仍在进行，尚无最终报告。"
+        },
+        {
+          "kind": "doctor_judgment",
+          "original": "医师考虑发热原因需结合培养结果继续评估，尚未决定新增抗菌药物。",
+          "expected": "经治医师考虑发热原因需结合培养结果继续评估，尚未决定新增抗菌药物。"
+        },
+        {
+          "kind": "doctor_plan",
+          "original": "按医师意见追踪已送检项目的结果并复核体温记录。",
+          "expected": "按医师意见追踪已送检项目的结果并复核体温记录。"
+        }
+      ],
+      "finishReason": "stop",
+      "generatedTokens": 99,
+      "elapsedSeconds": 1.805,
+      "promptSha256": "a7fe9b3f5af6379f090e407f71b61ada8456d000f440834bff9467c8f6b184f8",
+      "sameAsSource": false,
+      "sourceSimilarity": 0.75,
+      "numericMissing": {},
+      "numericAdded": {},
+      "reasoningTagsPresent": false,
+      "needsSemanticReview": true
+    },
+    {
+      "id": "test-drainage_partial_total-1",
+      "variant": "base",
+      "scenarioGroup": "drainage_partial_total",
+      "recordType": "首次病程记录",
+      "source": "首次病程记录（合成病例）\n入院诊断：肝门部胆管癌术后。\n请按原有记录类型整理以下散项，判断和安排均来自接诊医师。\n背景一项：既往肝门部胆管癌术后，留置引流管。\n已有安排一项：继续完成本次时段记录，再由医师复评；本次未实施换管或拔管。\n实际观察一项：昨天完整24小时是145 mL，今天从零点到08:00为40 mL，还没统计完。没腹痛。\n原有判断一项：医师要求按统计时段观察引流量及管路通畅情况，尚未决定更换引流管。",
+      "gold": "首次病程记录（合成病例）\n病例特点：\n既往肝门部胆管癌术后，留置引流管。昨日完整24小时引流量145 mL，今日零点至08:00为40 mL，今日尚未统计完，无腹痛。\n拟诊讨论：\n西医诊断依据及鉴别诊断：接诊医师要求按统计时段观察引流量及管路通畅情况，尚未决定更换引流管。\n入院诊断：\n肝门部胆管癌术后。\n诊疗计划：\n继续完成本次时段记录，再由医师复评；本次未实施换管或拔管。",
+      "output": "首次病程记录（合成病例）  \n入院诊断：肝门部胆管癌术后  \n\n背景项：既往肝门部胆管癌术后，留置引流管。  \n已有安排项：继续完成本次时段记录，由医师复评；本次未实施换管或拔管。  \n实际观察项：昨日24小时引流量为145 mL，今日0点至08:00为40 mL，尚未统计完。无腹痛。  \n原有判断项：医师要求按统计时段观察引流量及管路通畅情况，尚未决定更换引流管。",
+      "reviewCriteria": [
+        "保留全部原始事实、侧别、数字、单位、报告来源和相对时间。",
+        "不把考虑或可能改成确定病因，不把未决定改为决定不做。",
+        "阴性范围、未检、待回、拟实施、已完成分别保留。",
+        "标题及医师归属须保留；未给四诊、分期、经典或方药不补写。",
+        "不得把部分时段当24小时总量；不擅自相加未完成时段；颜色不是感染判断。"
+      ],
+      "factLedger": [
+        {
+          "kind": "diagnosis",
+          "original": "肝门部胆管癌术后",
+          "expected": "肝门部胆管癌术后"
+        },
+        {
+          "kind": "history",
+          "original": "既往肝门部胆管癌术后，留置引流管。",
+          "expected": "既往肝门部胆管癌术后，留置引流管。"
+        },
+        {
+          "kind": "observations",
+          "original": "昨天完整24小时是145 mL，今天从零点到08:00为40 mL，还没统计完。没腹痛。",
+          "expected": "昨日完整24小时引流量145 mL，今日零点至08:00为40 mL，今日尚未统计完，无腹痛。"
+        },
+        {
+          "kind": "doctor_judgment",
+          "original": "医师要求按统计时段观察引流量及管路通畅情况，尚未决定更换引流管。",
+          "expected": "接诊医师要求按统计时段观察引流量及管路通畅情况，尚未决定更换引流管。"
+        },
+        {
+          "kind": "doctor_plan",
+          "original": "继续完成本次时段记录，再由医师复评；本次未实施换管或拔管。",
+          "expected": "继续完成本次时段记录，再由医师复评；本次未实施换管或拔管。"
+        }
+      ],
+      "finishReason": "stop",
+      "generatedTokens": 129,
+      "elapsedSeconds": 2.235,
+      "promptSha256": "682a0c0eb158f3ebebf9791df88aaffec5fc560d0243a4d604e6c52c7f6c5aa7",
+      "sameAsSource": false,
+      "sourceSimilarity": 0.8316,
+      "numericMissing": {
+        "08:00": 1
+      },
+      "numericAdded": {
+        "0": 1,
+        "08": 1,
+        "00": 1
+      },
+      "reasoningTagsPresent": false,
+      "needsSemanticReview": true
+    },
+    {
+      "id": "test-drainage_partial_total-2",
+      "variant": "base",
+      "scenarioGroup": "drainage_partial_total",
+      "recordType": "主治中医师查房记录",
+      "source": "主治中医师查房记录（合成病例）\n请按原有记录类型整理以下散项，判断和安排均来自主治中医师。\n背景一项：既往肝门部胆管癌术后，留置引流管。\n已有安排一项：继续完成本次时段记录，再由医师复评；本次未实施换管或拔管。\n实际观察一项：上午记录50 mL，下午又有35 mL，两段都属于今天；今天还没结束。没发热。\n原有判断一项：医师要求按统计时段观察引流量及管路通畅情况，尚未决定更换引流管。",
+      "gold": "主治中医师查房记录（合成病例）\n既往肝门部胆管癌术后，留置引流管。今日上午引流量50 mL，下午新增35 mL，今日尚未结束，无发热。\n主治中医师查房指示：要求按统计时段观察引流量及管路通畅情况，尚未决定更换引流管。继续完成本次时段记录，再由医师复评；本次未实施换管或拔管。",
+      "output": "主治中医师查房记录（合成病例）  \n背景：既往肝门部胆管癌术后，留置引流管。  \n已有安排：继续完成本次时段记录，由医师复评；本次未实施换管或拔管。  \n实际观察：上午记录50 mL，下午记录35 mL，两段均属今日，今日尚未结束。无发热。  \n原有判断：按统计时段观察引流量及管路通畅情况，尚未决定更换引流管。",
+      "reviewCriteria": [
+        "保留全部原始事实、侧别、数字、单位、报告来源和相对时间。",
+        "不把考虑或可能改成确定病因，不把未决定改为决定不做。",
+        "阴性范围、未检、待回、拟实施、已完成分别保留。",
+        "标题及医师归属须保留；未给四诊、分期、经典或方药不补写。",
+        "不得把部分时段当24小时总量；不擅自相加未完成时段；颜色不是感染判断。"
+      ],
+      "factLedger": [
+        {
+          "kind": "diagnosis",
+          "original": "肝门部胆管癌术后",
+          "expected": "肝门部胆管癌术后"
+        },
+        {
+          "kind": "history",
+          "original": "既往肝门部胆管癌术后，留置引流管。",
+          "expected": "既往肝门部胆管癌术后，留置引流管。"
+        },
+        {
+          "kind": "observations",
+          "original": "上午记录50 mL，下午又有35 mL，两段都属于今天；今天还没结束。没发热。",
+          "expected": "今日上午引流量50 mL，下午新增35 mL，今日尚未结束，无发热。"
+        },
+        {
+          "kind": "doctor_judgment",
+          "original": "医师要求按统计时段观察引流量及管路通畅情况，尚未决定更换引流管。",
+          "expected": "主治中医师查房指示：要求按统计时段观察引流量及管路通畅情况，尚未决定更换引流管。"
+        },
+        {
+          "kind": "doctor_plan",
+          "original": "继续完成本次时段记录，再由医师复评；本次未实施换管或拔管。",
+          "expected": "继续完成本次时段记录，再由医师复评；本次未实施换管或拔管。"
+        }
+      ],
+      "finishReason": "stop",
+      "generatedTokens": 104,
+      "elapsedSeconds": 1.877,
+      "promptSha256": "339fb66aeadb611702b9447d2e37899f00cee560a30cf10ce481913bd31996e8",
+      "sameAsSource": false,
+      "sourceSimilarity": 0.7989,
+      "numericMissing": {},
+      "numericAdded": {},
+      "reasoningTagsPresent": false,
+      "needsSemanticReview": true
+    },
+    {
+      "id": "test-drainage_partial_total-3",
+      "variant": "base",
+      "scenarioGroup": "drainage_partial_total",
+      "recordType": "主任中医师查房记录",
+      "source": "主任中医师查房记录（合成病例）\n请按原有记录类型整理以下散项，判断和安排均来自主任中医师。\n背景一项：既往肝门部胆管癌术后，留置引流管。\n已有安排一项：继续完成本次时段记录，再由医师复评；本次未实施换管或拔管。\n实际观察一项：上一班写70 mL，但交班时间没注明；这一班写30 mL。现在没有腹痛。\n原有判断一项：医师要求按统计时段观察引流量及管路通畅情况，尚未决定更换引流管。",
+      "gold": "主任中医师查房记录（合成病例）\n既往肝门部胆管癌术后，留置引流管。上一班引流量70 mL，未注明交班时间；本班记录30 mL，目前无腹痛。\n主任中医师查房指示：要求按统计时段观察引流量及管路通畅情况，尚未决定更换引流管。继续完成本次时段记录，再由医师复评；本次未实施换管或拔管。",
+      "output": "主任中医师查房记录（合成病例）  \n背景项：既往肝门部胆管癌术后，留置引流管。  \n已有安排项：继续完成本次时段记录，再由医师复评；本次未实施换管或拔管。  \n实际观察项：上一班记录70 mL，但交班时间未注明；本班记录30 mL，现无腹痛。  \n原有判断项：按统计时段观察引流量及管路通畅情况，尚未决定更换引流管。",
+      "reviewCriteria": [
+        "保留全部原始事实、侧别、数字、单位、报告来源和相对时间。",
+        "不把考虑或可能改成确定病因，不把未决定改为决定不做。",
+        "阴性范围、未检、待回、拟实施、已完成分别保留。",
+        "标题及医师归属须保留；未给四诊、分期、经典或方药不补写。",
+        "不得把部分时段当24小时总量；不擅自相加未完成时段；颜色不是感染判断。"
+      ],
+      "factLedger": [
+        {
+          "kind": "diagnosis",
+          "original": "肝门部胆管癌术后",
+          "expected": "肝门部胆管癌术后"
+        },
+        {
+          "kind": "history",
+          "original": "既往肝门部胆管癌术后，留置引流管。",
+          "expected": "既往肝门部胆管癌术后，留置引流管。"
+        },
+        {
+          "kind": "observations",
+          "original": "上一班写70 mL，但交班时间没注明；这一班写30 mL。现在没有腹痛。",
+          "expected": "上一班引流量70 mL，未注明交班时间；本班记录30 mL，目前无腹痛。"
+        },
+        {
+          "kind": "doctor_judgment",
+          "original": "医师要求按统计时段观察引流量及管路通畅情况，尚未决定更换引流管。",
+          "expected": "主任中医师查房指示：要求按统计时段观察引流量及管路通畅情况，尚未决定更换引流管。"
+        },
+        {
+          "kind": "doctor_plan",
+          "original": "继续完成本次时段记录，再由医师复评；本次未实施换管或拔管。",
+          "expected": "继续完成本次时段记录，再由医师复评；本次未实施换管或拔管。"
+        }
+      ],
+      "finishReason": "stop",
+      "generatedTokens": 111,
+      "elapsedSeconds": 1.962,
+      "promptSha256": "e8bf4403c8862782db06127fbc701ecd3e5005cdb30c221b088fe75e6d1c52bc",
+      "sameAsSource": false,
+      "sourceSimilarity": 0.8184,
+      "numericMissing": {},
+      "numericAdded": {},
+      "reasoningTagsPresent": false,
+      "needsSemanticReview": true
+    },
+    {
+      "id": "test-drainage_partial_total-4",
+      "variant": "base",
+      "scenarioGroup": "drainage_partial_total",
+      "recordType": "日常病程记录",
+      "source": "日常病程记录（合成病例）\n请按原有记录类型整理以下散项，判断和安排均来自经治医师。\n背景一项：既往肝门部胆管癌术后，留置引流管。\n已有安排一项：继续完成本次时段记录，再由医师复评；本次未实施换管或拔管。\n实际观察一项：昨天引流液偏红，今天淡黄色，今天目前65 mL。没有外漏，尚未满24小时。\n原有判断一项：医师要求按统计时段观察引流量及管路通畅情况，尚未决定更换引流管。",
+      "gold": "日常病程记录（合成病例）\n既往肝门部胆管癌术后，留置引流管。昨日引流液偏红，今日淡黄色，当前引流量65 mL，无外漏，尚未满24小时。\n病情分析：经治医师要求按统计时段观察引流量及管路通畅情况，尚未决定更换引流管。\n诊疗计划：继续完成本次时段记录，再由医师复评；本次未实施换管或拔管。",
+      "output": "日常病程记录（合成病例）  \n背景：既往肝门部胆管癌术后，留置引流管。  \n已有安排：继续完成本次时段记录，由医师复评；本次未实施换管或拔管。  \n实际观察：昨日引流液偏红，今日引流液呈淡黄色，当前引流量65 mL，无外漏，尚未满24小时。  \n判断：医师要求按统计时段观察引流量及管路通畅情况，尚未决定更换引流管。",
+      "reviewCriteria": [
+        "保留全部原始事实、侧别、数字、单位、报告来源和相对时间。",
+        "不把考虑或可能改成确定病因，不把未决定改为决定不做。",
+        "阴性范围、未检、待回、拟实施、已完成分别保留。",
+        "标题及医师归属须保留；未给四诊、分期、经典或方药不补写。",
+        "不得把部分时段当24小时总量；不擅自相加未完成时段；颜色不是感染判断。"
+      ],
+      "factLedger": [
+        {
+          "kind": "diagnosis",
+          "original": "肝门部胆管癌术后",
+          "expected": "肝门部胆管癌术后"
+        },
+        {
+          "kind": "history",
+          "original": "既往肝门部胆管癌术后，留置引流管。",
+          "expected": "既往肝门部胆管癌术后，留置引流管。"
+        },
+        {
+          "kind": "observations",
+          "original": "昨天引流液偏红，今天淡黄色，今天目前65 mL。没有外漏，尚未满24小时。",
+          "expected": "昨日引流液偏红，今日淡黄色，当前引流量65 mL，无外漏，尚未满24小时。"
+        },
+        {
+          "kind": "doctor_judgment",
+          "original": "医师要求按统计时段观察引流量及管路通畅情况，尚未决定更换引流管。",
+          "expected": "经治医师要求按统计时段观察引流量及管路通畅情况，尚未决定更换引流管。"
+        },
+        {
+          "kind": "doctor_plan",
+          "original": "继续完成本次时段记录，再由医师复评；本次未实施换管或拔管。",
+          "expected": "继续完成本次时段记录，再由医师复评；本次未实施换管或拔管。"
+        }
+      ],
+      "finishReason": "stop",
+      "generatedTokens": 108,
+      "elapsedSeconds": 1.928,
+      "promptSha256": "be4afaf7273cec7b181d1751c143ef448246cf38d827d9bbd5ef1e0c97522642",
+      "sameAsSource": false,
+      "sourceSimilarity": 0.8023,
+      "numericMissing": {},
+      "numericAdded": {},
+      "reasoningTagsPresent": false,
+      "needsSemanticReview": true
+    },
+    {
+      "id": "test-molecular_method_distinction-1",
+      "variant": "base",
+      "scenarioGroup": "molecular_method_distinction",
+      "recordType": "首次病程记录",
+      "source": "首次病程记录（合成病例）\n入院诊断：肺腺癌。\n请按原有记录类型整理以下散项，判断和安排均来自接诊医师。\n背景一项：既往已确诊肺腺癌，现整理不同检测方法的报告。\n已有安排一项：拟核对完整检测报告及日期后再讨论后续方案；当前尚未完成核对。\n实际观察一项：免疫组化EGFR是阳性，基因报告EGFR没检出变异。这是不同的检查，别合在一起。\n原有判断一项：医师拟核对不同方法的完整检测报告，再讨论后续治疗。",
+      "gold": "首次病程记录（合成病例）\n病例特点：\n既往已确诊肺腺癌，现整理不同检测方法的报告。免疫组化EGFR阳性；基因检测EGFR未检出变异，二者为不同检测方法。\n拟诊讨论：\n西医诊断依据及鉴别诊断：接诊医师拟核对不同方法的完整检测报告，再讨论后续治疗。\n入院诊断：\n肺腺癌。\n诊疗计划：\n拟核对完整检测报告及日期后再讨论后续方案；当前尚未完成核对。",
+      "output": "首次病程记录（合成病例）  \n入院诊断：肺腺癌  \n\n背景项：已确诊肺腺癌，现整理不同检测方法的报告。  \n已有安排项：拟核对完整检测报告及日期后再讨论后续方案；当前尚未完成核对。  \n\n实际观察项：免疫组化EGFR为阳性，基因报告EGFR未检出变异。这是不同检查结果，不可合并。  \n\n原有判断项：医师拟核对不同方法的完整检测报告，再讨论后续治疗。",
+      "reviewCriteria": [
+        "保留全部原始事实、侧别、数字、单位、报告来源和相对时间。",
+        "不把考虑或可能改成确定病因，不把未决定改为决定不做。",
+        "阴性范围、未检、待回、拟实施、已完成分别保留。",
+        "标题及医师归属须保留；未给四诊、分期、经典或方药不补写。",
+        "免疫组化不等于基因结果；TPS/CPS/Ki-67不得混同；无法评价与未提供均非阴性。"
+      ],
+      "factLedger": [
+        {
+          "kind": "diagnosis",
+          "original": "肺腺癌",
+          "expected": "肺腺癌"
+        },
+        {
+          "kind": "history",
+          "original": "既往已确诊肺腺癌，现整理不同检测方法的报告。",
+          "expected": "既往已确诊肺腺癌，现整理不同检测方法的报告。"
+        },
+        {
+          "kind": "observations",
+          "original": "免疫组化EGFR是阳性，基因报告EGFR没检出变异。这是不同的检查，别合在一起。",
+          "expected": "免疫组化EGFR阳性；基因检测EGFR未检出变异，二者为不同检测方法。"
+        },
+        {
+          "kind": "doctor_judgment",
+          "original": "医师拟核对不同方法的完整检测报告，再讨论后续治疗。",
+          "expected": "接诊医师拟核对不同方法的完整检测报告，再讨论后续治疗。"
+        },
+        {
+          "kind": "doctor_plan",
+          "original": "拟核对完整检测报告及日期后再讨论后续方案；当前尚未完成核对。",
+          "expected": "拟核对完整检测报告及日期后再讨论后续方案；当前尚未完成核对。"
+        }
+      ],
+      "finishReason": "stop",
+      "generatedTokens": 110,
+      "elapsedSeconds": 1.971,
+      "promptSha256": "c0dcbb7c3e8aedad3f2d29a5d754277ee449ecda9749213e24305a941de22baf",
+      "sameAsSource": false,
+      "sourceSimilarity": 0.8365,
+      "numericMissing": {},
+      "numericAdded": {},
+      "reasoningTagsPresent": false,
+      "needsSemanticReview": true
+    },
+    {
+      "id": "test-molecular_method_distinction-2",
+      "variant": "base",
+      "scenarioGroup": "molecular_method_distinction",
+      "recordType": "主治中医师查房记录",
+      "source": "主治中医师查房记录（合成病例）\n请按原有记录类型整理以下散项，判断和安排均来自主治中医师。\n背景一项：既往已确诊肺腺癌，现整理不同检测方法的报告。\n已有安排一项：拟核对完整检测报告及日期后再讨论后续方案；当前尚未完成核对。\n实际观察一项：2032-07-02组织检测ALK阴性；2032-07-09血液检测写结果待定，不是阴性。\n原有判断一项：医师拟核对不同方法的完整检测报告，再讨论后续治疗。",
+      "gold": "主治中医师查房记录（合成病例）\n既往已确诊肺腺癌，现整理不同检测方法的报告。2032-07-02组织检测ALK阴性；2032-07-09血液检测结果待定，未报告阴性结论。\n主治中医师查房指示：拟核对不同方法的完整检测报告，再讨论后续治疗。拟核对完整检测报告及日期后再讨论后续方案；当前尚未完成核对。",
+      "output": "主治中医师查房记录（合成病例）  \n背景项：已确诊肺腺癌，现整理不同检测方法的报告。  \n已有安排项：拟核对完整检测报告及日期后再讨论后续方案；当前尚未完成核对。  \n实际观察项：2032-07-02组织检测ALK阴性；2032-07-09血液检测结果待定，非阴性。",
+      "reviewCriteria": [
+        "保留全部原始事实、侧别、数字、单位、报告来源和相对时间。",
+        "不把考虑或可能改成确定病因，不把未决定改为决定不做。",
+        "阴性范围、未检、待回、拟实施、已完成分别保留。",
+        "标题及医师归属须保留；未给四诊、分期、经典或方药不补写。",
+        "免疫组化不等于基因结果；TPS/CPS/Ki-67不得混同；无法评价与未提供均非阴性。"
+      ],
+      "factLedger": [
+        {
+          "kind": "diagnosis",
+          "original": "肺腺癌",
+          "expected": "肺腺癌"
+        },
+        {
+          "kind": "history",
+          "original": "既往已确诊肺腺癌，现整理不同检测方法的报告。",
+          "expected": "既往已确诊肺腺癌，现整理不同检测方法的报告。"
+        },
+        {
+          "kind": "observations",
+          "original": "2032-07-02组织检测ALK阴性；2032-07-09血液检测写结果待定，不是阴性。",
+          "expected": "2032-07-02组织检测ALK阴性；2032-07-09血液检测结果待定，未报告阴性结论。"
+        },
+        {
+          "kind": "doctor_judgment",
+          "original": "医师拟核对不同方法的完整检测报告，再讨论后续治疗。",
+          "expected": "主治中医师查房指示：拟核对不同方法的完整检测报告，再讨论后续治疗。"
+        },
+        {
+          "kind": "doctor_plan",
+          "original": "拟核对完整检测报告及日期后再讨论后续方案；当前尚未完成核对。",
+          "expected": "拟核对完整检测报告及日期后再讨论后续方案；当前尚未完成核对。"
+        }
+      ],
+      "finishReason": "stop",
+      "generatedTokens": 94,
+      "elapsedSeconds": 1.743,
+      "promptSha256": "89029db5e54f70f3cd521ee96d2fbbfaf95da1a6ad24c28bde73385acf2a2e2d",
+      "sameAsSource": false,
+      "sourceSimilarity": 0.7636,
+      "numericMissing": {
+        "2032-07-02": 1,
+        "2032-07-09": 1
+      },
+      "numericAdded": {
+        "2032": 2,
+        "07": 2,
+        "02": 1,
+        "09": 1
+      },
+      "reasoningTagsPresent": false,
+      "needsSemanticReview": true
+    },
+    {
+      "id": "test-molecular_method_distinction-3",
+      "variant": "base",
+      "scenarioGroup": "molecular_method_distinction",
+      "recordType": "主任中医师查房记录",
+      "source": "主任中医师查房记录（合成病例）\n请按原有记录类型整理以下散项，判断和安排均来自主任中医师。\n背景一项：既往已确诊肺腺癌，现整理不同检测方法的报告。\n已有安排一项：拟核对完整检测报告及日期后再讨论后续方案；当前尚未完成核对。\n实际观察一项：PD-L1报告写TPS 30%，CPS没有给；Ki-67是40%，不是PD-L1的数。\n原有判断一项：医师拟核对不同方法的完整检测报告，再讨论后续治疗。",
+      "gold": "主任中医师查房记录（合成病例）\n既往已确诊肺腺癌，现整理不同检测方法的报告。PD-L1报告为TPS 30%，未提供CPS；Ki-67为40%，并非PD-L1数值。\n主任中医师查房指示：拟核对不同方法的完整检测报告，再讨论后续治疗。拟核对完整检测报告及日期后再讨论后续方案；当前尚未完成核对。",
+      "output": "主任中医师查房记录（合成病例）  \n背景项：已确诊肺腺癌，现整理不同检测方法的报告。  \n已有安排项：拟核对完整检测报告及日期后再讨论后续方案；当前尚未完成核对。  \n实际观察项：PD-L1报告写TPS 30%，CPS未提供；Ki-67为40%而非PD-L1的数。",
+      "reviewCriteria": [
+        "保留全部原始事实、侧别、数字、单位、报告来源和相对时间。",
+        "不把考虑或可能改成确定病因，不把未决定改为决定不做。",
+        "阴性范围、未检、待回、拟实施、已完成分别保留。",
+        "标题及医师归属须保留；未给四诊、分期、经典或方药不补写。",
+        "免疫组化不等于基因结果；TPS/CPS/Ki-67不得混同；无法评价与未提供均非阴性。"
+      ],
+      "factLedger": [
+        {
+          "kind": "diagnosis",
+          "original": "肺腺癌",
+          "expected": "肺腺癌"
+        },
+        {
+          "kind": "history",
+          "original": "既往已确诊肺腺癌，现整理不同检测方法的报告。",
+          "expected": "既往已确诊肺腺癌，现整理不同检测方法的报告。"
+        },
+        {
+          "kind": "observations",
+          "original": "PD-L1报告写TPS 30%，CPS没有给；Ki-67是40%，不是PD-L1的数。",
+          "expected": "PD-L1报告为TPS 30%，未提供CPS；Ki-67为40%，并非PD-L1数值。"
+        },
+        {
+          "kind": "doctor_judgment",
+          "original": "医师拟核对不同方法的完整检测报告，再讨论后续治疗。",
+          "expected": "主任中医师查房指示：拟核对不同方法的完整检测报告，再讨论后续治疗。"
+        },
+        {
+          "kind": "doctor_plan",
+          "original": "拟核对完整检测报告及日期后再讨论后续方案；当前尚未完成核对。",
+          "expected": "拟核对完整检测报告及日期后再讨论后续方案；当前尚未完成核对。"
+        }
+      ],
+      "finishReason": "stop",
+      "generatedTokens": 89,
+      "elapsedSeconds": 1.647,
+      "promptSha256": "5e0987289bd8652afe42193819bbae99bde7938067ab06ff2658e2f53caccbc9",
+      "sameAsSource": false,
+      "sourceSimilarity": 0.7339,
+      "numericMissing": {},
+      "numericAdded": {},
+      "reasoningTagsPresent": false,
+      "needsSemanticReview": true
+    },
+    {
+      "id": "test-molecular_method_distinction-4",
+      "variant": "base",
+      "scenarioGroup": "molecular_method_distinction",
+      "recordType": "日常病程记录",
+      "source": "日常病程记录（合成病例）\n请按原有记录类型整理以下散项，判断和安排均来自经治医师。\n背景一项：既往已确诊肺腺癌，现整理不同检测方法的报告。\n已有安排一项：拟核对完整检测报告及日期后再讨论后续方案；当前尚未完成核对。\n实际观察一项：这次标本量少，报告写无法评价ROS1；上次报告里根本没提ROS1。\n原有判断一项：医师拟核对不同方法的完整检测报告，再讨论后续治疗。",
+      "gold": "日常病程记录（合成病例）\n既往已确诊肺腺癌，现整理不同检测方法的报告。本次因标本量少，ROS1无法评价；前次报告未提及ROS1。\n病情分析：经治医师拟核对不同方法的完整检测报告，再讨论后续治疗。\n诊疗计划：拟核对完整检测报告及日期后再讨论后续方案；当前尚未完成核对。",
+      "output": "日常病程记录（合成病例）  \n背景项：患者已确诊肺腺癌，现整理不同检测方法的报告。  \n已有安排项：拟核对完整检测报告及日期后再讨论后续方案；当前尚未完成核对。  \n实际观察项：本次标本量少，报告写无法评价ROS1；上次报告中未提及ROS1。",
+      "reviewCriteria": [
+        "保留全部原始事实、侧别、数字、单位、报告来源和相对时间。",
+        "不把考虑或可能改成确定病因，不把未决定改为决定不做。",
+        "阴性范围、未检、待回、拟实施、已完成分别保留。",
+        "标题及医师归属须保留；未给四诊、分期、经典或方药不补写。",
+        "免疫组化不等于基因结果；TPS/CPS/Ki-67不得混同；无法评价与未提供均非阴性。"
+      ],
+      "factLedger": [
+        {
+          "kind": "diagnosis",
+          "original": "肺腺癌",
+          "expected": "肺腺癌"
+        },
+        {
+          "kind": "history",
+          "original": "既往已确诊肺腺癌，现整理不同检测方法的报告。",
+          "expected": "既往已确诊肺腺癌，现整理不同检测方法的报告。"
+        },
+        {
+          "kind": "observations",
+          "original": "这次标本量少，报告写无法评价ROS1；上次报告里根本没提ROS1。",
+          "expected": "本次因标本量少，ROS1无法评价；前次报告未提及ROS1。"
+        },
+        {
+          "kind": "doctor_judgment",
+          "original": "医师拟核对不同方法的完整检测报告，再讨论后续治疗。",
+          "expected": "经治医师拟核对不同方法的完整检测报告，再讨论后续治疗。"
+        },
+        {
+          "kind": "doctor_plan",
+          "original": "拟核对完整检测报告及日期后再讨论后续方案；当前尚未完成核对。",
+          "expected": "拟核对完整检测报告及日期后再讨论后续方案；当前尚未完成核对。"
+        }
+      ],
+      "finishReason": "stop",
+      "generatedTokens": 78,
+      "elapsedSeconds": 1.481,
+      "promptSha256": "426c3457391f51ec22bc3e5316f208a6455e79cb8387e5a728bd6d222f839594",
+      "sameAsSource": false,
+      "sourceSimilarity": 0.7219,
+      "numericMissing": {},
+      "numericAdded": {},
+      "reasoningTagsPresent": false,
+      "needsSemanticReview": true
+    },
+    {
+      "id": "test-pleural_procedure_status-1",
+      "variant": "base",
+      "scenarioGroup": "pleural_procedure_status",
+      "recordType": "首次病程记录",
+      "source": "首次病程记录（合成病例）\n入院诊断：胸膜间皮瘤。\n请按原有记录类型整理以下散项，判断和安排均来自接诊医师。\n背景一项：既往已确诊胸膜间皮瘤，本次整理胸腔积液相关医师意见。\n已有安排一项：医师要求继续复评胸闷变化，并核对本次相关检查及操作记录。\n实际观察一项：左侧积液，医师计划明天评估能不能穿刺，今天还没做。患者胸闷，没胸痛。\n原有判断一项：医师考虑胸闷可能与已知胸腔积液有关。",
+      "gold": "首次病程记录（合成病例）\n病例特点：\n既往已确诊胸膜间皮瘤，本次整理胸腔积液相关医师意见。已知左侧胸腔积液，医师拟明日评估穿刺可行性，今日尚未实施；患者胸闷，无胸痛。\n拟诊讨论：\n西医诊断依据及鉴别诊断：接诊医师考虑胸闷可能与已知胸腔积液有关。\n入院诊断：\n胸膜间皮瘤。\n诊疗计划：\n医师要求继续复评胸闷变化，并核对本次相关检查及操作记录。",
+      "output": "首次病程记录（合成病例）  \n入院诊断：胸膜间皮瘤  \n\n背景项：既往确诊胸膜间皮瘤，现评估胸腔积液情况。  \n已有安排项：医师要求继续复评胸闷变化，并核对本次相关检查及操作记录。  \n实际观察项：左侧积液，医师计划明天评估能否穿刺，今日未做。患者有胸闷但无胸痛。  \n原有判断项：医师考虑胸闷可能与已知胸腔积液有关。",
+      "reviewCriteria": [
+        "保留全部原始事实、侧别、数字、单位、报告来源和相对时间。",
+        "不把考虑或可能改成确定病因，不把未决定改为决定不做。",
+        "阴性范围、未检、待回、拟实施、已完成分别保留。",
+        "标题及医师归属须保留；未给四诊、分期、经典或方药不补写。",
+        "评估完成不等于穿刺完成；已抽液不等于有效；暂不接受不写成已同意。"
+      ],
+      "factLedger": [
+        {
+          "kind": "diagnosis",
+          "original": "胸膜间皮瘤",
+          "expected": "胸膜间皮瘤"
+        },
+        {
+          "kind": "history",
+          "original": "既往已确诊胸膜间皮瘤，本次整理胸腔积液相关医师意见。",
+          "expected": "既往已确诊胸膜间皮瘤，本次整理胸腔积液相关医师意见。"
+        },
+        {
+          "kind": "observations",
+          "original": "左侧积液，医师计划明天评估能不能穿刺，今天还没做。患者胸闷，没胸痛。",
+          "expected": "已知左侧胸腔积液，医师拟明日评估穿刺可行性，今日尚未实施；患者胸闷，无胸痛。"
+        },
+        {
+          "kind": "doctor_judgment",
+          "original": "医师考虑胸闷可能与已知胸腔积液有关。",
+          "expected": "接诊医师考虑胸闷可能与已知胸腔积液有关。"
+        },
+        {
+          "kind": "doctor_plan",
+          "original": "医师要求继续复评胸闷变化，并核对本次相关检查及操作记录。",
+          "expected": "医师要求继续复评胸闷变化，并核对本次相关检查及操作记录。"
+        }
+      ],
+      "finishReason": "stop",
+      "generatedTokens": 112,
+      "elapsedSeconds": 2.006,
+      "promptSha256": "c8aba5701445557abe0c51b384aea0b5c3a0632f71dc8fbef0a1a5fcd7fbb8f8",
+      "sameAsSource": false,
+      "sourceSimilarity": 0.7931,
+      "numericMissing": {},
+      "numericAdded": {},
+      "reasoningTagsPresent": false,
+      "needsSemanticReview": true
+    },
+    {
+      "id": "test-pleural_procedure_status-2",
+      "variant": "base",
+      "scenarioGroup": "pleural_procedure_status",
+      "recordType": "主治中医师查房记录",
+      "source": "主治中医师查房记录（合成病例）\n请按原有记录类型整理以下散项，判断和安排均来自主治中医师。\n背景一项：既往已确诊胸膜间皮瘤，本次整理胸腔积液相关医师意见。\n已有安排一项：医师要求继续复评胸闷变化，并核对本次相关检查及操作记录。\n实际观察一项：昨天已经抽液300 mL；今天胸闷还是原来那样，没说好转。没有咳血。\n原有判断一项：医师考虑胸闷可能与已知胸腔积液有关。",
+      "gold": "主治中医师查房记录（合成病例）\n既往已确诊胸膜间皮瘤，本次整理胸腔积液相关医师意见。昨日已抽液300 mL，今日胸闷无改善，无咯血。\n主治中医师查房指示：考虑胸闷可能与已知胸腔积液有关。医师要求继续复评胸闷变化，并核对本次相关检查及操作记录。",
+      "output": "主治中医师查房记录（合成病例）  \n背景项：既往确诊胸膜间皮瘤，现评估胸腔积液情况。  \n已有安排项：医师要求继续复评胸闷变化，并核对本次相关检查及操作记录。  \n实际观察项：昨日已抽液300 mL；今日胸闷仍为原有程度，未见好转，无咳血。  \n原有判断项：医师考虑胸闷可能与已知胸腔积液有关。",
+      "reviewCriteria": [
+        "保留全部原始事实、侧别、数字、单位、报告来源和相对时间。",
+        "不把考虑或可能改成确定病因，不把未决定改为决定不做。",
+        "阴性范围、未检、待回、拟实施、已完成分别保留。",
+        "标题及医师归属须保留；未给四诊、分期、经典或方药不补写。",
+        "评估完成不等于穿刺完成；已抽液不等于有效；暂不接受不写成已同意。"
+      ],
+      "factLedger": [
+        {
+          "kind": "diagnosis",
+          "original": "胸膜间皮瘤",
+          "expected": "胸膜间皮瘤"
+        },
+        {
+          "kind": "history",
+          "original": "既往已确诊胸膜间皮瘤，本次整理胸腔积液相关医师意见。",
+          "expected": "既往已确诊胸膜间皮瘤，本次整理胸腔积液相关医师意见。"
+        },
+        {
+          "kind": "observations",
+          "original": "昨天已经抽液300 mL；今天胸闷还是原来那样，没说好转。没有咳血。",
+          "expected": "昨日已抽液300 mL，今日胸闷无改善，无咯血。"
+        },
+        {
+          "kind": "doctor_judgment",
+          "original": "医师考虑胸闷可能与已知胸腔积液有关。",
+          "expected": "主治中医师查房指示：考虑胸闷可能与已知胸腔积液有关。"
+        },
+        {
+          "kind": "doctor_plan",
+          "original": "医师要求继续复评胸闷变化，并核对本次相关检查及操作记录。",
+          "expected": "医师要求继续复评胸闷变化，并核对本次相关检查及操作记录。"
+        }
+      ],
+      "finishReason": "stop",
+      "generatedTokens": 104,
+      "elapsedSeconds": 1.863,
+      "promptSha256": "4f2da1d40aa523285a4def13243866e8c1b2e941869e6ae82adc3ac74c930161",
+      "sameAsSource": false,
+      "sourceSimilarity": 0.75,
+      "numericMissing": {},
+      "numericAdded": {},
+      "reasoningTagsPresent": false,
+      "needsSemanticReview": true
+    },
+    {
+      "id": "test-pleural_procedure_status-3",
+      "variant": "base",
+      "scenarioGroup": "pleural_procedure_status",
+      "recordType": "主任中医师查房记录",
+      "source": "主任中医师查房记录（合成病例）\n请按原有记录类型整理以下散项，判断和安排均来自主任中医师。\n背景一项：既往已确诊胸膜间皮瘤，本次整理胸腔积液相关医师意见。\n已有安排一项：医师要求继续复评胸闷变化，并核对本次相关检查及操作记录。\n实际观察一项：今天做完超声评估了，但穿刺没做。仍有胸闷，没有新出现气急。\n原有判断一项：医师考虑胸闷可能与已知胸腔积液有关。",
+      "gold": "主任中医师查房记录（合成病例）\n既往已确诊胸膜间皮瘤，本次整理胸腔积液相关医师意见。今日已完成超声评估，尚未行穿刺，仍胸闷，无新发气急。\n主任中医师查房指示：考虑胸闷可能与已知胸腔积液有关。医师要求继续复评胸闷变化，并核对本次相关检查及操作记录。",
+      "output": "主任中医师查房记录（合成病例）  \n背景项：既往确诊胸膜间皮瘤，本次重点评估胸腔积液情况。  \n已有安排项：医师要求继续复评胸闷变化，并核对本次相关检查及操作记录。  \n实际观察项：今日已完成超声评估，但穿刺未实施，仍存在胸闷，无新发气急。  \n原有判断项：医师考虑胸闷可能与已知胸腔积液有关。",
+      "reviewCriteria": [
+        "保留全部原始事实、侧别、数字、单位、报告来源和相对时间。",
+        "不把考虑或可能改成确定病因，不把未决定改为决定不做。",
+        "阴性范围、未检、待回、拟实施、已完成分别保留。",
+        "标题及医师归属须保留；未给四诊、分期、经典或方药不补写。",
+        "评估完成不等于穿刺完成；已抽液不等于有效；暂不接受不写成已同意。"
+      ],
+      "factLedger": [
+        {
+          "kind": "diagnosis",
+          "original": "胸膜间皮瘤",
+          "expected": "胸膜间皮瘤"
+        },
+        {
+          "kind": "history",
+          "original": "既往已确诊胸膜间皮瘤，本次整理胸腔积液相关医师意见。",
+          "expected": "既往已确诊胸膜间皮瘤，本次整理胸腔积液相关医师意见。"
+        },
+        {
+          "kind": "observations",
+          "original": "今天做完超声评估了，但穿刺没做。仍有胸闷，没有新出现气急。",
+          "expected": "今日已完成超声评估，尚未行穿刺，仍胸闷，无新发气急。"
+        },
+        {
+          "kind": "doctor_judgment",
+          "original": "医师考虑胸闷可能与已知胸腔积液有关。",
+          "expected": "主任中医师查房指示：考虑胸闷可能与已知胸腔积液有关。"
+        },
+        {
+          "kind": "doctor_plan",
+          "original": "医师要求继续复评胸闷变化，并核对本次相关检查及操作记录。",
+          "expected": "医师要求继续复评胸闷变化，并核对本次相关检查及操作记录。"
+        }
+      ],
+      "finishReason": "stop",
+      "generatedTokens": 103,
+      "elapsedSeconds": 1.847,
+      "promptSha256": "2ff2e1d0a518d0a9e64ec24aabfc31912b810b1a63998276be6cfa487f0074cb",
+      "sameAsSource": false,
+      "sourceSimilarity": 0.7554,
+      "numericMissing": {},
+      "numericAdded": {},
+      "reasoningTagsPresent": false,
+      "needsSemanticReview": true
+    },
+    {
+      "id": "test-pleural_procedure_status-4",
+      "variant": "base",
+      "scenarioGroup": "pleural_procedure_status",
+      "recordType": "日常病程记录",
+      "source": "日常病程记录（合成病例）\n请按原有记录类型整理以下散项，判断和安排均来自经治医师。\n背景一项：既往已确诊胸膜间皮瘤，本次整理胸腔积液相关医师意见。\n已有安排一项：医师要求继续复评胸闷变化，并核对本次相关检查及操作记录。\n实际观察一项：患者暂时不接受穿刺，这次没有做；医师已解释相关安排，患者说知道了。\n原有判断一项：医师考虑胸闷可能与已知胸腔积液有关。",
+      "gold": "日常病程记录（合成病例）\n既往已确诊胸膜间皮瘤，本次整理胸腔积液相关医师意见。患者暂不接受穿刺，本次未实施；医师已说明相关安排，患者表示知晓。\n病情分析：经治医师考虑胸闷可能与已知胸腔积液有关。\n诊疗计划：医师要求继续复评胸闷变化，并核对本次相关检查及操作记录。",
+      "output": "日常病程记录（合成病例）  \n背景项：患者已确诊为胸膜间皮瘤，本次记录涉及胸腔积液相关情况。  \n已有安排项：医师要求继续复评胸闷变化，并核对本次相关检查及操作记录。  \n实际观察项：患者暂时不接受穿刺，此次未进行；医师已解释相关安排，患者表示了解。  \n原有判断项：医师考虑胸闷可能与已知胸腔积液有关。",
+      "reviewCriteria": [
+        "保留全部原始事实、侧别、数字、单位、报告来源和相对时间。",
+        "不把考虑或可能改成确定病因，不把未决定改为决定不做。",
+        "阴性范围、未检、待回、拟实施、已完成分别保留。",
+        "标题及医师归属须保留；未给四诊、分期、经典或方药不补写。",
+        "评估完成不等于穿刺完成；已抽液不等于有效；暂不接受不写成已同意。"
+      ],
+      "factLedger": [
+        {
+          "kind": "diagnosis",
+          "original": "胸膜间皮瘤",
+          "expected": "胸膜间皮瘤"
+        },
+        {
+          "kind": "history",
+          "original": "既往已确诊胸膜间皮瘤，本次整理胸腔积液相关医师意见。",
+          "expected": "既往已确诊胸膜间皮瘤，本次整理胸腔积液相关医师意见。"
+        },
+        {
+          "kind": "observations",
+          "original": "患者暂时不接受穿刺，这次没有做；医师已解释相关安排，患者说知道了。",
+          "expected": "患者暂不接受穿刺，本次未实施；医师已说明相关安排，患者表示知晓。"
+        },
+        {
+          "kind": "doctor_judgment",
+          "original": "医师考虑胸闷可能与已知胸腔积液有关。",
+          "expected": "经治医师考虑胸闷可能与已知胸腔积液有关。"
+        },
+        {
+          "kind": "doctor_plan",
+          "original": "医师要求继续复评胸闷变化，并核对本次相关检查及操作记录。",
+          "expected": "医师要求继续复评胸闷变化，并核对本次相关检查及操作记录。"
+        }
+      ],
+      "finishReason": "stop",
+      "generatedTokens": 101,
+      "elapsedSeconds": 1.789,
+      "promptSha256": "7888e00061f5fdbeb0166b352e54f6819cf85f64a802c36f04c5f335ea14694e",
+      "sameAsSource": false,
+      "sourceSimilarity": 0.7805,
+      "numericMissing": {},
+      "numericAdded": {},
+      "reasoningTagsPresent": false,
+      "needsSemanticReview": true
+    },
+    {
+      "id": "test-pathology_provenance_negative-1",
+      "variant": "v3-adapter",
+      "scenarioGroup": "pathology_provenance_negative",
+      "recordType": "首次病程记录",
+      "source": "首次病程记录（合成病例）\n入院诊断：乙状结肠腺癌。\n请按原有记录类型整理以下散项，判断和安排均来自接诊医师。\n背景一项：入院资料注明已确诊乙状结肠腺癌。\n已有安排一项：拟核对原始病理报告及手术记录；目前尚未完成该项核对。\n实际观察一项：2032-04-09外院病理写中分化腺癌，脉管侵犯未见。患者没便血，没黑便。\n原有判断一项：医师拟结合病理报告及手术记录评估分期。",
+      "gold": "首次病程记录（合成病例）\n病例特点：\n入院资料注明已确诊乙状结肠腺癌。2032-04-09外院病理示中分化腺癌，未见脉管侵犯；无便血、黑便。\n拟诊讨论：\n西医诊断依据及鉴别诊断：接诊医师拟结合病理报告及手术记录评估分期。\n入院诊断：\n乙状结肠腺癌。\n诊疗计划：\n拟核对原始病理报告及手术记录；目前尚未完成该项核对。",
+      "output": "首次病程记录（合成病例）\n病例特点：\n既往无乙状结肠腺癌诊断依据。\n入院时已确诊乙状结肠腺癌。\n诊疗计划：\n1. 核对原始病理报告及手术记录；\n2. 结合病理报告评估分期。",
+      "reviewCriteria": [
+        "保留全部原始事实、侧别、数字、单位、报告来源和相对时间。",
+        "不把考虑或可能改成确定病因，不把未决定改为决定不做。",
+        "阴性范围、未检、待回、拟实施、已完成分别保留。",
+        "标题及医师归属须保留；未给四诊、分期、经典或方药不补写。",
+        "病理未见不改肯定；未注明不同于阴性；0/8及取材部位、报告来源完整保留。"
+      ],
+      "factLedger": [
+        {
+          "kind": "diagnosis",
+          "original": "乙状结肠腺癌",
+          "expected": "乙状结肠腺癌"
+        },
+        {
+          "kind": "history",
+          "original": "入院资料注明已确诊乙状结肠腺癌。",
+          "expected": "入院资料注明已确诊乙状结肠腺癌。"
+        },
+        {
+          "kind": "observations",
+          "original": "2032-04-09外院病理写中分化腺癌，脉管侵犯未见。患者没便血，没黑便。",
+          "expected": "2032-04-09外院病理示中分化腺癌，未见脉管侵犯；无便血、黑便。"
+        },
+        {
+          "kind": "doctor_judgment",
+          "original": "医师拟结合病理报告及手术记录评估分期。",
+          "expected": "接诊医师拟结合病理报告及手术记录评估分期。"
+        },
+        {
+          "kind": "doctor_plan",
+          "original": "拟核对原始病理报告及手术记录；目前尚未完成该项核对。",
+          "expected": "拟核对原始病理报告及手术记录；目前尚未完成该项核对。"
+        }
+      ],
+      "finishReason": "stop",
+      "generatedTokens": 60,
+      "elapsedSeconds": 1.352,
+      "promptSha256": "dcd7d68a82436266a67ce54968114bb0e3e71bfd8bf93a7f6a4188e7db7b2e13",
+      "sameAsSource": false,
+      "sourceSimilarity": 0.4684,
+      "numericMissing": {
+        "2032-04-09": 1
+      },
+      "numericAdded": {
+        "1": 1,
+        "2": 1
+      },
+      "reasoningTagsPresent": false,
+      "needsSemanticReview": true
+    },
+    {
+      "id": "test-pathology_provenance_negative-2",
+      "variant": "v3-adapter",
+      "scenarioGroup": "pathology_provenance_negative",
+      "recordType": "主治中医师查房记录",
+      "source": "主治中医师查房记录（合成病例）\n请按原有记录类型整理以下散项，判断和安排均来自主治中医师。\n背景一项：入院资料注明已确诊乙状结肠腺癌。\n已有安排一项：拟核对原始病理报告及手术记录；目前尚未完成该项核对。\n实际观察一项：本院2032-04-11的会诊意见是低分化腺癌，神经侵犯未见；外院分化级别没写。\n原有判断一项：医师拟结合病理报告及手术记录评估分期。",
+      "gold": "主治中医师查房记录（合成病例）\n入院资料注明已确诊乙状结肠腺癌。本院2032-04-11会诊意见为低分化腺癌，未见神经侵犯；外院未注明分化级别。\n主治中医师查房指示：拟结合病理报告及手术记录评估分期。拟核对原始病理报告及手术记录；目前尚未完成该项核对。",
+      "output": "主治中医师查房记录（合成病例）\n既往有乙状结肠腺癌诊断。\n拟核对原始病理报告及手术记录，目前尚未完成。\n本院2032-04-11会诊认为低分化腺癌，神经侵犯未见；外院分化级别未写。医师结合病理报告及手术记录评估分期。",
+      "reviewCriteria": [
+        "保留全部原始事实、侧别、数字、单位、报告来源和相对时间。",
+        "不把考虑或可能改成确定病因，不把未决定改为决定不做。",
+        "阴性范围、未检、待回、拟实施、已完成分别保留。",
+        "标题及医师归属须保留；未给四诊、分期、经典或方药不补写。",
+        "病理未见不改肯定；未注明不同于阴性；0/8及取材部位、报告来源完整保留。"
+      ],
+      "factLedger": [
+        {
+          "kind": "diagnosis",
+          "original": "乙状结肠腺癌",
+          "expected": "乙状结肠腺癌"
+        },
+        {
+          "kind": "history",
+          "original": "入院资料注明已确诊乙状结肠腺癌。",
+          "expected": "入院资料注明已确诊乙状结肠腺癌。"
+        },
+        {
+          "kind": "observations",
+          "original": "本院2032-04-11的会诊意见是低分化腺癌，神经侵犯未见；外院分化级别没写。",
+          "expected": "本院2032-04-11会诊意见为低分化腺癌，未见神经侵犯；外院未注明分化级别。"
+        },
+        {
+          "kind": "doctor_judgment",
+          "original": "医师拟结合病理报告及手术记录评估分期。",
+          "expected": "主治中医师查房指示：拟结合病理报告及手术记录评估分期。"
+        },
+        {
+          "kind": "doctor_plan",
+          "original": "拟核对原始病理报告及手术记录；目前尚未完成该项核对。",
+          "expected": "拟核对原始病理报告及手术记录；目前尚未完成该项核对。"
+        }
+      ],
+      "finishReason": "stop",
+      "generatedTokens": 78,
+      "elapsedSeconds": 1.567,
+      "promptSha256": "4085d57fe69b066919541b3812f4e8d250f1f939d92ba49be34908be346fe5f8",
+      "sameAsSource": false,
+      "sourceSimilarity": 0.7042,
+      "numericMissing": {
+        "2032-04-11": 1
+      },
+      "numericAdded": {
+        "2032": 1,
+        "04": 1,
+        "11": 1
+      },
+      "reasoningTagsPresent": false,
+      "needsSemanticReview": true
+    },
+    {
+      "id": "test-pathology_provenance_negative-3",
+      "variant": "v3-adapter",
+      "scenarioGroup": "pathology_provenance_negative",
+      "recordType": "主任中医师查房记录",
+      "source": "主任中医师查房记录（合成病例）\n请按原有记录类型整理以下散项，判断和安排均来自主任中医师。\n背景一项：入院资料注明已确诊乙状结肠腺癌。\n已有安排一项：拟核对原始病理报告及手术记录；目前尚未完成该项核对。\n实际观察一项：报告写切缘未见癌，淋巴结送了8枚，0枚见转移。今天没有新的腹痛。\n原有判断一项：医师拟结合病理报告及手术记录评估分期。",
+      "gold": "主任中医师查房记录（合成病例）\n入院资料注明已确诊乙状结肠腺癌。病理报告记切缘未见癌，送检淋巴结8枚，见转移0枚，今日无新发腹痛。\n主任中医师查房指示：拟结合病理报告及手术记录评估分期。拟核对原始病理报告及手术记录；目前尚未完成该项核对。",
+      "output": "主任中医师查房记录（合成病例）\n既往有乙状结肠腺癌诊断已确诊。主任中医师查房时发现，原始病理报告及手术记录尚未核对；经核实，切缘未见癌变，8枚淋巴结已送检，无转移灶。\n主任中医师结合上述情况，认为需结合病理报告及手术记录评估肿瘤分期，并根据病情进展进行诊疗计划。",
+      "reviewCriteria": [
+        "保留全部原始事实、侧别、数字、单位、报告来源和相对时间。",
+        "不把考虑或可能改成确定病因，不把未决定改为决定不做。",
+        "阴性范围、未检、待回、拟实施、已完成分别保留。",
+        "标题及医师归属须保留；未给四诊、分期、经典或方药不补写。",
+        "病理未见不改肯定；未注明不同于阴性；0/8及取材部位、报告来源完整保留。"
+      ],
+      "factLedger": [
+        {
+          "kind": "diagnosis",
+          "original": "乙状结肠腺癌",
+          "expected": "乙状结肠腺癌"
+        },
+        {
+          "kind": "history",
+          "original": "入院资料注明已确诊乙状结肠腺癌。",
+          "expected": "入院资料注明已确诊乙状结肠腺癌。"
+        },
+        {
+          "kind": "observations",
+          "original": "报告写切缘未见癌，淋巴结送了8枚，0枚见转移。今天没有新的腹痛。",
+          "expected": "病理报告记切缘未见癌，送检淋巴结8枚，见转移0枚，今日无新发腹痛。"
+        },
+        {
+          "kind": "doctor_judgment",
+          "original": "医师拟结合病理报告及手术记录评估分期。",
+          "expected": "主任中医师查房指示：拟结合病理报告及手术记录评估分期。"
+        },
+        {
+          "kind": "doctor_plan",
+          "original": "拟核对原始病理报告及手术记录；目前尚未完成该项核对。",
+          "expected": "拟核对原始病理报告及手术记录；目前尚未完成该项核对。"
+        }
+      ],
+      "finishReason": "stop",
+      "generatedTokens": 90,
+      "elapsedSeconds": 1.768,
+      "promptSha256": "e9afb164c5c4df29732aca8e8796899744c30575b7d519c6e840b836aad47c2c",
+      "sameAsSource": false,
+      "sourceSimilarity": 0.4883,
+      "numericMissing": {
+        "0": 1
+      },
+      "numericAdded": {},
+      "reasoningTagsPresent": false,
+      "needsSemanticReview": true
+    },
+    {
+      "id": "test-pathology_provenance_negative-4",
+      "variant": "v3-adapter",
+      "scenarioGroup": "pathology_provenance_negative",
+      "recordType": "日常病程记录",
+      "source": "日常病程记录（合成病例）\n请按原有记录类型整理以下散项，判断和安排均来自经治医师。\n背景一项：入院资料注明已确诊乙状结肠腺癌。\n已有安排一项：拟核对原始病理报告及手术记录；目前尚未完成该项核对。\n实际观察一项：2032-05-03取的是乙状结肠标本，不是肝标本。病理写腺癌，分级没有写。\n原有判断一项：医师拟结合病理报告及手术记录评估分期。",
+      "gold": "日常病程记录（合成病例）\n入院资料注明已确诊乙状结肠腺癌。2032-05-03病理标本来源为乙状结肠而非肝，报告为腺癌，未注明分级。\n病情分析：经治医师拟结合病理报告及手术记录评估分期。\n诊疗计划：拟核对原始病理报告及手术记录；目前尚未完成该项核对。",
+      "output": "日常病程记录（合成病例）\n既往无特殊。\n病情分析：\n西医诊断依据：乙状结肠腺癌；病理诊断：腺癌；分期评估尚未完成。\n入院资料已确诊乙状结肠腺癌。\n拟核对原始病理报告及手术记录，目前尚未完成该项核对。\n2032-05-03取乙状结肠标本，非肝标本；病理诊断为腺癌，分级未写。",
+      "reviewCriteria": [
+        "保留全部原始事实、侧别、数字、单位、报告来源和相对时间。",
+        "不把考虑或可能改成确定病因，不把未决定改为决定不做。",
+        "阴性范围、未检、待回、拟实施、已完成分别保留。",
+        "标题及医师归属须保留；未给四诊、分期、经典或方药不补写。",
+        "病理未见不改肯定；未注明不同于阴性；0/8及取材部位、报告来源完整保留。"
+      ],
+      "factLedger": [
+        {
+          "kind": "diagnosis",
+          "original": "乙状结肠腺癌",
+          "expected": "乙状结肠腺癌"
+        },
+        {
+          "kind": "history",
+          "original": "入院资料注明已确诊乙状结肠腺癌。",
+          "expected": "入院资料注明已确诊乙状结肠腺癌。"
+        },
+        {
+          "kind": "observations",
+          "original": "2032-05-03取的是乙状结肠标本，不是肝标本。病理写腺癌，分级没有写。",
+          "expected": "2032-05-03病理标本来源为乙状结肠而非肝，报告为腺癌，未注明分级。"
+        },
+        {
+          "kind": "doctor_judgment",
+          "original": "医师拟结合病理报告及手术记录评估分期。",
+          "expected": "经治医师拟结合病理报告及手术记录评估分期。"
+        },
+        {
+          "kind": "doctor_plan",
+          "original": "拟核对原始病理报告及手术记录；目前尚未完成该项核对。",
+          "expected": "拟核对原始病理报告及手术记录；目前尚未完成该项核对。"
+        }
+      ],
+      "finishReason": "stop",
+      "generatedTokens": 101,
+      "elapsedSeconds": 1.911,
+      "promptSha256": "5adc0628343265ea0ff72e1b0aece70ac33782beaf90a36127c15fed5b906e06",
+      "sameAsSource": false,
+      "sourceSimilarity": 0.5686,
+      "numericMissing": {
+        "2032-05-03": 1
+      },
+      "numericAdded": {
+        "2032": 1,
+        "05": 1,
+        "03": 1
+      },
+      "reasoningTagsPresent": false,
+      "needsSemanticReview": true
+    },
+    {
+      "id": "test-culture_pending_decision-1",
+      "variant": "v3-adapter",
+      "scenarioGroup": "culture_pending_decision",
+      "recordType": "首次病程记录",
+      "source": "首次病程记录（合成病例）\n入院诊断：弥漫大B细胞淋巴瘤。\n请按原有记录类型整理以下散项，判断和安排均来自接诊医师。\n背景一项：既往已确诊弥漫大B细胞淋巴瘤，本次核对发热相关资料。\n已有安排一项：按医师意见追踪已送检项目的结果并复核体温记录。\n实际观察一项：今天09:25体温38.2℃，没寒战。昨晚没发热。血已抽了，培养报告还没回。\n原有判断一项：医师考虑发热原因需结合培养结果继续评估，尚未决定新增抗菌药物。",
+      "gold": "首次病程记录（合成病例）\n病例特点：\n既往已确诊弥漫大B细胞淋巴瘤，本次核对发热相关资料。今日09:25体温38.2℃，无寒战，昨晚无发热；已采血，培养结果尚未回报。\n拟诊讨论：\n西医诊断依据及鉴别诊断：接诊医师考虑发热原因需结合培养结果继续评估，尚未决定新增抗菌药物。\n入院诊断：\n弥漫大B细胞淋巴瘤。\n诊疗计划：\n按医师意见追踪已送检项目的结果并复核体温记录。",
+      "output": "首次病程记录（合成病例）\n病例特点：\n既往已确诊弥漫大B细胞淋巴瘤。今日09:25体温38.2℃，无寒战。\n血已抽，培养报告尚未回达。\n医师认为需结合培养结果继续评估发热原因，并根据医师意见追踪已送检项目的结果并复核体温记录。",
+      "reviewCriteria": [
+        "保留全部原始事实、侧别、数字、单位、报告来源和相对时间。",
+        "不把考虑或可能改成确定病因，不把未决定改为决定不做。",
+        "阴性范围、未检、待回、拟实施、已完成分别保留。",
+        "标题及医师归属须保留；未给四诊、分期、经典或方药不补写。",
+        "既往阴性不属于本次；未决定加药不等于决定不用药；待回结果不得补阴性。"
+      ],
+      "factLedger": [
+        {
+          "kind": "diagnosis",
+          "original": "弥漫大B细胞淋巴瘤",
+          "expected": "弥漫大B细胞淋巴瘤"
+        },
+        {
+          "kind": "history",
+          "original": "既往已确诊弥漫大B细胞淋巴瘤，本次核对发热相关资料。",
+          "expected": "既往已确诊弥漫大B细胞淋巴瘤，本次核对发热相关资料。"
+        },
+        {
+          "kind": "observations",
+          "original": "今天09:25体温38.2℃，没寒战。昨晚没发热。血已抽了，培养报告还没回。",
+          "expected": "今日09:25体温38.2℃，无寒战，昨晚无发热；已采血，培养结果尚未回报。"
+        },
+        {
+          "kind": "doctor_judgment",
+          "original": "医师考虑发热原因需结合培养结果继续评估，尚未决定新增抗菌药物。",
+          "expected": "接诊医师考虑发热原因需结合培养结果继续评估，尚未决定新增抗菌药物。"
+        },
+        {
+          "kind": "doctor_plan",
+          "original": "按医师意见追踪已送检项目的结果并复核体温记录。",
+          "expected": "按医师意见追踪已送检项目的结果并复核体温记录。"
+        }
+      ],
+      "finishReason": "stop",
+      "generatedTokens": 76,
+      "elapsedSeconds": 1.564,
+      "promptSha256": "0430d06d14c2e12c7eb9394a34ffe079b208c91e5a4bb2a61709788b7b164ad6",
+      "sameAsSource": false,
+      "sourceSimilarity": 0.3396,
+      "numericMissing": {
+        "09:25": 1
+      },
+      "numericAdded": {
+        "09": 1,
+        "25": 1
+      },
+      "reasoningTagsPresent": false,
+      "needsSemanticReview": true
+    },
+    {
+      "id": "test-culture_pending_decision-2",
+      "variant": "v3-adapter",
+      "scenarioGroup": "culture_pending_decision",
+      "recordType": "主治中医师查房记录",
+      "source": "主治中医师查房记录（合成病例）\n请按原有记录类型整理以下散项，判断和安排均来自主治中医师。\n背景一项：既往已确诊弥漫大B细胞淋巴瘤，本次核对发热相关资料。\n已有安排一项：按医师意见追踪已送检项目的结果并复核体温记录。\n实际观察一项：上午送了2套血培养，下午还没出结果。现在体温37.8℃，没有新咳嗽。\n原有判断一项：医师考虑发热原因需结合培养结果继续评估，尚未决定新增抗菌药物。",
+      "gold": "主治中医师查房记录（合成病例）\n既往已确诊弥漫大B细胞淋巴瘤，本次核对发热相关资料。上午已送检2套血培养，下午结果仍未回报；目前体温37.8℃，无新发咳嗽。\n主治中医师查房指示：考虑发热原因需结合培养结果继续评估，尚未决定新增抗菌药物。按医师意见追踪已送检项目的结果并复核体温记录。",
+      "output": "主治中医师查房记录（合成病例）\n既往已确诊弥漫大B细胞淋巴瘤，本次核对发热相关资料。按医师意见追踪已送检项目的结果并复核体温记录。上午已送2套血培养，下午尚未出结果；现在体温37.8℃，无新咳嗽。\n主治中医师查房指示：结合培养结果继续评估，尚未决定新增抗菌药物。",
+      "reviewCriteria": [
+        "保留全部原始事实、侧别、数字、单位、报告来源和相对时间。",
+        "不把考虑或可能改成确定病因，不把未决定改为决定不做。",
+        "阴性范围、未检、待回、拟实施、已完成分别保留。",
+        "标题及医师归属须保留；未给四诊、分期、经典或方药不补写。",
+        "既往阴性不属于本次；未决定加药不等于决定不用药；待回结果不得补阴性。"
+      ],
+      "factLedger": [
+        {
+          "kind": "diagnosis",
+          "original": "弥漫大B细胞淋巴瘤",
+          "expected": "弥漫大B细胞淋巴瘤"
+        },
+        {
+          "kind": "history",
+          "original": "既往已确诊弥漫大B细胞淋巴瘤，本次核对发热相关资料。",
+          "expected": "既往已确诊弥漫大B细胞淋巴瘤，本次核对发热相关资料。"
+        },
+        {
+          "kind": "observations",
+          "original": "上午送了2套血培养，下午还没出结果。现在体温37.8℃，没有新咳嗽。",
+          "expected": "上午已送检2套血培养，下午结果仍未回报；目前体温37.8℃，无新发咳嗽。"
+        },
+        {
+          "kind": "doctor_judgment",
+          "original": "医师考虑发热原因需结合培养结果继续评估，尚未决定新增抗菌药物。",
+          "expected": "主治中医师查房指示：考虑发热原因需结合培养结果继续评估，尚未决定新增抗菌药物。"
+        },
+        {
+          "kind": "doctor_plan",
+          "original": "按医师意见追踪已送检项目的结果并复核体温记录。",
+          "expected": "按医师意见追踪已送检项目的结果并复核体温记录。"
+        }
+      ],
+      "finishReason": "stop",
+      "generatedTokens": 88,
+      "elapsedSeconds": 1.72,
+      "promptSha256": "5ec053f68594c141095d27a5073845c901568e61418f240d88e288a219d7bb94",
+      "sameAsSource": false,
+      "sourceSimilarity": 0.7375,
+      "numericMissing": {},
+      "numericAdded": {},
+      "reasoningTagsPresent": false,
+      "needsSemanticReview": true
+    },
+    {
+      "id": "test-culture_pending_decision-3",
+      "variant": "v3-adapter",
+      "scenarioGroup": "culture_pending_decision",
+      "recordType": "主任中医师查房记录",
+      "source": "主任中医师查房记录（合成病例）\n请按原有记录类型整理以下散项，判断和安排均来自主任中医师。\n背景一项：既往已确诊弥漫大B细胞淋巴瘤，本次核对发热相关资料。\n已有安排一项：按医师意见追踪已送检项目的结果并复核体温记录。\n实际观察一项：先前一次培养阴性，是2032-06-01的。这次2032-06-06又送了，结果还没有。\n原有判断一项：医师考虑发热原因需结合培养结果继续评估，尚未决定新增抗菌药物。",
+      "gold": "主任中医师查房记录（合成病例）\n既往已确诊弥漫大B细胞淋巴瘤，本次核对发热相关资料。2032-06-01培养结果阴性；2032-06-06再次送检，本次结果尚未回报。\n主任中医师查房指示：考虑发热原因需结合培养结果继续评估，尚未决定新增抗菌药物。按医师意见追踪已送检项目的结果并复核体温记录。",
+      "output": "主任中医师查房记录（合成病例）\n既往已确诊弥漫大B细胞淋巴瘤，本次核对发热相关资料。主任中医师认为，发热原因需结合培养结果进一步评估，并按医师意见追踪已送检项目的结果并复核体温记录。经观察，先前一次培养阴性，为2032-06-01；此次2032-06-06又送检，结果尚未返回。",
+      "reviewCriteria": [
+        "保留全部原始事实、侧别、数字、单位、报告来源和相对时间。",
+        "不把考虑或可能改成确定病因，不把未决定改为决定不做。",
+        "阴性范围、未检、待回、拟实施、已完成分别保留。",
+        "标题及医师归属须保留；未给四诊、分期、经典或方药不补写。",
+        "既往阴性不属于本次；未决定加药不等于决定不用药；待回结果不得补阴性。"
+      ],
+      "factLedger": [
+        {
+          "kind": "diagnosis",
+          "original": "弥漫大B细胞淋巴瘤",
+          "expected": "弥漫大B细胞淋巴瘤"
+        },
+        {
+          "kind": "history",
+          "original": "既往已确诊弥漫大B细胞淋巴瘤，本次核对发热相关资料。",
+          "expected": "既往已确诊弥漫大B细胞淋巴瘤，本次核对发热相关资料。"
+        },
+        {
+          "kind": "observations",
+          "original": "先前一次培养阴性，是2032-06-01的。这次2032-06-06又送了，结果还没有。",
+          "expected": "2032-06-01培养结果阴性；2032-06-06再次送检，本次结果尚未回报。"
+        },
+        {
+          "kind": "doctor_judgment",
+          "original": "医师考虑发热原因需结合培养结果继续评估，尚未决定新增抗菌药物。",
+          "expected": "主任中医师查房指示：考虑发热原因需结合培养结果继续评估，尚未决定新增抗菌药物。"
+        },
+        {
+          "kind": "doctor_plan",
+          "original": "按医师意见追踪已送检项目的结果并复核体温记录。",
+          "expected": "按医师意见追踪已送检项目的结果并复核体温记录。"
+        }
+      ],
+      "finishReason": "stop",
+      "generatedTokens": 98,
+      "elapsedSeconds": 1.919,
+      "promptSha256": "02c3f7f1fe5ddb3a84e63f3ff92ef93379c02e0d521c36a541db1fd9d224685a",
+      "sameAsSource": false,
+      "sourceSimilarity": 0.6272,
+      "numericMissing": {
+        "2032-06-01": 1,
+        "2032-06-06": 1
+      },
+      "numericAdded": {
+        "2032": 2,
+        "06": 3,
+        "01": 1
+      },
+      "reasoningTagsPresent": false,
+      "needsSemanticReview": true
+    },
+    {
+      "id": "test-culture_pending_decision-4",
+      "variant": "v3-adapter",
+      "scenarioGroup": "culture_pending_decision",
+      "recordType": "日常病程记录",
+      "source": "日常病程记录（合成病例）\n请按原有记录类型整理以下散项，判断和安排均来自经治医师。\n背景一项：既往已确诊弥漫大B细胞淋巴瘤，本次核对发热相关资料。\n已有安排一项：按医师意见追踪已送检项目的结果并复核体温记录。\n实际观察一项：体温最高38.4℃是昨天，今天测到37.3℃。培养还在做，没有最终报告。\n原有判断一项：医师考虑发热原因需结合培养结果继续评估，尚未决定新增抗菌药物。",
+      "gold": "日常病程记录（合成病例）\n既往已确诊弥漫大B细胞淋巴瘤，本次核对发热相关资料。昨日最高体温38.4℃，今日测得37.3℃；培养仍在进行，尚无最终报告。\n病情分析：经治医师考虑发热原因需结合培养结果继续评估，尚未决定新增抗菌药物。\n诊疗计划：按医师意见追踪已送检项目的结果并复核体温记录。",
+      "output": "日常病程记录（合成病例）\n既往已确诊弥漫大B细胞淋巴瘤，本次核对发热相关资料。按医师意见追踪已送检项目的结果并复核体温记录。体温最高38.4℃为昨日，今日测得37.3℃；培养仍在进行，尚未获得最终报告。\n医师考虑发热原因需结合培养结果继续评估，并未决定新增抗菌药物。",
+      "reviewCriteria": [
+        "保留全部原始事实、侧别、数字、单位、报告来源和相对时间。",
+        "不把考虑或可能改成确定病因，不把未决定改为决定不做。",
+        "阴性范围、未检、待回、拟实施、已完成分别保留。",
+        "标题及医师归属须保留；未给四诊、分期、经典或方药不补写。",
+        "既往阴性不属于本次；未决定加药不等于决定不用药；待回结果不得补阴性。"
+      ],
+      "factLedger": [
+        {
+          "kind": "diagnosis",
+          "original": "弥漫大B细胞淋巴瘤",
+          "expected": "弥漫大B细胞淋巴瘤"
+        },
+        {
+          "kind": "history",
+          "original": "既往已确诊弥漫大B细胞淋巴瘤，本次核对发热相关资料。",
+          "expected": "既往已确诊弥漫大B细胞淋巴瘤，本次核对发热相关资料。"
+        },
+        {
+          "kind": "observations",
+          "original": "体温最高38.4℃是昨天，今天测到37.3℃。培养还在做，没有最终报告。",
+          "expected": "昨日最高体温38.4℃，今日测得37.3℃；培养仍在进行，尚无最终报告。"
+        },
+        {
+          "kind": "doctor_judgment",
+          "original": "医师考虑发热原因需结合培养结果继续评估，尚未决定新增抗菌药物。",
+          "expected": "经治医师考虑发热原因需结合培养结果继续评估，尚未决定新增抗菌药物。"
+        },
+        {
+          "kind": "doctor_plan",
+          "original": "按医师意见追踪已送检项目的结果并复核体温记录。",
+          "expected": "按医师意见追踪已送检项目的结果并复核体温记录。"
+        }
+      ],
+      "finishReason": "stop",
+      "generatedTokens": 87,
+      "elapsedSeconds": 1.714,
+      "promptSha256": "a7fe9b3f5af6379f090e407f71b61ada8456d000f440834bff9467c8f6b184f8",
+      "sameAsSource": false,
+      "sourceSimilarity": 0.75,
+      "numericMissing": {},
+      "numericAdded": {},
+      "reasoningTagsPresent": false,
+      "needsSemanticReview": true
+    },
+    {
+      "id": "test-drainage_partial_total-1",
+      "variant": "v3-adapter",
+      "scenarioGroup": "drainage_partial_total",
+      "recordType": "首次病程记录",
+      "source": "首次病程记录（合成病例）\n入院诊断：肝门部胆管癌术后。\n请按原有记录类型整理以下散项，判断和安排均来自接诊医师。\n背景一项：既往肝门部胆管癌术后，留置引流管。\n已有安排一项：继续完成本次时段记录，再由医师复评；本次未实施换管或拔管。\n实际观察一项：昨天完整24小时是145 mL，今天从零点到08:00为40 mL，还没统计完。没腹痛。\n原有判断一项：医师要求按统计时段观察引流量及管路通畅情况，尚未决定更换引流管。",
+      "gold": "首次病程记录（合成病例）\n病例特点：\n既往肝门部胆管癌术后，留置引流管。昨日完整24小时引流量145 mL，今日零点至08:00为40 mL，今日尚未统计完，无腹痛。\n拟诊讨论：\n西医诊断依据及鉴别诊断：接诊医师要求按统计时段观察引流量及管路通畅情况，尚未决定更换引流管。\n入院诊断：\n肝门部胆管癌术后。\n诊疗计划：\n继续完成本次时段记录，再由医师复评；本次未实施换管或拔管。",
+      "output": "首次病程记录（合成病例）\n病例特点：\n既往肝门部胆管癌术后，留置引流管。病情分析：昨日24小时引流液145mL，今日零点至08:00为40mL，未出现腹痛。\n诊疗计划：\n医师要求完成本次时段的引流液统计及管路通畅检查；引流管更换决定尚未确定。",
+      "reviewCriteria": [
+        "保留全部原始事实、侧别、数字、单位、报告来源和相对时间。",
+        "不把考虑或可能改成确定病因，不把未决定改为决定不做。",
+        "阴性范围、未检、待回、拟实施、已完成分别保留。",
+        "标题及医师归属须保留；未给四诊、分期、经典或方药不补写。",
+        "不得把部分时段当24小时总量；不擅自相加未完成时段；颜色不是感染判断。"
+      ],
+      "factLedger": [
+        {
+          "kind": "diagnosis",
+          "original": "肝门部胆管癌术后",
+          "expected": "肝门部胆管癌术后"
+        },
+        {
+          "kind": "history",
+          "original": "既往肝门部胆管癌术后，留置引流管。",
+          "expected": "既往肝门部胆管癌术后，留置引流管。"
+        },
+        {
+          "kind": "observations",
+          "original": "昨天完整24小时是145 mL，今天从零点到08:00为40 mL，还没统计完。没腹痛。",
+          "expected": "昨日完整24小时引流量145 mL，今日零点至08:00为40 mL，今日尚未统计完，无腹痛。"
+        },
+        {
+          "kind": "doctor_judgment",
+          "original": "医师要求按统计时段观察引流量及管路通畅情况，尚未决定更换引流管。",
+          "expected": "接诊医师要求按统计时段观察引流量及管路通畅情况，尚未决定更换引流管。"
+        },
+        {
+          "kind": "doctor_plan",
+          "original": "继续完成本次时段记录，再由医师复评；本次未实施换管或拔管。",
+          "expected": "继续完成本次时段记录，再由医师复评；本次未实施换管或拔管。"
+        }
+      ],
+      "finishReason": "stop",
+      "generatedTokens": 87,
+      "elapsedSeconds": 1.742,
+      "promptSha256": "682a0c0eb158f3ebebf9791df88aaffec5fc560d0243a4d604e6c52c7f6c5aa7",
+      "sameAsSource": false,
+      "sourceSimilarity": 0.4742,
+      "numericMissing": {
+        "08:00": 1
+      },
+      "numericAdded": {
+        "08": 1,
+        "00": 1
+      },
+      "reasoningTagsPresent": false,
+      "needsSemanticReview": true
+    },
+    {
+      "id": "test-drainage_partial_total-2",
+      "variant": "v3-adapter",
+      "scenarioGroup": "drainage_partial_total",
+      "recordType": "主治中医师查房记录",
+      "source": "主治中医师查房记录（合成病例）\n请按原有记录类型整理以下散项，判断和安排均来自主治中医师。\n背景一项：既往肝门部胆管癌术后，留置引流管。\n已有安排一项：继续完成本次时段记录，再由医师复评；本次未实施换管或拔管。\n实际观察一项：上午记录50 mL，下午又有35 mL，两段都属于今天；今天还没结束。没发热。\n原有判断一项：医师要求按统计时段观察引流量及管路通畅情况，尚未决定更换引流管。",
+      "gold": "主治中医师查房记录（合成病例）\n既往肝门部胆管癌术后，留置引流管。今日上午引流量50 mL，下午新增35 mL，今日尚未结束，无发热。\n主治中医师查房指示：要求按统计时段观察引流量及管路通畅情况，尚未决定更换引流管。继续完成本次时段记录，再由医师复评；本次未实施换管或拔管。",
+      "output": "主治中医师查房记录（合成病例）\n既往肝门部胆管癌术后，留置引流管。已安排继续完成本次时段记录，并由医师复评；本次未实施换管或拔管。\n上午及下午共记录引流量50 mL + 35 mL = 85 mL，今日尚未结束。无发热。\n主治中医师认为，应根据统计时段观察引流管通畅情况，尚未决定更换引流管。",
+      "reviewCriteria": [
+        "保留全部原始事实、侧别、数字、单位、报告来源和相对时间。",
+        "不把考虑或可能改成确定病因，不把未决定改为决定不做。",
+        "阴性范围、未检、待回、拟实施、已完成分别保留。",
+        "标题及医师归属须保留；未给四诊、分期、经典或方药不补写。",
+        "不得把部分时段当24小时总量；不擅自相加未完成时段；颜色不是感染判断。"
+      ],
+      "factLedger": [
+        {
+          "kind": "diagnosis",
+          "original": "肝门部胆管癌术后",
+          "expected": "肝门部胆管癌术后"
+        },
+        {
+          "kind": "history",
+          "original": "既往肝门部胆管癌术后，留置引流管。",
+          "expected": "既往肝门部胆管癌术后，留置引流管。"
+        },
+        {
+          "kind": "observations",
+          "original": "上午记录50 mL，下午又有35 mL，两段都属于今天；今天还没结束。没发热。",
+          "expected": "今日上午引流量50 mL，下午新增35 mL，今日尚未结束，无发热。"
+        },
+        {
+          "kind": "doctor_judgment",
+          "original": "医师要求按统计时段观察引流量及管路通畅情况，尚未决定更换引流管。",
+          "expected": "主治中医师查房指示：要求按统计时段观察引流量及管路通畅情况，尚未决定更换引流管。"
+        },
+        {
+          "kind": "doctor_plan",
+          "original": "继续完成本次时段记录，再由医师复评；本次未实施换管或拔管。",
+          "expected": "继续完成本次时段记录，再由医师复评；本次未实施换管或拔管。"
+        }
+      ],
+      "finishReason": "stop",
+      "generatedTokens": 97,
+      "elapsedSeconds": 1.893,
+      "promptSha256": "339fb66aeadb611702b9447d2e37899f00cee560a30cf10ce481913bd31996e8",
+      "sameAsSource": false,
+      "sourceSimilarity": 0.6746,
+      "numericMissing": {},
+      "numericAdded": {
+        "85": 1
+      },
+      "reasoningTagsPresent": false,
+      "needsSemanticReview": true
+    },
+    {
+      "id": "test-drainage_partial_total-3",
+      "variant": "v3-adapter",
+      "scenarioGroup": "drainage_partial_total",
+      "recordType": "主任中医师查房记录",
+      "source": "主任中医师查房记录（合成病例）\n请按原有记录类型整理以下散项，判断和安排均来自主任中医师。\n背景一项：既往肝门部胆管癌术后，留置引流管。\n已有安排一项：继续完成本次时段记录，再由医师复评；本次未实施换管或拔管。\n实际观察一项：上一班写70 mL，但交班时间没注明；这一班写30 mL。现在没有腹痛。\n原有判断一项：医师要求按统计时段观察引流量及管路通畅情况，尚未决定更换引流管。",
+      "gold": "主任中医师查房记录（合成病例）\n既往肝门部胆管癌术后，留置引流管。上一班引流量70 mL，未注明交班时间；本班记录30 mL，目前无腹痛。\n主任中医师查房指示：要求按统计时段观察引流量及管路通畅情况，尚未决定更换引流管。继续完成本次时段记录，再由医师复评；本次未实施换管或拔管。",
+      "output": "主任中医师查房记录（合成病例）\n既往肝门部胆管癌术后，留置引流管。主任中医师已安排继续完成本次时段记录，并由医师复评；本次未实施换管或拔管。\n上一班记录70 mL，但交班时间未注明；本次记录30 mL，现无腹痛。\n主任中医师认为应按统计时段观察引流量及管路通畅情况，尚未决定更换引流管。",
+      "reviewCriteria": [
+        "保留全部原始事实、侧别、数字、单位、报告来源和相对时间。",
+        "不把考虑或可能改成确定病因，不把未决定改为决定不做。",
+        "阴性范围、未检、待回、拟实施、已完成分别保留。",
+        "标题及医师归属须保留；未给四诊、分期、经典或方药不补写。",
+        "不得把部分时段当24小时总量；不擅自相加未完成时段；颜色不是感染判断。"
+      ],
+      "factLedger": [
+        {
+          "kind": "diagnosis",
+          "original": "肝门部胆管癌术后",
+          "expected": "肝门部胆管癌术后"
+        },
+        {
+          "kind": "history",
+          "original": "既往肝门部胆管癌术后，留置引流管。",
+          "expected": "既往肝门部胆管癌术后，留置引流管。"
+        },
+        {
+          "kind": "observations",
+          "original": "上一班写70 mL，但交班时间没注明；这一班写30 mL。现在没有腹痛。",
+          "expected": "上一班引流量70 mL，未注明交班时间；本班记录30 mL，目前无腹痛。"
+        },
+        {
+          "kind": "doctor_judgment",
+          "original": "医师要求按统计时段观察引流量及管路通畅情况，尚未决定更换引流管。",
+          "expected": "主任中医师查房指示：要求按统计时段观察引流量及管路通畅情况，尚未决定更换引流管。"
+        },
+        {
+          "kind": "doctor_plan",
+          "original": "继续完成本次时段记录，再由医师复评；本次未实施换管或拔管。",
+          "expected": "继续完成本次时段记录，再由医师复评；本次未实施换管或拔管。"
+        }
+      ],
+      "finishReason": "stop",
+      "generatedTokens": 100,
+      "elapsedSeconds": 1.918,
+      "promptSha256": "e8bf4403c8862782db06127fbc701ecd3e5005cdb30c221b088fe75e6d1c52bc",
+      "sameAsSource": false,
+      "sourceSimilarity": 0.7349,
+      "numericMissing": {},
+      "numericAdded": {},
+      "reasoningTagsPresent": false,
+      "needsSemanticReview": true
+    },
+    {
+      "id": "test-drainage_partial_total-4",
+      "variant": "v3-adapter",
+      "scenarioGroup": "drainage_partial_total",
+      "recordType": "日常病程记录",
+      "source": "日常病程记录（合成病例）\n请按原有记录类型整理以下散项，判断和安排均来自经治医师。\n背景一项：既往肝门部胆管癌术后，留置引流管。\n已有安排一项：继续完成本次时段记录，再由医师复评；本次未实施换管或拔管。\n实际观察一项：昨天引流液偏红，今天淡黄色，今天目前65 mL。没有外漏，尚未满24小时。\n原有判断一项：医师要求按统计时段观察引流量及管路通畅情况，尚未决定更换引流管。",
+      "gold": "日常病程记录（合成病例）\n既往肝门部胆管癌术后，留置引流管。昨日引流液偏红，今日淡黄色，当前引流量65 mL，无外漏，尚未满24小时。\n病情分析：经治医师要求按统计时段观察引流量及管路通畅情况，尚未决定更换引流管。\n诊疗计划：继续完成本次时段记录，再由医师复评；本次未实施换管或拔管。",
+      "output": "日常病程记录（合成病例）\n既往肝门部胆管癌术后，留置引流管。病情分析：昨日引流液偏红，今日引流液转为淡黄色，目前65 mL，无外漏，尚未满24小时。\n诊疗计划：医师要求按统计时段观察引流量及管路通畅情况；决定更换引流管的判断尚未确定。",
+      "reviewCriteria": [
+        "保留全部原始事实、侧别、数字、单位、报告来源和相对时间。",
+        "不把考虑或可能改成确定病因，不把未决定改为决定不做。",
+        "阴性范围、未检、待回、拟实施、已完成分别保留。",
+        "标题及医师归属须保留；未给四诊、分期、经典或方药不补写。",
+        "不得把部分时段当24小时总量；不擅自相加未完成时段；颜色不是感染判断。"
+      ],
+      "factLedger": [
+        {
+          "kind": "diagnosis",
+          "original": "肝门部胆管癌术后",
+          "expected": "肝门部胆管癌术后"
+        },
+        {
+          "kind": "history",
+          "original": "既往肝门部胆管癌术后，留置引流管。",
+          "expected": "既往肝门部胆管癌术后，留置引流管。"
+        },
+        {
+          "kind": "observations",
+          "original": "昨天引流液偏红，今天淡黄色，今天目前65 mL。没有外漏，尚未满24小时。",
+          "expected": "昨日引流液偏红，今日淡黄色，当前引流量65 mL，无外漏，尚未满24小时。"
+        },
+        {
+          "kind": "doctor_judgment",
+          "original": "医师要求按统计时段观察引流量及管路通畅情况，尚未决定更换引流管。",
+          "expected": "经治医师要求按统计时段观察引流量及管路通畅情况，尚未决定更换引流管。"
+        },
+        {
+          "kind": "doctor_plan",
+          "original": "继续完成本次时段记录，再由医师复评；本次未实施换管或拔管。",
+          "expected": "继续完成本次时段记录，再由医师复评；本次未实施换管或拔管。"
+        }
+      ],
+      "finishReason": "stop",
+      "generatedTokens": 82,
+      "elapsedSeconds": 1.666,
+      "promptSha256": "be4afaf7273cec7b181d1751c143ef448246cf38d827d9bbd5ef1e0c97522642",
+      "sameAsSource": false,
+      "sourceSimilarity": 0.6073,
+      "numericMissing": {},
+      "numericAdded": {},
+      "reasoningTagsPresent": false,
+      "needsSemanticReview": true
+    },
+    {
+      "id": "test-molecular_method_distinction-1",
+      "variant": "v3-adapter",
+      "scenarioGroup": "molecular_method_distinction",
+      "recordType": "首次病程记录",
+      "source": "首次病程记录（合成病例）\n入院诊断：肺腺癌。\n请按原有记录类型整理以下散项，判断和安排均来自接诊医师。\n背景一项：既往已确诊肺腺癌，现整理不同检测方法的报告。\n已有安排一项：拟核对完整检测报告及日期后再讨论后续方案；当前尚未完成核对。\n实际观察一项：免疫组化EGFR是阳性，基因报告EGFR没检出变异。这是不同的检查，别合在一起。\n原有判断一项：医师拟核对不同方法的完整检测报告，再讨论后续治疗。",
+      "gold": "首次病程记录（合成病例）\n病例特点：\n既往已确诊肺腺癌，现整理不同检测方法的报告。免疫组化EGFR阳性；基因检测EGFR未检出变异，二者为不同检测方法。\n拟诊讨论：\n西医诊断依据及鉴别诊断：接诊医师拟核对不同方法的完整检测报告，再讨论后续治疗。\n入院诊断：\n肺腺癌。\n诊疗计划：\n拟核对完整检测报告及日期后再讨论后续方案；当前尚未完成核对。",
+      "output": "首次病程记录（合成病例）\n病例特点：\n既往已确诊肺腺癌。现根据不同检测方法的报告整理诊断和诊疗计划。\n\n背景：\n既往已确诊肺腺癌。\n已有安排：\n拟核对完整检测报告及日期后再讨论后续方案；当前尚未完成核对。\n实际观察：\n免疫组化EGFR为阳性，基因报告EGFR未检出变异。两者为不同检查项目，不可合并。\n原有判断：\n医师拟核对不同方法的完整检测报告，再讨论后续治疗。",
+      "reviewCriteria": [
+        "保留全部原始事实、侧别、数字、单位、报告来源和相对时间。",
+        "不把考虑或可能改成确定病因，不把未决定改为决定不做。",
+        "阴性范围、未检、待回、拟实施、已完成分别保留。",
+        "标题及医师归属须保留；未给四诊、分期、经典或方药不补写。",
+        "免疫组化不等于基因结果；TPS/CPS/Ki-67不得混同；无法评价与未提供均非阴性。"
+      ],
+      "factLedger": [
+        {
+          "kind": "diagnosis",
+          "original": "肺腺癌",
+          "expected": "肺腺癌"
+        },
+        {
+          "kind": "history",
+          "original": "既往已确诊肺腺癌，现整理不同检测方法的报告。",
+          "expected": "既往已确诊肺腺癌，现整理不同检测方法的报告。"
+        },
+        {
+          "kind": "observations",
+          "original": "免疫组化EGFR是阳性，基因报告EGFR没检出变异。这是不同的检查，别合在一起。",
+          "expected": "免疫组化EGFR阳性；基因检测EGFR未检出变异，二者为不同检测方法。"
+        },
+        {
+          "kind": "doctor_judgment",
+          "original": "医师拟核对不同方法的完整检测报告，再讨论后续治疗。",
+          "expected": "接诊医师拟核对不同方法的完整检测报告，再讨论后续治疗。"
+        },
+        {
+          "kind": "doctor_plan",
+          "original": "拟核对完整检测报告及日期后再讨论后续方案；当前尚未完成核对。",
+          "expected": "拟核对完整检测报告及日期后再讨论后续方案；当前尚未完成核对。"
+        }
+      ],
+      "finishReason": "stop",
+      "generatedTokens": 113,
+      "elapsedSeconds": 2.12,
+      "promptSha256": "c0dcbb7c3e8aedad3f2d29a5d754277ee449ecda9749213e24305a941de22baf",
+      "sameAsSource": false,
+      "sourceSimilarity": 0.7263,
+      "numericMissing": {},
+      "numericAdded": {},
+      "reasoningTagsPresent": false,
+      "needsSemanticReview": true
+    },
+    {
+      "id": "test-molecular_method_distinction-2",
+      "variant": "v3-adapter",
+      "scenarioGroup": "molecular_method_distinction",
+      "recordType": "主治中医师查房记录",
+      "source": "主治中医师查房记录（合成病例）\n请按原有记录类型整理以下散项，判断和安排均来自主治中医师。\n背景一项：既往已确诊肺腺癌，现整理不同检测方法的报告。\n已有安排一项：拟核对完整检测报告及日期后再讨论后续方案；当前尚未完成核对。\n实际观察一项：2032-07-02组织检测ALK阴性；2032-07-09血液检测写结果待定，不是阴性。\n原有判断一项：医师拟核对不同方法的完整检测报告，再讨论后续治疗。",
+      "gold": "主治中医师查房记录（合成病例）\n既往已确诊肺腺癌，现整理不同检测方法的报告。2032-07-02组织检测ALK阴性；2032-07-09血液检测结果待定，未报告阴性结论。\n主治中医师查房指示：拟核对不同方法的完整检测报告，再讨论后续治疗。拟核对完整检测报告及日期后再讨论后续方案；当前尚未完成核对。",
+      "output": "主治中医师查房记录（合成病例）\n既往已确诊肺腺癌，现根据不同检测方法的报告整理如下：\n主治中医师已安排核对完整检测报告及日期后再讨论后续方案；当前尚未完成核对。\n组织检测结果为2032-07-02，呈阴性；血液检测结果待定，非阴性。",
+      "reviewCriteria": [
+        "保留全部原始事实、侧别、数字、单位、报告来源和相对时间。",
+        "不把考虑或可能改成确定病因，不把未决定改为决定不做。",
+        "阴性范围、未检、待回、拟实施、已完成分别保留。",
+        "标题及医师归属须保留；未给四诊、分期、经典或方药不补写。",
+        "免疫组化不等于基因结果；TPS/CPS/Ki-67不得混同；无法评价与未提供均非阴性。"
+      ],
+      "factLedger": [
+        {
+          "kind": "diagnosis",
+          "original": "肺腺癌",
+          "expected": "肺腺癌"
+        },
+        {
+          "kind": "history",
+          "original": "既往已确诊肺腺癌，现整理不同检测方法的报告。",
+          "expected": "既往已确诊肺腺癌，现整理不同检测方法的报告。"
+        },
+        {
+          "kind": "observations",
+          "original": "2032-07-02组织检测ALK阴性；2032-07-09血液检测写结果待定，不是阴性。",
+          "expected": "2032-07-02组织检测ALK阴性；2032-07-09血液检测结果待定，未报告阴性结论。"
+        },
+        {
+          "kind": "doctor_judgment",
+          "original": "医师拟核对不同方法的完整检测报告，再讨论后续治疗。",
+          "expected": "主治中医师查房指示：拟核对不同方法的完整检测报告，再讨论后续治疗。"
+        },
+        {
+          "kind": "doctor_plan",
+          "original": "拟核对完整检测报告及日期后再讨论后续方案；当前尚未完成核对。",
+          "expected": "拟核对完整检测报告及日期后再讨论后续方案；当前尚未完成核对。"
+        }
+      ],
+      "finishReason": "stop",
+      "generatedTokens": 81,
+      "elapsedSeconds": 1.674,
+      "promptSha256": "89029db5e54f70f3cd521ee96d2fbbfaf95da1a6ad24c28bde73385acf2a2e2d",
+      "sameAsSource": false,
+      "sourceSimilarity": 0.6006,
+      "numericMissing": {
+        "2032-07-02": 1,
+        "2032-07-09": 1
+      },
+      "numericAdded": {
+        "2032": 1,
+        "07": 1,
+        "02": 1
+      },
+      "reasoningTagsPresent": false,
+      "needsSemanticReview": true
+    },
+    {
+      "id": "test-molecular_method_distinction-3",
+      "variant": "v3-adapter",
+      "scenarioGroup": "molecular_method_distinction",
+      "recordType": "主任中医师查房记录",
+      "source": "主任中医师查房记录（合成病例）\n请按原有记录类型整理以下散项，判断和安排均来自主任中医师。\n背景一项：既往已确诊肺腺癌，现整理不同检测方法的报告。\n已有安排一项：拟核对完整检测报告及日期后再讨论后续方案；当前尚未完成核对。\n实际观察一项：PD-L1报告写TPS 30%，CPS没有给；Ki-67是40%，不是PD-L1的数。\n原有判断一项：医师拟核对不同方法的完整检测报告，再讨论后续治疗。",
+      "gold": "主任中医师查房记录（合成病例）\n既往已确诊肺腺癌，现整理不同检测方法的报告。PD-L1报告为TPS 30%，未提供CPS；Ki-67为40%，并非PD-L1数值。\n主任中医师查房指示：拟核对不同方法的完整检测报告，再讨论后续治疗。拟核对完整检测报告及日期后再讨论后续方案；当前尚未完成核对。",
+      "output": "主任中医师查房记录（合成病例）\n既往已确诊肺腺癌。主任中医师查房时发现，PD-L1报告注明TPS 30%，CPS未提供；Ki-67为40%。\n主任中医师认为，需核对完整检测报告及日期后再讨论后续治疗，当前尚未完成核对。",
+      "reviewCriteria": [
+        "保留全部原始事实、侧别、数字、单位、报告来源和相对时间。",
+        "不把考虑或可能改成确定病因，不把未决定改为决定不做。",
+        "阴性范围、未检、待回、拟实施、已完成分别保留。",
+        "标题及医师归属须保留；未给四诊、分期、经典或方药不补写。",
+        "免疫组化不等于基因结果；TPS/CPS/Ki-67不得混同；无法评价与未提供均非阴性。"
+      ],
+      "factLedger": [
+        {
+          "kind": "diagnosis",
+          "original": "肺腺癌",
+          "expected": "肺腺癌"
+        },
+        {
+          "kind": "history",
+          "original": "既往已确诊肺腺癌，现整理不同检测方法的报告。",
+          "expected": "既往已确诊肺腺癌，现整理不同检测方法的报告。"
+        },
+        {
+          "kind": "observations",
+          "original": "PD-L1报告写TPS 30%，CPS没有给；Ki-67是40%，不是PD-L1的数。",
+          "expected": "PD-L1报告为TPS 30%，未提供CPS；Ki-67为40%，并非PD-L1数值。"
+        },
+        {
+          "kind": "doctor_judgment",
+          "original": "医师拟核对不同方法的完整检测报告，再讨论后续治疗。",
+          "expected": "主任中医师查房指示：拟核对不同方法的完整检测报告，再讨论后续治疗。"
+        },
+        {
+          "kind": "doctor_plan",
+          "original": "拟核对完整检测报告及日期后再讨论后续方案；当前尚未完成核对。",
+          "expected": "拟核对完整检测报告及日期后再讨论后续方案；当前尚未完成核对。"
+        }
+      ],
+      "finishReason": "stop",
+      "generatedTokens": 76,
+      "elapsedSeconds": 1.569,
+      "promptSha256": "5e0987289bd8652afe42193819bbae99bde7938067ab06ff2658e2f53caccbc9",
+      "sameAsSource": false,
+      "sourceSimilarity": 0.3618,
+      "numericMissing": {
+        "1": 1
+      },
+      "numericAdded": {},
+      "reasoningTagsPresent": false,
+      "needsSemanticReview": true
+    },
+    {
+      "id": "test-molecular_method_distinction-4",
+      "variant": "v3-adapter",
+      "scenarioGroup": "molecular_method_distinction",
+      "recordType": "日常病程记录",
+      "source": "日常病程记录（合成病例）\n请按原有记录类型整理以下散项，判断和安排均来自经治医师。\n背景一项：既往已确诊肺腺癌，现整理不同检测方法的报告。\n已有安排一项：拟核对完整检测报告及日期后再讨论后续方案；当前尚未完成核对。\n实际观察一项：这次标本量少，报告写无法评价ROS1；上次报告里根本没提ROS1。\n原有判断一项：医师拟核对不同方法的完整检测报告，再讨论后续治疗。",
+      "gold": "日常病程记录（合成病例）\n既往已确诊肺腺癌，现整理不同检测方法的报告。本次因标本量少，ROS1无法评价；前次报告未提及ROS1。\n病情分析：经治医师拟核对不同方法的完整检测报告，再讨论后续治疗。\n诊疗计划：拟核对完整检测报告及日期后再讨论后续方案；当前尚未完成核对。",
+      "output": "日常病程记录（合成病例）\n既往已确诊肺腺癌。拟核对完整检测报告及日期后再讨论后续方案；当前尚未完成核对。\n实际观察：本次标本量少，报告写无法评价ROS1；上次报告里根本没提ROS1。",
+      "reviewCriteria": [
+        "保留全部原始事实、侧别、数字、单位、报告来源和相对时间。",
+        "不把考虑或可能改成确定病因，不把未决定改为决定不做。",
+        "阴性范围、未检、待回、拟实施、已完成分别保留。",
+        "标题及医师归属须保留；未给四诊、分期、经典或方药不补写。",
+        "免疫组化不等于基因结果；TPS/CPS/Ki-67不得混同；无法评价与未提供均非阴性。"
+      ],
+      "factLedger": [
+        {
+          "kind": "diagnosis",
+          "original": "肺腺癌",
+          "expected": "肺腺癌"
+        },
+        {
+          "kind": "history",
+          "original": "既往已确诊肺腺癌，现整理不同检测方法的报告。",
+          "expected": "既往已确诊肺腺癌，现整理不同检测方法的报告。"
+        },
+        {
+          "kind": "observations",
+          "original": "这次标本量少，报告写无法评价ROS1；上次报告里根本没提ROS1。",
+          "expected": "本次因标本量少，ROS1无法评价；前次报告未提及ROS1。"
+        },
+        {
+          "kind": "doctor_judgment",
+          "original": "医师拟核对不同方法的完整检测报告，再讨论后续治疗。",
+          "expected": "经治医师拟核对不同方法的完整检测报告，再讨论后续治疗。"
+        },
+        {
+          "kind": "doctor_plan",
+          "original": "拟核对完整检测报告及日期后再讨论后续方案；当前尚未完成核对。",
+          "expected": "拟核对完整检测报告及日期后再讨论后续方案；当前尚未完成核对。"
+        }
+      ],
+      "finishReason": "stop",
+      "generatedTokens": 61,
+      "elapsedSeconds": 1.302,
+      "promptSha256": "426c3457391f51ec22bc3e5316f208a6455e79cb8387e5a728bd6d222f839594",
+      "sameAsSource": false,
+      "sourceSimilarity": 0.6618,
+      "numericMissing": {},
+      "numericAdded": {},
+      "reasoningTagsPresent": false,
+      "needsSemanticReview": true
+    },
+    {
+      "id": "test-pleural_procedure_status-1",
+      "variant": "v3-adapter",
+      "scenarioGroup": "pleural_procedure_status",
+      "recordType": "首次病程记录",
+      "source": "首次病程记录（合成病例）\n入院诊断：胸膜间皮瘤。\n请按原有记录类型整理以下散项，判断和安排均来自接诊医师。\n背景一项：既往已确诊胸膜间皮瘤，本次整理胸腔积液相关医师意见。\n已有安排一项：医师要求继续复评胸闷变化，并核对本次相关检查及操作记录。\n实际观察一项：左侧积液，医师计划明天评估能不能穿刺，今天还没做。患者胸闷，没胸痛。\n原有判断一项：医师考虑胸闷可能与已知胸腔积液有关。",
+      "gold": "首次病程记录（合成病例）\n病例特点：\n既往已确诊胸膜间皮瘤，本次整理胸腔积液相关医师意见。已知左侧胸腔积液，医师拟明日评估穿刺可行性，今日尚未实施；患者胸闷，无胸痛。\n拟诊讨论：\n西医诊断依据及鉴别诊断：接诊医师考虑胸闷可能与已知胸腔积液有关。\n入院诊断：\n胸膜间皮瘤。\n诊疗计划：\n医师要求继续复评胸闷变化，并核对本次相关检查及操作记录。",
+      "output": "首次病程记录（合成病例）\n病例特点：\n既往已确诊胸膜间皮瘤。胸部X线提示左侧胸膜增厚、肋膈角模糊，胸水检查示蛋白含量2.3g/dl，细胞数150×10^4/mm²，以淋巴细胞为主。\n拟诊讨论：\n西医诊断依据及鉴别诊断：接诊医师认为，患者胸闷可能与已知的胸膜间皮瘤有关。胸部X线未见新发阴影。\n入院诊断：\n胸膜间皮瘤。\n诊疗计划：\n1. 继续复评胸闷变化并核对本次相关检查及操作记录；\n2. 今日评估左侧胸水是否可穿刺，尚未实施；\n\n病情分析：\n西医诊断依据及鉴别诊断：接诊医师认为，患者胸闷可能与已知的胸膜间皮瘤有关。\n诊疗计划：\n1. 继续复评胸闷变化并核对本次相关检查及操作记录；\n2. 今日评估左侧胸水是否可穿刺，尚未实施；",
+      "reviewCriteria": [
+        "保留全部原始事实、侧别、数字、单位、报告来源和相对时间。",
+        "不把考虑或可能改成确定病因，不把未决定改为决定不做。",
+        "阴性范围、未检、待回、拟实施、已完成分别保留。",
+        "标题及医师归属须保留；未给四诊、分期、经典或方药不补写。",
+        "评估完成不等于穿刺完成；已抽液不等于有效；暂不接受不写成已同意。"
+      ],
+      "factLedger": [
+        {
+          "kind": "diagnosis",
+          "original": "胸膜间皮瘤",
+          "expected": "胸膜间皮瘤"
+        },
+        {
+          "kind": "history",
+          "original": "既往已确诊胸膜间皮瘤，本次整理胸腔积液相关医师意见。",
+          "expected": "既往已确诊胸膜间皮瘤，本次整理胸腔积液相关医师意见。"
+        },
+        {
+          "kind": "observations",
+          "original": "左侧积液，医师计划明天评估能不能穿刺，今天还没做。患者胸闷，没胸痛。",
+          "expected": "已知左侧胸腔积液，医师拟明日评估穿刺可行性，今日尚未实施；患者胸闷，无胸痛。"
+        },
+        {
+          "kind": "doctor_judgment",
+          "original": "医师考虑胸闷可能与已知胸腔积液有关。",
+          "expected": "接诊医师考虑胸闷可能与已知胸腔积液有关。"
+        },
+        {
+          "kind": "doctor_plan",
+          "original": "医师要求继续复评胸闷变化，并核对本次相关检查及操作记录。",
+          "expected": "医师要求继续复评胸闷变化，并核对本次相关检查及操作记录。"
+        }
+      ],
+      "finishReason": "stop",
+      "generatedTokens": 227,
+      "elapsedSeconds": 4.058,
+      "promptSha256": "c8aba5701445557abe0c51b384aea0b5c3a0632f71dc8fbef0a1a5fcd7fbb8f8",
+      "sameAsSource": false,
+      "sourceSimilarity": 0.2937,
+      "numericMissing": {},
+      "numericAdded": {
+        "2.3": 1,
+        "150": 1,
+        "10": 1,
+        "4": 1,
+        "1": 2,
+        "2": 2
+      },
+      "reasoningTagsPresent": false,
+      "needsSemanticReview": true
+    },
+    {
+      "id": "test-pleural_procedure_status-2",
+      "variant": "v3-adapter",
+      "scenarioGroup": "pleural_procedure_status",
+      "recordType": "主治中医师查房记录",
+      "source": "主治中医师查房记录（合成病例）\n请按原有记录类型整理以下散项，判断和安排均来自主治中医师。\n背景一项：既往已确诊胸膜间皮瘤，本次整理胸腔积液相关医师意见。\n已有安排一项：医师要求继续复评胸闷变化，并核对本次相关检查及操作记录。\n实际观察一项：昨天已经抽液300 mL；今天胸闷还是原来那样，没说好转。没有咳血。\n原有判断一项：医师考虑胸闷可能与已知胸腔积液有关。",
+      "gold": "主治中医师查房记录（合成病例）\n既往已确诊胸膜间皮瘤，本次整理胸腔积液相关医师意见。昨日已抽液300 mL，今日胸闷无改善，无咯血。\n主治中医师查房指示：考虑胸闷可能与已知胸腔积液有关。医师要求继续复评胸闷变化，并核对本次相关检查及操作记录。",
+      "output": "主治中医师查房记录（合成病例）\n既往已确诊胸膜间皮瘤，本次查房针对胸腔积液相关病情。主治中医师认为胸闷可能与已知胸腔积液有关。\n已有安排：医师要求继续复评胸闷变化，并核对本次相关检查及操作记录。\n实际观察：昨日已抽液300 mL；今日胸闷仍为原来的状态，无咳血。\n主治中医师查房指示：继续评估胸闷变化。",
+      "reviewCriteria": [
+        "保留全部原始事实、侧别、数字、单位、报告来源和相对时间。",
+        "不把考虑或可能改成确定病因，不把未决定改为决定不做。",
+        "阴性范围、未检、待回、拟实施、已完成分别保留。",
+        "标题及医师归属须保留；未给四诊、分期、经典或方药不补写。",
+        "评估完成不等于穿刺完成；已抽液不等于有效；暂不接受不写成已同意。"
+      ],
+      "factLedger": [
+        {
+          "kind": "diagnosis",
+          "original": "胸膜间皮瘤",
+          "expected": "胸膜间皮瘤"
+        },
+        {
+          "kind": "history",
+          "original": "既往已确诊胸膜间皮瘤，本次整理胸腔积液相关医师意见。",
+          "expected": "既往已确诊胸膜间皮瘤，本次整理胸腔积液相关医师意见。"
+        },
+        {
+          "kind": "observations",
+          "original": "昨天已经抽液300 mL；今天胸闷还是原来那样，没说好转。没有咳血。",
+          "expected": "昨日已抽液300 mL，今日胸闷无改善，无咯血。"
+        },
+        {
+          "kind": "doctor_judgment",
+          "original": "医师考虑胸闷可能与已知胸腔积液有关。",
+          "expected": "主治中医师查房指示：考虑胸闷可能与已知胸腔积液有关。"
+        },
+        {
+          "kind": "doctor_plan",
+          "original": "医师要求继续复评胸闷变化，并核对本次相关检查及操作记录。",
+          "expected": "医师要求继续复评胸闷变化，并核对本次相关检查及操作记录。"
+        }
+      ],
+      "finishReason": "stop",
+      "generatedTokens": 106,
+      "elapsedSeconds": 2.035,
+      "promptSha256": "4f2da1d40aa523285a4def13243866e8c1b2e941869e6ae82adc3ac74c930161",
+      "sameAsSource": false,
+      "sourceSimilarity": 0.6265,
+      "numericMissing": {},
+      "numericAdded": {},
+      "reasoningTagsPresent": false,
+      "needsSemanticReview": true
+    },
+    {
+      "id": "test-pleural_procedure_status-3",
+      "variant": "v3-adapter",
+      "scenarioGroup": "pleural_procedure_status",
+      "recordType": "主任中医师查房记录",
+      "source": "主任中医师查房记录（合成病例）\n请按原有记录类型整理以下散项，判断和安排均来自主任中医师。\n背景一项：既往已确诊胸膜间皮瘤，本次整理胸腔积液相关医师意见。\n已有安排一项：医师要求继续复评胸闷变化，并核对本次相关检查及操作记录。\n实际观察一项：今天做完超声评估了，但穿刺没做。仍有胸闷，没有新出现气急。\n原有判断一项：医师考虑胸闷可能与已知胸腔积液有关。",
+      "gold": "主任中医师查房记录（合成病例）\n既往已确诊胸膜间皮瘤，本次整理胸腔积液相关医师意见。今日已完成超声评估，尚未行穿刺，仍胸闷，无新发气急。\n主任中医师查房指示：考虑胸闷可能与已知胸腔积液有关。医师要求继续复评胸闷变化，并核对本次相关检查及操作记录。",
+      "output": "主任中医师查房记录（合成病例）\n既往已确诊胸膜间皮瘤，本次查房针对胸腔积液相关情况。主任中医师认为，胸闷可能与已知胸腔积液有关。\n主任中医师要求继续复评胸闷变化，并核对本次相关检查及操作记录。\n经超声评估后，穿刺未实施；仍存在胸闷，无新发气急。\n主任中医师认为，需继续关注胸腔积液变化并考虑进一步诊疗计划。",
+      "reviewCriteria": [
+        "保留全部原始事实、侧别、数字、单位、报告来源和相对时间。",
+        "不把考虑或可能改成确定病因，不把未决定改为决定不做。",
+        "阴性范围、未检、待回、拟实施、已完成分别保留。",
+        "标题及医师归属须保留；未给四诊、分期、经典或方药不补写。",
+        "评估完成不等于穿刺完成；已抽液不等于有效；暂不接受不写成已同意。"
+      ],
+      "factLedger": [
+        {
+          "kind": "diagnosis",
+          "original": "胸膜间皮瘤",
+          "expected": "胸膜间皮瘤"
+        },
+        {
+          "kind": "history",
+          "original": "既往已确诊胸膜间皮瘤，本次整理胸腔积液相关医师意见。",
+          "expected": "既往已确诊胸膜间皮瘤，本次整理胸腔积液相关医师意见。"
+        },
+        {
+          "kind": "observations",
+          "original": "今天做完超声评估了，但穿刺没做。仍有胸闷，没有新出现气急。",
+          "expected": "今日已完成超声评估，尚未行穿刺，仍胸闷，无新发气急。"
+        },
+        {
+          "kind": "doctor_judgment",
+          "original": "医师考虑胸闷可能与已知胸腔积液有关。",
+          "expected": "主任中医师查房指示：考虑胸闷可能与已知胸腔积液有关。"
+        },
+        {
+          "kind": "doctor_plan",
+          "original": "医师要求继续复评胸闷变化，并核对本次相关检查及操作记录。",
+          "expected": "医师要求继续复评胸闷变化，并核对本次相关检查及操作记录。"
+        }
+      ],
+      "finishReason": "stop",
+      "generatedTokens": 110,
+      "elapsedSeconds": 2.048,
+      "promptSha256": "2ff2e1d0a518d0a9e64ec24aabfc31912b810b1a63998276be6cfa487f0074cb",
+      "sameAsSource": false,
+      "sourceSimilarity": 0.5532,
+      "numericMissing": {},
+      "numericAdded": {},
+      "reasoningTagsPresent": false,
+      "needsSemanticReview": true
+    },
+    {
+      "id": "test-pleural_procedure_status-4",
+      "variant": "v3-adapter",
+      "scenarioGroup": "pleural_procedure_status",
+      "recordType": "日常病程记录",
+      "source": "日常病程记录（合成病例）\n请按原有记录类型整理以下散项，判断和安排均来自经治医师。\n背景一项：既往已确诊胸膜间皮瘤，本次整理胸腔积液相关医师意见。\n已有安排一项：医师要求继续复评胸闷变化，并核对本次相关检查及操作记录。\n实际观察一项：患者暂时不接受穿刺，这次没有做；医师已解释相关安排，患者说知道了。\n原有判断一项：医师考虑胸闷可能与已知胸腔积液有关。",
+      "gold": "日常病程记录（合成病例）\n既往已确诊胸膜间皮瘤，本次整理胸腔积液相关医师意见。患者暂不接受穿刺，本次未实施；医师已说明相关安排，患者表示知晓。\n病情分析：经治医师考虑胸闷可能与已知胸腔积液有关。\n诊疗计划：医师要求继续复评胸闷变化，并核对本次相关检查及操作记录。",
+      "output": "日常病程记录（合成病例）\n既往已确诊胸膜间皮瘤，本次胸腔积液相关医师认为仍需复评胸闷变化，并核对本次检查及操作记录；患者暂时不接受穿刺，经解释后表示知晓。",
+      "reviewCriteria": [
+        "保留全部原始事实、侧别、数字、单位、报告来源和相对时间。",
+        "不把考虑或可能改成确定病因，不把未决定改为决定不做。",
+        "阴性范围、未检、待回、拟实施、已完成分别保留。",
+        "标题及医师归属须保留；未给四诊、分期、经典或方药不补写。",
+        "评估完成不等于穿刺完成；已抽液不等于有效；暂不接受不写成已同意。"
+      ],
+      "factLedger": [
+        {
+          "kind": "diagnosis",
+          "original": "胸膜间皮瘤",
+          "expected": "胸膜间皮瘤"
+        },
+        {
+          "kind": "history",
+          "original": "既往已确诊胸膜间皮瘤，本次整理胸腔积液相关医师意见。",
+          "expected": "既往已确诊胸膜间皮瘤，本次整理胸腔积液相关医师意见。"
+        },
+        {
+          "kind": "observations",
+          "original": "患者暂时不接受穿刺，这次没有做；医师已解释相关安排，患者说知道了。",
+          "expected": "患者暂不接受穿刺，本次未实施；医师已说明相关安排，患者表示知晓。"
+        },
+        {
+          "kind": "doctor_judgment",
+          "original": "医师考虑胸闷可能与已知胸腔积液有关。",
+          "expected": "经治医师考虑胸闷可能与已知胸腔积液有关。"
+        },
+        {
+          "kind": "doctor_plan",
+          "original": "医师要求继续复评胸闷变化，并核对本次相关检查及操作记录。",
+          "expected": "医师要求继续复评胸闷变化，并核对本次相关检查及操作记录。"
+        }
+      ],
+      "finishReason": "stop",
+      "generatedTokens": 56,
+      "elapsedSeconds": 1.24,
+      "promptSha256": "7888e00061f5fdbeb0166b352e54f6819cf85f64a802c36f04c5f335ea14694e",
+      "sameAsSource": false,
+      "sourceSimilarity": 0.5296,
+      "numericMissing": {},
+      "numericAdded": {},
+      "reasoningTagsPresent": false,
+      "needsSemanticReview": true
+    }
+  ]
+}

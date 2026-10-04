@@ -1,0 +1,26 @@
+{
+  "scope": "Actual engines and UI source executed in Node VM with DOM stubs; synthetic data. No browser, Windows or clinical qualification claim.",
+  "checks": [
+    "Initial preview leaves original fields and note untouched",
+    "Adoption updates facts and draft, requires fresh review",
+    "Append report keeps previous dates and numbers",
+    "An unrelated manually edited paragraph survives an update",
+    "A touched manually edited paragraph prevents adoption",
+    "A stale preview never overwrites later manual edits",
+    "Undo restores prior facts and note; does not clobber subsequent edits",
+    "Four templates switch using the same case",
+    "Unlabelled follow-ups require a destination, not a guessed fact",
+    "Analysis commands use local tools without changing the record",
+    "Chat sends a correction, previews, adopts and retains conversation",
+    "Switching modes retains values, note and conversation",
+    "Chat report analysis displays provenance, never auto-applies",
+    "New case clears conversation, proposals and undo state",
+    "History import validates bounds and preserves literal text",
+    "Medical uncertainty remains input, not a question command",
+    "Editing a syndrome updates the selection and requires confirmation",
+    "Save and reopen restore exact draft and conversation, reset review",
+    "Invalid imported history leaves current record untouched"
+  ],
+  "passed": 19,
+  "htmlSha256": "6547ab31383363375414d7cef19d8a615f2aa052547898e9824d6d0c96845fc4"
+}

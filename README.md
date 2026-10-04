@@ -2,11 +2,25 @@
 
 这是个人使用的中文中医肿瘤病程辅助程序，提供首次病程、主治查房、主任查房和日常病程的资料整理、草稿生成与人工审核。程序按已录入事实和医生判断整理内容，保留中医四诊、辨证、病机、治法说明与西医问题分析。实际诊断、治疗和处方由医生核对、决定。
 
+## 2026-10-04 对话书写与表格填写
+
+只更新 HTML，现有四个 V2 模型分包不变。对话资料整理和规则分析无需加载模型。
+
+- 对话与表格使用同一份资料和草稿。聊天支持带字段的补充、修改，四类病程格式切换，以及针对具体缺项的继续填写。
+- 每次先显示更新预览，采用后更新正文。涉及手写段落时阻止冲突覆盖；旧预览不能覆盖后来修改的资料。可撤回最近更新，保存/打开草稿同时保留最近对话。
+- 聊天输入“分析化验单：……”或“分析处方：……”直接调用既有离线工具；结果明确注明本机规则来源，不冒充模型推理。原文纳入资料前仍有预览。
+- “分析肿瘤”依据当前录入资料与本地语料整理；聊天中的分期目前显示已录分期，完整条件计算保留在表格模式的分期工具。语料库放在表格入口，聊天不堆叠重复分析菜单。
+- 模型辅助修改在右侧可展开；现有 V2 固定用语范围未扩大。
+
+[19组对话流程源码检查](verification/conversation-workflow.json)通过，包含四类格式、候选事务、手改冲突、撤回、跨模式共享、草稿对话保存重开和患者清空。另复查了7组诊断/分期回归、18组模型候选界面模拟；均为合成输入/源码或DOM桩检查，未验证新版浏览器界面、目标Windows环境或临床合格性。[构建验证](verification/conversation-build.json)。
+
+在开发电脑完成的新 Qwen3-1.7B LoRA 试验没有通过独立留出语义验收：存在病理日期遗漏、捏造检查数值、计划状态变更等缺陷，因此未发布适配器或替换现有模型。[复核说明](verification/v3-holdout-review.md)、[合成测试原始输出](verification/v3-holdout-results.json)。不能把该训练称为已获得中医肿瘤专家能力。
+
 ## 2026-10-04 内容修正：诊断来源与分期类型
 
 癌种下拉选择仅用于资料检索，不再自动写成已确诊；分期保留原始类型和原文，未明确类型时使用“分期记录”，不再把病理分期统一称为临床分期。7组针对性规则测试和原有分析自检通过，构建脚本语法已核对。[本次验证及页面哈希](verification/diagnosis-stage-fix.json)。尚未重跑浏览器验证。
 
-当前分发模型仍是下述固定用语模式，不能满足实质性病历改写目标。新的本机训练正在独立准备，尚未替换或宣称诊疗推理达标。
+当前分发模型仍是下述固定用语模式，不能满足实质性病历改写目标。新的本机训练已完成一次独立留出验收，但因事实错误未发布，也未宣称诊疗推理达标。
 
 ## 2026-10-04 更新：看得见改动，保留现有模型
 
@@ -26,7 +40,7 @@
 
 | 文件 | 大小（十进制MB） |
 | --- | ---: |
-| [病历书写AI.html](https://github.com/jdioplus/tcmemr/raw/refs/heads/main/%E7%A6%BB%E7%BA%BF%E7%97%85%E5%8E%86AI/%E7%97%85%E5%8E%86%E4%B9%A6%E5%86%99AI.html) | 52.98 |
+| [病历书写AI.html](https://github.com/jdioplus/tcmemr/raw/refs/heads/main/%E7%A6%BB%E7%BA%BF%E7%97%85%E5%8E%86AI/%E7%97%85%E5%8E%86%E4%B9%A6%E5%86%99AI.html) | 53.02 |
 | [bingli-style-v2-Q2_K.gguf.part01-of-04.bin](https://github.com/jdioplus/tcmemr/raw/refs/heads/main/%E7%A6%BB%E7%BA%BF%E7%97%85%E5%8E%86AI/bingli-style-v2-Q2_K.gguf.part01-of-04.bin) | 90.00 |
 | [bingli-style-v2-Q2_K.gguf.part02-of-04.bin](https://github.com/jdioplus/tcmemr/raw/refs/heads/main/%E7%A6%BB%E7%BA%BF%E7%97%85%E5%8E%86AI/bingli-style-v2-Q2_K.gguf.part02-of-04.bin) | 90.00 |
 | [bingli-style-v2-Q2_K.gguf.part03-of-04.bin](https://github.com/jdioplus/tcmemr/raw/refs/heads/main/%E7%A6%BB%E7%BA%BF%E7%97%85%E5%8E%86AI/bingli-style-v2-Q2_K.gguf.part03-of-04.bin) | 90.00 |

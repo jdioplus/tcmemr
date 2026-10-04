@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "scope": "Public source, synthetic tests and unchanged experimental V2 model with constrained wording generation. No clinical quality approval.",
+  "scope": "Public source, synthetic checks, dual-mode offline conversation workflow and unchanged constrained V2 model. V3 holdout failed and is not shipped; no clinical quality approval.",
   "privacy": "Legacy supplied case replaced with synthetic demo; no patient documents, browser database, credentials, caches or unsplit large weights.",
   "fileLimitBytesExclusive": 100000000,
   "files": [
@@ -26,8 +26,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 9765,
-      "sha256": "33e65c6a7d55df9f3b7b3ebc10c505e005a9b6c06e3805b31618d72f2e832fb2"
+      "bytes": 11697,
+      "sha256": "9349e34d876f18df4704c9e5ea7c2206e5b8e1dc2a333f65f8f1163b22fc2d94"
     },
     {
       "path": "generative/README.md",
@@ -211,13 +211,23 @@
     },
     {
       "path": "minimal/app.js",
-      "bytes": 31168,
-      "sha256": "63f6d8133ba3a64214da754ac509fb2891d640848fe327b6c9ad975403a1af72"
+      "bytes": 38612,
+      "sha256": "93d4d424107df855d856c43f67db90d0f6a346172d42344c2854a99043c5ee87"
     },
     {
       "path": "minimal/clinical-analysis.js",
       "bytes": 21241,
       "sha256": "bbe4cd5321a1a3b6041f94e7a0c168ff04fb3f397a3516e86677a71bcca1745b"
+    },
+    {
+      "path": "minimal/conversation-core.js",
+      "bytes": 6376,
+      "sha256": "d1f2aacdc44394b9c08f0d2bab1b0aca1106088d1a4a70221ea87664ab232260"
+    },
+    {
+      "path": "minimal/conversation-ui.js",
+      "bytes": 10233,
+      "sha256": "f8293de7b5fdd04336445436a3bf32b15c8b49d6f549a98a269a807c5c028fa2"
     },
     {
       "path": "minimal/examples.js",
@@ -231,13 +241,13 @@
     },
     {
       "path": "minimal/local-writer-ui.js",
-      "bytes": 10973,
-      "sha256": "7993a0fb0cff7633701c50825eb93e5db3e83c041e2366d3e321214d745b859a"
+      "bytes": 10974,
+      "sha256": "dbefbd804418932835ef9077f229285c71f6360db36ac4180a1274f1ff7a5b65"
     },
     {
       "path": "minimal/page.html",
-      "bytes": 12859,
-      "sha256": "47ade98133ccf503ec32a738972479fe8b384f4c2f8b524f4ddcd134242f4254"
+      "bytes": 16194,
+      "sha256": "7fd18f1d0de936e570362525a7121f7a188c84f66e76f835ec473535236c1ac9"
     },
     {
       "path": "minimal/record-parser.js",
@@ -401,8 +411,8 @@
     },
     {
       "path": "tests/build-minimal.py",
-      "bytes": 4178,
-      "sha256": "820fdb75c7b77e1197cf9efa67ec1cf947c81408f9cdeca748ba8abfc99b7e27"
+      "bytes": 4262,
+      "sha256": "16523bb9842b15aa9e4ccab3d6c25a826bbd5766823d88ed787fc0b43eb54770"
     },
     {
       "path": "tests/build-offline-ai.py",
@@ -428,6 +438,11 @@
       "path": "tests/clinical-data-compat.cjs",
       "bytes": 3584,
       "sha256": "869357815728ba8857aa3c3ad07c504b4bebad39be239aa5ed8c74ff3bfe10de"
+    },
+    {
+      "path": "tests/conversation-workflow.cjs",
+      "bytes": 12214,
+      "sha256": "c7d9c088e86eb3bf7629ddb27651ebedb904589ce67ee7dff09ed974caba2cab"
     },
     {
       "path": "tests/decision-review-audit.cjs",
@@ -1505,6 +1520,16 @@
       "sha256": "f2d178b9a304dba7c544fa604f84c2e1f86fd6c02ae1f9bf2932a3e65a10a7ed"
     },
     {
+      "path": "verification/conversation-build.json",
+      "bytes": 751,
+      "sha256": "a29b73e7e5d8234810c9adc0488f025b56f0ce8cebf89f2d016aa54dbda0a626"
+    },
+    {
+      "path": "verification/conversation-workflow.json",
+      "bytes": 1509,
+      "sha256": "e694770bd174467d55efbf004fea761be368aa9f6de4bc11042c933e7bd461b2"
+    },
+    {
       "path": "verification/diagnosis-stage-fix.json",
       "bytes": 3133,
       "sha256": "9cc775fc2bb4d7d5e44c508170c2508fc0c26fd308c2870f5710ec6b734c136e"
@@ -1515,14 +1540,24 @@
       "sha256": "69726d7a66a9bd2bca8db22f39defbb81d27a23030e7cdadb4df097b00aafcd6"
     },
     {
+      "path": "verification/v3-holdout-results.json",
+      "bytes": 150960,
+      "sha256": "55bcd5e41eb66c88303e17986f1ed1734d41046a91008bcfad9b33e2a6916e46"
+    },
+    {
+      "path": "verification/v3-holdout-review.md",
+      "bytes": 3023,
+      "sha256": "bb653a076365718749825e72ad045cdadea35b5cf9b9fefc05bd69e20944cd32"
+    },
+    {
       "path": "verification/writing-policy.json",
       "bytes": 1505,
       "sha256": "e199e1361b57a7ba5345e36ebaa5a57ff94f1ff1fdb10fed9aa750a6a82a1496"
     },
     {
       "path": "病历书写简版.html",
-      "bytes": 2197639,
-      "sha256": "30c7d0e43cbc153495cc46968d4312054c59331d5992ae120aaf518f9a80c271"
+      "bytes": 2225029,
+      "sha256": "6547ab31383363375414d7cef19d8a615f2aa052547898e9824d6d0c96845fc4"
     },
     {
       "path": "离线病历AI/Qwen-LICENSE.txt",
@@ -1532,7 +1567,7 @@
     {
       "path": "离线病历AI/SHA256SUMS.txt",
       "bytes": 1300,
-      "sha256": "6aab4e3fa26e5935f01d21a97685e12a7781c70576e51153b22258c0fba1b32b"
+      "sha256": "abef19bf62dd4396bf41a28002b0557d128829fc5f000367185fefe49940f727"
     },
     {
       "path": "离线病历AI/bingli-style-v2-Q2_K.gguf.part01-of-04.bin",
@@ -1581,18 +1616,18 @@
     },
     {
       "path": "离线病历AI/先读我.txt",
-      "bytes": 3176,
-      "sha256": "c177a2dab003afefd1df513bba026ae9049c86c68afe42d070fac46290a320fb"
+      "bytes": 5373,
+      "sha256": "0bcf17bf0144ef9c7a2f1ccece31570d1161615a3d3ffbbb295a8363c8a4ed90"
     },
     {
       "path": "离线病历AI/病历书写AI.html",
-      "bytes": 52989592,
-      "sha256": "97e4856a647b4181c897223d603f59c09255bd6e0af72d9cfe50e28e9bbf4000"
+      "bytes": 53016983,
+      "sha256": "45d7867eb967dd9c2a5a1fab8277e4758e93f55f8afba89ec3df02acead92099"
     },
     {
       "path": "离线病历AI/训练与测试说明.txt",
-      "bytes": 2821,
-      "sha256": "39f6a1ddb61c903276414cc1ab539a85018ce691057830b10f27e622925ae362"
+      "bytes": 3527,
+      "sha256": "662710c63ad0565a3a4dce8c72cea61d4349cf243fdfae222ce6df8571212cdb"
     },
     {
       "path": "离线病历AI/试写对照.txt",
@@ -1600,6 +1635,6 @@
       "sha256": "bf58cb13b1045b112e54866301ca86607d801482eb856468c20052b32b4e92a3"
     }
   ],
-  "fileCount": 319,
-  "totalBytes": 437055202
+  "fileCount": 326,
+  "totalBytes": 437310748
 }

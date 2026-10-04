@@ -13,6 +13,7 @@
  function inputs(){return Object.fromEntries(fieldIds.map(id=>[id,$(id).type==='checkbox'?$(id).checked:$(id).value]));}
  function inputSignature(){return JSON.stringify(inputs());}
  function notify(message){$('qStatus').textContent=message;}
+ function emit(kind,detail={}){if(typeof CustomEvent==='function')window.dispatchEvent(new CustomEvent('bingli:'+kind,{detail}));}
  function reviewReset(){ $('qReviewed').checked=false;syncCopy(); }
  function treatmentConflict(){
   if(!state)return '';
@@ -130,7 +131,7 @@
   let rxText='';if(e.prescriptionRaw){const r=V5Rx.analyze(e.prescriptionRaw,{cancer:p.cancer,syndrome:e.syndromeStatus==='confirmed'?e.syndrome:'',symptoms:e.symptoms,tongue:e.tongue,coat:e.coat,pulse:e.pulse});issues.push(...r.warnings);rxText='中药处方：\n'+e.prescriptionRaw;const groups=(r.groups||[]).map(g=>{const herbs=(g.herbs||[]).map(h=>typeof h==='string'?h:h.standardName||h.name||h.rawName||'').filter(Boolean).join('、');return herbs?herbs+'用于'+g.label:'';}).filter(Boolean);if(groups.length)rxText+='\n方药功效分析：'+groups.join('；')+'。';}
   state={patient:p,encounter:e,cards,tcm,analysis,rxText,sources:specialty.sources,signature:inputSignature()};const result=compose(state);state.blocks=result.blocks;$('qNote').value=result.text;changed=false;reviewReset();infoWarnings(issues);
   $('qDecisionReview').hidden=!cards.length;$('reviewGuide').hidden=!cards.length;V63ReviewUI.render(cards.map(c=>({...c,contextNote:result.chosen.textById[c.id]||c.defaultText})),judgmentChanged,selections);
-  notify('草稿已生成。可选择本次判断，再核对、修改正文。');return true;
+  notify('草稿已生成。可选择本次判断，再核对、修改正文。');if(!options.preview)emit('updated');return true;
  }
  function renderBooks(){
   const q=S($('bookSearch').value),host=$('bookList');host.replaceChildren();
@@ -138,12 +139,12 @@
   visible.slice(0,30).forEach(b=>{const div=document.createElement('div');div.className='book-entry';const title=document.createElement('strong');title.textContent='《'+b.book+'》'+(b.chapter?' · '+b.chapter:'');const p=document.createElement('p');p.textContent=b.text;const label=document.createElement('label');label.className='check';const box=document.createElement('input');box.type='checkbox';box.checked=selectedBooks.has(b.id);label.append(box,document.createTextNode('选入本次中医分析'));box.onchange=()=>{if(box.checked)selectedBooks.add(b.id);else selectedBooks.delete(b.id);if(state){const old=state.blocks.find(x=>x.id==='classics')?.text||'',quote=quoteText(),next=quote||'';if(old&&$('qNote').value.includes(old))$('qNote').value=$('qNote').value.replace(old,next);else if(!old&&next){const target=state.blocks.find(x=>x.id==='tcm')?.text;if(target&&$('qNote').value.includes(target))$('qNote').value=$('qNote').value.replace(target,target+'\n\n'+next);else $('qNote').value+='\n\n'+next;}else if(old)notify('你已改写引文段，保留现有正文，请手动修订。');state.blocks=compose(state).blocks;reviewReset();}};const src=document.createElement('p');src.className='book-source';src.textContent=b.sourcePath?'来源：'+b.sourcePath+(b.sourceStartLine?'（原文件第'+b.sourceStartLine+'行起）':''):'';div.append(title,p,label,src);host.append(div);});
   if(!visible.length)host.textContent=q?'未找到匹配摘录。':'正在整理古籍摘录。';
  }
- function clear(){if((S($('qToday').value)||S($('qNote').value))&&!window.confirm('清空本例资料及正文，开始下一例？'))return;for(const id of fieldIds){const el=$(id);if(el.type==='checkbox')el.checked=false;else if(id==='qType')el.value='首次病程记录';else if(id==='qDate')el.value=dateNow();else el.value='';}state=null;selections={};selectedBooks.clear();autoFilled={};toolResults={};extraCorpus=[];changed=false;$('qIncludeClassics').checked=true;updateSyndromes();$('qNote').value='';$('qDecisionReview').replaceChildren();$('qDecisionReview').hidden=true;$('reviewGuide').hidden=true;infoWarnings([]);renderBooks();reviewReset();$('copyStatus').textContent='';notify('已清空本例，粘贴下一例资料。');}
+ function clear(){if((S($('qToday').value)||S($('qNote').value))&&!window.confirm('清空本例资料及正文，开始下一例？'))return;for(const id of fieldIds){const el=$(id);if(el.type==='checkbox')el.checked=false;else if(id==='qType')el.value='首次病程记录';else if(id==='qDate')el.value=dateNow();else el.value='';}state=null;selections={};selectedBooks.clear();autoFilled={};toolResults={};extraCorpus=[];changed=false;$('qIncludeClassics').checked=true;updateSyndromes();$('qNote').value='';$('qDecisionReview').replaceChildren();$('qDecisionReview').hidden=true;$('reviewGuide').hidden=true;infoWarnings([]);renderBooks();reviewReset();$('copyStatus').textContent='';notify('已清空本例，粘贴下一例资料。');emit('new-record');}
  function download(filename,text,mime){const url=URL.createObjectURL(new Blob([text],{type:mime})),a=document.createElement('a');a.href=url;a.download=filename;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
  $('qGenerate').onclick=()=>generate();$('qClear').onclick=clear;$('qExtract').onclick=()=>{const r=extractIntoInputs();infoWarnings(r.issues);notify('资料已整理，可展开核对后生成病程。');};
  $('qCopy').onclick=async()=>{if($('qCopy').disabled)return;let ok=false;try{await navigator.clipboard.writeText($('qNote').value);ok=true;}catch(_){$('qNote').focus();$('qNote').select();try{ok=document.execCommand('copy');}catch(_){} }$('copyStatus').textContent=ok?'正文已复制。':'请选中正文，手动复制。';};
  $('downloadNote').onclick=()=>{if(!$('downloadNote').disabled)download('病程正文.txt',$('qNote').value,'text/plain;charset=utf-8');};
- $('saveDraft').onclick=()=>{if(!state||changed){notify('请先生成本次草稿，再保存。');return;}download('病程草稿.json',JSON.stringify({format:'bingli-mini',version:1,inputs:inputs(),clinicalSelections:JSON.stringify(selections),selectedBooks:[...selectedBooks],autoFilled,toolResults,extraCorpus,noteText:$('qNote').value},null,2),'application/json');notify('草稿文件已保存，包含本次资料及已选判断。');};
+ $('saveDraft').onclick=()=>{if(!state||changed){notify('请先生成本次草稿，再保存。');return;}download('病程草稿.json',JSON.stringify({format:'bingli-mini',version:1,inputs:inputs(),clinicalSelections:JSON.stringify(selections),selectedBooks:[...selectedBooks],autoFilled,toolResults,extraCorpus,noteText:$('qNote').value,conversation:globalThis.BingliConversationUI?.history()||[]},null,2),'application/json');notify('草稿文件已保存，包含本次资料及已选判断。');};
  $('openDraft').onclick=()=>$('draftFile').click();
  function applyInputs(values){for(const id of fieldIds){if(id==='qSyndrome')continue;const el=$(id);if(el.type==='checkbox')el.checked=values[id]===true;else el.value=typeof values[id]==='string'?values[id]:'';}updateSyndromes(values.qSyndrome||'');}
  function validateDraft(data){
@@ -159,7 +160,7 @@
   const auto=object(data.autoFilled)?Object.fromEntries(Object.entries(data.autoFilled).filter(([id,v])=>fieldIds.includes(id)&&typeof v==='string')):{};
   const results=object(data.toolResults)?Object.fromEntries(Object.entries(data.toolResults).filter(([id,v])=>['reports','prescription','staging'].includes(id)&&object(v)).map(([id,v])=>[id,Object.fromEntries(Object.entries(v).filter(([k,x])=>['raw','analysis','stage','date','cancer','dosageForm'].includes(k)&&typeof x==='string'))])):{};
   const corpus=Array.isArray(data.extraCorpus)?data.extraCorpus.filter(x=>object(x)&&typeof x.text==='string').map(x=>({id:S(x.id),text:x.text})):[];
-  return {values,choices,books,auto,results,corpus,noteText:data.noteText};
+  return {values,choices,books,auto,results,corpus,noteText:data.noteText,conversation:BingliConversation.validateHistory(data.conversation)};
  }
  $('draftFile').onchange=async()=>{
   const file=$('draftFile').files[0];if(!file)return;let backup=null;
@@ -170,7 +171,7 @@
    backup={values:inputs(),state,selections,books:new Set(selectedBooks),autoFilled,toolResults,extraCorpus,changed,note:$('qNote').value,reviewed:$('qReviewed').checked,warnings:[...$('reviewWarnings').children].map(x=>x.textContent)};
    applyInputs(data.values);selections=data.choices;selectedBooks=new Set(data.books);autoFilled=data.auto;toolResults=data.results;extraCorpus=data.corpus;state=null;
    if(!generate({restoring:true}))throw new Error('草稿未能生成');
-   $('qNote').value=data.noteText;renderBooks();reviewReset();notify('草稿已打开，已选判断保留。请重新核对正文。');
+   $('qNote').value=data.noteText;renderBooks();reviewReset();notify('草稿已打开，已选判断保留。请重新核对正文。');emit('loaded',{conversation:data.conversation});
   }catch(error){
    if(backup){applyInputs(backup.values);state=backup.state;selections=backup.selections;selectedBooks=backup.books;autoFilled=backup.autoFilled;toolResults=backup.toolResults;extraCorpus=backup.extraCorpus;changed=backup.changed;$('qNote').value=backup.note;$('qReviewed').checked=backup.reviewed;infoWarnings(backup.warnings);$('qDecisionReview').hidden=!state?.cards.length;$('reviewGuide').hidden=!state?.cards.length;V63ReviewUI.render(state?.cards||[],judgmentChanged,selections);renderBooks();syncCopy();}
    notify('未打开草稿：'+error.message);
@@ -198,14 +199,14 @@
     const rt=x.recordType;if([...$('qType').options].some(o=>o.value===rt))$('qType').value=rt;
     if(x.date){const date=S(x.date).replace(' ','T');$('qDate').value=date.length===10?date+'T09:00':date;}
     $('qToday').value=x.sourceRaw||['现病史：'+S(x.presentIllness||x.symptoms),'查体：'+S(x.exam),'辅助检查：'+S(x.labRaw)].join('\n');
-    selections={};state=null;generate({restoring:true});if(S(result.noteText))$('qNote').value=result.noteText;reviewReset();formatHint();notify('资料和正文已带回，请完成本次审核。');return true;
+    selections={};state=null;generate({restoring:true});if(S(result.noteText))$('qNote').value=result.noteText;reviewReset();formatHint();notify('资料和正文已带回，请完成本次审核。');emit('new-record');return true;
    }
    if(result.kind==='staging'&&result.cancer!==p.cancer){notify('分期癌种与当前病案不一致，未带回。');return false;}
    toolResults[result.kind]=result;
    if(result.kind==='reports'){$('qLabRaw').value=S(result.raw);delete autoFilled.qLabRaw;}
    if(result.kind==='prescription'){$('qPrescription').value=S(result.raw);delete autoFilled.qPrescription;}
    if(result.kind==='staging'){$('qStage').value=S(result.stage);delete autoFilled.qStage;}
-   changed=Boolean(state);reviewReset();notify('结果已带回本次资料。重新生成后即可进入病程正文。');return true;
+   changed=Boolean(state);reviewReset();notify('结果已带回本次资料。重新生成后即可进入病程正文。');emit('tool-result',{kind:result.kind});return true;
   });
  };
  for(const source of SKILL_RULES.sources||[]){const p=document.createElement('p'),a=document.createElement('a');a.textContent=source.name||source.id;a.href=source.url||source.skillUrl||'#';a.target='_blank';a.rel='noopener noreferrer';p.append(a,document.createTextNode(' · '+(typeof source.license==='string'?source.license:source.license?.name||'详见来源许可')));$('skillSources').append(p);}
@@ -217,7 +218,71 @@
  }
  for(const [name,content]of Object.entries(SKILL_LICENSE_TEXTS)){const detail=document.createElement('details'),summary=document.createElement('summary'),pre=document.createElement('pre');summary.textContent=name;pre.textContent=content;detail.append(summary,pre);$('skillLicenses').append(detail);}
  $('inputs').addEventListener('change',event=>{const id=event.target.id;if(!fieldIds.includes(id))return;if(id==='qTcmDisease'&&!$('qCancer').value&&cancers.includes(S($('qTcmDisease').value))){$('qCancer').value=S($('qTcmDisease').value);updateSyndromes();}if(id==='qCancer'){updateSyndromes();$('qSyndromeConfirmed').checked=false;}if(id==='qSyndrome'){$('qSyndromeCustom').hidden=$('qSyndrome').value!=='__custom';$('qSyndromeConfirmed').checked=false;}if(['qSyndromeCustom','qTcmDisease'].includes(id))$('qSyndromeConfirmed').checked=false;});
- ['input','change'].forEach(type=>$('inputs').addEventListener(type,event=>{if(!fieldIds.includes(event.target.id))return;if(['qToday','qName','qWestern','qCancer','qTcmDisease','qSyndrome','qSyndromeCustom'].includes(event.target.id))selections={};if(['qToday','qName'].includes(event.target.id)){toolResults={};extraCorpus=[];selectedBooks.clear();$('qSyndromeConfirmed').checked=false;}if(event.target.id==='qLabRaw')delete toolResults.reports;if(event.target.id==='qPrescription')delete toolResults.prescription;if(event.target.id==='qStage')delete toolResults.staging;if(state){changed=true;notify('资料已修改，请重新生成本次草稿。');reviewReset();}}));
+ ['input','change'].forEach(type=>$('inputs').addEventListener(type,event=>{if(!fieldIds.includes(event.target.id))return;if(['qToday','qName','qWestern','qCancer','qTcmDisease','qSyndrome','qSyndromeCustom'].includes(event.target.id))selections={};if(['qToday','qName'].includes(event.target.id)){toolResults={};extraCorpus=[];selectedBooks.clear();$('qSyndromeConfirmed').checked=false;}if(event.target.id==='qLabRaw')delete toolResults.reports;if(event.target.id==='qPrescription')delete toolResults.prescription;if(event.target.id==='qStage')delete toolResults.staging;if(event.target.id==='qName')emit('new-record');if(state){changed=true;notify('资料已修改，请重新生成本次草稿。');reviewReset();}emit('inputs-changed');}));
  window.addEventListener('beforeunload',event=>{if(S($('qToday').value)||S($('qNote').value)){event.preventDefault();event.returnValue='';}});
- globalThis.BingliMini=Object.freeze({generate,getState:()=>state?JSON.parse(JSON.stringify({...state,clinicalSelections:JSON.stringify(selections)})):null,clear});
+
+ // Conversation edits are transactions: preview restores the current record;
+ // adoption checks a full snapshot and never silently overwrites manual prose.
+ const clone=x=>JSON.parse(JSON.stringify(x));
+ function snapshot(){return clone({values:inputs(),state,selections,books:[...selectedBooks],autoFilled,toolResults,extraCorpus,changed,note:$('qNote').value,warnings:[...$('reviewWarnings').children].map(x=>x.textContent),reviewed:$('qReviewed').checked,status:$('qStatus').textContent,extracted:$('qExtractSummary').textContent});}
+ function restore(x){applyInputs(x.values);state=clone(x.state);selections=clone(x.selections);selectedBooks=new Set(x.books);autoFilled=clone(x.autoFilled);toolResults=clone(x.toolResults);extraCorpus=clone(x.extraCorpus);changed=x.changed;$('qNote').value=x.note;$('qReviewed').checked=x.reviewed;infoWarnings(x.warnings);$('qExtractSummary').textContent=x.extracted;notify(x.status);$('qDecisionReview').hidden=!state?.cards.length;$('reviewGuide').hidden=!state?.cards.length;V63ReviewUI.render(state?.cards||[],judgmentChanged,selections);renderBooks();formatHint();syncCopy();}
+ function stamp(){return JSON.stringify({inputs:inputs(),note:$('qNote').value,selections,books:[...selectedBooks],toolResults,extraCorpus});}
+ let pendingConversation=null;
+ function previewUpdate(request){
+  const before=snapshot(),sourceStamp=stamp();pendingConversation=null;
+  let answer;
+  try{
+   const patches=request.fields||{};
+   if(request.raw!==undefined){if(typeof request.raw!=='string'||S(before.values.qToday))throw Error('已有资料请按项目补充，或另写一例。');$('qToday').value=request.raw;}
+   for(const [id,value] of Object.entries(patches)){
+    if(!fieldIds.includes(id)||['qToday','qSyndromeConfirmed','qIncludeClassics'].includes(id)||typeof value!=='string')throw Error('不支持的资料项');
+    if(id==='qType'&&![...$('qType').options].some(x=>x.value===value))throw Error('病程类型无效');
+    $(id).value=value;delete autoFilled[id];
+   }
+   if(Object.hasOwn(patches,'qSyndromeCustom')){$('qSyndrome').value='__custom';$('qSyndromeCustom').hidden=false;$('qSyndromeConfirmed').checked=false;delete autoFilled.qSyndrome;}
+   if(['qSymptoms','qPresentIllness','qLabRaw','qWestern','qTcmDisease','qExam','qTongue','qCoat','qPulse','qStage'].some(id=>Object.hasOwn(patches,id))){selections={};$('qSyndromeConfirmed').checked=false;}
+   if(Object.hasOwn(patches,'qLabRaw'))delete toolResults.reports;
+   if(Object.hasOwn(patches,'qPrescription'))delete toolResults.prescription;
+   if(Object.hasOwn(patches,'qStage'))delete toolResults.staging;
+   if(!generate({restoring:true,preview:true}))throw Error($('qStatus').textContent);
+   const after=snapshot(),changes=fieldIds.filter(id=>before.values[id]!==after.values[id]).map(id=>({id,before:before.values[id],after:after.values[id]}));
+   const oldBlocks=before.state?.blocks||[],newBlocks=after.state.blocks;
+   const merged=BingliConversation.mergeBlocks(before.note,oldBlocks,newBlocks);if(!before.state&&S(before.note))merged.conflicts.push('已有手写正文');
+   // Switching templates after manual edits requires review in the table, since
+   // carrying arbitrary old fragments into a new layout could misplace them.
+   if(before.state&&before.values.qType!==after.values.qType&&before.note!==oldBlocks.map(b=>b.text).join('\n\n'))merged.conflicts.push('记录格式与已手改正文');
+   after.note=merged.text;after.reviewed=false;
+   const token='conversation-'+Date.now()+'-'+Math.random().toString(36).slice(2);
+   pendingConversation={token,before,after,sourceStamp,conflicts:merged.conflicts};
+   answer={token,text:after.note,changes,conflicts:merged.conflicts,hasChanges:sourceStamp!==JSON.stringify({inputs:after.values,note:after.note,selections:after.selections,books:after.books,toolResults:after.toolResults,extraCorpus:after.extraCorpus})};
+  }finally{restore(before);}
+  return answer;
+ }
+ const conversationUndo=[];
+ function adoptUpdate(token){
+  const p=pendingConversation;if(!p||p.token!==token)throw Error('本次预览已失效，请重新发送。');
+  if(p.conflicts.length)throw Error('存在手动修改冲突，未采用。');
+  if(stamp()!==p.sourceStamp){pendingConversation=null;throw Error('资料或正文在预览后已修改，请重新预览。');}
+  restore(p.after);reviewReset();pendingConversation=null;conversationUndo.push({before:p.before,afterStamp:stamp()});if(conversationUndo.length>5)conversationUndo.shift();notify('对话更新已采用，请审核正文。');emit('updated');return true;
+ }
+ function undoUpdate(){const entry=conversationUndo.at(-1);if(!entry)throw Error('没有可撤回的对话更新。');if(stamp()!==entry.afterStamp)throw Error('上次更新后已有其他修改，未撤回。请保留当前内容并在表格或正文中修订。');restore(entry.before);conversationUndo.pop();pendingConversation=null;reviewReset();notify('已撤回上次对话更新。');emit('updated');}
+ function resetConversation(){pendingConversation=null;conversationUndo.length=0;}
+
+ function conversationAnalysis(kind,raw=''){
+  const v=inputs();
+  if(kind==='reports'){
+   raw=S(raw||v.qLabRaw);if(!raw)return {acceptsRaw:true,need:'请粘贴化验单原文，包含结果、单位、参考范围和日期。'};
+   const r=analyzePastedReport(raw,{sex:v.qSex,age:v.qAge,allowClinicalThresholds:true,symptoms:v.qSymptoms,treatmentInfo:v.qHistory});
+   return {text:r.paragraphs.join('\n\n'),warnings:r.warnings,raw,field:'qLabRaw',source:'本机检验分析规则',unparsed:r.unparsed};
+  }
+  if(kind==='prescription'){
+   raw=S(raw||v.qPrescription);if(!raw)return {acceptsRaw:true,need:'请粘贴本次处方原文，保留药名、剂量、单位及煎服方法。'};
+   const r=V5Rx.analyze(raw,{cancer:v.qCancer,syndrome:v.qSyndromeConfirmed?(v.qSyndrome==='__custom'?v.qSyndromeCustom:v.qSyndrome):'',symptoms:v.qSymptoms,tongue:v.qTongue,coat:v.qCoat,pulse:v.qPulse});
+   return {text:r.text,warnings:r.warnings,raw,field:'qPrescription',source:'本机中药资料及配伍规则',sources:r.sources};
+  }
+  if(S(raw))return {need:'请先将这段资料补入相应病史、病理或影像项目并更新草稿，再分析肿瘤或分期，避免与原有病案混用。'};
+  if(!state||changed)return {need:'请先将已有病史、病理、影像和医师意见整理到草稿，再分析本次肿瘤问题。'};
+  return {text:kind==='staging'?(v.qStage?'本次已录入分期：'+v.qStage:'请补充拟采用的分期类型、病理及病灶范围。可在表格模式的肿瘤分期工具逐项核对。'):[state.analysis.westernText,state.analysis.tcmText].filter(Boolean).join('\n\n'),warnings:state.analysis.warnings,source:'本机肿瘤语料与已录入资料',sources:state.sources||[]};
+ }
+ globalThis.BingliMini=Object.freeze({generate,getInputs:inputs,getState:()=>state?clone({...state,clinicalSelections:JSON.stringify(selections)}):null,clear,conversationAnalysis,previewUpdate,adoptUpdate,undoUpdate,resetConversation,discardUpdate:()=>{pendingConversation=null;},canUndo:()=>conversationUndo.length>0});
 })();

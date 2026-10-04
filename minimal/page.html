@@ -1,15 +1,39 @@
 <!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>病历书写简版</title>
 <style>
 :root{--ink:#23363c;--muted:#667c82;--accent:#216b68;--line:#d6e1df;--paper:#fff}*{box-sizing:border-box}body{margin:0;color:var(--ink);background:#f3f6f5;font:16px/1.65 -apple-system,BlinkMacSystemFont,"Microsoft YaHei",sans-serif}header,main{max-width:1080px;margin:auto;padding:24px}header{display:flex;justify-content:space-between;align-items:center;padding-bottom:8px}h1{font-size:25px;margin:0}h2{font-size:19px;margin:0 0 15px}p{margin:8px 0}.muted,small{color:var(--muted)}.badge{font-size:13px;padding:4px 10px;border-radius:20px;background:#deede6;color:#275d50}.card{background:var(--paper);border:1px solid var(--line);padding:22px;border-radius:14px;margin:0 0 18px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.three{grid-template-columns:repeat(3,minmax(0,1fr))}label{display:block;font-size:14px;color:#536c73}input,select,textarea,button{font:inherit}input,select,textarea{width:100%;background:#fff;border:1px solid #bfd0ce;border-radius:7px;padding:10px;color:var(--ink);margin:5px 0}textarea{resize:vertical}button{border:1px solid #bfd0ce;background:#fff;border-radius:7px;padding:8px 15px;color:var(--ink);cursor:pointer}button.primary{background:var(--accent);color:#fff;border-color:var(--accent)}button:disabled{opacity:.5;cursor:default}input[type=checkbox]{width:auto;accent-color:var(--accent);margin:0 7px 0 0}summary{cursor:pointer;color:#315f61;padding:8px 0;font-size:14px}details{border-top:1px solid #e7efed;margin-top:12px}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.check{display:flex;align-items:center;gap:4px;margin:12px 0}.status{font-size:14px;min-height:24px;color:#275f55}#qNote{font-size:16px;line-height:1.9;min-height:400px}#reviewWarnings{font-size:14px;color:#78572f}.book-entry{border-top:1px solid #e2eae8;padding:12px 0}.book-entry p{white-space:pre-wrap}.books-tools{display:flex;gap:8px}.book-source{font-size:12px;color:var(--muted);overflow-wrap:anywhere}#qDecisionReview{margin-bottom:16px}.mini-help{font-size:13px}.review-heading{background:#f1f7f4;border-radius:8px;padding:12px;margin-bottom:12px}.review-heading h3{font-size:16px;margin:0}.review-heading p{font-size:13px;color:var(--muted);margin:3px 0}input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid #2f8175;outline-offset:2px}@media(min-width:1050px){.workspace{display:grid;grid-template-columns:430px minmax(0,1fr);gap:18px;align-items:start}.workspace>.card{margin-bottom:0}.output-card{min-width:0}}@media(max-width:620px){header,main{padding:16px}header{align-items:flex-start;gap:10px}h1{font-size:22px}.card{padding:16px}.three{grid-template-columns:1fr}.grid{gap:10px}.badge{white-space:nowrap;font-size:11px}button{padding:8px 11px}#qNote{font-size:15px}}
+#conversationLog{max-height:320px;overflow:auto;overscroll-behavior:contain} .conversation-message{padding:10px 12px;margin:10px 0;border-radius:9px;background:#f1f6f4;white-space:pre-wrap;overflow-wrap:anywhere;font-size:14px}.conversation-message.user{background:#e6f0ed;border-left:3px solid #398374}.conversation-message strong{display:block;font-size:12px;color:#58746d}#conversationQuestions button{font-size:13px;padding:6px 9px}#conversationProposal{border:1px solid #9ebdb4;background:#f7faf8;border-radius:10px;padding:12px;margin-top:14px}#conversationProposal h3{font-size:16px;margin:0}.conversation-change{font-size:13px;white-space:pre-wrap;overflow-wrap:anywhere;padding:8px 0;border-bottom:1px solid #d6e1df}.conversation-change del{color:#91563d}.conversation-change ins{color:#216b68;text-decoration:none}#conversationPreview{font-size:13px}#conversationConflict{color:#a33223}#structuredInputs{margin-top:20px}#conversationInput{min-height:108px}#conversationReviewHost details{margin-top:10px}@media(min-width:1050px){.workspace{grid-template-columns:450px minmax(0,1fr)}}
 </style></head><body>
 <!-- SOURCE_ENTRY_NOTICE_START -->
 <aside role="alert" style="max-width:1032px;margin:20px auto;padding:16px;border:2px solid #b98032;background:#fff7e8;color:#644318">这是界面源码模板，按钮尚未接入运行程序。请打开 <a href="../病历书写简版.html">病历书写简版.html</a>，或打开带模型功能的 <a href="../离线病历AI/病历书写AI.html">离线病历AI／病历书写AI.html</a>。</aside>
 <!-- SOURCE_ENTRY_NOTICE_END -->
 <style>.tool-actions{display:flex;gap:6px;flex-wrap:wrap;margin:12px 0}.tool-actions button{font-size:13px;padding:6px 10px}.subfields{display:grid;gap:8px}#legacyToolsDialog{width:min(1500px,96vw);max-width:96vw;height:94vh;border:1px solid #bfd0ce;border-radius:10px;padding:12px}#legacyToolsDialog::backdrop{background:#20363888}.dialog-head{display:flex;justify-content:space-between;align-items:center;gap:12px}.dialog-head h2{margin:0}#legacyToolsFrame,#legacyWorkbenchFrame{width:100%;height:calc(100% - 94px);border:0}#qNote{height:62vh;min-height:420px}#qExtractSummary{font-size:13px}.first-only[hidden]{display:none}.sources-note{font-size:12px;color:#667c82;overflow-wrap:anywhere}.sources-note pre{white-space:pre-wrap;font:inherit}.source-entry{padding:8px 0}.source-entry strong{color:#23363c}#qDecisionReview details{border:0;margin:0}#qDecisionReview summary{font-weight:600}#qConflict{color:#a33223;background:#fff1eb;padding:10px}.formats-info{font-size:13px;color:#536c73}</style>
-<header><div><h1>病历书写简版</h1><p class="mini-help muted">粘贴本次资料 → 按病历格式生成 → 审核分析、复制</p></div><span class="badge">完整语料 · 离线使用</span></header>
+<header><div><h1>病历书写简版</h1><p class="mini-help muted">粘贴资料 → 对话补充与修改 → 审核病历</p></div><span class="badge">完整语料 · 离线使用</span></header>
 <main><div class="workspace">
-<section class="card" id="inputs"><h2>本次资料</h2>
+<section class="card" id="inputs"><div class="actions" role="group" aria-label="书写方式"><button id="modeConversation" type="button">对话书写</button><button id="modeTable" type="button">表格填写</button></div>
 <div class="grid"><label>病程类型<select id="qType"><option>首次病程记录</option><option value="主治中医师查房记录">主治查房记录</option><option value="主任中医师查房记录">主任查房记录</option><option>日常病程记录</option></select></label><label>记录时间<input id="qDate" type="datetime-local" step="1"></label></div>
+<div id="conversationPanel">
+<h2>一起完成这份病历</h2>
+<p class="mini-help muted">离线对话整理。补资料、选判断、改格式；每次先预览，再更新右侧正文。</p>
+<div id="conversationLog" role="log" aria-label="本例对话记录" aria-live="polite"></div>
+<div id="conversationQuestions" class="actions" aria-label="可以补充的内容"></div>
+<p id="conversationTarget" class="mini-help" role="status"></p>
+<label for="conversationInput">发给病历助手</label>
+<textarea id="conversationInput" rows="4" placeholder="先粘贴已有病历或本次资料。之后可继续说：补充检查结果：……／修改诊疗计划：……／改成主治查房记录。"></textarea>
+<div class="actions"><button type="button" id="conversationSend" class="primary">发送</button><button type="button" id="conversationCancelTarget" hidden>取消本次补充</button><button type="button" id="conversationUndo" disabled>撤回上次更新</button></div>
+<p id="conversationStatus" class="status" role="status" aria-live="polite"></p>
+<div id="conversationProposal" hidden>
+<h3>本次更新预览</h3><p id="conversationChangeSummary" class="mini-help"></p>
+<div id="conversationChanges"></div>
+<label>更新后的完整草稿<textarea id="conversationPreview" readonly rows="10"></textarea></label>
+<p id="conversationConflict" role="alert" class="mini-help"></p>
+<div class="actions"><button type="button" id="conversationApply" class="primary">采用本次更新</button><button type="button" id="conversationDiscard">放弃本次更新</button></div>
+</div>
+<div id="conversationShortcuts" class="tool-actions" aria-label="对话书写工具"></div>
+<div id="conversationFieldPicker" hidden><label>修改哪一项<select id="conversationField"></select></label><button id="conversationChooseField" type="button">编辑这一项</button></div>
+<div id="conversationReviewHost"></div>
+</div>
+<details id="structuredInputs"><summary>查看或直接编辑全部资料、辅助工具</summary><h2>本次资料</h2>
+
 <label>本次资料<textarea id="qToday" rows="9" placeholder="一次粘贴病情、PE、舌苔脉象、病理、影像、检查报告及医师意见。也可粘贴完整病历，提取后核对。"></textarea></label>
 <div class="actions"><button id="qGenerate" class="primary" type="button">生成草稿</button><button id="qExtract" type="button">只整理资料</button></div><p id="qStatus" class="status" role="status" aria-live="polite">填写本次资料后生成草稿。</p><p id="qExtractSummary" class="muted">生成时也会自动整理，已填资料不用重复输入。</p>
 <div class="grid"><label>西医诊断<input id="qWestern" placeholder="如：胃腺癌"></label><label>中医病名<input id="qTcmDisease" list="diseases" placeholder="填写实际中医诊断"><datalist id="diseases"></datalist></label></div>
@@ -23,8 +47,8 @@
 <div class="tool-actions" aria-label="原版完整功能"><button type="button" data-tool="library">全部语料</button><button type="button" data-tool="reports">检查分析</button><button type="button" data-tool="staging">肿瘤分期</button><button type="button" data-tool="prescription">处方分析</button><button type="button" data-tool="generator">详细编辑</button><button type="button" data-tool="workbench">患者病案</button></div>
 <div class="actions"><button id="qClear" type="button">另写一例</button></div>
 <details><summary>古籍查阅与引文选用</summary><p class="mini-help muted">按当前症状、证型检索，选中的引文会放到中医分析中。</p><input id="bookSearch" type="search" placeholder="如：反胃、脾胃、气虚、噎膈" aria-label="检索古籍"><div id="bookList"></div></details>
-<details><summary>保存或打开草稿文件</summary><p class="mini-help muted">页面内容只留在当前窗口，可保存为小文件带走。</p><div class="actions"><button id="saveDraft" type="button">保存草稿</button><button id="openDraft" type="button">打开草稿</button><input id="draftFile" type="file" accept=".json" hidden></div></details>
-</section>
+
+<div id="tableReviewHost"></div></details><details><summary>保存或打开草稿文件</summary><p class="mini-help muted">页面内容只留在当前窗口，可保存为小文件带走。</p><div class="actions"><button id="saveDraft" type="button">保存草稿</button><button id="openDraft" type="button">打开草稿</button><input id="draftFile" type="file" accept=".json" hidden></div></details></section>
 <section class="card output-card"><h2>审核正文</h2><p class="formats-info" id="formatHint">首次病程按病例特点、拟诊讨论、入院诊断、病情评估及诊疗计划展开。</p>
 <textarea id="qNote" rows="27" placeholder="草稿生成后显示在这里，仍可直接修改。" aria-label="病程正文"></textarea>
 <div class="review-heading" id="reviewGuide" hidden><h3>审核对应分析</h3><p>展开需要调整的问题，选择主要判断、兼顾因素或检查，对应正文随之更新。</p></div><div id="qDecisionReview" hidden></div>
