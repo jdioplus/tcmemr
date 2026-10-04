@@ -1573,21 +1573,29 @@ const LEGACY_APP_HTML="<!doctype html><html lang=\"zh-CN\"><head><meta charset=\
     if(['肾癌','前列腺癌','膀胱癌'].includes(cancer))return U([/尿潴留|排尿困难|小便难解/.test(text)?'癃闭':'',/血尿|尿血/.test(text)?'溺血':'']);
     return [];
   }
+  function stageRecord(value){
+    const text=S(value);
+    // Retain an explicitly supplied type. A TNM prefix alone remains verbatim
+    // under a neutral label; this formatter never reclassifies c/p/y/r records.
+    const labelled=/^(?:临床分期|病理分期|(?:治疗后|新辅助治疗后)(?:临床|病理)?分期|(?:复发|再)分期)\s*[:：]/.test(text);
+    return end(labelled?text:'分期记录：'+text);
+  }
   function build(p={},e={},context={}){
     const warnings=[],cancer=cancerOf(p,e,warnings),direction=DIRECTIONS[cancer],rules=context.skillRules||{},tcmRules=rules.tcm||{},
       sx=Object.prototype.hasOwnProperty.call(context,'positiveText')?S(context.positiveText):positive(e.symptoms),
       evidence=positive(S(e.tcmEvidence).replace(/^(?:本次)?(?:辨证依据|四诊依据|四诊所见)\s*[:：]\s*/,'')),four=['tongue','coat','pulse'].map(k=>sign(k,e[k])).filter(Boolean),
       actual=U([sx,evidence,...four].flatMap(v=>v.split(/[；;，,。]/).map(S))),actualText=actual.join('；'),western=[],groups={},disease=S(e.tcmDisease)||S(p.tcmDisease),syndrome=S(e.syndrome),
       profile=profiles().find(x=>x.cancer===cancer&&key(x.syndrome)===key(syndrome)),diseaseEntry=diseases().find(x=>x.cancer===cancer);
-    const diagnosis=S(e.westernDiagnosis)||S(p.westernDiagnosis)||cancer;
-    western.push(diagnosis?end('本案西医诊断为：'+diagnosis):'【西医主要诊断待医师填写】。');
+    const diagnosis=S(e.westernDiagnosis)||S(p.westernDiagnosis);
+    if(diagnosis)western.push(end('本案西医诊断为：'+diagnosis));
+    else warnings.push('西医主要诊断待医师填写或确认；癌种选择仅用于资料检索');
     const bases=U([S(p.diagnosisBasis),S(e.diagnosisBasis)]);if(bases.length)western.push(end('诊断依据：'+bases.join('；')));
     const pathology=U([S(p.pathology),S(e.pathologyReport)]);if(pathology.length)western.push(end('病理依据：'+pathology.join('；')));
     if(S(e.imagingReport))western.push(end('影像依据：'+S(e.imagingReport)));
     if(!bases.length&&!pathology.length&&!S(e.imagingReport)){warnings.push('西医主要诊断的具体依据及日期待填写');}
     if(S(p.history))western.push(end('既往及肿瘤诊疗经过：'+S(p.history)));
     if(S(e.molecularReport))western.push(end('分子检测：'+S(e.molecularReport)));
-    const stage=S(e.stage)||S(p.stage);if(stage)western.push(end('临床分期：'+stage));
+    const stage=S(e.stage)||S(p.stage);if(stage)western.push(stageRecord(stage));
     if(S(e.assessment))western.push(end('本次评估：'+S(e.assessment)));
     if(S(e.westernDifferential)||S(e.differential))western.push(end('西医鉴别诊断：'+(S(e.westernDifferential)||S(e.differential))));
     else if(direction)warnings.push('专病评估关注：'+direction[1]+'；鉴别关注：'+direction[2]);

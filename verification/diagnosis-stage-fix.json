@@ -1,0 +1,29 @@
+{
+  "scope": "Synthetic source-bound diagnosis and staging labels; no new model or browser verification",
+  "clinicalQualification": false,
+  "checks": [
+    {
+      "command": "tests/clinical-analysis-diagnosis-stage.cjs",
+      "exitCode": 0,
+      "output": "passed: cancer selection supplies no unconfirmed diagnosis\npassed: recorded pathology remains factual without a fabricated diagnosis\npassed: explicit doctor diagnosis and uncertainty are retained\npassed: TNM prefixes remain unchanged under a neutral staging label\npassed: explicitly recorded clinical pathological and recurrent labels remain\npassed: mixed staging history does not become one clinical stage\npassed: encounter staging priority and other provided facts remain\n{\"synthetic\":true,\"purpose\":\"source-bound diagnosis/staging regression; not clinical qualification\",\"passed\":7}"
+    },
+    {
+      "command": "minimal/clinical-analysis.js",
+      "exitCode": 0,
+      "output": "{\n  \"synthetic\": true,\n  \"purpose\": \"纯生成函数样本检查；不代表病案临床合格\",\n  \"passed\": true,\n  \"skillMechanismsApplied\": true,\n  \"sample\": {\n    \"westernText\": \"本案西医诊断为：胃腺癌。\\n\\n诊断依据：合成：2026-09-20胃窦取材病理示腺癌。\\n\\n影像依据：合成：胃窦壁增厚，部分腹腔淋巴结增大。\",\n    \"tcmText\": \"中医辨病：胃脘痛。结合本次乏力；纳差；胃脘隐痛，可从胃脘痛的病候辨察。病位在胃，涉及脾。本次辨证依据：乏力；纳差；胃脘隐痛；舌紫暗；苔薄白；脉弦涩。辨证为气虚血瘀证。本证病机为脾胃气虚，水谷精微化生不足；气虚无力推动血行，兼胃络瘀阻。\\n\\n乏力与气虚证候相符，气虚则机能减退。\\n\\n舌紫暗、脉弦涩与血瘀证候相符，血行失常，瘀血内阻。治宜益气健脾、理气活血、和胃止痛。《金匮要略·五脏风寒积聚病脉证并治第十一》云：“積者，臟病也，終不移。”\",\n    \"tcmDifferential\": \"证候鉴别要点：与单纯脾胃气虚证相比，该证候须兼明确瘀象；与气滞血瘀证相比，后者胀痛、脉弦较重，气虚表现未必突出。\",\n    \"followText\": \"合成：明日复评进食及体力。\\n\\n结合本次问题，复评重点为体力及活动耐量、实际摄入量及体重变化。\",\n    \"warnings\": [\n      \"专病评估关注：原发病灶、具体淋巴结站位、腹膜及远处病变，可切除性与营养和器官功能；鉴别关注：胃原发病变的组织学性质，以及相关病灶与原发病变的来源对应\",\n      \"本次实际问题的处理计划待医师填写\"\n    ]\n  }\n}"
+    }
+  ],
+  "embeddedJavaScriptBlocksParsed": 8,
+  "artifacts": [
+    {
+      "path": "病历书写简版.html",
+      "bytes": 2197639,
+      "sha256": "30c7d0e43cbc153495cc46968d4312054c59331d5992ae120aaf518f9a80c271"
+    },
+    {
+      "path": "离线病历AI/病历书写AI.html",
+      "bytes": 52989592,
+      "sha256": "97e4856a647b4181c897223d603f59c09255bd6e0af72d9cfe50e28e9bbf4000"
+    }
+  ]
+}

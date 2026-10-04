@@ -26,8 +26,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 9142,
-      "sha256": "d4c51c719be4f5de8d80e3b12ccd9e6a5368234b448e325e1ae27f09e4a3dcc0"
+      "bytes": 9765,
+      "sha256": "33e65c6a7d55df9f3b7b3ebc10c505e005a9b6c06e3805b31618d72f2e832fb2"
     },
     {
       "path": "generative/README.md",
@@ -216,8 +216,8 @@
     },
     {
       "path": "minimal/clinical-analysis.js",
-      "bytes": 20770,
-      "sha256": "82ec9311882810084aca78bef9f712f484563e0bf73d51c554ca581485e49c9a"
+      "bytes": 21241,
+      "sha256": "bbe4cd5321a1a3b6041f94e7a0c168ff04fb3f397a3516e86677a71bcca1745b"
     },
     {
       "path": "minimal/examples.js",
@@ -408,6 +408,11 @@
       "path": "tests/build-offline-ai.py",
       "bytes": 1772,
       "sha256": "4d6d604072a003bb97ecb1b30bae3ac8625c423fcc8c1d11c45e61b2b3a99ef2"
+    },
+    {
+      "path": "tests/clinical-analysis-diagnosis-stage.cjs",
+      "bytes": 3355,
+      "sha256": "c25f64a3a4172ae21440f8b66b5f96819239565a339b390ca199ab61a52212fc"
     },
     {
       "path": "tests/clinical-audit-extra.cjs",
@@ -1500,6 +1505,11 @@
       "sha256": "f2d178b9a304dba7c544fa604f84c2e1f86fd6c02ae1f9bf2932a3e65a10a7ed"
     },
     {
+      "path": "verification/diagnosis-stage-fix.json",
+      "bytes": 3133,
+      "sha256": "9cc775fc2bb4d7d5e44c508170c2508fc0c26fd308c2870f5710ec6b734c136e"
+    },
+    {
       "path": "verification/public-offline-runtime.json",
       "bytes": 1370,
       "sha256": "69726d7a66a9bd2bca8db22f39defbb81d27a23030e7cdadb4df097b00aafcd6"
@@ -1511,8 +1521,8 @@
     },
     {
       "path": "病历书写简版.html",
-      "bytes": 2197168,
-      "sha256": "2882667838722382acd0f56af1aaddcddcb537cfaaebd38b9675149c86e885bb"
+      "bytes": 2197639,
+      "sha256": "30c7d0e43cbc153495cc46968d4312054c59331d5992ae120aaf518f9a80c271"
     },
     {
       "path": "离线病历AI/Qwen-LICENSE.txt",
@@ -1522,7 +1532,7 @@
     {
       "path": "离线病历AI/SHA256SUMS.txt",
       "bytes": 1300,
-      "sha256": "cd54f796da802534e1378172e9e01c5ff88f449855ed33cd042ef87fe787f16b"
+      "sha256": "6aab4e3fa26e5935f01d21a97685e12a7781c70576e51153b22258c0fba1b32b"
     },
     {
       "path": "离线病历AI/bingli-style-v2-Q2_K.gguf.part01-of-04.bin",
@@ -1576,8 +1586,8 @@
     },
     {
       "path": "离线病历AI/病历书写AI.html",
-      "bytes": 52989121,
-      "sha256": "a2c44e4280c949c90c9e10127c543da774a8d7a691f3a3f754eb55dde504ed13"
+      "bytes": 52989592,
+      "sha256": "97e4856a647b4181c897223d603f59c09255bd6e0af72d9cfe50e28e9bbf4000"
     },
     {
       "path": "离线病历AI/训练与测试说明.txt",
@@ -1590,6 +1600,6 @@
       "sha256": "bf58cb13b1045b112e54866301ca86607d801482eb856468c20052b32b4e92a3"
     }
   ],
-  "fileCount": 317,
-  "totalBytes": 437046678
+  "fileCount": 319,
+  "totalBytes": 437055202
 }
